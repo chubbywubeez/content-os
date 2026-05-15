@@ -1,17 +1,8 @@
 import { consumeSseDataJsonLines } from './sseDataLines'
 
 /**
- * Production: set `VITE_OPENROUTER_API_KEY` so Opus + GPT copy options hit OpenRouter from the browser.
- * Dev: use `OPENROUTER_API_KEY` (or `VITE_OPENROUTER_API_KEY`) in repo-root `.env`; Vite proxies `/api/openrouter/*`
- * so the key never has to be `VITE_` for local-only use.
- */
-export function openRouterApiKeyForBrowser(): string {
-  return String(import.meta.env.VITE_OPENROUTER_API_KEY ?? '').trim()
-}
-
-/**
- * Always same-origin: dev + `vite preview` attach `vite-plugin-openrouter-proxy` so the browser never calls
- * `https://openrouter.ai` directly (OpenRouter does not expose CORS for API-key browser calls).
+ * Same-origin chat completions. The Vite dev server / `vite preview` proxy adds `Authorization`
+ * using `OPENROUTER_API_KEY` from the environment (never bundled into the client).
  */
 export function openRouterChatCompletionsUrl(): string {
   return '/api/openrouter/v1/chat/completions'
@@ -19,18 +10,13 @@ export function openRouterChatCompletionsUrl(): string {
 
 export function openRouterChatHeaders(): Record<string, string> {
   const headers: Record<string, string> = { 'Content-Type': 'application/json' }
-  // Server proxy adds `Authorization`. Optional client hints for OpenRouter analytics / rankings.
   if (typeof window !== 'undefined' && window.location?.href) {
     headers['HTTP-Referer'] = window.location.href
   }
-  const refererOverride = String(import.meta.env.VITE_OPENROUTER_HTTP_REFERER ?? '').trim()
-  if (refererOverride) headers['HTTP-Referer'] = refererOverride
-  const title = String(import.meta.env.VITE_OPENROUTER_APP_TITLE ?? '').trim()
-  if (title) headers['X-Title'] = title
   return headers
 }
 
-/** Same shape as OpenAI streaming chat completions (`choices[0].delta.content`). */
+/** Streaming: `choices[0].delta.content`. */
 function textDeltaFromOpenRouterSse(obj: unknown): string | null {
   const o = obj as {
     choices?: Array<{ delta?: { content?: string | null } }>
@@ -40,7 +26,7 @@ function textDeltaFromOpenRouterSse(obj: unknown): string | null {
 }
 
 /**
- * Streams copy via OpenRouter (OpenAI-compatible SSE). Same JSON-in-markdown contract as Gemini/Anthropic.
+ * Streams copy via OpenRouter (OpenAI-compatible SSE). Same JSON `body` contract in the assistant text.
  */
 export async function streamOpenRouterCopyJson(params: {
   model: string
@@ -76,4 +62,33 @@ export async function streamOpenRouterCopyJson(params: {
     }
   })
   return accumulated
+}
+
+/** Non-streaming chat completion; returns assistant message text. */
+export async function openRouterChatNonStream(params: {
+  model: string
+  messages: Array<{ role: 'system' | 'user' | 'assistant'; content: string }>
+  temperature?: number
+  max_tokens?: number
+}): Promise<string> {
+  const res = await fetch(openRouterChatCompletionsUrl(), {
+    method: 'POST',
+    headers: openRouterChatHeaders(),
+    body: JSON.stringify({
+      model: params.model,
+      stream: false,
+      messages: params.messages,
+      temperature: params.temperature ?? 0.5,
+      max_tokens: params.max_tokens ?? 8192,
+    }),
+  })
+  if (!res.ok) {
+    const errText = await res.text().catch(() => '')
+    throw new Error(`OpenRouter (${res.status}): ${errText.slice(0, 400)}`)
+  }
+  const json = (await res.json()) as {
+    choices?: Array<{ message?: { content?: string | null } }>
+  }
+  const c = json.choices?.[0]?.message?.content
+  return typeof c === 'string' ? c.trim() : ''
 }

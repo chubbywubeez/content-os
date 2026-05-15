@@ -1,6 +1,6 @@
 /**
- * Dev + `vite preview` (Railway): proxy `/api/openrouter/*` → `https://openrouter.ai/api/*` with `OPENROUTER_API_KEY` on the server.
- * The browser posts same-origin only (OpenRouter does not allow cross-origin API-key calls from the web app).
+ * Dev + `vite preview`: same-origin `/api/gemini/*` → Google Gemini Developer API.
+ * The browser never holds `GEMINI_API_KEY`; only this Node middleware reads it from the environment.
  */
 import type { IncomingMessage, ServerResponse } from 'node:http'
 import { Readable } from 'node:stream'
@@ -15,47 +15,44 @@ async function readRequestBody(req: IncomingMessage): Promise<Buffer> {
   return Buffer.concat(chunks)
 }
 
-async function proxyOpenRouterToUpstream(req: IncomingMessage, res: ServerResponse): Promise<void> {
+function geminiKeyFromEnv(): string {
+  return (
+    String(process.env.GEMINI_API_KEY ?? '').trim() ||
+    String(process.env.GOOGLE_AI_API_KEY ?? '').trim()
+  )
+}
+
+async function proxyGeminiToUpstream(req: IncomingMessage, res: ServerResponse): Promise<void> {
   const rawUrl = (req as IncomingMessage & { originalUrl?: string }).originalUrl ?? req.url ?? ''
   const pathname = rawUrl.split('?')[0] ?? ''
   const query = rawUrl.includes('?') ? `?${rawUrl.split('?').slice(1).join('?')}` : ''
 
-  const apiKey = String(process.env.OPENROUTER_API_KEY ?? '').trim()
-
+  const apiKey = geminiKeyFromEnv()
   if (!apiKey) {
     res.statusCode = 503
     res.setHeader('Content-Type', 'application/json; charset=utf-8')
     res.end(
       JSON.stringify({
-        error: 'missing_openrouter_key',
-        hint: 'Set OPENROUTER_API_KEY in the server environment (e.g. Railway Variables).',
+        error: 'missing_gemini_key',
+        hint: 'Set GEMINI_API_KEY or GOOGLE_AI_API_KEY in the server environment (Railway Variables).',
       }),
     )
     return
   }
 
-  // Browser calls `/api/openrouter/v1/...`; upstream lives under `https://openrouter.ai/api/v1/...` (note `/api`).
-  let suffix = pathname.replace(/^\/api\/openrouter/, '')
+  let suffix = pathname.replace(/^\/api\/gemini/, '')
   if (!suffix.startsWith('/')) suffix = `/${suffix}`
-  const targetUrl = `https://openrouter.ai/api${suffix}${query}`
+  const targetUrl = `https://generativelanguage.googleapis.com${suffix}${query}`
 
-  const bodyBuf = await readRequestBody(req)
-
-  const forwardHeaders: Record<string, string> = {
-    Authorization: `Bearer ${apiKey}`,
-    'Content-Type': String(req.headers['content-type'] || 'application/json'),
-  }
-
-  const ref = req.headers['http-referer'] ?? req.headers['referer']
-  if (typeof ref === 'string' && ref.trim()) forwardHeaders['HTTP-Referer'] = ref
-
-  const title = req.headers['x-title']
-  if (typeof title === 'string' && title.trim()) forwardHeaders['X-Title'] = title
+  const bodyBuf = req.method === 'POST' ? await readRequestBody(req) : Buffer.alloc(0)
 
   const upstream = await fetch(targetUrl, {
-    method: 'POST',
-    headers: forwardHeaders,
-    body: bodyBuf.length > 0 ? bodyBuf : undefined,
+    method: req.method || 'POST',
+    headers: {
+      'Content-Type': String(req.headers['content-type'] || 'application/json'),
+      'x-goog-api-key': apiKey,
+    },
+    body: req.method === 'POST' && bodyBuf.length > 0 ? bodyBuf : undefined,
   })
 
   res.statusCode = upstream.status
@@ -71,12 +68,12 @@ async function proxyOpenRouterToUpstream(req: IncomingMessage, res: ServerRespon
   await pipeline(Readable.fromWeb(webBody), res)
 }
 
-export function openRouterProxyPlugin(): Plugin {
+export function geminiProxyPlugin(): Plugin {
   const handler: Connect.NextHandleFunction = (req, res, next) => {
     const rawUrl = (req as IncomingMessage & { originalUrl?: string }).originalUrl ?? req.url ?? ''
     const pathname = rawUrl.split('?')[0] ?? ''
 
-    if (!pathname.startsWith('/api/openrouter')) {
+    if (!pathname.startsWith('/api/gemini')) {
       next()
       return
     }
@@ -90,24 +87,24 @@ export function openRouterProxyPlugin(): Plugin {
     if (req.method !== 'POST') {
       res.statusCode = 405
       res.setHeader('Content-Type', 'text/plain; charset=utf-8')
-      res.end('OpenRouter proxy expects POST')
+      res.end('Gemini proxy expects POST')
       return
     }
 
-    void proxyOpenRouterToUpstream(req as IncomingMessage, res as ServerResponse).catch((e) => {
-      console.error('[openrouter-proxy]', e)
+    void proxyGeminiToUpstream(req as IncomingMessage, res as ServerResponse).catch((e) => {
+      console.error('[gemini-proxy]', e)
       if (res.headersSent) {
         res.destroy()
         return
       }
       res.statusCode = 502
       res.setHeader('Content-Type', 'text/plain; charset=utf-8')
-      res.end(String((e as Error)?.message ?? 'openrouter_proxy_error'))
+      res.end(String((e as Error)?.message ?? 'gemini_proxy_error'))
     })
   }
 
   return {
-    name: 'openrouter-proxy',
+    name: 'gemini-proxy',
     configureServer(server) {
       server.middlewares.use(handler)
     },

@@ -1,5 +1,5 @@
 import { buildImagePrompt } from './imagePromptBuilder'
-import { geminiGenerateContent, geminiApiKeyForBrowser } from './geminiClient'
+import { geminiGenerateContent } from './geminiClient'
 import { geminiImageModelForChoice, type ImageModelId } from '../config/modelProviders'
 
 /** Payload shape aligned with the user's Nano Banana integration notes. */
@@ -17,16 +17,15 @@ export type NanoBananaArgs = {
   referenceImages: Array<{ base64: string; mimeType: string }>
   aspectRatio?: NanoBananaPayload['aspectRatio']
   outputCount?: number
-  /** When set, picks the Gemini image tier from the header (overrides `VITE_NANO_BANANA_MODEL`). */
+  /** When set, picks the Gemini image tier from the header. */
   imageModelChoice?: ImageModelId
 }
 
-/** Google image models (aka "Nano Banana" family). Override via `VITE_NANO_BANANA_MODEL`. Never OpenRouter. */
+/** Default Gemini image model when the header does not override. */
 const DEFAULT_IMAGE_MODEL = 'gemini-2.5-flash-image'
 
 function imageModelId(): string {
-  const m = String(import.meta.env.VITE_NANO_BANANA_MODEL ?? '').trim()
-  return m || DEFAULT_IMAGE_MODEL
+  return DEFAULT_IMAGE_MODEL
 }
 
 /** Map our aspect hint into plain-language for the model (API-specific fields vary). */
@@ -57,7 +56,7 @@ function firstImageDataUrlFromParts(parts: unknown): string | null {
 }
 
 /**
- * Calls Google Gemini image generation ("Nano Banana") via `generateContent` only—same API key as copy.
+ * Calls Google Gemini image generation ("Nano Banana") via `/api/gemini` (server `GEMINI_API_KEY`).
  */
 export async function generateNanoBananaImage(args: NanoBananaArgs): Promise<string> {
   const prompt = buildImagePrompt({
@@ -107,15 +106,6 @@ export async function generateNanoBananaImage(args: NanoBananaArgs): Promise<str
     },
   }
 
-  if (!import.meta.env.DEV) {
-    const key = geminiApiKeyForBrowser()
-    if (!key) {
-      throw new Error(
-        'Missing Gemini API key. Add VITE_GEMINI_API_KEY to copy-maker/.env.local (must start with VITE_) and rebuild. For local dev only, you can put GEMINI_API_KEY in the repo-root .env and rely on the dev proxy.',
-      )
-    }
-  }
-
   const res = await geminiGenerateContent(model, body)
   const json: unknown = await res.json().catch(() => null)
 
@@ -146,7 +136,7 @@ export async function generateNanoBananaImage(args: NanoBananaArgs): Promise<str
   const dataUrl = firstImageDataUrlFromParts(partsOut)
   if (!dataUrl) {
     throw new Error(
-      'No image returned. Check that your key has access to the image model, and try VITE_NANO_BANANA_MODEL=gemini-2.5-flash-image.',
+      'No image returned. Confirm GEMINI_API_KEY on the server and that the account can call the selected image model.',
     )
   }
 

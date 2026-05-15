@@ -15,24 +15,19 @@ Then link the folder: `railway link -p <projectId>` (or use the interactive `rai
 3. Service **Settings** → set **Root Directory** to `copy-maker` (repo root is the parent folder that contains `copy-maker/`, `OS/`, and `linkedin_influencers/`).
 4. Rename the deployed **service** to **Content OS** in Settings → General if you want the service tab to match the product name.
 
-## 2. Build-time environment variables (Vite)
+## 2. Environment variables (server only — no `VITE_` keys)
 
-`VITE_*` variables are inlined when `npm run build` runs. In Railway, add them under the service **Variables** tab and ensure they are available to the **build** step (Railway exposes the same variables to build and deploy by default).
+`vite preview` reads these at **runtime** from the container environment (Railway **Variables**). They are **not** baked into the JS bundle.
 
-Minimum for a working production UI with Gemini from the browser:
+Required for real **copy** (all three header models use OpenRouter):
 
-- `VITE_GEMINI_API_KEY` — Google AI Studio key (or use the aliases listed in `.env.example`).
+- **`OPENROUTER_API_KEY`** — one key for Opus, GPT, and “Gemini” copy (OpenRouter chat completions).
 
-Optional (same as local `.env`):
+Required for **Nano Banana images** (Google Gemini image API, proxied at `/api/gemini`):
 
-- `VITE_GEMINI_COPY_MODEL_PRIMARY`, `VITE_GEMINI_COPY_MODEL_FALLBACK`
-- `VITE_NANO_BANANA_MODEL`
-- `VITE_OPENROUTER_API_KEY` — **recommended** for the header’s **Opus** and **GPT** copy options (one key). The app calls same-origin `/api/openrouter/...`; `vite preview` proxies to OpenRouter with this key (browser cannot call OpenRouter directly due to CORS). You may also set `OPENROUTER_API_KEY` (server-only duplicate). Images still use Gemini (`VITE_GEMINI_API_KEY`).
-- Optional OpenRouter: `VITE_OPENROUTER_MODEL_OPUS`, `VITE_OPENROUTER_MODEL_OPENAI`, `VITE_OPENROUTER_HTTP_REFERER`, `VITE_OPENROUTER_APP_TITLE`
-- Legacy direct APIs (if you do not use OpenRouter): `VITE_ANTHROPIC_API_KEY`, `VITE_OPENAI_API_KEY`
-- `VITE_ANTHROPIC_COPY_MODEL`, `VITE_OPENAI_COPY_MODEL`
+- **`GEMINI_API_KEY`** or **`GOOGLE_AI_API_KEY`**
 
-If you omit Gemini keys, the app still builds; copy/image calls fall back to mocks or show errors when you try those actions.
+If a key is missing, the matching proxy returns **503** with a short JSON hint; the UI may fall back to mocks for copy.
 
 ## 3. What Railway runs
 
