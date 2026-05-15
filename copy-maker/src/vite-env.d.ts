@@ -20,6 +20,19 @@ interface ImportMetaEnv {
   readonly VITE_ANTHROPIC_API_KEY?: string
   /** OpenAI (GPT copy in dev via proxy). Prefer `OPENAI_API_KEY` in repo-root `.env`. */
   readonly VITE_OPENAI_API_KEY?: string
+  /**
+   * OpenRouter (recommended for Opus + GPT copy in production: one key, OpenAI-compatible API).
+   * Local dev: `OPENROUTER_API_KEY` in repo-root `.env` is enough (Vite proxy injects Bearer).
+   */
+  readonly VITE_OPENROUTER_API_KEY?: string
+  /** Optional. OpenRouter model slug for the Opus copy dropdown. Default `anthropic/claude-opus-4.7`. */
+  readonly VITE_OPENROUTER_MODEL_OPUS?: string
+  /** Optional. OpenRouter model slug for the GPT copy dropdown. Default `openai/gpt-5.2`. */
+  readonly VITE_OPENROUTER_MODEL_OPENAI?: string
+  /** Optional. Sent as `HTTP-Referer` to OpenRouter (their docs recommend setting it). */
+  readonly VITE_OPENROUTER_HTTP_REFERER?: string
+  /** Optional. Sent as `X-Title` to OpenRouter. */
+  readonly VITE_OPENROUTER_APP_TITLE?: string
   /** Override default `claude-opus-4-7` for the Copy dropdown Opus option. */
   readonly VITE_ANTHROPIC_COPY_MODEL?: string
   /** Override default `gpt-5.2` for the Copy dropdown OpenAI option (use the slug your key can call). */

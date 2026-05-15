@@ -1,5 +1,6 @@
 import type { CopyMakerInputs } from '../types/copyMaker'
 import type { CopyModelId } from '../config/modelProviders'
+import { openRouterCopyModelForOpus, openRouterCopyModelForOpenAiOption } from '../config/modelProviders'
 import { buildCopyPrompt } from './copyPromptBuilder'
 import {
   geminiGenerateContent,
@@ -11,6 +12,7 @@ import {
 import { geminiCopyModelChain } from '../config/geminiCopyModels'
 import { streamAnthropicCopyJson, anthropicApiKeyForBrowser } from './anthropicCopyStream'
 import { streamOpenAiCopyJson, openaiApiKeyForBrowser } from './openaiCopyStream'
+import { streamOpenRouterCopyJson, openRouterApiKeyForBrowser } from './openRouterCopyStream'
 
 /** Same system line for Gemini, Anthropic, and OpenAI so the JSON `body` contract stays identical. */
 const COPY_SYSTEM_TEXT =
@@ -103,21 +105,45 @@ export async function generateCopyStreaming(
   const { copyModelId } = options
 
   if (copyModelId === 'opus-4-7') {
-    if (!import.meta.env.DEV && !anthropicApiKeyForBrowser()) {
+    // Prefer OpenRouter (one `VITE_OPENROUTER_API_KEY` on Railway). Fall back to direct Anthropic if you still set that key.
+    const prodMissingOpusCred =
+      !import.meta.env.DEV &&
+      !openRouterApiKeyForBrowser() &&
+      !anthropicApiKeyForBrowser()
+    if (prodMissingOpusCred) {
       throw new Error(
-        'Opus copy needs VITE_ANTHROPIC_API_KEY for production. In dev, add ANTHROPIC_API_KEY (or VITE_ANTHROPIC_API_KEY) for the Vite proxy.',
+        'Opus copy needs VITE_OPENROUTER_API_KEY on Railway (recommended). Optional legacy: VITE_ANTHROPIC_API_KEY for direct Anthropic. Local dev: OPENROUTER_API_KEY or ANTHROPIC_API_KEY in repo-root `.env` for the Vite proxy.',
       )
     }
-    try {
-      const raw = await streamAnthropicCopyJson({
-        systemText: COPY_SYSTEM_TEXT,
-        userText: userPrompt,
-        onRawAccumulated,
-      })
-      const parsed = parseGeneratedPostFromContent(raw)
-      if (parsed) return parsed
-    } catch (e) {
-      console.warn('[Anthropic copy stream]', e)
+
+    const tryOpenRouterFirst = import.meta.env.DEV || openRouterApiKeyForBrowser()
+    if (tryOpenRouterFirst) {
+      try {
+        const raw = await streamOpenRouterCopyJson({
+          model: openRouterCopyModelForOpus(),
+          systemText: COPY_SYSTEM_TEXT,
+          userText: userPrompt,
+          onRawAccumulated,
+        })
+        const parsed = parseGeneratedPostFromContent(raw)
+        if (parsed) return parsed
+      } catch (e) {
+        console.warn('[OpenRouter opus copy stream]', e)
+      }
+    }
+
+    if (import.meta.env.DEV || anthropicApiKeyForBrowser()) {
+      try {
+        const raw = await streamAnthropicCopyJson({
+          systemText: COPY_SYSTEM_TEXT,
+          userText: userPrompt,
+          onRawAccumulated,
+        })
+        const parsed = parseGeneratedPostFromContent(raw)
+        if (parsed) return parsed
+      } catch (e) {
+        console.warn('[Anthropic copy stream]', e)
+      }
     }
     const mock = mockGeneratedPost(inputs.topic.description)
     onRawAccumulated(JSON.stringify({ body: mock }, null, 2))
@@ -125,21 +151,44 @@ export async function generateCopyStreaming(
   }
 
   if (copyModelId === 'openai-5-5') {
-    if (!import.meta.env.DEV && !openaiApiKeyForBrowser()) {
+    const prodMissingOpenAiCred =
+      !import.meta.env.DEV &&
+      !openRouterApiKeyForBrowser() &&
+      !openaiApiKeyForBrowser()
+    if (prodMissingOpenAiCred) {
       throw new Error(
-        'OpenAI copy needs VITE_OPENAI_API_KEY for production. In dev, add OPENAI_API_KEY (or VITE_OPENAI_API_KEY) for the Vite proxy.',
+        'GPT copy needs VITE_OPENROUTER_API_KEY on Railway (recommended). Optional legacy: VITE_OPENAI_API_KEY for direct OpenAI. Local dev: OPENROUTER_API_KEY or OPENAI_API_KEY in repo-root `.env` for the Vite proxy.',
       )
     }
-    try {
-      const raw = await streamOpenAiCopyJson({
-        systemText: COPY_SYSTEM_TEXT,
-        userText: userPrompt,
-        onRawAccumulated,
-      })
-      const parsed = parseGeneratedPostFromContent(raw)
-      if (parsed) return parsed
-    } catch (e) {
-      console.warn('[OpenAI copy stream]', e)
+
+    const tryOpenRouterFirstGpt = import.meta.env.DEV || openRouterApiKeyForBrowser()
+    if (tryOpenRouterFirstGpt) {
+      try {
+        const raw = await streamOpenRouterCopyJson({
+          model: openRouterCopyModelForOpenAiOption(),
+          systemText: COPY_SYSTEM_TEXT,
+          userText: userPrompt,
+          onRawAccumulated,
+        })
+        const parsed = parseGeneratedPostFromContent(raw)
+        if (parsed) return parsed
+      } catch (e) {
+        console.warn('[OpenRouter GPT copy stream]', e)
+      }
+    }
+
+    if (import.meta.env.DEV || openaiApiKeyForBrowser()) {
+      try {
+        const raw = await streamOpenAiCopyJson({
+          systemText: COPY_SYSTEM_TEXT,
+          userText: userPrompt,
+          onRawAccumulated,
+        })
+        const parsed = parseGeneratedPostFromContent(raw)
+        if (parsed) return parsed
+      } catch (e) {
+        console.warn('[OpenAI copy stream]', e)
+      }
     }
     const mock = mockGeneratedPost(inputs.topic.description)
     onRawAccumulated(JSON.stringify({ body: mock }, null, 2))

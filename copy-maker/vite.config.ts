@@ -40,11 +40,20 @@ function openaiKeyForDevProxy(mode: string): string {
   return pick({ ...rootEnv, ...pkgEnv })
 }
 
+/** OpenRouter: one key can back both Opus + GPT copy options in dev (browser calls `/api/openrouter/*`). */
+function openRouterKeyForDevProxy(mode: string): string {
+  const pkgEnv = loadEnv(mode, __dirname, '')
+  const rootEnv = loadEnv(mode, path.resolve(__dirname, '..'), '')
+  const pick = (e: Record<string, string>) => String(e.VITE_OPENROUTER_API_KEY || e.OPENROUTER_API_KEY || '').trim()
+  return pick({ ...rootEnv, ...pkgEnv })
+}
+
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => {
   const geminiKey = geminiKeyForDevProxy(mode)
   const anthropicKey = anthropicKeyForDevProxy(mode)
   const openaiKey = openaiKeyForDevProxy(mode)
+  const openRouterKey = openRouterKeyForDevProxy(mode)
 
   return {
     plugins: [react(), copyMakerDataPlugin()],
@@ -83,6 +92,16 @@ export default defineConfig(({ mode }) => {
           configure: (proxy) => {
             proxy.on('proxyReq', (proxyReq) => {
               if (openaiKey) proxyReq.setHeader('Authorization', `Bearer ${openaiKey}`)
+            })
+          },
+        },
+        '/api/openrouter': {
+          target: 'https://openrouter.ai',
+          changeOrigin: true,
+          rewrite: (p) => p.replace(/^\/api\/openrouter/, ''),
+          configure: (proxy) => {
+            proxy.on('proxyReq', (proxyReq) => {
+              if (openRouterKey) proxyReq.setHeader('Authorization', `Bearer ${openRouterKey}`)
             })
           },
         },

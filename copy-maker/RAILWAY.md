@@ -27,7 +27,9 @@ Optional (same as local `.env`):
 
 - `VITE_GEMINI_COPY_MODEL_PRIMARY`, `VITE_GEMINI_COPY_MODEL_FALLBACK`
 - `VITE_NANO_BANANA_MODEL`
-- `VITE_ANTHROPIC_API_KEY`, `VITE_OPENAI_API_KEY` if you use Opus / OpenAI copy from the header
+- `VITE_OPENROUTER_API_KEY` — **recommended** for the header’s **Opus** and **GPT** copy options (one key; uses OpenRouter’s OpenAI-compatible API). Images still use Gemini (`VITE_GEMINI_API_KEY`).
+- Optional OpenRouter: `VITE_OPENROUTER_MODEL_OPUS`, `VITE_OPENROUTER_MODEL_OPENAI`, `VITE_OPENROUTER_HTTP_REFERER`, `VITE_OPENROUTER_APP_TITLE`
+- Legacy direct APIs (if you do not use OpenRouter): `VITE_ANTHROPIC_API_KEY`, `VITE_OPENAI_API_KEY`
 - `VITE_ANTHROPIC_COPY_MODEL`, `VITE_OPENAI_COPY_MODEL`
 
 If you omit Gemini keys, the app still builds; copy/image calls fall back to mocks or show errors when you try those actions.

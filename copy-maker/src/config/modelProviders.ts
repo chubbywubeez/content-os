@@ -10,11 +10,11 @@ export type ImageModelId = 'nano-banana-pro-3' | 'nano-banana-2-5'
 export const COPY_MODEL_OPTIONS: { value: CopyModelId; label: string }[] = [
   {
     value: 'opus-4-7',
-    label: 'Claude Opus 4.7 (Anthropic)',
+    label: 'Claude Opus 4.7 (OpenRouter or Anthropic)',
   },
   {
     value: 'openai-5-5',
-    label: 'OpenAI GPT (Chat Completions)',
+    label: 'OpenAI GPT (OpenRouter or OpenAI)',
   },
   {
     value: 'gemini',
@@ -47,4 +47,14 @@ export function anthropicCopyModelId(): string {
 /** OpenAI Chat Completions model for the “OpenAI 5.5” option (set to your account’s slug). */
 export function openaiCopyModelId(): string {
   return String(import.meta.env.VITE_OPENAI_COPY_MODEL ?? '').trim() || 'gpt-5.2'
+}
+
+/** OpenRouter slug for the Opus copy dropdown. Default matches OpenRouter’s id for Claude Opus 4.7. */
+export function openRouterCopyModelForOpus(): string {
+  return String(import.meta.env.VITE_OPENROUTER_MODEL_OPUS ?? '').trim() || 'anthropic/claude-opus-4.7'
+}
+
+/** OpenRouter slug for the GPT copy dropdown (override if your OpenRouter account uses a different id). */
+export function openRouterCopyModelForOpenAiOption(): string {
+  return String(import.meta.env.VITE_OPENROUTER_MODEL_OPENAI ?? '').trim() || 'openai/gpt-5.2'
 }
