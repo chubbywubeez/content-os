@@ -1,0 +1,9 @@
+# Railway: set the service **Root Directory** to `copy-maker` (this folder) if the repo root is the parent "Copy Maker" folder.
+# In the Railway dashboard, name the service **Content OS** (Resource name).
+
+[build]
+builder = "NIXPACKS"
+
+[deploy]
+# Preview server keeps Vite middleware for `/api/os/*` and `/api/outliers-catalog` (OS + catalog on disk).
+startCommand = "npm run start"

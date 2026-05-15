@@ -1,0 +1,36 @@
+# --- Content OS (GitHub / Railway): keep the repo small and safe ---
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Node / build
+**/node_modules/
+**/dist/
+**/build/
+*.log
+.npm-cache/
+.cache/
+
+# Large research tree (transcripts, Playwright profiles, PDFs) — not required for Content OS
+Problem Presentations/
+
+# Misc workspace notes not used by the app
+Skills/
+
+# Outlier pipeline: only the two JSON files the app reads at runtime (see vite-plugin-copy-maker-data)
+linkedin_influencers/*
+!linkedin_influencers/data/
+linkedin_influencers/data/*
+!linkedin_influencers/data/outliers_index.json
+!linkedin_influencers/data/outlier_framework_cache.json
+
+# Editor / OS noise
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/*
+!.vscode/extensions.json
+~$*
