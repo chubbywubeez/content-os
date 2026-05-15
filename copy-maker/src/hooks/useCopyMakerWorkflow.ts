@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
+import { flushSync } from 'react-dom'
 import type { CopyMakerState, CustomerPersonaId, WorkflowSectionId, WriterVoiceId } from '../types/copyMaker'
 import { SECTION_ORDER } from '../types/copyMaker'
 import { createInitialCopyMakerState } from '../lib/initialState'
@@ -100,11 +101,14 @@ export function useCopyMakerWorkflow() {
       return
     }
     setGenerating(true)
-    setState((s) => ({
-      ...s,
-      copyGenerations: [''],
-      copyGenerationIndex: 0,
-    }))
+    // Commit the empty slot before SSE callbacks run, or streaming can see stale `copyGenerations` and corrupt history.
+    flushSync(() => {
+      setState((s) => ({
+        ...s,
+        copyGenerations: [''],
+        copyGenerationIndex: 0,
+      }))
+    })
     try {
       const body = await generateCopyStreaming(state, (raw) => {
         setState((s) => ({
@@ -192,32 +196,35 @@ export function useCopyMakerWorkflow() {
 
   /** Appends another full generation (same prompt recipe); user steps through history with chevrons. */
   const regenerateCopy = useCallback(async () => {
+    setOpenSection('generateCopy')
     const v = validateCopyGeneration(state)
     setCopyErrors(v.errors)
     if (!v.ok) return
+    // Fixed index for this run so SSE updates cannot overwrite the previous version if React has not applied the append yet.
+    const slotIndex = state.copyGenerations.length
     setGenerating(true)
-    setState((s) => {
-      const next = [...s.copyGenerations, '']
-      return {
+    flushSync(() => {
+      setState((s) => ({
         ...s,
-        copyGenerations: next,
-        copyGenerationIndex: next.length - 1,
-      }
+        copyGenerations: [...s.copyGenerations, ''],
+        copyGenerationIndex: slotIndex,
+      }))
     })
     try {
       const body = await generateCopyStreaming(state, (raw) => {
         setState((s) => {
           const gens = [...s.copyGenerations]
-          if (gens.length === 0) return s
-          gens[gens.length - 1] = raw
-          return { ...s, copyGenerations: gens }
+          while (gens.length <= slotIndex) gens.push('')
+          gens[slotIndex] = raw
+          return { ...s, copyGenerations: gens, copyGenerationIndex: slotIndex }
         })
       }, { copyModelId: state.copyModelId })
       setState((s) => {
         const gens = [...s.copyGenerations]
+        while (gens.length <= slotIndex) gens.push('')
         if (gens.length === 0) return s
-        gens[gens.length - 1] = body
-        return { ...s, copyGenerations: gens }
+        gens[slotIndex] = body
+        return { ...s, copyGenerations: gens, copyGenerationIndex: slotIndex }
       })
     } catch (err) {
       const message = err instanceof Error ? err.message : 'Copy generation failed.'
