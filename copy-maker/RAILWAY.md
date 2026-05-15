@@ -27,7 +27,7 @@ Optional (same as local `.env`):
 
 - `VITE_GEMINI_COPY_MODEL_PRIMARY`, `VITE_GEMINI_COPY_MODEL_FALLBACK`
 - `VITE_NANO_BANANA_MODEL`
-- `VITE_OPENROUTER_API_KEY` — **recommended** for the header’s **Opus** and **GPT** copy options (one key; uses OpenRouter’s OpenAI-compatible API). Images still use Gemini (`VITE_GEMINI_API_KEY`).
+- `VITE_OPENROUTER_API_KEY` — **recommended** for the header’s **Opus** and **GPT** copy options (one key). The app calls same-origin `/api/openrouter/...`; `vite preview` proxies to OpenRouter with this key (browser cannot call OpenRouter directly due to CORS). You may also set `OPENROUTER_API_KEY` (server-only duplicate). Images still use Gemini (`VITE_GEMINI_API_KEY`).
 - Optional OpenRouter: `VITE_OPENROUTER_MODEL_OPUS`, `VITE_OPENROUTER_MODEL_OPENAI`, `VITE_OPENROUTER_HTTP_REFERER`, `VITE_OPENROUTER_APP_TITLE`
 - Legacy direct APIs (if you do not use OpenRouter): `VITE_ANTHROPIC_API_KEY`, `VITE_OPENAI_API_KEY`
 - `VITE_ANTHROPIC_COPY_MODEL`, `VITE_OPENAI_COPY_MODEL`

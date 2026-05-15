@@ -3,6 +3,7 @@ import { fileURLToPath } from 'node:url'
 import { defineConfig, loadEnv } from 'vite'
 import react from '@vitejs/plugin-react'
 import { copyMakerDataPlugin } from './vite-plugin-copy-maker-data'
+import { openRouterProxyPlugin } from './vite-plugin-openrouter-proxy'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
@@ -40,23 +41,15 @@ function openaiKeyForDevProxy(mode: string): string {
   return pick({ ...rootEnv, ...pkgEnv })
 }
 
-/** OpenRouter: one key can back both Opus + GPT copy options in dev (browser calls `/api/openrouter/*`). */
-function openRouterKeyForDevProxy(mode: string): string {
-  const pkgEnv = loadEnv(mode, __dirname, '')
-  const rootEnv = loadEnv(mode, path.resolve(__dirname, '..'), '')
-  const pick = (e: Record<string, string>) => String(e.VITE_OPENROUTER_API_KEY || e.OPENROUTER_API_KEY || '').trim()
-  return pick({ ...rootEnv, ...pkgEnv })
-}
-
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => {
   const geminiKey = geminiKeyForDevProxy(mode)
   const anthropicKey = anthropicKeyForDevProxy(mode)
   const openaiKey = openaiKeyForDevProxy(mode)
-  const openRouterKey = openRouterKeyForDevProxy(mode)
 
   return {
-    plugins: [react(), copyMakerDataPlugin()],
+    // OpenRouter proxy must run before other `/api/*` middleware so POST bodies stream correctly.
+    plugins: [react(), openRouterProxyPlugin(), copyMakerDataPlugin()],
     /**
      * Gemini Developer API: browser CORS is awkward with API keys, so in dev we proxy `/api/gemini/*`
      * and inject `x-goog-api-key` from `.env` (see `geminiKeyForDevProxy`).
@@ -92,16 +85,6 @@ export default defineConfig(({ mode }) => {
           configure: (proxy) => {
             proxy.on('proxyReq', (proxyReq) => {
               if (openaiKey) proxyReq.setHeader('Authorization', `Bearer ${openaiKey}`)
-            })
-          },
-        },
-        '/api/openrouter': {
-          target: 'https://openrouter.ai',
-          changeOrigin: true,
-          rewrite: (p) => p.replace(/^\/api\/openrouter/, ''),
-          configure: (proxy) => {
-            proxy.on('proxyReq', (proxyReq) => {
-              if (openRouterKey) proxyReq.setHeader('Authorization', `Bearer ${openRouterKey}`)
             })
           },
         },

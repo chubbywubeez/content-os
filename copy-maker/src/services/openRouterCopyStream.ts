@@ -9,22 +9,22 @@ export function openRouterApiKeyForBrowser(): string {
   return String(import.meta.env.VITE_OPENROUTER_API_KEY ?? '').trim()
 }
 
-/** OpenAI-compatible chat completions (OpenRouter). */
+/**
+ * Always same-origin: dev + `vite preview` attach `vite-plugin-openrouter-proxy` so the browser never calls
+ * `https://openrouter.ai` directly (OpenRouter does not expose CORS for API-key browser calls).
+ */
 export function openRouterChatCompletionsUrl(): string {
-  if (import.meta.env.DEV) return '/api/openrouter/v1/chat/completions'
-  return 'https://openrouter.ai/api/v1/chat/completions'
+  return '/api/openrouter/v1/chat/completions'
 }
 
 export function openRouterChatHeaders(): Record<string, string> {
   const headers: Record<string, string> = { 'Content-Type': 'application/json' }
-  // In dev the Vite proxy injects Authorization from `.env`; avoid sending an empty Bearer.
-  if (!import.meta.env.DEV) {
-    const key = openRouterApiKeyForBrowser()
-    if (key) headers.Authorization = `Bearer ${key}`
+  // Server proxy adds `Authorization`. Optional client hints for OpenRouter analytics / rankings.
+  if (typeof window !== 'undefined' && window.location?.href) {
+    headers['HTTP-Referer'] = window.location.href
   }
-  // OpenRouter recommends these for rankings; both are optional.
-  const referer = String(import.meta.env.VITE_OPENROUTER_HTTP_REFERER ?? '').trim()
-  if (referer) headers['HTTP-Referer'] = referer
+  const refererOverride = String(import.meta.env.VITE_OPENROUTER_HTTP_REFERER ?? '').trim()
+  if (refererOverride) headers['HTTP-Referer'] = refererOverride
   const title = String(import.meta.env.VITE_OPENROUTER_APP_TITLE ?? '').trim()
   if (title) headers['X-Title'] = title
   return headers
