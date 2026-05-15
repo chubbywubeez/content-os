@@ -88,5 +88,13 @@ export default defineConfig(({ mode }) => {
         },
       },
     },
+    /**
+     * Production uses `vite preview` (see `scripts/railway-start.mjs`). Vite blocks requests whose
+     * `Host` header is not localhost unless we allow the public URL. Railway assigns a unique
+     * `*.up.railway.app` hostname per deployment, so we allow any host here for preview only.
+     */
+    preview: {
+      allowedHosts: true,
+    },
   }
 })
