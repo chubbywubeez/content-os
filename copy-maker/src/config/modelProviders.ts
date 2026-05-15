@@ -1,6 +1,6 @@
 /**
  * Header dropdown ids for copy + image providers.
- * Image choices map to Gemini image model ids (Nano Banana family).
+ * Image choices map to Gemini image model ids (Google’s “Nano Banana” image family).
  */
 
 export type CopyModelId = 'opus-4-7' | 'openai-5-5' | 'gemini'
@@ -8,14 +8,29 @@ export type CopyModelId = 'opus-4-7' | 'openai-5-5' | 'gemini'
 export type ImageModelId = 'nano-banana-pro-3' | 'nano-banana-2-5'
 
 export const COPY_MODEL_OPTIONS: { value: CopyModelId; label: string }[] = [
-  { value: 'opus-4-7', label: 'Opus 4.7' },
-  { value: 'openai-5-5', label: 'OpenAI 5.5' },
-  { value: 'gemini', label: 'Gemini' },
+  {
+    value: 'opus-4-7',
+    label: 'Claude Opus 4.7 (Anthropic)',
+  },
+  {
+    value: 'openai-5-5',
+    label: 'OpenAI GPT (Chat Completions)',
+  },
+  {
+    value: 'gemini',
+    label: 'Google Gemini (Pro → Flash)',
+  },
 ]
 
 export const IMAGE_MODEL_OPTIONS: { value: ImageModelId; label: string }[] = [
-  { value: 'nano-banana-pro-3', label: 'Nano Banana Pro 3' },
-  { value: 'nano-banana-2-5', label: '2.5' },
+  {
+    value: 'nano-banana-pro-3',
+    label: 'Nano Banana Pro 3 — Gemini 3 Pro Image',
+  },
+  {
+    value: 'nano-banana-2-5',
+    label: 'Nano Banana 2.5 — Gemini 2.5 Flash Image',
+  },
 ]
 
 /** Gemini REST model id for image generation (see Google AI docs). */

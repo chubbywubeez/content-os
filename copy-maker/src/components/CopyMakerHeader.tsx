@@ -9,7 +9,7 @@ type Props = {
 }
 
 /**
- * Top bar: product name plus Copy / Image model rows (label left, bordered select right).
+ * Top bar: product name plus Copy Model / Image Model rows (label left, bordered select right).
  */
 export function CopyMakerHeader({ copyModelId, imageModelId, onCopyModelChange, onImageModelChange }: Props) {
   return (
@@ -18,10 +18,10 @@ export function CopyMakerHeader({ copyModelId, imageModelId, onCopyModelChange, 
         <h1 className="cm-header__title">Content OS</h1>
       </div>
       <div className="cm-header__actions">
-        <div className="cm-header__model-controls" role="group" aria-label="Copy and image model">
+        <div className="cm-header__model-controls" role="group" aria-label="Copy and image models">
           <div className="cm-header__model-row">
             <label className="cm-header__model-label" htmlFor="cm-header-copy-model">
-              Copy
+              Copy Model
             </label>
             <select
               id="cm-header-copy-model"
@@ -39,7 +39,7 @@ export function CopyMakerHeader({ copyModelId, imageModelId, onCopyModelChange, 
           </div>
           <div className="cm-header__model-row">
             <label className="cm-header__model-label" htmlFor="cm-header-image-model">
-              Image
+              Image Model
             </label>
             <select
               id="cm-header-image-model"

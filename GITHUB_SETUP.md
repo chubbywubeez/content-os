@@ -1,46 +1,49 @@
-# GitHub: `content-os` under `chubbywueez`
+# GitHub: `content-os` + Railway: **Content OS**
 
-This folder is a **git repo** (branch `main`) with an initial commit. GitHub CLI is **not** authenticated in the automated environment, so finish the remote on your machine.
+This folder is a **git** repo on branch `main`.
 
-## Option A — GitHub CLI (recommended)
+## Railway (already wired — deploy without GitHub)
+
+The monorepo root is linked to Railway project **Content OS**. Deploy from **this folder** (parent of `copy-maker/`), not from inside `copy-maker/` alone:
+
+```powershell
+cd "c:\Users\brian\OneDrive\Desktop\Business\Vantum\Copy Maker"
+railway link -p 4e5d1fe1-c074-4ce4-928e-0cf794f8b75e
+railway up --detach
+```
+
+- **`Dockerfile`** at repo root builds `copy-maker` plus **`OS/`** and the two outlier JSON files (same layout the Vite preview middleware expects).
+- **`railway.toml`** at repo root sets `builder = "DOCKERFILE"`.
+
+In the Railway dashboard, open the latest deployment **Build logs** if something fails. Set **Variables** (e.g. `VITE_GEMINI_API_KEY`) on the service — add them for **build** so Vite can inline them.
+
+### Optional: GitHub for auto-deploy from pushes
+
+The Cursor / agent shell does **not** have `gh` logged in; you still run this **once** on your PC:
 
 ```powershell
 cd "c:\Users\brian\OneDrive\Desktop\Business\Vantum\Copy Maker"
 gh auth login
-gh repo create chubbywueez/content-os --public --source=. --remote=origin --push
+gh repo create YOUR_GITHUB_USERNAME/content-os --public --source=. --remote=origin --push
 ```
 
-If your GitHub username is different from `chubbywueez`, change the owner in the command.
-
-## Option B — GitHub website
-
-1. New repository → name **`content-os`** → create **empty** repo (no README).
-2. Then:
+Or create an empty repo on GitHub and:
 
 ```powershell
-cd "c:\Users\brian\OneDrive\Desktop\Business\Vantum\Copy Maker"
-git remote add origin https://github.com/chubbywueez/content-os.git
+git remote add origin https://github.com/YOUR_GITHUB_USERNAME/content-os.git
 git push -u origin main
 ```
 
-## What is in this repo
+Then in Railway: connect that repo and set **Root Directory** to **`.`** (repo root) so the **root** `Dockerfile` and `railway.toml` are used — **not** `copy-maker` alone.
 
-- **`copy-maker/`** — Content OS (Vite app; Railway **Root Directory** = `copy-maker`).
-- **`OS/`** — Style guide, voices, personas (read at runtime by the Vite/Railway server).
-- **`linkedin_influencers/data/outliers_index.json`** and **`outlier_framework_cache.json`** — outlier catalog for the UI.
+## What is in this repo (for Docker / Git)
 
-`Problem Presentations/`, `Skills/`, and large outlier markdown dumps are **gitignored** on purpose.
+- **`copy-maker/`** — Content OS (Vite app).
+- **`OS/`** — Style guide, voices, personas.
+- **`linkedin_influencers/data/outliers_index.json`** and **`outlier_framework_cache.json`** — outlier catalog.
 
-## Railway + GitHub
+`Problem Presentations/`, `Skills/`, and large outlier markdown dumps are **gitignored**.
 
-A Railway project named **Content OS** was created and `copy-maker` was linked via `railway link` (workspace: chubbywubeez’s Projects).
+## Legacy note
 
-After the repo exists on GitHub:
-
-1. Open [Railway](https://railway.app) → project **Content OS**.
-2. **New** → **GitHub Repo** → select **`chubbywueez/content-os`** (or connect the repo if prompted).
-3. Service settings → **Root Directory** = **`copy-maker`**.
-4. **Variables**: set `VITE_GEMINI_API_KEY` (and any other `VITE_*` keys) for **build** and runtime as needed.
-5. Deploy; Railway runs `npm run build` then `npm run start` (see `copy-maker/railway.toml`).
-
-If you prefer deploys without GitHub, from `copy-maker` you can use `railway up` — that only uploads the `copy-maker` folder and **will not** include `../OS` or outlier JSON; use **GitHub deploy** for production.
+`copy-maker/railway.toml` targets Nixpacks + `npm start` from the **copy-maker** subfolder only. For **Docker** deploys from **monorepo root**, the root **`railway.toml`** + **`Dockerfile`** take precedence when you `railway up` from the repo root.

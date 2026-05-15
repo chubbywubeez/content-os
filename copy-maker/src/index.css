@@ -125,11 +125,11 @@ select {
 .cm-header__model-label {
   flex: 0 0 auto;
   margin: 0;
-  width: 3.25rem;
-  font-size: 0.62rem;
+  min-width: 4.75rem;
+  max-width: 38%;
+  font-size: 0.68rem;
   font-weight: 800;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  letter-spacing: 0.02em;
   color: rgba(163, 166, 180, 0.95);
   line-height: 1.2;
 }

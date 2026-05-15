@@ -1,0 +1,6 @@
+# Deploy from **repository root** (this folder), not `copy-maker/` alone — the Dockerfile copies OS + outlier JSON.
+# Build: Docker. Start: `copy-maker` CMD from Dockerfile.
+
+[build]
+builder = "DOCKERFILE"
+dockerfilePath = "Dockerfile"
