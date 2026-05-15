@@ -880,12 +880,16 @@ code {
   grid-template-columns: minmax(0, 1fr) minmax(270px, 42%);
   gap: 12px;
   align-items: stretch;
-  min-height: 300px;
   max-height: min(68vh, 560px);
+  /* Flex/grid default min-height:auto blocks nested scroll; pair with .cm-oc__list { min-height:0 }. */
+  min-height: 0;
+  overflow: hidden;
 }
 
 .cm-oc__list {
+  min-height: 0;
   overflow-y: auto;
+  overscroll-behavior: contain;
   border: 1px solid var(--cm-border);
   border-radius: var(--cm-radius);
   background: var(--cm-surface-2);
@@ -1036,6 +1040,72 @@ code {
 
 .cm-field__label-row .cm-label {
   margin: 0;
+}
+
+.cm-field__label-trail {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.cm-topic-tools {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cm-topic-tools__gear-wrap {
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.cm-topic-popover {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 6px);
+  z-index: 50;
+  width: min(480px, calc(100vw - 32px));
+  padding: 12px 14px;
+  border: 1px solid var(--cm-border-strong);
+  border-radius: var(--cm-radius);
+  background: var(--cm-surface);
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.12);
+}
+
+.cm-topic-popover__head {
+  margin-bottom: 8px;
+}
+
+.cm-topic-popover__title {
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: var(--cm-text);
+}
+
+.cm-topic-popover__json {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 260px;
+  font-family: ui-monospace, 'Cascadia Code', 'Segoe UI Mono', monospace;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  resize: vertical;
+}
+
+.cm-topic-popover__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+  justify-content: flex-end;
+}
+
+.cm-topic-popover .cm-note {
+  margin-top: 8px;
+  margin-bottom: 0;
 }
 
 .cm-field__select-row {
@@ -1225,6 +1295,12 @@ code {
   .cm-oc__split {
     grid-template-columns: 1fr;
     max-height: none;
+    overflow: visible;
+  }
+
+  /* Stack layout: cap list height so users can scroll all posts on small viewports. */
+  .cm-oc__list {
+    max-height: min(52vh, 480px);
   }
 
   .cm-oc__preview {

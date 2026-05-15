@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { AccordionSection } from './AccordionSection'
 import { TextAreaField } from './TextAreaField'
 import { SelectField } from './SelectField'
@@ -8,9 +8,12 @@ import { OutlierCatalogPicker } from './OutlierCatalogPicker'
 import { EditContextModal } from './EditContextModal'
 import { GearEditButton } from './GearEditButton'
 import { getSummaryStatus, statusForTopic } from '../lib/sectionStatus'
+import { writingFrameworkSelectionReady } from '../services/validation'
 import { useCopyMakerWorkflow } from '../hooks/useCopyMakerWorkflow'
 import { useOutliersCatalog } from '../hooks/useOutliersCatalog'
 import type { CustomerPersonaId, WriterVoiceId } from '../types/copyMaker'
+import { buildRandomTopicFromAngles } from '../lib/topicAngleRandomTopic'
+import { useTopicAngleLibrary } from '../hooks/useTopicAngleLibrary'
 
 type Wf = ReturnType<typeof useCopyMakerWorkflow>
 
@@ -32,6 +35,18 @@ type ContextModalKind = 'writerVoice' | 'styleGuide' | 'customerPersona'
 
 export function CopyMakerWorkflow({ wf }: Props) {
   const [contextModal, setContextModal] = useState<ContextModalKind | null>(null)
+  /** Gear menu for Post topic: random generator + read-only angle library from JSON. */
+  const [topicToolsOpen, setTopicToolsOpen] = useState(false)
+  const topicToolsRef = useRef<HTMLDivElement | null>(null)
+  const {
+    committedPresets,
+    draftJson,
+    setDraftJson,
+    saveDraft,
+    resetToDefaults,
+    syncDraftFromCommitted,
+    saveError,
+  } = useTopicAngleLibrary()
   const cat = useOutliersCatalog()
   const {
     state,
@@ -56,6 +71,28 @@ export function CopyMakerWorkflow({ wf }: Props) {
     loadCustomerPersona,
   } = wf
 
+  useEffect(() => {
+    if (!topicToolsOpen) return
+    const onDocMouseDown = (e: MouseEvent) => {
+      const el = topicToolsRef.current
+      if (el && !el.contains(e.target as Node)) setTopicToolsOpen(false)
+    }
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setTopicToolsOpen(false)
+    }
+    document.addEventListener('mousedown', onDocMouseDown)
+    window.addEventListener('keydown', onKey)
+    return () => {
+      document.removeEventListener('mousedown', onDocMouseDown)
+      window.removeEventListener('keydown', onKey)
+    }
+  }, [topicToolsOpen])
+
+  /** Opening the gear resets the JSON editor to the last saved angle library. */
+  useEffect(() => {
+    if (topicToolsOpen) syncDraftFromCommitted()
+  }, [topicToolsOpen, syncDraftFromCommitted])
+
   const topicComplete = statusForTopic(state.topic) === 'complete'
   const copyReady = topicComplete && getSummaryStatus('writingFramework', state) === 'complete'
 
@@ -70,6 +107,12 @@ export function CopyMakerWorkflow({ wf }: Props) {
     if (!id) return '—'
     const o = options.find((x) => x.value === id)
     return o?.label ?? id
+  }
+
+  /** Fills the topic box with one random hook line from the angle library (see `topicAngleRandomTopic.ts`). */
+  function applyRandomTopicToField() {
+    const text = buildRandomTopicFromAngles(committedPresets)
+    setState((s) => ({ ...s, topic: { description: text } }))
   }
 
   function topicSubtitle(): string | undefined {
@@ -113,6 +156,10 @@ export function CopyMakerWorkflow({ wf }: Props) {
     return 'Not generated'
   }
 
+  /**
+   * Catalog row click only updates selection + preview data. User must click "Accept & continue"
+   * to advance — or use "Generate Copy" (uses last selection and opens Generate Copy, collapses this step).
+   */
   function applyWritingPick(e: (typeof cat.entries)[0]) {
     setState((s) => ({
       ...s,
@@ -120,6 +167,11 @@ export function CopyMakerWorkflow({ wf }: Props) {
       writingFrameworkFrameworkMd: e.frameworkBody,
       writingFrameworkPostText: e.postBody,
     }))
+  }
+
+  /** Confirms framework choice and moves the accordion to Generate Copy (same as custom Save & continue). */
+  function acceptWritingFramework() {
+    saveAndContinue('writingFramework')
   }
 
   function setFrameworkKind(kind: typeof state.writingFrameworkKind) {
@@ -214,6 +266,61 @@ export function CopyMakerWorkflow({ wf }: Props) {
           value={state.topic.description}
           onChange={(v) => setState((s) => ({ ...s, topic: { description: v } }))}
           placeholder="Example: Help fractional CMOs turn vague positioning into outcome-driven offers."
+          labelTrailing={
+            <div className="cm-topic-tools">
+              <button
+                type="button"
+                className="cm-btn cm-btn--small cm-btn--ghost"
+                onClick={() => applyRandomTopicToField()}
+              >
+                Generate
+              </button>
+              <div className="cm-topic-tools__gear-wrap" ref={topicToolsRef}>
+                <GearEditButton
+                  label="Edit angle library (JSON)"
+                  onClick={() => setTopicToolsOpen((o) => !o)}
+                />
+                {topicToolsOpen ? (
+                  <div className="cm-topic-popover" role="dialog" aria-label="Angle library">
+                    <div className="cm-topic-popover__head">
+                      <span className="cm-topic-popover__title">Angle library</span>
+                    </div>
+                    <label className="cm-sr-only" htmlFor="topic-angle-json">
+                      Angle presets JSON
+                    </label>
+                    <textarea
+                      id="topic-angle-json"
+                      className="cm-textarea cm-topic-popover__json"
+                      spellCheck={false}
+                      value={draftJson}
+                      onChange={(e) => setDraftJson(e.target.value)}
+                      rows={14}
+                      aria-describedby={saveError ? 'topic-angle-json-err' : undefined}
+                    />
+                    {saveError ? (
+                      <p id="topic-angle-json-err" className="cm-note cm-note--error" role="alert">
+                        {saveError}
+                      </p>
+                    ) : null}
+                    <div className="cm-topic-popover__actions">
+                      <button
+                        type="button"
+                        className="cm-btn cm-btn--small cm-btn--primary"
+                        onClick={() => {
+                          saveDraft()
+                        }}
+                      >
+                        Save library
+                      </button>
+                      <button type="button" className="cm-btn cm-btn--small" onClick={() => resetToDefaults()}>
+                        Reset to defaults
+                      </button>
+                    </div>
+                  </div>
+                ) : null}
+              </div>
+            </div>
+          }
         />
       </AccordionSection>
 
@@ -224,13 +331,24 @@ export function CopyMakerWorkflow({ wf }: Props) {
         isOpen={openSection === 'writingFramework'}
         onToggle={() => toggleOpenSection('writingFramework')}
         footer={
-          <button
-            type="button"
-            className="cm-btn cm-btn--primary"
-            onClick={() => saveAndContinue('writingFramework')}
-          >
-            Save &amp; Continue
-          </button>
+          state.writingFrameworkKind === 'custom' ? (
+            <button
+              type="button"
+              className="cm-btn cm-btn--primary"
+              onClick={() => saveAndContinue('writingFramework')}
+            >
+              Save &amp; Continue
+            </button>
+          ) : (
+            <button
+              type="button"
+              className="cm-btn cm-btn--primary"
+              disabled={!writingFrameworkSelectionReady(state)}
+              onClick={() => acceptWritingFramework()}
+            >
+              Accept &amp; continue
+            </button>
+          )
         }
       >
         <div className="cm-field cm-mode-field">
@@ -279,7 +397,9 @@ export function CopyMakerWorkflow({ wf }: Props) {
           <>
             <p className="cm-note">
               Search cached outlier posts by creator, hook, format, structural tags, or performance axis.
-              Framework mode only enables rows with cached extraction.
+              Framework mode only enables rows with cached extraction. Pick a row to preview it, then{' '}
+              <strong>Accept &amp; continue</strong> — or open <strong>Generate Copy</strong> to use your last
+              selection without accepting (the framework step collapses).
             </p>
             <OutlierCatalogPicker
               entries={cat.entries}
@@ -408,7 +528,7 @@ export function CopyMakerWorkflow({ wf }: Props) {
           loading={imageLoading}
           imageGenError={state.imageGenError}
           onGenerate={() => void runNanoBanana()}
-          onRegenerate={() => void runNanoBanana()}
+          onRegenerate={(append) => void runNanoBanana(append)}
           onDownload={downloadImage}
           onStartNew={startNewPost}
         />

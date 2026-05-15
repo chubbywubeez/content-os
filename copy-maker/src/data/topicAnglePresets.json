@@ -1,0 +1,86 @@
+[
+  {
+    "id": "framework_reveal",
+    "name": "Framework Reveal (Magician)",
+    "archetypes": "Magician",
+    "summary": "Named system with N parts. Saves currency. Welsh's LinkedIn Operating System is the canonical example.",
+    "pattern": "I built [SYSTEM_NAME] to solve [PROBLEM]. Here are the [N] parts:"
+  },
+  {
+    "id": "numbered_list_reframe",
+    "name": "Numbered List + Reframe Close (Magician/Warrior)",
+    "archetypes": "Magician / Warrior",
+    "summary": "N tactical bullets, then a final line that recontextualizes the list. Welsh's most-repeated structure.",
+    "pattern": "Want to [GOAL]? [N] things I've learned: [LIST] // The real lesson though: [REFRAME]"
+  },
+  {
+    "id": "anti_advice",
+    "name": "Anti-Advice (Warrior)",
+    "archetypes": "Warrior",
+    "summary": "Reject common wisdom, replace with your alternative. High comment count.",
+    "pattern": "Stop [COMMON_ADVICE]. Do [CONTRARIAN_REPLACEMENT] instead."
+  },
+  {
+    "id": "confession_lesson",
+    "name": "Confession + Lesson (Lover/Magician)",
+    "archetypes": "Lover / Magician",
+    "summary": "Admit something embarrassing or wrong, extract teaching. Builds trust, high-share.",
+    "pattern": "[N] years in, I still [EMBARRASSING_ADMISSION]. Here's what it taught me."
+  },
+  {
+    "id": "hidden_cost",
+    "name": "Hidden Cost / Hidden Tax (Magician)",
+    "archetypes": "Magician",
+    "summary": "Name the thing nobody counts. Pattern-recognition flex.",
+    "pattern": "The hidden cost of [POPULAR_THING] nobody talks about: [INSIGHT]"
+  },
+  {
+    "id": "origin_story_riff",
+    "name": "Origin Story Riff (King/Lover)",
+    "archetypes": "King / Lover",
+    "summary": "Retell your origin from a new angle. Identity-cementing. Welsh runs his \"$400k job\" story this way constantly.",
+    "pattern": "[N] years ago, [PIVOT_MOMENT]. Here's what that taught me about [PRESENT_TOPIC]."
+  },
+  {
+    "id": "pattern_recognition",
+    "name": "Pattern Recognition (Magician)",
+    "archetypes": "Magician",
+    "summary": "Observational with authority. The \"I keep seeing this\" move.",
+    "pattern": "After [N] [INTERVIEWS_OR_PROJECTS_OR_YEARS], the same pattern keeps showing up: [INSIGHT]"
+  },
+  {
+    "id": "behind_the_scenes",
+    "name": "Behind-the-Scenes / Public Journal (Lover/King)",
+    "archetypes": "Lover / King",
+    "summary": "How the sausage is actually made. Transparency play.",
+    "pattern": "Here's what [METRIC] actually looked like in [TIME_PERIOD]: [BREAKDOWN]"
+  },
+  {
+    "id": "mental_model_intro",
+    "name": "Mental Model Intro (Magician)",
+    "archetypes": "Magician",
+    "summary": "A new lens. Save currency, lower difficulty than full framework.",
+    "pattern": "Most people think [X]. The better way to think about it: [MENTAL_MODEL]."
+  },
+  {
+    "id": "reassurance",
+    "name": "Reassurance (Lover)",
+    "archetypes": "Lover",
+    "summary": "\"You're not alone in [STRUGGLE].\" Reshares hard.",
+    "pattern": "If you're [SPECIFIC_STRUGGLE], you're not behind. You're [REFRAME_CLOSER]."
+  },
+  {
+    "id": "x_vs_y",
+    "name": "X vs Y (Magician/Warrior)",
+    "archetypes": "Magician / Warrior",
+    "summary": "Binary comparison that flatters one side, usually the reader's.",
+    "pattern": "[OLD_THING] vs [NEW_THING]: a [N]-point breakdown"
+  },
+  {
+    "id": "manifesto",
+    "name": "Manifesto (King)",
+    "archetypes": "King",
+    "summary": "Periodic identity-cementing. Low frequency, high impact.",
+    "pattern": "I don't [REJECTED_BEHAVIOR]. I [IDENTITY_CLAIM]. Here's why."
+  }
+]

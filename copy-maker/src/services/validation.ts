@@ -5,6 +5,17 @@ export type CopyValidationResult = {
   errors: string[]
 }
 
+/** True when the current framework mode has enough material to generate copy or hit Accept. */
+export function writingFrameworkSelectionReady(inputs: CopyMakerInputs): boolean {
+  if (inputs.writingFrameworkKind === 'custom') {
+    return Boolean(inputs.writingFrameworkCustom.trim())
+  }
+  if (inputs.writingFrameworkKind === 'framework') {
+    return Boolean(inputs.writingFrameworkUrn.trim()) && Boolean(inputs.writingFrameworkFrameworkMd.trim())
+  }
+  return Boolean(inputs.writingFrameworkUrn.trim()) && Boolean(inputs.writingFrameworkPostText.trim())
+}
+
 export function validateCopyGeneration(inputs: CopyMakerInputs): CopyValidationResult {
   const errors: string[] = []
 
@@ -22,13 +33,7 @@ export function validateCopyGeneration(inputs: CopyMakerInputs): CopyValidationR
     )
   }
 
-  const fwOk =
-    inputs.writingFrameworkKind === 'custom'
-      ? Boolean(inputs.writingFrameworkCustom.trim())
-      : inputs.writingFrameworkKind === 'framework'
-        ? Boolean(inputs.writingFrameworkUrn.trim()) &&
-          Boolean(inputs.writingFrameworkFrameworkMd.trim())
-        : Boolean(inputs.writingFrameworkUrn.trim()) && Boolean(inputs.writingFrameworkPostText.trim())
+  const fwOk = writingFrameworkSelectionReady(inputs)
 
   if (!fwOk) {
     errors.push(

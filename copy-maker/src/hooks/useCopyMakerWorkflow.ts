@@ -92,10 +92,11 @@ export function useCopyMakerWorkflow() {
 
   /** Primary button: replaces the whole generation stack with one fresh post (streamed into the card). */
   const runGenerateCopy = useCallback(async () => {
+    // Always jump to Generate Copy (collapses Writing Framework) even if validation fails — uses last-selected row.
+    setOpenSection('generateCopy')
     const v = validateCopyGeneration(state)
     setCopyErrors(v.errors)
     if (!v.ok) {
-      setOpenSection('generateCopy')
       return
     }
     setGenerating(true)
@@ -117,7 +118,6 @@ export function useCopyMakerWorkflow() {
         copyGenerations: [body],
         copyGenerationIndex: 0,
       }))
-      setOpenSection('generateCopy')
     } catch (err) {
       const message = err instanceof Error ? err.message : 'Copy generation failed.'
       setCopyErrors((prev) => [...prev, message])
@@ -145,13 +145,15 @@ export function useCopyMakerWorkflow() {
     setOpenSection('imageGen')
   }, [])
 
-  const runNanoBanana = useCallback(async () => {
+  /** `regenerateAppend` is only sent when the user is re-running from the image panel (optional refinement box). */
+  const runNanoBanana = useCallback(async (regenerateAppend?: string) => {
     setImageLoading(true)
     setState((s) => ({ ...s, imageGenError: '' }))
     try {
       const url = await generateNanoBananaImage({
         finalPost: state.selectedPost,
         imageContext: state.imageContext,
+        regenerateAppend: regenerateAppend?.trim() || undefined,
         referenceImages: state.referenceImages.map((r) => ({
           base64: r.base64,
           mimeType: r.mimeType,

@@ -13,6 +13,8 @@ export type NanoBananaPayload = {
 export type NanoBananaArgs = {
   finalPost: string
   imageContext: string
+  /** Optional extra lines merged into the prompt (regeneration UI only). */
+  regenerateAppend?: string
   /** Full state items include previewUrl; API only needs base64 + mime. */
   referenceImages: Array<{ base64: string; mimeType: string }>
   aspectRatio?: NanoBananaPayload['aspectRatio']
@@ -62,6 +64,7 @@ export async function generateNanoBananaImage(args: NanoBananaArgs): Promise<str
   const prompt = buildImagePrompt({
     finalPost: args.finalPost,
     imageContext: args.imageContext,
+    regenerateAppend: args.regenerateAppend,
   })
 
   const payload: NanoBananaPayload = {

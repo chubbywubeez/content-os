@@ -1,3 +1,5 @@
+import type { ReactNode } from 'react'
+
 type Props = {
   id: string
   label: string
@@ -7,6 +9,8 @@ type Props = {
   rows?: number
   disabled?: boolean
   readOnly?: boolean
+  /** Renders on the same row as the label (e.g. Generate + gear for Post topic). */
+  labelTrailing?: ReactNode
 }
 
 /**
@@ -21,12 +25,22 @@ export function TextAreaField({
   rows = 5,
   disabled,
   readOnly,
+  labelTrailing,
 }: Props) {
   return (
     <div className="cm-field">
-      <label className="cm-label" htmlFor={id}>
-        {label}
-      </label>
+      {labelTrailing ? (
+        <div className="cm-field__label-row">
+          <label className="cm-label" htmlFor={id}>
+            {label}
+          </label>
+          <div className="cm-field__label-trail">{labelTrailing}</div>
+        </div>
+      ) : (
+        <label className="cm-label" htmlFor={id}>
+          {label}
+        </label>
+      )}
       <textarea
         id={id}
         className={`cm-textarea ${readOnly ? 'cm-textarea--readonly' : ''}`.trim()}

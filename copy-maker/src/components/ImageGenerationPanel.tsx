@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import type { ReferenceImageItem } from '../types/copyMaker'
 import { TextAreaField } from './TextAreaField'
 import { ReferenceImageUploader } from './ReferenceImageUploader'
@@ -14,7 +15,8 @@ type Props = {
   /** Shown when the Gemini / Nano Banana call fails (missing key, quota, blocked prompt, etc.). */
   imageGenError: string
   onGenerate: () => void
-  onRegenerate: () => void
+  /** Receives optional extra lines appended to the image prompt for this run only (see `imagePromptBuilder.ts`). */
+  onRegenerate: (appendToPrompt: string) => void
   onDownload: () => void
   onStartNew: () => void
 }
@@ -37,6 +39,9 @@ export function ImageGenerationPanel({
   onDownload,
   onStartNew,
 }: Props) {
+  // Shown once there is a preview: lets the user steer a regeneration without editing permanent "Additional image context".
+  const [regenerateAppend, setRegenerateAppend] = useState('')
+
   return (
     <div className="cm-stack">
       {locked ? (
@@ -77,9 +82,24 @@ export function ImageGenerationPanel({
           <img src={generatedImageUrl} alt="Generated visual" className="cm-image-preview" />
         )}
       </div>
+      {generatedImageUrl ? (
+        <TextAreaField
+          id="image-regenerate-append"
+          label="Optional — add to the image prompt for regeneration"
+          rows={3}
+          value={regenerateAppend}
+          onChange={setRegenerateAppend}
+          disabled={loading}
+          placeholder="e.g. no text on the image, warmer light, single subject, more editorial / less stock-photo…"
+        />
+      ) : null}
       {generatedImageUrl && !loading && (
         <div className="cm-inline-actions">
-          <button type="button" className="cm-btn" onClick={onRegenerate}>
+          <button
+            type="button"
+            className="cm-btn"
+            onClick={() => onRegenerate(regenerateAppend)}
+          >
             Regenerate Image
           </button>
           <button type="button" className="cm-btn" onClick={onDownload}>
