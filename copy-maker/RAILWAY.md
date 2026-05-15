@@ -1,11 +1,19 @@
 # Deploy Content OS to Railway
 
+## Project on Railway
+
+A Railway project named **Content OS** can be created from the `copy-maker` folder with:
+
+`railway init --name "Content OS"`
+
+Then link the folder: `railway link -p <projectId>` (or use the interactive `railway link`).
+
 ## 1. Create the service
 
-1. In [Railway](https://railway.app), **New project** → **Deploy from GitHub** (or empty project + connect repo).
-2. Add a service from this repository.
-3. Open the service **Settings** → set **Root Directory** to `copy-maker` (if your repo root is the parent folder that contains `copy-maker/`).
-4. Rename the service to **Content OS** (Settings → General → Service name).
+1. In [Railway](https://railway.app), open project **Content OS** (or create it as above).
+2. **New** → **GitHub Repo** → select repo **`chubbywueez/content-os`** (after you push; see `../GITHUB_SETUP.md`).
+3. Service **Settings** → set **Root Directory** to `copy-maker` (repo root is the parent folder that contains `copy-maker/`, `OS/`, and `linkedin_influencers/`).
+4. Rename the deployed **service** to **Content OS** in Settings → General if you want the service tab to match the product name.
 
 ## 2. Build-time environment variables (Vite)
 
