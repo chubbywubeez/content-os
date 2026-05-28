@@ -16,8 +16,8 @@
 # Large research tree (transcripts, Playwright profiles, PDFs) — not required for Content OS
 Problem Presentations/
 
-# Misc workspace notes not used by the app
-Skills/
+# Misc workspace notes not used by the app (repo root only)
+/Skills/
 
 # Outlier pipeline: only the two JSON files the app reads at runtime (see vite-plugin-copy-maker-data)
 linkedin_influencers/*

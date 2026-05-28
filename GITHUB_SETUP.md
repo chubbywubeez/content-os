@@ -39,7 +39,8 @@ Then in Railway: connect that repo and set **Root Directory** to **`.`** (repo r
 ## What is in this repo (for Docker / Git)
 
 - **`copy-maker/`** — Content OS (Vite app).
-- **`OS/`** — Style guide, voices, personas.
+- **`OS/`** — Style guide, voices, personas, image generation system.
+- **`.cursor/skills/`** — Cursor Agent Skills (e.g. `vantum-image-generation`).
 - **`linkedin_influencers/data/outliers_index.json`** and **`outlier_framework_cache.json`** — outlier catalog.
 
 `Problem Presentations/`, `Skills/`, and large outlier markdown dumps are **gitignored**.
