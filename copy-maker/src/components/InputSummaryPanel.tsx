@@ -1,6 +1,8 @@
+import { useState } from 'react'
 import type { CopyMakerState, WorkflowSectionId } from '../types/copyMaker'
 import { getSummaryStatus, summaryLabel } from '../lib/sectionStatus'
 import { validateCopyGeneration } from '../services/validation'
+import { TranscriptImportModal } from './TranscriptImportModal'
 
 type Props = {
   state: CopyMakerState
@@ -50,12 +52,14 @@ function getNextStep(state: CopyMakerState, canGenerate: boolean): string {
  * Right rail: active workflow progress, primary copy CTA, and quiet loaded-context summary.
  */
 export function InputSummaryPanel({ state, generating, onGenerateCopy }: Props) {
+  const [transcriptOpen, setTranscriptOpen] = useState(false)
   const validation = validateCopyGeneration(state)
   const canGenerate = validation.ok && !generating
   const nextStep = getNextStep(state, validation.ok)
 
   return (
-    <aside className="cm-summary" aria-label="Workflow status">
+    <div className="cm-summary-column">
+      <aside className="cm-summary" aria-label="Workflow status">
       <div className="cm-summary__eyebrow">Next Step</div>
       <div className="cm-summary__next">{nextStep}</div>
       {validation.errors.length > 0 && state.copyGenerations.length === 0 && (
@@ -104,6 +108,17 @@ export function InputSummaryPanel({ state, generating, onGenerateCopy }: Props) 
           })}
         </ul>
       </div>
-    </aside>
+      </aside>
+
+      <button
+        type="button"
+        className="cm-btn cm-summary__transcript"
+        onClick={() => setTranscriptOpen(true)}
+      >
+        Transcript Import
+      </button>
+
+      <TranscriptImportModal open={transcriptOpen} onClose={() => setTranscriptOpen(false)} />
+    </div>
   )
 }

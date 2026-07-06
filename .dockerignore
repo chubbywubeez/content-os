@@ -4,13 +4,13 @@
 .env
 .env.*
 **/.codex-vite.log
-Problem Presentations
-Skills
-linkedin_influencers/data/outliers_by_person
-linkedin_influencers/data/*.md
-linkedin_influencers/scripts
-linkedin_influencers/package.json
-linkedin_influencers/influencers.json
-linkedin_influencers/prompts
-copy-maker/node_modules
-copy-maker/dist
+archive
+data/outliers/data/outliers_by_person
+data/outliers/data/*.md
+data/outliers/prompts
+data/outliers/package.json
+data/outliers/influencers.json
+scripts/linkedin
+apps/copy-maker/node_modules
+apps/copy-maker/dist
+copy-maker

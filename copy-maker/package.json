@@ -10,9 +10,12 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "start": "node scripts/railway-start.mjs",
-    "style-guide:md": "node scripts/gen-style-guide-md.mjs"
+    "style-guide:md": "node scripts/gen-style-guide-md.mjs",
+    "swipe:catalog": "node ../linkedin_influencers/scripts/build-outliers-swipe-catalog.mjs",
+    "swipe:sync": "npm run swipe:catalog"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.105.4",
     "react": "^19.2.6",
     "react-dom": "^19.2.6"
   },

@@ -1,17 +1,20 @@
-# Content OS — monorepo image. Vite preview reads `../OS` and `../linkedin_influencers/data` from `copy-maker/`.
+# Content OS — monorepo image. Vite preview reads from `data/os` and `data/outliers/data`.
 FROM node:20-bookworm-slim
 
 WORKDIR /app
 
-COPY OS /app/OS
-COPY linkedin_influencers/data/outliers_index.json /app/linkedin_influencers/data/outliers_index.json
-COPY linkedin_influencers/data/outlier_framework_cache.json /app/linkedin_influencers/data/outlier_framework_cache.json
+COPY data/os /app/data/os
+COPY data/outliers/data/outliers_index.json /app/data/outliers/data/outliers_index.json
+COPY data/outliers/data/outlier_framework_cache.json /app/data/outliers/data/outlier_framework_cache.json
+COPY data/outliers/data/outliers_swipe_catalog.json /app/data/outliers/data/outliers_swipe_catalog.json
+COPY data/skills /app/data/skills
+COPY data/presentations /app/data/presentations
 
-COPY copy-maker/package.json copy-maker/package-lock.json /app/copy-maker/
-WORKDIR /app/copy-maker
+COPY apps/copy-maker/package.json apps/copy-maker/package-lock.json /app/apps/copy-maker/
+WORKDIR /app/apps/copy-maker
 RUN npm ci
 
-COPY copy-maker /app/copy-maker
+COPY apps/copy-maker /app/apps/copy-maker
 RUN npm run build
 
 ENV NODE_ENV=production

@@ -1,6 +1,7 @@
 /**
- * Dev / preview middleware: OS brand files + merged outlier catalog
- * (outliers_index.json + outlier_framework_cache.json) for framework / copy-example pickers.
+ * Dev / preview middleware: OS brand files + outlier catalog for framework / copy-example pickers.
+ * Prefers `outliers_swipe_catalog.json` (compiled from `*_cleaned.md` swipe files).
+ * Falls back to outliers_index.json + outlier_framework_cache.json when swipe catalog is missing/empty.
  */
 import fs from 'node:fs'
 import path from 'node:path'
@@ -12,6 +13,7 @@ const REPO_ROOT = path.resolve(COPY_MAKER_DIR, '..')
 const OS_DIR = path.join(REPO_ROOT, 'OS')
 const OUTLIERS_INDEX = path.join(REPO_ROOT, 'linkedin_influencers', 'data', 'outliers_index.json')
 const OUTLIER_FW_CACHE = path.join(REPO_ROOT, 'linkedin_influencers', 'data', 'outlier_framework_cache.json')
+const SWIPE_CATALOG = path.join(REPO_ROOT, 'linkedin_influencers', 'data', 'outliers_swipe_catalog.json')
 const STYLE_GUIDE_MD = path.join(OS_DIR, 'Style Guide', 'vantum_style_guide.md')
 const STYLE_GUIDE_HTML = path.join(OS_DIR, 'Style Guide', 'vantum_pdf_design_system_v2.html')
 const VOICES_DIR = path.join(OS_DIR, 'Voices')
@@ -45,9 +47,19 @@ type CatalogEntry = {
   postBody: string
   textPreview: string
   maxRatio: number
+  frameworkName?: string
+  frameworkTemplate?: string
+  tags?: string[]
+  catalogSource?: 'swipe' | 'legacy'
 }
 
-let catalogCache: { indexMtime: number; cacheMtime: number; entries: CatalogEntry[] } | null = null
+let catalogCache: {
+  swipeMtime: number
+  indexMtime: number
+  cacheMtime: number
+  entries: CatalogEntry[]
+  catalogSource: 'swipe' | 'legacy'
+} | null = null
 
 function htmlToPlainText(html: string): string {
   return html
@@ -73,16 +85,65 @@ function loadFrameworkCache(): Record<string, string> {
   return out
 }
 
-/**
- * Merge index (post text + tags) with framework cache (markdown extractions keyed by URN).
- */
-function buildOutliersCatalog(): CatalogEntry[] {
-  if (!fs.existsSync(OUTLIERS_INDEX)) return []
-  const iSt = fs.statSync(OUTLIERS_INDEX)
-  const cSt = fs.existsSync(OUTLIER_FW_CACHE) ? fs.statSync(OUTLIER_FW_CACHE) : { mtimeMs: 0 }
-  if (catalogCache && catalogCache.indexMtime === iSt.mtimeMs && catalogCache.cacheMtime === cSt.mtimeMs) {
-    return catalogCache.entries
+type SwipeJsonEntry = Record<string, unknown>
+
+function loadSwipeCatalogEntries(): CatalogEntry[] | null {
+  if (!fs.existsSync(SWIPE_CATALOG)) return null
+  try {
+    const raw = JSON.parse(fs.readFileSync(SWIPE_CATALOG, 'utf8')) as {
+      entries?: SwipeJsonEntry[]
+    }
+    const list = Array.isArray(raw.entries) ? raw.entries : []
+    if (list.length === 0) return null
+  return list
+      .map((e): CatalogEntry | null => {
+        const urn = String(e.urn || e.id || '')
+        if (!urn) return null
+        const postBody = String(e.postBody || '')
+        return {
+          id: urn,
+          urn,
+          creator: String(e.creator || ''),
+          slug: String(e.slug || ''),
+          hook: String(e.hook || ''),
+          url: String(e.url || ''),
+          axes: String(e.axes || e.engagementHeader || ''),
+          formatTags: Array.isArray(e.formatTags)
+            ? (e.formatTags as unknown[]).map(String)
+            : e.formatLevel
+              ? String(e.formatLevel)
+                  .split(/[,/]/)
+                  .map((t) => t.trim())
+                  .filter(Boolean)
+              : [],
+          structuralTags: Array.isArray(e.structuralTags)
+            ? (e.structuralTags as unknown[]).map(String)
+            : e.structural
+              ? String(e.structural)
+                  .split(/[,/]/)
+                  .map((t) => t.trim())
+                  .filter((t) => t && t !== '_(not tagged)_')
+              : [],
+          searchText: String(e.searchText || ''),
+          hasFramework: Boolean(e.hasFramework),
+          frameworkBody: String(e.frameworkBody || ''),
+          postBody,
+          textPreview: String(e.textPreview || postBody).slice(0, 280),
+          maxRatio: typeof e.maxRatio === 'number' ? e.maxRatio : 0,
+          frameworkName: e.frameworkName ? String(e.frameworkName) : undefined,
+          frameworkTemplate: e.frameworkTemplate ? String(e.frameworkTemplate) : undefined,
+          tags: Array.isArray(e.tags) ? (e.tags as unknown[]).map(String) : undefined,
+          catalogSource: 'swipe',
+        }
+      })
+      .filter((x): x is CatalogEntry => x !== null)
+  } catch {
+    return null
   }
+}
+
+function buildLegacyCatalog(): CatalogEntry[] {
+  if (!fs.existsSync(OUTLIERS_INDEX)) return []
 
   const index = JSON.parse(fs.readFileSync(OUTLIERS_INDEX, 'utf8')) as {
     bySlug?: Array<{ slug?: string; name?: string; outliers?: Array<Record<string, unknown>> }>
@@ -128,13 +189,54 @@ function buildOutliersCatalog(): CatalogEntry[] {
         postBody,
         textPreview,
         maxRatio,
+        catalogSource: 'legacy',
       })
     }
   }
 
   entries.sort((a, b) => b.maxRatio - a.maxRatio)
-  catalogCache = { indexMtime: iSt.mtimeMs, cacheMtime: cSt.mtimeMs, entries }
   return entries
+}
+
+/**
+ * Swipe catalog (cleaned markdown) when present; otherwise index + framework cache.
+ */
+function buildOutliersCatalog(): { entries: CatalogEntry[]; catalogSource: 'swipe' | 'legacy' } {
+  const swipeSt = fs.existsSync(SWIPE_CATALOG) ? fs.statSync(SWIPE_CATALOG) : { mtimeMs: 0 }
+  const iSt = fs.existsSync(OUTLIERS_INDEX) ? fs.statSync(OUTLIERS_INDEX) : { mtimeMs: 0 }
+  const cSt = fs.existsSync(OUTLIER_FW_CACHE) ? fs.statSync(OUTLIER_FW_CACHE) : { mtimeMs: 0 }
+
+  if (
+    catalogCache &&
+    catalogCache.swipeMtime === swipeSt.mtimeMs &&
+    catalogCache.indexMtime === iSt.mtimeMs &&
+    catalogCache.cacheMtime === cSt.mtimeMs
+  ) {
+    return { entries: catalogCache.entries, catalogSource: catalogCache.catalogSource }
+  }
+
+  const swipeEntries = loadSwipeCatalogEntries()
+  if (swipeEntries && swipeEntries.length > 0) {
+    swipeEntries.sort((a, b) => b.maxRatio - a.maxRatio || b.postBody.length - a.postBody.length)
+    catalogCache = {
+      swipeMtime: swipeSt.mtimeMs,
+      indexMtime: iSt.mtimeMs,
+      cacheMtime: cSt.mtimeMs,
+      entries: swipeEntries,
+      catalogSource: 'swipe',
+    }
+    return { entries: swipeEntries, catalogSource: 'swipe' }
+  }
+
+  const legacy = buildLegacyCatalog()
+  catalogCache = {
+    swipeMtime: swipeSt.mtimeMs,
+    indexMtime: iSt.mtimeMs,
+    cacheMtime: cSt.mtimeMs,
+    entries: legacy,
+    catalogSource: 'legacy',
+  }
+  return { entries: legacy, catalogSource: 'legacy' }
 }
 
 function sendJson(res: { statusCode: number; setHeader: (a: string, b: string) => void; end: (s: string) => void }, data: unknown, code = 200) {
@@ -211,10 +313,12 @@ function copyMakerDataMiddleware(
 
   if (pathname === '/api/outliers-catalog') {
     try {
-      const entries = buildOutliersCatalog()
+      const { entries, catalogSource } = buildOutliersCatalog()
       sendJson(res, {
         count: entries.length,
         entries,
+        catalogSource,
+        swipeCatalogPath: SWIPE_CATALOG,
         indexPath: OUTLIERS_INDEX,
         cachePath: OUTLIER_FW_CACHE,
       })

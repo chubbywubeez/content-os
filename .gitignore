@@ -14,17 +14,15 @@
 .cache/
 
 # Large research tree (transcripts, Playwright profiles, PDFs) — not required for Content OS
-Problem Presentations/
-
-# Misc workspace notes not used by the app (repo root only)
-/Skills/
+# NOTE: data/presentations is intentionally included for live interview/demo library endpoints.
 
 # Outlier pipeline: only the two JSON files the app reads at runtime (see vite-plugin-copy-maker-data)
-linkedin_influencers/*
-!linkedin_influencers/data/
-linkedin_influencers/data/*
-!linkedin_influencers/data/outliers_index.json
-!linkedin_influencers/data/outlier_framework_cache.json
+data/outliers/*
+!data/outliers/data/
+data/outliers/data/*
+!data/outliers/data/outliers_index.json
+!data/outliers/data/outlier_framework_cache.json
+!data/outliers/data/outliers_swipe_catalog.json
 
 # Railway CLI local link (machine-specific)
 .railway/

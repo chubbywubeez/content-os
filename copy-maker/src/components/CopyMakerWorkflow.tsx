@@ -395,17 +395,12 @@ export function CopyMakerWorkflow({ wf }: Props) {
           />
         ) : (
           <>
-            <p className="cm-note">
-              Search cached outlier posts by creator, hook, format, structural tags, or performance axis.
-              Framework mode only enables rows with cached extraction. Pick a row to preview it, then{' '}
-              <strong>Accept &amp; continue</strong> — or open <strong>Generate Copy</strong> to use your last
-              selection without accepting (the framework step collapses).
-            </p>
             <OutlierCatalogPicker
               entries={cat.entries}
               loading={cat.loadState === 'loading'}
               errorMessage={cat.errorMessage}
               onRefresh={() => void cat.refresh()}
+              catalogSource={cat.catalogSource ?? undefined}
               requireFramework={state.writingFrameworkKind === 'framework'}
               selectedUrn={state.writingFrameworkUrn}
               onSelect={applyWritingPick}

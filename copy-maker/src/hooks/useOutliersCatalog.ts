@@ -4,17 +4,20 @@ import type { OutlierCatalogEntry } from '../types/outlierCatalog'
 type ApiResponse = {
   count?: number
   entries?: OutlierCatalogEntry[]
+  catalogSource?: 'swipe' | 'legacy'
   error?: string
+  swipeCatalogPath?: string
   indexPath?: string
   cachePath?: string
 }
 
 /**
- * Loads the merged outlier catalog (post text + optional framework extraction).
- * Refetch after `npm run outliers` / `npm run outliers:architecture` updates source files.
+ * Loads the outlier catalog for framework / copy-pattern pickers.
+ * Refetch after `npm run swipe:catalog` (or `swipe:sync`) updates the swipe JSON.
  */
 export function useOutliersCatalog() {
   const [entries, setEntries] = useState<OutlierCatalogEntry[]>([])
+  const [catalogSource, setCatalogSource] = useState<'swipe' | 'legacy' | null>(null)
   const [loadState, setLoadState] = useState<'idle' | 'loading' | 'ok' | 'error'>('idle')
   const [errorMessage, setErrorMessage] = useState<string | null>(null)
 
@@ -31,6 +34,7 @@ export function useOutliersCatalog() {
         return
       }
       setEntries(Array.isArray(json.entries) ? json.entries : [])
+      setCatalogSource(json.catalogSource === 'swipe' || json.catalogSource === 'legacy' ? json.catalogSource : null)
       setLoadState('ok')
     } catch (e) {
       setEntries([])
@@ -46,5 +50,5 @@ export function useOutliersCatalog() {
     return () => window.clearTimeout(timer)
   }, [load])
 
-  return { entries, loadState, errorMessage, refresh: load }
+  return { entries, catalogSource, loadState, errorMessage, refresh: load }
 }

@@ -1,5 +1,5 @@
-# Deploy from **repository root** (this folder), not `copy-maker/` alone — the Dockerfile copies OS + outlier JSON.
-# Build: Docker. Start: `copy-maker` CMD from Dockerfile.
+# Deploy from **repository root** (this folder), not `apps/copy-maker/` alone — the Dockerfile copies `data/` and app files.
+# Build: Docker. Start command is defined by the Dockerfile (`apps/copy-maker/scripts/railway-start.mjs`).
 
 [build]
 builder = "DOCKERFILE"
