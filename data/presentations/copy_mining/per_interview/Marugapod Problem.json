@@ -1,0 +1,54 @@
+{
+  "interview": "Marugapod Problem",
+  "interview_weight": 0.217,
+  "snippets": [
+    {
+      "theme_tag": "client_acquisition_is_the_real_problem",
+      "pull_quote": "The biggest challenge in this space is to actually get clients. When you get clients, you don't say no. You figure it out to make it happen.",
+      "website_angle": "Speak to the #1 fractional pain: landing clients, not managing them.",
+      "intensity_1_to_5": 5
+    },
+    {
+      "theme_tag": "long_unpredictable_sales_cycle",
+      "pull_quote": "Some clients I've been talking to for as much as six months and there is still interest — but they're not on the dotted line. Then some are desperate and sign in two weeks.",
+      "website_angle": "Validate the feast-or-famine pipeline reality fractionals live with daily.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "word_of_mouth_only_growth",
+      "pull_quote": "Mostly word of mouth, network, and referrals. Everything else is just time and cost suck. So there's no point.",
+      "website_angle": "Mirror how fractionals actually grow — and what tools need to support that motion.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "minimal_tools_at_low_client_count",
+      "pull_quote": "For me as a fractional, I don't need anything big right now. Probably a year or two years from now as it scales — but not right now.",
+      "website_angle": "Position product as right-sized for growth stage, not enterprise-heavy.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "two_tool_simplicity",
+      "pull_quote": "Outlook — you live and die by your calendar. And I use HubSpot to track all my client interactions. There are only two places for me to go. That's it.",
+      "website_angle": "Show how product fits into an already-lean stack without adding complexity.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "never_say_no_to_clients",
+      "pull_quote": "Especially with fractionals, I would never throw 'say no to clients' as a recommendation. You figure it out to make it happen.",
+      "website_angle": "Avoid messaging that implies capacity limits — fractionals reject that framing.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "credibility_through_competence",
+      "pull_quote": "If they can't handle their own work, how are they going to improve the life of their client? Anyone in the project or ops space should be solid with the basics.",
+      "website_angle": "Frame product as proof of operator competence, not a crutch for disorganization.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "bootstrapping_extends_runway",
+      "pull_quote": "The main reason was to make my dollar go further because we're bootstrapping right now. I just have a much longer runway here.",
+      "website_angle": "Resonate with cost-conscious solo operators stretching every dollar.",
+      "intensity_1_to_5": 2
+    }
+  ]
+}

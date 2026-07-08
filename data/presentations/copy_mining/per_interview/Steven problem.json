@@ -1,0 +1,78 @@
+{
+  "interview": "Steven problem",
+  "interview_weight": 0.6809999999999999,
+  "snippets": [
+    {
+      "theme_tag": "fragmented_time_and_focus",
+      "pull_quote": "My time is very broken up and I know that I do well when I have focused work time — and I have less and less of that every day.",
+      "website_angle": "Speak to fractionals losing their best work hours to context-switching across clients, roles, and inboxes.",
+      "intensity_1_to_5": 5
+    },
+    {
+      "theme_tag": "multiple_identity_context_switching",
+      "pull_quote": "I've got my Brown email, my business email, I work as a subcontractor so I've got an account with them — five or six email accounts, and I have to make sure all those get onto one calendar so I'm not double booking.",
+      "website_angle": "Position unified calendar/inbox as the fix for operators wearing 4+ hats across separate accounts.",
+      "intensity_1_to_5": 5
+    },
+    {
+      "theme_tag": "google_calendar_as_makeshift_hub",
+      "pull_quote": "The best central place I've got for managing my time right now is my Google calendar. That's it.",
+      "website_angle": "Call out the gap: a calendar is not a command center. Fractionals deserve better.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "client_mental_load_and_overwhelm",
+      "pull_quote": "Feeling overwhelmed because of customer work — definitely. Urgent work blows up the week probably a third of the time.",
+      "website_angle": "Validate the fire-drill reality; show how the product protects planned work from urgent chaos.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "client_by_client_prioritization_ritual",
+      "pull_quote": "I think through the list of clients — what's the next deliverable, what's the next value I need to create for each customer — so I know I'm thinking about each one every time I think about what to do next.",
+      "website_angle": "Mirror this mental model in product copy: we automate the client-by-client prioritization loop.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "paper_over_digital_task_lists",
+      "pull_quote": "I hate it, but it's like a new sheet of paper every day. When I try to create digital lists, they're not in front of me and they just get lost.",
+      "website_angle": "Surface the 'digital lists get buried' pain; position always-visible task cards as the answer.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "pipeline_feast_or_famine",
+      "pull_quote": "You leverage your network, consume that pent-up demand, and then there's a period where you're definitely feeling the need for more pipeline — how do I find customers who don't already know me?",
+      "website_angle": "Acknowledge the referral ceiling; tie time savings to capacity for proactive pipeline work.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "content_cadence_without_a_team",
+      "pull_quote": "My challenge is staying on cadence. Delivering once a week, whenever your cadence is — I fall off. When I've been successful it's because I had a team. I don't have a team right now.",
+      "website_angle": "Highlight how reclaimed hours let solo operators sustain the content engine that drives inbound.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "solopreneur_needing_delegation_layer",
+      "pull_quote": "Fractionals tend to be solopreneurs — but does this have a way for somebody else to engage with it? Like my analyst.",
+      "website_angle": "Speak to the moment a fractional adds their first offshore hire; position the tool as the shared operating layer.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "two_day_horizon_planning",
+      "pull_quote": "What do I have to get done in the next two days? That's how I think about it.",
+      "website_angle": "Design copy around the short-horizon operator; show how the product surfaces the right two-day window automatically.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "ai_learning_to_reduce_repetitive_work",
+      "pull_quote": "If you're doing the same thing over and over again and the AI can eventually do that simple task — that's where the compounding value kicks in.",
+      "website_angle": "Use as a vision/roadmap hook: start with prioritization, grow into delegation to AI.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "saying_yes_when_should_say_no",
+      "pull_quote": "Saying no to new opportunities — I probably should be doing more of that. I'm not to the place yet where I am.",
+      "website_angle": "Frame capacity clarity as the prerequisite for confident, profitable 'no' decisions.",
+      "intensity_1_to_5": 3
+    }
+  ]
+}

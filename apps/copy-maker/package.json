@@ -1,0 +1,43 @@
+{
+  "name": "copy-maker",
+  "description": "Content OS — topic, framework, copy, and image workflow",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "start": "node scripts/railway-start.mjs",
+    "style-guide:md": "node scripts/gen-style-guide-md.mjs",
+    "resources:sync": "node scripts/generate-resource-downloads.mjs",
+    "swipe:catalog": "node ../../scripts/linkedin/build-outliers-swipe-catalog.mjs",
+    "swipe:sync": "npm run swipe:catalog",
+    "transcripts:chunk-all": "node server/transcript-pipeline/chunkAllTranscripts.mjs",
+    "linkedin:import-csv": "node server/interviews-data/importLinkedinCsv.mjs"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.105.4",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "ws": "^8.18.3"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^24.12.3",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.1",
+    "eslint": "^10.3.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-react-refresh": "^0.5.2",
+    "globals": "^17.6.0",
+    "typescript": "~6.0.2",
+    "typescript-eslint": "^8.59.2",
+    "vite": "^8.0.12"
+  }
+}

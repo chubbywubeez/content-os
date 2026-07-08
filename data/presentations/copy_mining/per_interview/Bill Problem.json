@@ -1,0 +1,66 @@
+{
+  "interview": "Bill Problem",
+  "interview_weight": 0.33,
+  "snippets": [
+    {
+      "theme_tag": "marketing_complexity_explosion",
+      "pull_quote": "There was a date like 10 years ago I could have been a one-man marketing show. Now everything is a specialty. SEO is its own monster. Digital marketing is its own beast. My last company had 20 people with no duplication of jobs.",
+      "website_angle": "Speak to operators who've watched marketing fragment into 20 specialties — and still get asked to do it alone.",
+      "intensity_1_to_5": 5
+    },
+    {
+      "theme_tag": "client_budget_mismatch",
+      "pull_quote": "Everybody I talk to is looking for a one-man show. They think you can just do it for a little fixed retainer. I'm like, no — that's the starting point. There's got to be a bucket of money attached to that.",
+      "website_angle": "Name the gap between what clients expect and what real marketing actually costs.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "feast_or_famine_pipeline",
+      "pull_quote": "Feast or famine — you get focused doing the work, you drop the self-promotion, and then you run out of work and you're starving. By the time you pick up your head, you're back at zero again.",
+      "website_angle": "Call out the pipeline trap that every fractional operator knows but can't seem to escape.",
+      "intensity_1_to_5": 5
+    },
+    {
+      "theme_tag": "project_volume_invisibility",
+      "pull_quote": "We always had at least 500 projects open at any given time. There were so many in there — you couldn't check on all of them. You couldn't see where the work was really happening.",
+      "website_angle": "Validate the chaos of high-volume project environments where nothing is truly visible.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "ai_feral_risk",
+      "pull_quote": "You can't let AI go feral. It's feral, scary, free-range stuff. Leaders see it and think it's doing their marketing for them — but they don't know what good marketing looks like, so it all looks fine to them.",
+      "website_angle": "Speak to operators watching AI erode quality standards while leadership cheers.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "marketing_long_game_vs_founder_impatience",
+      "pull_quote": "Most entrepreneurs are sales guys — they kill it today and eat it tonight. They meet the farmers and go, what do you mean we can't eat until August? They want to murder me when they start to understand.",
+      "website_angle": "Capture the tension between founder urgency and the reality of how marketing actually works.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "no_marketing_vending_machine",
+      "pull_quote": "I have yet to find a marketing vending machine anywhere. If you had one, you'd be a billionaire — maybe a trillionaire if such a thing existed.",
+      "website_angle": "Push back on the 'easy leads' guru narrative; position your tool as built for reality, not fantasy.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "tech_stack_sprawl",
+      "pull_quote": "I end up with like 80 logins. A half-million-dollar tech stack just for my tech stack alone — and it's barely a mid-sized company.",
+      "website_angle": "Validate the absurdity of modern martech sprawl for operators managing complex ecosystems.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "prospecting_fatigue",
+      "pull_quote": "I have a low capacity for boredom and prospecting definitely falls into that realm. I've been doing it for two years since that company went south. It gets pretty old.",
+      "website_angle": "Acknowledge the emotional grind of self-promotion for operators who'd rather be doing the work.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "retainer_vs_project_model",
+      "pull_quote": "For it to be marketing, it has to be retainer-based. There's no such thing as month-to-month marketing.",
+      "website_angle": "Reinforce why serious fractional marketers need long-cycle client structures — and tools that reflect that.",
+      "intensity_1_to_5": 3
+    }
+  ]
+}

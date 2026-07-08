@@ -5,6 +5,15 @@
 .env.*
 **/.codex-vite.log
 archive
+data/generated
+data/presentations/**/__pycache__
+data/presentations/**/*.pyc
+data/presentations/claude_browser_batch_md
+data/presentations/claude_web_export
+data/presentations/originals
+data/presentations/originals_txt
+data/presentations/pipeline/jobs
+data/presentations/tools/pw_chrome_profile
 data/outliers/data/outliers_by_person
 data/outliers/data/*.md
 data/outliers/prompts

@@ -1,0 +1,78 @@
+{
+  "interview": "Laila Problem Statement",
+  "interview_weight": 0.57,
+  "snippets": [
+    {
+      "theme_tag": "pipeline_paralysis",
+      "pull_quote": "It felt like the Wall in Game of Thrones — trying to scale that when you're not starting.",
+      "website_angle": "Speak to operators who feel the pipeline is impossible to crack from a standing start.",
+      "intensity_1_to_5": 5
+    },
+    {
+      "theme_tag": "working_in_vs_on_the_business",
+      "pull_quote": "It's very easy when there's a load to do to put off the things that are creating new business. 30 to 40% of my job needs to be trying to win new clients.",
+      "website_angle": "Name the trap: delivery work crowds out business development every time.",
+      "intensity_1_to_5": 5
+    },
+    {
+      "theme_tag": "letting_myself_down_not_the_client",
+      "pull_quote": "I'm constantly worried I'm not doing enough — not letting my clients down, but I'm letting myself down.",
+      "website_angle": "Surface the guilt operators feel about neglecting their own growth, not just client work.",
+      "intensity_1_to_5": 5
+    },
+    {
+      "theme_tag": "outbound_avoidance",
+      "pull_quote": "I'm just telling myself I'll do it and then not doing it. Outbound is what I really don't know how to do — that's my next thing.",
+      "website_angle": "Position the product as the thing that finally makes outbound feel doable, not dreadable.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "effort_without_momentum",
+      "pull_quote": "Without guidance and shape to the week, you can end up putting in a lot of effort without any momentum.",
+      "website_angle": "Contrast busy-ness with actual progress — the product gives direction, not just a to-do list.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "decision_paralysis_what_to_do_next",
+      "pull_quote": "Overwhelm and decision paralysis about what to do next — I just need something that tells me: do this next.",
+      "website_angle": "Lead with 'always know your next move' — remove the cognitive load of prioritisation.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "selling_yourself_vs_selling_for_others",
+      "pull_quote": "Selling yourself is very, very different from working in an agency and selling someone else — especially when they've got a 10 million pound budget.",
+      "website_angle": "Validate the identity shift; great operators aren't natural self-promoters.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "positioning_anxiety_too_broad_vs_too_narrow",
+      "pull_quote": "How do I position myself so I'm not limiting it, but I'm not too general? I spent a long time on that — when it clicked, it was good.",
+      "website_angle": "Acknowledge the niche-vs-generalist tension as a real, painful early-stage decision.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "tinkering_instead_of_selling",
+      "pull_quote": "They're constantly tinkering — with their website, their positioning, their framework — rather than just going out and doing the selling.",
+      "website_angle": "Call out productive procrastination; the product redirects energy toward revenue actions.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "confidence_gap_despite_real_expertise",
+      "pull_quote": "I had to go to Claude and ask — can I do go-to-market? And it's like, of course I can fucking do it. I've been doing it for years. But the confidence just isn't there.",
+      "website_angle": "Speak to the imposter syndrome that hits even seasoned operators when they go independent.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "runway_pressure",
+      "pull_quote": "I've got a runway of money for how long it will last — and that's always in the background.",
+      "website_angle": "Acknowledge the financial clock ticking; urgency is real, not imagined.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "scope_creep_from_good_clients",
+      "pull_quote": "He's great, but he's throwing stuff at me — and it's how I set boundaries to say I'm only fractional. That's more about me. It's my transition from corporate.",
+      "website_angle": "Help operators protect their time even with clients they love working with.",
+      "intensity_1_to_5": 3
+    }
+  ]
+}

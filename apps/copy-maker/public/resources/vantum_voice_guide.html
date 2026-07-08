@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>The Vantum Voice Guide</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
+
+  :root {
+    --app-bg: #f7f8fa;
+    --app-bg-dark: #030a17;
+    --surface-1: #ffffff;
+    --surface-3: #f1f5f9;
+    --text-primary: #0f172a;
+    --text-soft: #334155;
+    --text-muted: #475569;
+    --surface-border: rgba(15,23,42,0.08);
+
+    --emerald: #059669;
+    --emerald-hover: #047857;
+    --emerald-light: #d1fae5;
+    --cyan: #0891b2;
+    --cyan-light: #e0f7fa;
+
+    --ochre: #C97B00;
+    --ochre-light: #fff4e0;
+    --terra: #B34A3F;
+    --terra-light: #fdf0ef;
+    --charcoal: #1A1E29;
+    --lightgray: #A3A6B4;
+    --white: #FFFFFF;
+
+    --page-bg: #f7f8fa;
+    --card-bg: #f1f5f9;
+    --page-text: #0f172a;
+    --page-subtext: #475569;
+    --page-border: rgba(15,23,42,0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: #eef0f5;
+    color: var(--page-text);
+    font-size: 10pt;
+    line-height: 1.6;
+    padding: 40px 20px;
+  }
+
+  .doc { max-width: 900px; margin: 0 auto; }
+
+  /* ── DOC HEADER ── */
+  .doc-header {
+    background: var(--app-bg-dark);
+    border-radius: 16px;
+    padding: 48px 56px;
+    margin-bottom: 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .doc-header::after {
+    content: '';
+    position: absolute; top: -60px; right: -60px;
+    width: 250px; height: 250px;
+    background: rgba(5,150,105,0.08); border-radius: 50%;
+  }
+  .doc-header::before {
+    content: '';
+    position: absolute; bottom: -80px; left: -80px;
+    width: 220px; height: 220px;
+    background: rgba(201,123,0,0.06); border-radius: 50%;
+  }
+  .doc-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.08);
+    color: #A3A6B4;
+    font-size: 7pt; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase;
+    padding: 5px 14px; border-radius: 20px; margin-bottom: 20px;
+    position: relative; z-index: 1;
+  }
+  .doc-header h1 {
+    font-size: 26pt; font-weight: 900; color: white;
+    line-height: 1.15; margin-bottom: 12px; letter-spacing: -0.5px;
+    position: relative; z-index: 1;
+  }
+  .doc-header h1 span { color: var(--ochre); }
+  .doc-header p { color: #A3A6B4; font-size: 10pt; font-weight: 300; line-height: 1.65; max-width: 560px; position: relative; z-index: 1; }
+  .doc-header .one-liner {
+    margin-top: 22px;
+    padding: 14px 18px;
+    background: rgba(255,255,255,0.04);
+    border-left: 3px solid var(--emerald);
+    border-radius: 6px;
+    color: #d1fae5;
+    font-size: 9pt;
+    font-style: italic;
+    line-height: 1.6;
+    max-width: 600px;
+    position: relative; z-index: 1;
+  }
+
+  /* ── SECTION ── */
+  .section {
+    background: white;
+    border-radius: 16px;
+    border: 1px solid rgba(15,23,42,0.08);
+    overflow: hidden;
+    margin-bottom: 24px;
+  }
+  .section-header {
+    padding: 20px 32px;
+    border-bottom: 1px solid rgba(15,23,42,0.08);
+    display: flex; align-items: center; gap: 12px;
+  }
+  .section-num {
+    background: var(--emerald); color: white;
+    font-size: 7pt; font-weight: 800;
+    width: 26px; height: 26px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .section-title { font-size: 11pt; font-weight: 800; color: var(--charcoal); }
+  .section-body { padding: 28px 32px; }
+
+  /* ── SUB LABEL ── */
+  .sub-label {
+    font-size: 7pt; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--emerald);
+    margin-bottom: 10px; margin-top: 22px;
+  }
+  .sub-label:first-child { margin-top: 0; }
+
+  /* ── BODY COPY ── */
+  .body-text { font-size: 9pt; color: var(--text-muted); line-height: 1.75; margin: 8px 0 14px; }
+  .body-text strong { color: var(--charcoal); }
+
+  /* ── BLOCK DEMOS ── */
+  .block-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 12px 0; }
+  .block-demo { border-radius: 8px; padding: 14px 16px; }
+  .block-demo.red { background: var(--terra-light); border-left: 3px solid var(--terra); }
+  .block-demo.green { background: var(--emerald-light); border-left: 3px solid var(--emerald); }
+  .block-demo.ochre { background: var(--ochre-light); border-left: 3px solid var(--ochre); }
+  .block-demo.dark { background: var(--charcoal); border-radius: 8px; padding: 14px 16px; }
+  .block-label {
+    font-size: 6pt; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; margin-bottom: 4px;
+  }
+  .block-demo.red .block-label { color: var(--terra); }
+  .block-demo.green .block-label { color: var(--emerald); }
+  .block-demo.ochre .block-label { color: var(--ochre); }
+  .block-demo.dark .block-label { color: #6ee7b7; }
+  .block-title { font-size: 8.5pt; font-weight: 700; margin-bottom: 4px; }
+  .block-demo.red .block-title { color: var(--terra); }
+  .block-demo.green .block-title { color: var(--emerald); }
+  .block-demo.ochre .block-title { color: var(--ochre); }
+  .block-demo.dark .block-title { color: white; }
+  .block-text { font-size: 8pt; line-height: 1.55; }
+  .block-demo.red .block-text { color: #7a2a24; }
+  .block-demo.green .block-text { color: #065f46; }
+  .block-demo.ochre .block-text { color: #7a4d00; font-style: italic; }
+  .block-demo.dark .block-text { color: #A3A6B4; }
+
+  /* ── TABLES ── */
+  .use-table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 8.5pt; }
+  .use-table th {
+    background: var(--card-bg); padding: 10px 14px; text-align: left;
+    font-weight: 700; color: var(--charcoal); font-size: 7.5pt;
+    letter-spacing: 0.5px; border-bottom: 2px solid rgba(15,23,42,0.08);
+  }
+  .use-table td {
+    padding: 10px 14px; border-bottom: 1px solid rgba(15,23,42,0.06);
+    vertical-align: top; color: var(--page-subtext); line-height: 1.55;
+  }
+  .use-table tr:last-child td { border-bottom: none; }
+  .use-table td strong { color: var(--charcoal); }
+
+  /* ── PILLS ── */
+  .block-pill {
+    display: inline-block; padding: 2px 8px; border-radius: 10px;
+    font-size: 6.5pt; font-weight: 700; letter-spacing: 0.5px;
+  }
+  .pill-red { background: var(--terra-light); color: var(--terra); }
+  .pill-green { background: var(--emerald-light); color: var(--emerald); }
+  .pill-ochre { background: var(--ochre-light); color: var(--ochre); }
+  .pill-dark { background: var(--charcoal); color: white; }
+  .pill-cyan { background: var(--cyan-light); color: var(--cyan); }
+
+  /* ── VOCAB GRID ── */
+  .vocab-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin: 12px 0; }
+  .vocab-card {
+    border-radius: 10px;
+    padding: 14px 16px;
+    border: 1px solid rgba(15,23,42,0.08);
+  }
+  .vocab-card.lean { background: var(--emerald-light); border-left: 3px solid var(--emerald); }
+  .vocab-card.use-sparingly { background: var(--ochre-light); border-left: 3px solid var(--ochre); }
+  .vocab-card.avoid { background: var(--terra-light); border-left: 3px solid var(--terra); }
+  .vocab-card .v-label {
+    font-size: 6pt; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; margin-bottom: 4px;
+  }
+  .vocab-card.lean .v-label { color: var(--emerald); }
+  .vocab-card.use-sparingly .v-label { color: var(--ochre); }
+  .vocab-card.avoid .v-label { color: var(--terra); }
+  .vocab-card .v-title { font-size: 8.5pt; font-weight: 700; margin-bottom: 8px; }
+  .vocab-card.lean .v-title { color: var(--emerald); }
+  .vocab-card.use-sparingly .v-title { color: var(--ochre); }
+  .vocab-card.avoid .v-title { color: var(--terra); }
+  .vocab-card .v-list { font-size: 7.5pt; line-height: 1.7; }
+  .vocab-card.lean .v-list { color: #065f46; }
+  .vocab-card.use-sparingly .v-list { color: #7a4d00; }
+  .vocab-card.avoid .v-list { color: #7a2a24; }
+  .vocab-card .v-list .term { font-weight: 700; }
+
+  /* ── REGISTER CARDS ── */
+  .register-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin: 12px 0; }
+  .register-card {
+    background: white;
+    border: 1px solid rgba(15,23,42,0.08);
+    border-radius: 12px;
+    padding: 18px 18px 16px;
+    border-top: 3px solid var(--emerald);
+  }
+  .register-card.reg-2 { border-top-color: var(--ochre); }
+  .register-card.reg-3 { border-top-color: var(--cyan); }
+  .register-num {
+    font-size: 6.5pt; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--emerald);
+    margin-bottom: 6px;
+  }
+  .register-card.reg-2 .register-num { color: var(--ochre); }
+  .register-card.reg-3 .register-num { color: var(--cyan); }
+  .register-name { font-size: 10pt; font-weight: 800; color: var(--charcoal); margin-bottom: 6px; }
+  .register-dial { font-size: 7.5pt; color: var(--page-subtext); font-style: italic; margin-bottom: 12px; line-height: 1.5; }
+  .register-meta {
+    border-top: 1px solid rgba(15,23,42,0.08);
+    padding-top: 10px; margin-top: 4px;
+    display: grid; grid-template-columns: auto 1fr; gap: 4px 10px;
+    font-size: 7pt;
+  }
+  .meta-key { color: var(--lightgray); font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; font-size: 6.5pt; }
+  .meta-val { color: var(--charcoal); font-weight: 600; }
+
+  /* ── ARCHETYPE GRID ── */
+  .archetype-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 12px 0; }
+  .archetype-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 18px 20px;
+    border: 1px solid rgba(15,23,42,0.08);
+    border-left: 3px solid var(--emerald);
+  }
+  .archetype-card.warrior { border-left-color: var(--terra); }
+  .archetype-card.magician { border-left-color: var(--cyan); }
+  .archetype-card.lover { border-left-color: var(--ochre); }
+  .archetype-icon {
+    font-size: 6.5pt; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--emerald); margin-bottom: 4px;
+  }
+  .archetype-card.warrior .archetype-icon { color: var(--terra); }
+  .archetype-card.magician .archetype-icon { color: var(--cyan); }
+  .archetype-card.lover .archetype-icon { color: var(--ochre); }
+  .archetype-name { font-size: 12pt; font-weight: 800; color: var(--charcoal); margin-bottom: 8px; letter-spacing: -0.3px; }
+  .archetype-tag { font-size: 8pt; color: var(--page-subtext); margin-bottom: 10px; font-style: italic; }
+  .archetype-pulls { font-size: 7.5pt; line-height: 1.65; color: var(--text-soft); }
+  .archetype-pulls .pulls-label {
+    font-size: 6pt; font-weight: 700; letter-spacing: 1px;
+    text-transform: uppercase; color: var(--lightgray);
+    display: block; margin-bottom: 4px;
+  }
+
+  /* ── SIGNATURE MOVES ── */
+  .moves-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0; }
+  .move-card {
+    background: var(--card-bg);
+    border-radius: 10px;
+    padding: 16px 18px;
+    border: 1px solid rgba(15,23,42,0.08);
+    border-top: 3px solid var(--emerald);
+  }
+  .move-name { font-size: 9pt; font-weight: 800; color: var(--charcoal); margin-bottom: 4px; }
+  .move-desc { font-size: 7.5pt; color: var(--page-subtext); line-height: 1.6; margin-bottom: 8px; }
+  .move-example {
+    background: white;
+    border-left: 2px solid var(--emerald);
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 7.5pt;
+    color: var(--charcoal);
+    font-style: italic;
+    line-height: 1.55;
+  }
+
+  /* ── TEMPLATE BLOCK ── */
+  .template-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    border: 1px solid rgba(15,23,42,0.08);
+    padding: 22px 24px;
+    margin: 14px 0;
+  }
+  .template-header {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    gap: 16px; margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(15,23,42,0.08);
+  }
+  .template-name { font-size: 11pt; font-weight: 800; color: var(--charcoal); margin-bottom: 4px; letter-spacing: -0.2px; }
+  .template-for { font-size: 7pt; color: var(--page-subtext); }
+  .template-for strong { color: var(--charcoal); }
+  .template-tags { display: flex; gap: 6px; flex-shrink: 0; flex-wrap: wrap; justify-content: flex-end; }
+  .template-tag {
+    background: white;
+    color: var(--emerald);
+    font-size: 6.5pt; font-weight: 700; letter-spacing: 0.5px;
+    padding: 3px 8px; border-radius: 10px;
+    border: 1px solid var(--emerald-light);
+  }
+  .template-tag.warrior { color: var(--terra); border-color: var(--terra-light); }
+  .template-tag.magician { color: var(--cyan); border-color: var(--cyan-light); }
+  .template-tag.lover { color: var(--ochre); border-color: var(--ochre-light); }
+  .template-structure { margin: 10px 0; }
+  .struct-row {
+    display: flex; gap: 10px; align-items: flex-start;
+    font-size: 7.5pt; color: var(--text-soft); padding: 4px 0;
+    line-height: 1.55;
+  }
+  .struct-num {
+    background: var(--emerald); color: white;
+    width: 16px; height: 16px; border-radius: 50%;
+    font-size: 6pt; font-weight: 800;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; margin-top: 1px;
+  }
+  .template-example {
+    background: white;
+    border-radius: 8px;
+    border-left: 3px solid var(--ochre);
+    padding: 14px 18px;
+    margin-top: 12px;
+    font-size: 8pt;
+    color: var(--text-soft);
+    line-height: 1.7;
+    font-style: italic;
+  }
+  .template-example .ex-label {
+    font-size: 6pt; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--ochre);
+    margin-bottom: 6px;
+    font-style: normal;
+    display: block;
+  }
+  .template-example p { margin-bottom: 8px; }
+  .template-example p:last-child { margin-bottom: 0; }
+
+  /* ── EXAMPLE BY REGISTER ── */
+  .example-card {
+    background: white;
+    border: 1px solid rgba(15,23,42,0.08);
+    border-radius: 12px;
+    padding: 20px 22px;
+    margin: 12px 0;
+    border-top: 3px solid var(--emerald);
+  }
+  .example-card.reg-2 { border-top-color: var(--ochre); }
+  .example-card.reg-3 { border-top-color: var(--cyan); }
+  .example-meta {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(15,23,42,0.08);
+  }
+  .example-name { font-size: 9.5pt; font-weight: 800; color: var(--charcoal); }
+  .example-stat { font-size: 6.5pt; color: var(--lightgray); font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
+  .example-body { font-size: 8.5pt; color: var(--text-soft); line-height: 1.7; }
+  .example-body p { margin-bottom: 8px; }
+  .example-body p:last-child { margin-bottom: 0; }
+  .example-body em { color: var(--charcoal); font-style: italic; }
+
+  /* ── CHECKLIST ── */
+  .checklist { margin: 12px 0; }
+  .check-item {
+    display: flex; gap: 10px; align-items: flex-start;
+    padding: 8px 0; border-bottom: 1px solid rgba(15,23,42,0.06);
+    font-size: 8.5pt; color: var(--page-subtext);
+  }
+  .check-item:last-child { border-bottom: none; }
+  .check-dot {
+    width: 16px; height: 16px; border-radius: 50%;
+    background: var(--emerald-light); border: 2px solid var(--emerald);
+    flex-shrink: 0; margin-top: 1px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 8pt; color: var(--emerald); font-weight: 700;
+  }
+  .check-item strong { color: var(--charcoal); }
+
+  /* ── "NOT THESE" ── */
+  .not-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 12px 0; }
+  .not-card {
+    background: var(--terra-light);
+    border-left: 3px solid var(--terra);
+    border-radius: 8px;
+    padding: 12px 14px;
+  }
+  .not-name { font-size: 8.5pt; font-weight: 700; color: var(--terra); margin-bottom: 2px; }
+  .not-desc { font-size: 7.5pt; color: #7a2a24; line-height: 1.55; }
+
+  /* ── PROMPT BOX (audit prompt) ── */
+  .prompt-box {
+    background: var(--app-bg-dark);
+    border-radius: 10px; padding: 24px 28px; margin: 16px 0;
+    font-family: 'Courier New', monospace;
+    font-size: 8pt; color: #c8d0e0; line-height: 1.8;
+    white-space: pre-wrap;
+  }
+  .pc { color: #2d6a5a; }
+  .pv { color: var(--ochre); }
+  .pk { color: #6ee7b7; }
+
+  .highlight {
+    background: var(--ochre-light); border-left: 3px solid var(--ochre);
+    border-radius: 6px; padding: 12px 16px; margin: 14px 0; font-size: 8.5pt; color: #7a4d00; line-height: 1.65;
+  }
+  .highlight strong { color: var(--ochre); }
+
+  .signature-line {
+    background: var(--charcoal);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin: 12px 0;
+    color: white;
+    font-size: 9pt;
+    font-weight: 700;
+    line-height: 1.5;
+    border-left: 3px solid var(--emerald);
+  }
+  .signature-line .sig-label {
+    color: #6ee7b7;
+    font-size: 6pt; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase;
+    display: block; margin-bottom: 4px;
+  }
+
+  hr { border: none; border-top: 1px solid rgba(15,23,42,0.08); margin: 20px 0; }
+  code { background: var(--card-bg); padding: 2px 6px; border-radius: 4px; font-family: 'Courier New', monospace; font-size: 7.5pt; color: var(--emerald); border: 1px solid rgba(15,23,42,0.08); }
+
+  .update-badge {
+    display: inline-block; background: var(--emerald-light); color: var(--emerald);
+    font-size: 6.5pt; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+    padding: 2px 8px; border-radius: 10px; margin-left: 8px; vertical-align: middle;
+  }
+
+  /* ── FOOTER ── */
+  .doc-footer {
+    text-align: center;
+    padding: 24px 0 8px;
+    font-size: 7pt;
+    color: var(--lightgray);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .doc-footer .vt { color: var(--emerald); font-weight: 800; letter-spacing: 2px; }
+</style>
+</head>
+<body>
+<div class="doc">
+
+  <!-- HEADER -->
+  <div class="doc-header">
+    <div class="doc-tag">🗣️ Vantum Voice Guide · Brand Voice Reference</div>
+    <h1>The Vantum<br><span>Voice Profile.</span></h1>
+    <p>Reference document for writing in Vantum's voice — across newsletters, website copy, social, and product. Use it before drafting. Use it during revision. Use it to audit AI-generated drafts.</p>
+    <div class="one-liner">
+      <strong style="color:white;">The voice in one sentence —</strong> Vantum sounds like a senior operator who has already done what you're trying to do, and respects you enough to skip the pep talk.
+    </div>
+  </div>
+
+  <!-- 1. VOICE ORIGIN & TONE -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">1</div>
+      <div class="section-title">Voice Origin & Tone</div>
+    </div>
+    <div class="section-body">
+
+      <div class="sub-label">Where the Voice Comes From</div>
+      <p class="body-text">Vantum's voice draws from both cofounder voices but stands on its own. The cofounders write at high energy because LinkedIn rewards it. Vantum writes with quiet authority because newsletters and websites reward that. Both are correct in context — Vantum is the version that holds up across all three.</p>
+
+      <table class="use-table">
+        <tr><th>Source</th><th>What Vantum Inherits</th></tr>
+        <tr><td><strong>From Brian</strong></td><td>Battle-tested directness, vulnerability-earned authority, AI-as-leverage framing</td></tr>
+        <tr><td><strong>From Tabarak</strong></td><td>Discipline-as-edge, systems-over-grind, operator identity, sovereignty vocabulary</td></tr>
+        <tr><td><strong>What Vantum adds</strong></td><td>Restraint. The brand doesn't perform. It communicates.</td></tr>
+      </table>
+
+      <div class="sub-label">Tone & Point of View — Four Settings</div>
+      <div class="block-grid">
+        <div class="block-demo green">
+          <div class="block-label">✅ Direct, Not Aggressive</div>
+          <div class="block-title">Say the hard thing without dressing it up</div>
+          <div class="block-text">And without raising its voice. The hard thing is just stated.</div>
+        </div>
+        <div class="block-demo green">
+          <div class="block-label">✅ Confident Without Flexing</div>
+          <div class="block-title">Demonstrate, don't list credentials</div>
+          <div class="block-text">The voice assumes the reader has been doing this for a while. No condescension.</div>
+        </div>
+        <div class="block-demo ochre">
+          <div class="block-label">🔍 Diagnostic Before Prescriptive</div>
+          <div class="block-title" style="font-style:italic;">Name the pattern first, then the response.</div>
+          <div class="block-text" style="font-style:italic;">"Most fractional CMOs hit a wall at month 4 — and the wall is decision-fatigue, not workload."</div>
+        </div>
+        <div class="block-demo dark">
+          <div class="block-label">🎯 Respectful of Fatigue</div>
+          <div class="block-title">The audience is tired</div>
+          <div class="block-text">Vantum doesn't add energy. It removes friction. No exclamation points. No "you got this!"</div>
+        </div>
+      </div>
+
+      <div class="highlight">
+        <strong>Quietly sharp.</strong> Vantum can be funny but doesn't need to be. The wit is dry, structural, and specific to the operator's life. If it's funny, it's because the truth is funny.
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 2. SIGNATURE MOVES -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">2</div>
+      <div class="section-title">The Six Signature Moves</div>
+    </div>
+    <div class="section-body">
+
+      <p class="body-text">These are the recognizable patterns that make a piece of writing sound like Vantum. If a draft is missing all six, it isn't on-voice. If it's hitting two or three, it usually is.</p>
+
+      <div class="moves-grid">
+        <div class="move-card">
+          <div class="move-name">The Named Pattern</div>
+          <div class="move-desc">Before Vantum proposes a fix, it names what's happening. Naming is the move that makes operators feel seen.</div>
+          <div class="move-example">"Feast or famine." "Goal deferral." "The competence trap." "The 90-day lag."</div>
+        </div>
+        <div class="move-card">
+          <div class="move-name">The Architectural Frame</div>
+          <div class="move-desc">Vantum talks about your business as architecture. Not jargon — how operators actually think.</div>
+          <div class="move-example">Capacity. Layers. Routing. Pipeline. Decisions as objects. Stakeholders as inputs.</div>
+        </div>
+        <div class="move-card">
+          <div class="move-name">The Math Beat</div>
+          <div class="move-desc">Numbers do work in Vantum's voice. When math sharpens the point, use it. When it doesn't, cut it.</div>
+          <div class="move-example">"3 famine months × $15K shortfall = $45K annual cost."</div>
+        </div>
+        <div class="move-card">
+          <div class="move-name">The Honest Reframe</div>
+          <div class="move-desc">Vantum reframes without softening. The reframe doesn't excuse — it reorients.</div>
+          <div class="move-example">"You're not bad at sales — you're great at delivery, and that's the trap."</div>
+        </div>
+        <div class="move-card">
+          <div class="move-name">The Structural Answer</div>
+          <div class="move-desc">Vantum points at the structure, not the person. Discipline isn't the answer. The structure is the constraint.</div>
+          <div class="move-example">"Solo operators don't have two hats. They have one queue."</div>
+        </div>
+        <div class="move-card">
+          <div class="move-name">The Single-Line Close</div>
+          <div class="move-desc">Many sections end with a line that crystallizes the move. Mechanical, not moral. Punchline, not CTA.</div>
+          <div class="move-example">"The structure decides, not your willpower." "Sustainable beats successful."</div>
+        </div>
+      </div>
+
+      <div class="signature-line">
+        <span class="sig-label">★ Rhythm Rule</span>
+        Sentences earn their length. Short when sharp. Long when they need to breathe. Paragraphs cluster ideas — one move per paragraph, not one sentence. Less white space than LinkedIn, more than corporate.
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 3. VOCABULARY -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">3</div>
+      <div class="section-title">Vocabulary — Lean Into, Use Sparingly, Avoid</div>
+    </div>
+    <div class="section-body">
+
+      <p class="body-text">Vantum's lexicon does three things: it borrows from systems thinking, it speaks like an operator giving an order, and it diagnoses patterns. Anything outside those three jobs usually doesn't belong.</p>
+
+      <div class="vocab-grid">
+        <div class="vocab-card lean">
+          <div class="v-label">✅ Lean Into</div>
+          <div class="v-title">Architecture & Systems</div>
+          <div class="v-list">
+            <span class="term">capacity · layer · queue · routing · signal · pipeline · throughput · stakeholder · the math · the system</span>
+          </div>
+        </div>
+        <div class="vocab-card lean">
+          <div class="v-label">✅ Lean Into</div>
+          <div class="v-title">Operator Language</div>
+          <div class="v-list">
+            <span class="term">command · decide · delegate · defer · kill · ship · hold · raise · cut · protect · reserve</span>
+          </div>
+        </div>
+        <div class="vocab-card lean">
+          <div class="v-label">✅ Lean Into</div>
+          <div class="v-title">Diagnostic & Restoration</div>
+          <div class="v-list">
+            <span class="term">pattern · structure · default · drift · trap · cycle · lag · reflex · asymmetry · recovery · restore · sustain · ambient</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sub-label" style="margin-top:20px;">Use Sparingly — Cofounder Tells</div>
+      <p class="body-text">These come from the cofounder voices. They work occasionally, but Vantum is not them. Earn them.</p>
+
+      <table class="use-table">
+        <tr><th>Term</th><th>Why Sparingly</th></tr>
+        <tr><td><strong>Compounding</strong></td><td>Accurate but overused. Earn it.</td></tr>
+        <tr><td><strong>Sovereignty, sharpening, edge</strong></td><td>Tabarak's tells. Save for when they truly fit.</td></tr>
+        <tr><td><strong>Grit, grind, hustle</strong></td><td>Only when describing what to avoid.</td></tr>
+        <tr><td><strong>Battle-tested, scars, in the trenches</strong></td><td>Brian's moves. Save for vulnerability beats.</td></tr>
+      </table>
+
+      <div class="sub-label" style="margin-top:20px;">Avoid Entirely</div>
+      <div class="not-grid">
+        <div class="not-card">
+          <div class="not-name">LinkedIn-Founder Clichés</div>
+          <div class="not-desc">"Then it hit me" · "Here's the truth" · "harsh truths I learned" · "I used to think X, now I know Y"</div>
+        </div>
+        <div class="not-card">
+          <div class="not-name">"Burn the Ships"</div>
+          <div class="not-desc">Explicitly off-limits. That's the founders' personal move — not the brand's.</div>
+        </div>
+        <div class="not-card">
+          <div class="not-name">Corporate Filler</div>
+          <div class="not-desc">"Synergy" · "holistic" · "leverage opportunities" · "future of work" · "we're on a mission to..."</div>
+        </div>
+        <div class="not-card">
+          <div class="not-name">Generic SaaS</div>
+          <div class="not-desc">"Game-changer" · "10x" · "unleash your potential" · "future of work"</div>
+        </div>
+        <div class="not-card">
+          <div class="not-name">Performative Punctuation</div>
+          <div class="not-desc">Exclamation points · em-dashes as decoration · ALL-CAPS for emphasis</div>
+        </div>
+        <div class="not-card">
+          <div class="not-name">Casual Web Speak</div>
+          <div class="not-desc">Emoji · "lol" · "vibes" language</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 4. THE THREE REGISTERS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">4</div>
+      <div class="section-title">The Three Registers — DNA Constant, Dial Moves</div>
+    </div>
+    <div class="section-body">
+
+      <p class="body-text">Vantum's voice flexes by context. The DNA is constant. The dial moves. Identify the register <strong>before</strong> drafting — the rules differ.</p>
+
+      <div class="register-grid">
+        <div class="register-card">
+          <div class="register-num">R1 · Social</div>
+          <div class="register-name">LinkedIn</div>
+          <div class="register-dial">Direct, sharp, slightly performative, mobile-first scannable.</div>
+          <div class="register-meta">
+            <div class="meta-key">Does</div><div class="meta-val">Names pattern in line 1</div>
+            <div class="meta-key">Does</div><div class="meta-val">One story or framework</div>
+            <div class="meta-key">Does</div><div class="meta-val">Lands on one takeaway</div>
+            <div class="meta-key">Length</div><div class="meta-val">80–220 words</div>
+            <div class="meta-key">Vertical</div><div class="meta-val">Higher, not extreme</div>
+          </div>
+        </div>
+        <div class="register-card reg-2">
+          <div class="register-num">R2 · Long-Form</div>
+          <div class="register-name">Newsletter</div>
+          <div class="register-dial">Restrained, substantive, paced, quietly authoritative.</div>
+          <div class="register-meta">
+            <div class="meta-key">Does</div><div class="meta-val">Opens with operator moment</div>
+            <div class="meta-key">Does</div><div class="meta-val">One idea, developed fully</div>
+            <div class="meta-key">Does</div><div class="meta-val">Closes with thought, not CTA</div>
+            <div class="meta-key">Length</div><div class="meta-val">600–1200 words</div>
+            <div class="meta-key">Cadence</div><div class="meta-val">Sunday-thought weight</div>
+          </div>
+        </div>
+        <div class="register-card reg-3">
+          <div class="register-num">R3 · Product</div>
+          <div class="register-name">Website</div>
+          <div class="register-dial">Declarative, specific, confident, feature-clear.</div>
+          <div class="register-meta">
+            <div class="meta-key">Does</div><div class="meta-val">States what Vantum is</div>
+            <div class="meta-key">Does</div><div class="meta-val">Specific operator examples</div>
+            <div class="meta-key">Does</div><div class="meta-val">Names audience precisely</div>
+            <div class="meta-key">Length</div><div class="meta-val">As short as possible</div>
+            <div class="meta-key">Tone</div><div class="meta-val">Calm certainty, no oversell</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sub-label" style="margin-top:20px;">What Each Register Refuses To Do</div>
+      <table class="use-table">
+        <tr><th>Register</th><th>Doesn't Do</th></tr>
+        <tr><td><span class="block-pill pill-green">R1 LinkedIn</span></td><td>Threads of universal wisdom · "I used to think X, now I know Y" · "5 harsh truths" lists · "Last year I lost everything..." · stacking three CTAs</td></tr>
+        <tr><td><span class="block-pill pill-ochre">R2 Newsletter</span></td><td>Recap what's coming at Vantum · promote five things at the end · LinkedIn-style hooks · sound like a marketing email</td></tr>
+        <tr><td><span class="block-pill pill-cyan">R3 Website</span></td><td>Hyperbolize ("the future of work") · make vague AI claims · use platform-space jargon ("workspace, hub, suite") · abstract benefit copy without an operator example</td></tr>
+      </table>
+
+    </div>
+  </div>
+
+  <!-- 5. ARCHETYPES -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">5</div>
+      <div class="section-title">The Four Archetypes — Internal Compass Only</div>
+    </div>
+    <div class="section-body">
+
+      <div class="highlight">
+        <strong>Internal use only.</strong> Archetypes shape the voice — they never appear in the writing itself. A piece typically pulls 1–2 archetypes. Hitting all four at once is how brand voices go generic.
+      </div>
+
+      <div class="archetype-grid">
+        <div class="archetype-card">
+          <div class="archetype-icon">★ Archetype 1</div>
+          <div class="archetype-name">King</div>
+          <div class="archetype-tag">Vision · command · category-defining</div>
+          <div class="archetype-pulls">
+            <span class="pulls-label">Pulls when</span>
+            Talking about the operator's identity. Defining the category ("solo at the management layer"). Stating Vantum's worldview. Manifesto-style pieces.
+          </div>
+        </div>
+        <div class="archetype-card warrior">
+          <div class="archetype-icon">⚔ Archetype 2</div>
+          <div class="archetype-name">Warrior</div>
+          <div class="archetype-tag">Tactical · executional · sharp</div>
+          <div class="archetype-pulls">
+            <span class="pulls-label">Pulls when</span>
+            Outlining a specific play, framework, or move. Discussing capacity, pipeline, scope, decisions. The "do this, then this" content.
+          </div>
+        </div>
+        <div class="archetype-card magician">
+          <div class="archetype-icon">✦ Archetype 3</div>
+          <div class="archetype-name">Magician</div>
+          <div class="archetype-tag">Insight · pattern · reframe</div>
+          <div class="archetype-pulls">
+            <span class="pulls-label">Pulls when</span>
+            Naming a hidden pattern (goal deferral, competence trap). Offering an honest reframe. Showing operators something they've felt but couldn't articulate.
+          </div>
+        </div>
+        <div class="archetype-card lover">
+          <div class="archetype-icon">♡ Archetype 4</div>
+          <div class="archetype-name">Lover</div>
+          <div class="archetype-tag">Recognition · care · the human note</div>
+          <div class="archetype-pulls">
+            <span class="pulls-label">Pulls when</span>
+            Acknowledging the cost (overwhelm, burnout, isolation). The "you've been carrying this alone" beat. Quiet vulnerability that earns trust.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 6. THE FIVE TEMPLATES -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">6</div>
+      <div class="section-title">The Five Templates — Copy, Fill, Ship</div>
+    </div>
+    <div class="section-body">
+
+      <p class="body-text">Each template maps to 1–2 archetypes. Use them as scaffolding for drafts, then strip what isn't earning its place. They're patterns, not formulas.</p>
+
+      <!-- Template 1 -->
+      <div class="template-card">
+        <div class="template-header">
+          <div>
+            <div class="template-name">Template 1 — The Diagnostic</div>
+            <div class="template-for"><strong>For:</strong> LinkedIn posts, newsletter sections</div>
+          </div>
+          <div class="template-tags">
+            <span class="template-tag magician">✦ Magician</span>
+            <span class="template-tag warrior">⚔ Warrior</span>
+          </div>
+        </div>
+        <div class="template-structure">
+          <div class="struct-row"><div class="struct-num">1</div><div>Name the pattern in the first line</div></div>
+          <div class="struct-row"><div class="struct-num">2</div><div>Describe the symptom (what the operator notices)</div></div>
+          <div class="struct-row"><div class="struct-num">3</div><div>Reframe the cause (what's actually happening)</div></div>
+          <div class="struct-row"><div class="struct-num">4</div><div>Point at the structural fix</div></div>
+          <div class="struct-row"><div class="struct-num">5</div><div>Close with a single-line crystallization</div></div>
+        </div>
+        <div class="template-example">
+          <span class="ex-label">Example</span>
+          <p>Goal deferral isn't laziness. It's structural.</p>
+          <p>Client work has external accountability — deadlines, expectations, money. Your own goals have only you. In a fight between external urgency and internal importance, urgency always wins.</p>
+          <p>Not because you're weak. Because the structure rewards reactivity.</p>
+          <p>Engineer external accountability for your goals — same as your client engagements. A deadline. A public commitment. Money on the line.</p>
+          <p>The discipline isn't the move. The structure is.</p>
+        </div>
+      </div>
+
+      <!-- Template 2 -->
+      <div class="template-card">
+        <div class="template-header">
+          <div>
+            <div class="template-name">Template 2 — The Architecture</div>
+            <div class="template-for"><strong>For:</strong> Newsletter, website "what it is" pages</div>
+          </div>
+          <div class="template-tags">
+            <span class="template-tag">★ King</span>
+            <span class="template-tag warrior">⚔ Warrior</span>
+          </div>
+        </div>
+        <div class="template-structure">
+          <div class="struct-row"><div class="struct-num">1</div><div>Set the operator scene (what they're running)</div></div>
+          <div class="struct-row"><div class="struct-num">2</div><div>Name the system or layer</div></div>
+          <div class="struct-row"><div class="struct-num">3</div><div>Describe how it works</div></div>
+          <div class="struct-row"><div class="struct-num">4</div><div>Describe what changes when it's in place</div></div>
+        </div>
+        <div class="template-example">
+          <span class="ex-label">Example</span>
+          <p>You're not running a job. You're running 5 sub-businesses.</p>
+          <p>Each one has its own cadence, stakeholders, KPIs, political dynamics. The mental model isn't "I have a lot to do." It's "I run a portfolio."</p>
+          <p>Portfolios get reviewed. Portfolios get rebalanced.</p>
+          <p>Vantum is the layer that makes the portfolio visible — so you stop running it from memory and start running it from a dashboard.</p>
+        </div>
+      </div>
+
+      <!-- Template 3 -->
+      <div class="template-card">
+        <div class="template-header">
+          <div>
+            <div class="template-name">Template 3 — The Recognition</div>
+            <div class="template-for"><strong>For:</strong> LinkedIn posts that build connection, newsletter intros</div>
+          </div>
+          <div class="template-tags">
+            <span class="template-tag lover">♡ Lover</span>
+            <span class="template-tag magician">✦ Magician</span>
+          </div>
+        </div>
+        <div class="template-structure">
+          <div class="struct-row"><div class="struct-num">1</div><div>Describe a specific moment the operator has experienced</div></div>
+          <div class="struct-row"><div class="struct-num">2</div><div>Acknowledge what makes it hard</div></div>
+          <div class="struct-row"><div class="struct-num">3</div><div>Name the pattern (without prescribing yet)</div></div>
+        </div>
+        <div class="template-example">
+          <span class="ex-label">Example</span>
+          <p>It's 11 PM. You've been telling yourself you'll get to the strategy work all week. The deck for tomorrow's board meeting is half-written. The launch you've been planning for your own offer hasn't moved in two months.</p>
+          <p>You're not failing.</p>
+          <p>You're stuck in a structure that makes your goals always lose to client urgency. Most fractionals don't know it has a name.</p>
+        </div>
+      </div>
+
+      <!-- Template 4 -->
+      <div class="template-card">
+        <div class="template-header">
+          <div>
+            <div class="template-name">Template 4 — The Capability</div>
+            <div class="template-for"><strong>For:</strong> Website, product copy, feature pages</div>
+          </div>
+          <div class="template-tags">
+            <span class="template-tag">★ King</span>
+            <span class="template-tag warrior">⚔ Warrior</span>
+          </div>
+        </div>
+        <div class="template-structure">
+          <div class="struct-row"><div class="struct-num">1</div><div>Operator reality in one sentence</div></div>
+          <div class="struct-row"><div class="struct-num">2</div><div>What Vantum does about it</div></div>
+          <div class="struct-row"><div class="struct-num">3</div><div>The specific capability</div></div>
+          <div class="struct-row"><div class="struct-num">4</div><div>The result in operator terms</div></div>
+        </div>
+        <div class="template-example">
+          <span class="ex-label">Example</span>
+          <p>Five clients. Each one's priorities shifting weekly.</p>
+          <p>Vantum reads your week — calendar, commitments, real capacity — and shows you the one move that makes it work.</p>
+          <p>Not a list. A plan. Reprioritized when the fire drill hits. No re-deciding.</p>
+        </div>
+      </div>
+
+      <!-- Template 5 -->
+      <div class="template-card">
+        <div class="template-header">
+          <div>
+            <div class="template-name">Template 5 — The Honest Reframe</div>
+            <div class="template-for"><strong>For:</strong> LinkedIn, newsletter</div>
+          </div>
+          <div class="template-tags">
+            <span class="template-tag magician">✦ Magician</span>
+          </div>
+        </div>
+        <div class="template-structure">
+          <div class="struct-row"><div class="struct-num">1</div><div>State the common belief (or the operator's self-blame)</div></div>
+          <div class="struct-row"><div class="struct-num">2</div><div>Honest reframe — what's actually true</div></div>
+          <div class="struct-row"><div class="struct-num">3</div><div>Why the reframe matters</div></div>
+          <div class="struct-row"><div class="struct-num">4</div><div>Single-line close</div></div>
+        </div>
+        <div class="template-example">
+          <span class="ex-label">Example</span>
+          <p>You think you're bad at sales.</p>
+          <p>You're not. You're great at delivery — and that's the trap. Clients want more of you. Each one expands their scope quietly. Six months in, your calendar is 100% delivery and your pipeline is zero.</p>
+          <p>The pattern isn't a discipline problem. It's a scope-creep problem.</p>
+          <p>Different problem, different fix.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 7. WORKING EXAMPLES BY REGISTER -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">7</div>
+      <div class="section-title">Working Examples — One Per Register</div>
+    </div>
+    <div class="section-body">
+
+      <div class="example-card">
+        <div class="example-meta">
+          <div class="example-name">R1 · LinkedIn Post</div>
+          <div class="example-stat">Direct · Sharp · 92 Words</div>
+        </div>
+        <div class="example-body">
+          <p>Three signs you're in feast or famine — and not lucky:</p>
+          <p>One: your revenue chart looks like a heartbeat. High peaks, deep troughs.</p>
+          <p>Two: your pipeline activity dies the moment you sign a client. Then resurrects when the client churns.</p>
+          <p>Three: you're working harder than you were six months ago and earning the same.</p>
+          <p>Feast or famine isn't bad luck. It's a structural pattern. One head, one queue, two engines fighting for the same hours.</p>
+          <p><em>The fix is rhythm, not willpower.</em></p>
+        </div>
+      </div>
+
+      <div class="example-card reg-2">
+        <div class="example-meta">
+          <div class="example-name">R2 · Newsletter Intro</div>
+          <div class="example-stat">Restrained · Paced · Sunday Weight</div>
+        </div>
+        <div class="example-body">
+          <p>Most fractional operators discover something uncomfortable around month 13.</p>
+          <p>The first year on referrals felt like proof that the business worked. Pipeline showed up. Revenue stabilized. Calendar filled. By month 13, the referrals slow down, and there's no Plan B.</p>
+          <p>The truth that few of us are told early enough: a referral-only business isn't a business you own. It's a business your network owns. They control the inflow. You control nothing.</p>
+          <p>Outbound is the only revenue lever you fully control. Most fractionals avoid building it because they think outbound is for SaaS reps and bootcamp graduates — when actually it's the single most operator-shaped skill on the list.</p>
+        </div>
+      </div>
+
+      <div class="example-card reg-3">
+        <div class="example-meta">
+          <div class="example-name">R3 · Website Hero + Feature</div>
+          <div class="example-stat">Declarative · Specific · Calm Certainty</div>
+        </div>
+        <div class="example-body">
+          <p><em>Hero:</em> Vantum is the operating layer for fractional operators. Built for solos running 3–6 client engagements at the management layer.</p>
+          <p>We read your real capacity, watch your stakeholders, and tell you the one move that makes the week work — even when the fire drill hits at 9 AM Tuesday.</p>
+          <p>Not another to-do app. Not another AI chatbot. The system that runs above your tools.</p>
+          <p><em>Feature — Capacity Routing:</em> Five clients, fifty stakeholders, one calendar. Vantum tracks the load each engagement actually takes — not what you billed for — and shows you when you're approaching the cliff.</p>
+          <p>When a new ask comes in, the answer is already on the screen: take it, defer it, or raise the rate.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 8. WHAT VANTUM IS NOT -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">8</div>
+      <div class="section-title">What This Voice Is NOT — Guardrails</div>
+    </div>
+    <div class="section-body">
+
+      <p class="body-text">When in doubt, Vantum is not these voices. Diagnose against this list before shipping.</p>
+
+      <div class="not-grid">
+        <div class="not-card">
+          <div class="not-name">Not the Morning-Routine Guru</div>
+          <div class="not-desc">Andrew Huberman energy. Optimization-as-religion. Vantum doesn't moralize at the operator.</div>
+        </div>
+        <div class="not-card">
+          <div class="not-name">Not the "Get Rich" Voice</div>
+          <div class="not-desc">Hormozi sales-floor energy. That's for curriculum, not the brand. Vantum doesn't push.</div>
+        </div>
+        <div class="not-card">
+          <div class="not-name">Not the Thought Leader</div>
+          <div class="not-desc">LinkedIn Content Creator™. Generic wisdom dressed as insight. Vantum is specific or silent.</div>
+        </div>
+        <div class="not-card">
+          <div class="not-name">Not the AI Wrapper</div>
+          <div class="not-desc">Every Notion clone. "AI-powered productivity for your team." Vantum names what it does.</div>
+        </div>
+        <div class="not-card">
+          <div class="not-name">Not the Founder-Bro</div>
+          <div class="not-desc">Twitter VC bait. Hot takes for the algorithm. Vantum doesn't perform contrarianism.</div>
+        </div>
+        <div class="not-card">
+          <div class="not-name">Not the Wellness Brand</div>
+          <div class="not-desc">Calm in a way that sounds soft. Vantum is calm in a way that sounds <em>earned</em>. There's a difference.</div>
+        </div>
+      </div>
+
+      <div class="signature-line">
+        <span class="sig-label">★ The Difference</span>
+        Vantum is calm in a way that sounds earned. Not therapeutic. Not aspirational. Operator-to-operator, after both of you have been through it.
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 9. HOW TO USE & AUDIT -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">9</div>
+      <div class="section-title">How To Use This Doc — Draft, Cut, Audit</div>
+    </div>
+    <div class="section-body">
+
+      <div class="sub-label">The Eight-Step Drafting Pass</div>
+      <div class="checklist">
+        <div class="check-item"><div class="check-dot">1</div><div><strong>Identify the register</strong> before drafting. LinkedIn / Newsletter / Website / Product. Different rules.</div></div>
+        <div class="check-item"><div class="check-dot">2</div><div><strong>Identify the archetype mix.</strong> 1–2 archetypes per piece. Not all 4.</div></div>
+        <div class="check-item"><div class="check-dot">3</div><div><strong>Draft fast.</strong> Don't over-engineer voice on the first pass. Get the substance down.</div></div>
+        <div class="check-item"><div class="check-dot">4</div><div><strong>Cut the LinkedIn tells.</strong> Read for "then it hit me," "harsh truths," "I used to think." Remove.</div></div>
+        <div class="check-item"><div class="check-dot">5</div><div><strong>Cut the corporate tells.</strong> Read for "leverage," "synergy," "unleash." Remove.</div></div>
+        <div class="check-item"><div class="check-dot">6</div><div><strong>Audit for restraint.</strong> Is anything performative? Is the voice working harder than the substance? Cut.</div></div>
+        <div class="check-item"><div class="check-dot">7</div><div><strong>Read the close.</strong> Did it land on a single line that crystallizes? If not, find one.</div></div>
+        <div class="check-item"><div class="check-dot">8</div><div><strong>Read aloud.</strong> Does it sound like an operator talking to operators? Or a brand performing for them?</div></div>
+      </div>
+
+      <div class="sub-label" style="margin-top:22px;">The Audit Prompt — Use On AI-Generated Drafts</div>
+      <p class="body-text">Paste this prompt with any AI-generated draft to audit against Vantum's voice. Replace <code style="color:var(--ochre);">{{DRAFT}}</code> with the copy you're auditing.</p>
+
+      <div class="prompt-box"><span class="pc"># VANTUM VOICE AUDIT
+# Paste a draft. Get a diagnostic.
+# ─────────────────────────────────────────────</span>
+
+You are auditing a draft against the Vantum voice profile.
+Be a senior editor. Be direct. Skip the pep talk.
+
+<span class="pk">VOICE IN ONE SENTENCE:</span>
+Vantum sounds like a senior operator who has already done what
+the reader is trying to do — and respects them enough to skip
+the pep talk.
+
+<span class="pk">CHECK THE DRAFT FOR — name what you find:</span>
+1. <span class="pv">Register</span> — Is this LinkedIn (80–220w), Newsletter (600–1200w),
+   or Website (short, declarative)? Does the length and rhythm
+   match the register?
+2. <span class="pv">Archetype mix</span> — Which 1–2 of {King, Warrior, Magician,
+   Lover} is it pulling? Is it accidentally pulling all four?
+3. <span class="pv">Signature moves present</span> — Named pattern? Architectural
+   frame? Math beat? Honest reframe? Structural answer?
+   Single-line close? (At least 2 should be doing work.)
+
+<span class="pk">FLAG ANY OF THESE — they fail the voice:</span>
+- "Then it hit me" · "Here's the truth" · "harsh truths"
+- "I used to think X, now I know Y"
+- "Burn the ships"
+- "Synergy" · "leverage" · "holistic" · "unleash"
+- "Game-changer" · "10x" · "future of work"
+- "We're on a mission to..."
+- Exclamation points · ALL-CAPS for emphasis · emoji
+- Performative energy · trying to motivate the reader
+- Vague AI claims · platform-space jargon
+
+<span class="pk">FOR EACH FAILURE:</span>
+- Quote the line
+- Name what's wrong (cliché / corporate / performative / etc.)
+- Propose a one-line rewrite in Vantum's voice
+
+<span class="pk">END WITH ONE LINE:</span>
+On-voice / Off-voice / Drift — and why.
+
+<span class="pc">─────────────────────────────────────────────
+DRAFT TO AUDIT:
+─────────────────────────────────────────────</span>
+
+<span class="pv">{{DRAFT}}</span></div>
+
+      <div class="highlight">
+        <strong>Workflow:</strong> Draft → run the 8-step pass → if AI-generated, run the audit prompt → cut what's flagged → re-read aloud → ship. The voice will evolve. Revisit this doc quarterly to check for drift, and whenever a new writer joins or a piece feels off-voice.
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 10. PRODUCTION CHECKLIST -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">10</div>
+      <div class="section-title">Pre-Publish Checklist — Run Before Every Send</div>
+    </div>
+    <div class="section-body">
+      <div class="checklist">
+        <div class="check-item"><div class="check-dot">✓</div><div><strong>Register identified:</strong> R1 LinkedIn / R2 Newsletter / R3 Website — length and rhythm match</div></div>
+        <div class="check-item"><div class="check-dot">✓</div><div><strong>Archetype count:</strong> 1–2 only. Not all four.</div></div>
+        <div class="check-item"><div class="check-dot">✓</div><div><strong>Opens with substance:</strong> Operator moment or named pattern — not "I want to talk about..."</div></div>
+        <div class="check-item"><div class="check-dot">✓</div><div><strong>Diagnostic before prescriptive:</strong> Pattern named before solution offered</div></div>
+        <div class="check-item"><div class="check-dot">✓</div><div><strong>At least one signature move</strong> doing real work (named pattern, architectural frame, math beat, honest reframe, structural answer)</div></div>
+        <div class="check-item"><div class="check-dot">✓</div><div><strong>Vocabulary clean:</strong> No "synergy / leverage / 10x / game-changer / unleash / future of work"</div></div>
+        <div class="check-item"><div class="check-dot">✓</div><div><strong>LinkedIn tells removed:</strong> No "then it hit me / harsh truths / I used to think X"</div></div>
+        <div class="check-item"><div class="check-dot">✓</div><div><strong>"Burn the ships" not present</strong> — that's a founder line, not a brand line</div></div>
+        <div class="check-item"><div class="check-dot">✓</div><div><strong>No exclamation points, no ALL-CAPS emphasis, no emoji</strong> (unless register-appropriate)</div></div>
+        <div class="check-item"><div class="check-dot">✓</div><div><strong>Single-line close present:</strong> Mechanical, not moral. Punchline, not CTA.</div></div>
+        <div class="check-item"><div class="check-dot">✓</div><div><strong>Read aloud test passed:</strong> Sounds like an operator talking to operators</div></div>
+        <div class="check-item"><div class="check-dot">✓</div><div><strong>Restraint check:</strong> Voice is not working harder than the substance</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="doc-footer">
+    <span class="vt">VANTUM</span>  ·  Voice Guide v1  ·  Last Updated 2026-05-07
+  </div>
+
+</div>
+</body>
+</html>

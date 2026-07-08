@@ -1,0 +1,78 @@
+{
+  "interview": "Miraque Probelm",
+  "interview_weight": 0.731,
+  "snippets": [
+    {
+      "theme_tag": "anxiety_driven_overwork",
+      "pull_quote": "I'm working at three in the morning. I'm scheduling emails at two AM to hit Canada clients' inboxes at 8, 9 o'clock. Is that healthy? No. I probably should prioritize sleep.",
+      "website_angle": "Speak to operators burning midnight oil just to feel less anxious — not because the work demands it.",
+      "intensity_1_to_5": 5
+    },
+    {
+      "theme_tag": "self_imposed_pressure_vs_client_reality",
+      "pull_quote": "Is the client really upset or am I placing my own expectations on this situation? Most times it's me. They're fine. It's a me problem pretty often.",
+      "website_angle": "Highlight the gap between perceived urgency and actual client need — a core operator trap.",
+      "intensity_1_to_5": 5
+    },
+    {
+      "theme_tag": "tool_sprawl_exhaustion",
+      "pull_quote": "I spend all of my time in some kind of tool. I have my own HRIS, my own ATS, then I'm in their ATS and their HRIS. It's a lot of stuff.",
+      "website_angle": "Call out the hidden tax of duplicate tooling across client accounts — time lost before work even starts.",
+      "intensity_1_to_5": 5
+    },
+    {
+      "theme_tag": "no_single_source_of_truth",
+      "pull_quote": "If I don't have one source of truth, I find myself spending manual hours making sure everything is aligned. That's just a waste of my time.",
+      "website_angle": "Position unified visibility as the antidote to the multi-tool alignment tax fractional operators pay daily.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "urgent_work_crowding_out_strategy",
+      "pull_quote": "Urgent work blows up your week. You keep busy but don't move forward on your bigger business goals.",
+      "website_angle": "Name the reactive-mode trap that keeps operators stuck — busy but not building.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "multi_calendar_chaos",
+      "pull_quote": "I have six different calendars. I'm adding another one every time I pick up a new client. I had to stop — it's a hot mess.",
+      "website_angle": "Resonate with operators drowning in client-specific calendars and the admin overhead of context-switching.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "client_access_permission_barriers",
+      "pull_quote": "If I'm not the admin on their workspace, I can't pull their calendar into my CRM. So I keep those separate — which means more manual work.",
+      "website_angle": "Surface the structural access problem fractional operators face when working inside client environments.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "automation_as_survival_strategy",
+      "pull_quote": "If Claude can build it, if I can automate it, if something can free up more of my time — I've done that. So they get what they need and it's not a manual process for me.",
+      "website_angle": "Validate automation-first operators and position the product as the layer that makes it all coherent.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "communication_boundary_setting",
+      "pull_quote": "If it's not a fire, please don't contact me before 10 AM. I stopped offering my cell number. We have email and Slack — structure your communication.",
+      "website_angle": "Speak to operators who've had to build hard boundaries just to protect their own capacity.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "timeline_expectation_management",
+      "pull_quote": "I can build an ATS in two weeks but I don't promise two weeks — because I don't know what's going to happen. I was the one putting ridiculous timelines on myself.",
+      "website_angle": "Resonate with operators who've learned to buffer commitments because chaos is the baseline, not the exception.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "protecting_strategic_thinking_time",
+      "pull_quote": "I block two hours a day for one week a month — no day-to-day tasks, no minute tasks. Just strategy, long-term direction, how are we trending. During that time I'm not available to anybody.",
+      "website_angle": "Show operators what intentional capacity protection looks like — and what it costs to carve it out manually.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "ai_plus_automation_as_dream_combo",
+      "pull_quote": "If it has AI and automation — if those two things have a baby together — you would have all of my money. I would buy it tomorrow.",
+      "website_angle": "Use as social-proof framing for AI-powered automation features — straight from an operator's mouth.",
+      "intensity_1_to_5": 5
+    }
+  ]
+}

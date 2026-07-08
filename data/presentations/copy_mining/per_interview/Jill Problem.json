@@ -1,0 +1,78 @@
+{
+  "interview": "Jill Problem",
+  "interview_weight": 0.46,
+  "snippets": [
+    {
+      "theme_tag": "doing_for_others_not_yourself",
+      "pull_quote": "I'm having a hard time getting out of my own way, doing for me what I do for others.",
+      "website_angle": "Mirror the cobbler's-children problem fractional operators know too well.",
+      "intensity_1_to_5": 5
+    },
+    {
+      "theme_tag": "dead_time_vs_client_time",
+      "pull_quote": "I want to call it dead time. I feel like I'm busier than I should be, but I don't have as much client time as I would like.",
+      "website_angle": "Name the gap between busy-feeling and billable — operators will recognize it instantly.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "website_paralysis",
+      "pull_quote": "Building a website is just a bitch. It just sucks. And when you know enough to be dangerous, everything you do, you hate.",
+      "website_angle": "Validate the perfectionism trap that keeps fractionals invisible to prospects.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "authentic_outreach_vs_automation",
+      "pull_quote": "I don't want to automate this uncaring cold message — that's not reflective of what I'm trying to do for my clients.",
+      "website_angle": "Position against spray-and-pray outreach; speak to operators who refuse to cheapen their brand.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "feast_or_famine_cycle",
+      "pull_quote": "The feast or famine cycle for sure. Getting consistent new business without having to work really hard to get the business — that's the magic thing.",
+      "website_angle": "Lead with the pipeline anxiety every solo operator feels but rarely admits.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "stuck_at_project_work_want_strategic_retainers",
+      "pull_quote": "Brand strategy is where I really like sitting — but most of my projects haven't got to focus on that. It's been more one-off campaigns or events.",
+      "website_angle": "Speak to fractionals trapped in tactical work who want to sell at the strategic level.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "icp_fear_of_narrowing",
+      "pull_quote": "I haven't nailed who I want to get to because I'm scared to narrow too far.",
+      "website_angle": "Address the ICP avoidance that keeps messaging vague and pipelines thin.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "tool_sprawl_and_platform_tax",
+      "pull_quote": "I'm paying for my own software and picking my babies — ChatGPT pro, Claude pro, HoneyBook, Adobe alternatives… it adds up and it's a time suck.",
+      "website_angle": "Highlight the hidden cost of stitching together a solo operator's tech stack.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "structure_as_barrier_not_solution",
+      "pull_quote": "Figuring out how I want to set it up and then actually sticking to it is more work than writing a checklist on a piece of paper. It feels like a barrier to entry.",
+      "website_angle": "Challenge dashboard-heavy tools; position for operators who need momentum, not more setup.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "unfulfilled_without_contribution",
+      "pull_quote": "It would be a lie to say I feel fulfilled every week. Until I'm hitting that 40-hour mark or have my website done, those things are constantly in the back of my mind.",
+      "website_angle": "Connect product value to the emotional baseline fractionals are trying to recover.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "not_a_natural_salesperson",
+      "pull_quote": "I'm not a salesperson. I'm not the smooth talker in the room. That's definitely a con right now to the whole process.",
+      "website_angle": "Reassure operators that great work shouldn't require a sales personality to find clients.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "office_politics_escape",
+      "pull_quote": "I was done playing office politics. I wanted a team mentality — not feeling like we were all competing against each other all the time.",
+      "website_angle": "Speak to the 'why I went fractional' origin story that resonates with values-driven operators.",
+      "intensity_1_to_5": 2
+    }
+  ]
+}

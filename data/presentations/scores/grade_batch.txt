@@ -1,0 +1,60 @@
+Output directory: C:\Users\brian\OneDrive\Desktop\Business\Vantum\Copy Maker\Problem Presentations\scores
+Using OpenRouter model: anthropic/claude-sonnet-4.6
+SKIP (exists): Andrew Probelm.score.md
+START: Bill Problem.md
+SCORE -> Bill Problem.score.md
+START: Brian Autumn Problem.md
+SCORE -> Brian Autumn Problem.score.md
+START: Brittany Problem.md
+SCORE -> Brittany Problem.score.md
+START: Chrisley Problem.md
+SCORE -> Chrisley Problem.score.md
+START: Elena Problem.md
+SCORE -> Elena Problem.score.md
+START: Glyn Problem.md
+SCORE -> Glyn Problem.score.md
+START: Jacqui Chew.md
+SCORE -> Jacqui Chew.score.md
+START: Jason Green Problem Transcript.md
+SCORE -> Jason Green Problem Transcript.score.md
+START: Jason Herrera Meeting Transcript.md
+SCORE -> Jason Herrera Meeting Transcript.score.md
+START: Jason Problem.md
+SCORE -> Jason Problem.score.md
+START: Jill Problem.md
+SCORE -> Jill Problem.score.md
+START: Jill ProblemTranscript.md
+SCORE -> Jill ProblemTranscript.score.md
+SKIP (exists): Jitesh Problem.score.md
+START: Karl Problem Transcript.md
+SCORE -> Karl Problem Transcript.score.md
+START: Kathryn Orvis Problem.md
+SCORE -> Kathryn Orvis Problem.score.md
+START: Kim Mack Problem.md
+SCORE -> Kim Mack Problem.score.md
+START: Laila Problem Statement.md
+SCORE -> Laila Problem Statement.score.md
+START: Marugapod Problem.md
+SCORE -> Marugapod Problem.score.md
+START: Michael Problem.md
+SCORE -> Michael Problem.score.md
+START: Miraque Probelm.md
+SCORE -> Miraque Probelm.score.md
+START: Phil CFO Problem.md
+SCORE -> Phil CFO Problem.score.md
+START: Phil Problem.md
+SCORE -> Phil Problem.score.md
+START: Phil Wofford Problem Transcript.md
+SCORE -> Phil Wofford Problem Transcript.score.md
+START: Phillip Probelm.md
+SCORE -> Phillip Probelm.score.md
+START: Shawn Elliott -Problem Transcript.md
+SCORE -> Shawn Elliott -Problem Transcript.score.md
+START: Stan Alhadeff Problem.md
+SCORE -> Stan Alhadeff Problem.score.md
+START: Steven problem.md
+SCORE -> Steven problem.score.md
+START: Susan Problem Transcript.md
+SCORE -> Susan Problem Transcript.score.md
+START: Zach Problem.md
+SCORE -> Zach Problem.score.md

@@ -1,0 +1,10 @@
+# Railway note: this file is legacy for Nixpacks deploys directly from apps/copy-maker.
+# Preferred deploy path uses root Dockerfile with Root Directory `.`.
+# In the Railway dashboard, name the service **Content OS** (Resource name).
+
+[build]
+builder = "NIXPACKS"
+
+[deploy]
+# Preview server keeps Vite middleware for `/api/os/*` and `/api/outliers-catalog` (OS + catalog on disk).
+startCommand = "npm run start"

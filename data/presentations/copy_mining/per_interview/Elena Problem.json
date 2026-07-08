@@ -1,0 +1,78 @@
+{
+  "interview": "Elena Problem",
+  "interview_weight": 0.6609999999999999,
+  "snippets": [
+    {
+      "theme_tag": "scope_creep_bleeds_into_unpaid_days",
+      "pull_quote": "The client could only afford me Mondays and Tuesdays, but they wanted me seven days a week. And I was super flexible — maybe that was my error. It was like, sure, I'll join calls on Wednesdays. Then Thursdays.",
+      "website_angle": "Scope creep is the silent rate cut. Show how boundaries get enforced without the awkward conversation.",
+      "intensity_1_to_5": 5
+    },
+    {
+      "theme_tag": "urgent_fires_crowd_out_strategic_work",
+      "pull_quote": "The urgent work close-ups keep you away from the bigger business goals. That's my first problem — putting out fire drills while the real work sits there.",
+      "website_angle": "Fractionals lose billable hours to client chaos. Position the product as the thing that protects strategic focus.",
+      "intensity_1_to_5": 5
+    },
+    {
+      "theme_tag": "tool_sprawl_across_every_engagement",
+      "pull_quote": "I've tried all of them — SEO tools, Canva, Claude, ChatGPT, trials I never finished. Marketing is so specialized. People say hire one person and they'll solve everything, but you need a graphic design tool, SEO, copywriting…",
+      "website_angle": "Every new client = a new stack. Speak to the exhaustion of stitching together 8 tools per engagement.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "overqualified_for_the_tasks_at_hand",
+      "pull_quote": "I found myself doing copywriting for websites and I'm like, I did this 20 years ago. Fine, I'll do it again — but there's other stuff you really enjoy much more.",
+      "website_angle": "Senior operators get pulled into junior work. Speak to reclaiming the work that actually deserves their expertise.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "no_time_to_market_yourself",
+      "pull_quote": "I haven't even done a website yet. It says 'coming soon' and it's been coming for a year. I didn't have time to pick up other clients, so I was like — I'll worry about marketing myself later.",
+      "website_angle": "Busy fractionals neglect their own pipeline. Show how the product works even when you can't.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "scaling_ceiling_without_investment_or_team",
+      "pull_quote": "At most I had five clients at once — because it was just me, I couldn't physically take on anybody else. I was thinking, how do I scale this? But that comes with investment too.",
+      "website_angle": "Solo fractionals hit a hard ceiling. Speak to the leverage gap between expertise and capacity.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "overwhelm_anxiety_guilt_triad",
+      "pull_quote": "I worked 24/7 in some stages of this. I'd do it Sunday, Saturday — but that eats into my… no time. I can relate to overwhelmed, anxious, guilty — every single one of them.",
+      "website_angle": "The emotional cost of fractional life is real. Use this to validate the feeling before offering the fix.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "client_dependency_risk_and_sudden_loss",
+      "pull_quote": "The Italian guy said, listen, I need to put you on hold and get rid of some staff. That kind of came to an end. Tourism has been hit brutally — and unfairly.",
+      "website_angle": "One client pause can crater monthly revenue. Speak to pipeline resilience and diversification.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "sme_clients_lack_basic_infrastructure",
+      "pull_quote": "They grew to a point where everybody doing everything doesn't work anymore. They need expertise to come in, do restructuring, put the processes and documentation in place — that's really what I was doing.",
+      "website_angle": "SME clients are high-need, low-infrastructure. Position the product as the operating layer they're missing.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "courses_started_never_finished",
+      "pull_quote": "I took time off to study some of these tools and didn't manage to finish the courses — just been putting out fire drills. Even that has gone, unfortunately.",
+      "website_angle": "Learning debt piles up. Show how the product closes skill gaps without requiring a course.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "income_yield_optimization_across_clients",
+      "pull_quote": "The salary he was paying me wasn't where I wanted to be. Saudi is a much better payer. So I thought — now I need to yield my income.",
+      "website_angle": "Fractionals actively manage rate mix, not just hours. Speak to smarter client portfolio decisions.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "ideal_client_mix_still_being_discovered",
+      "pull_quote": "I'm probably discovering the mix I like. The perfect formula would be two clients taking up three or four days, and one or two days left for projects I'm really passionate about — even if they're less financially viable.",
+      "website_angle": "Fractionals want balance, not just revenue. Speak to designing a practice that fits their actual life.",
+      "intensity_1_to_5": 2
+    }
+  ]
+}

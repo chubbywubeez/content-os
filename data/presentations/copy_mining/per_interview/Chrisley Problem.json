@@ -1,0 +1,78 @@
+{
+  "interview": "Chrisley Problem",
+  "interview_weight": 0.43799999999999994,
+  "snippets": [
+    {
+      "theme_tag": "fractional_credibility_gap",
+      "pull_quote": "You can be an expert for 20 years, but if you can't prove that expertise, your expertise doesn't fucking matter. You have to treat yourself like you're an entry-level sales rep.",
+      "website_angle": "Speak to the gap between deep expertise and the inability to signal it — the core fractional blind spot.",
+      "intensity_1_to_5": 5
+    },
+    {
+      "theme_tag": "selling_conversations_not_services",
+      "pull_quote": "You should be trying to sell a conversation. You should not be selling. Cold outreach — you're trying to sell your credibility. You essentially need to be peacocking.",
+      "website_angle": "Reframe outbound strategy: the goal is rapport, not a pitch — resonates with non-sales-background fractionals.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "linkedin_outreach_echo_chamber",
+      "pull_quote": "You're going into an echo chamber that's quite frankly ignored. Everybody and their grandmother is now doing LinkedIn automations and email automations.",
+      "website_angle": "Validate the frustration that standard outbound is broken — position alternative approaches.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "feast_or_famine_wheel_turning",
+      "pull_quote": "Even though you've got client work today, you might not have that client work tomorrow. Keep that wheel turning — it's way better to decline business than to be searching for your next lead.",
+      "website_angle": "Classic feast-or-famine framing for fractionals who coast on current clients and neglect pipeline.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "overpromising_scope_creep",
+      "pull_quote": "They need two extra things but everything else fits, so you sign them and figure it out. Then you're doing shit that's not your expertise — and once you're in, none of that matters.",
+      "website_angle": "Surface the over-promise trap: taking misfit clients leads to overwhelm, eroded trust, and churn.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "client_load_phasing_discipline",
+      "pull_quote": "If I have two or three clients in their first two months with me, I'm not signing nobody. In that first month I need to be all hands on deck.",
+      "website_angle": "Show that capacity management is a deliberate system, not luck — operators need a framework for this.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "fractional_ego_vs_prospecting_reality",
+      "pull_quote": "A lot of it is ego — like, bro, I don't wanna be spending time doing all this crap. They're not doing the prospecting, but they're also not getting clients.",
+      "website_angle": "Honest provocation for C-suite fractionals who feel prospecting is beneath them — but are starving for leads.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "roi_attribution_as_retention_lever",
+      "pull_quote": "If they can easily say this 1K I'm spending is bringing me 4K, they'll do it all day long. If it's theoretical, you're gonna come across major problems — these are sophisticated people.",
+      "website_angle": "Pricing and retention hinge on clear revenue attribution — build this into the product UX and messaging.",
+      "intensity_1_to_5": 5
+    },
+    {
+      "theme_tag": "fractional_lifestyle_ceiling",
+      "pull_quote": "Many fractionals aren't trying to become billionaires. They want two or three clients, dedicate time to family, and they're Gucci. Their tolerance for cost reflects that.",
+      "website_angle": "Segment messaging: lifestyle fractionals vs. growth-oriented ones have very different willingness to pay.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "freemium_tool_competition",
+      "pull_quote": "I have Calendly because I'm a one person shop — it's free. As a one person shop, the freemium tier of HubSpot, I'm gravy. So promoting those things as value, they'll look at it like, I'm already not paying for this.",
+      "website_angle": "Don't lead with features fractionals already get free — lead with outcomes they can't get anywhere else.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "consultant_market_expansion_tailwind",
+      "pull_quote": "The white collar job is going to be that much harder to come by. The consultant space is going to be where a lot of people live — and what you're pitching is going to be very, very much needed.",
+      "website_angle": "Use macro tailwind narrative: the fractional/consultant market is growing fast — position early.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "icp_messaging_alignment_warning",
+      "pull_quote": "If your core audience are people who already have a book of business, feast-or-famine language will detract — they'll say 'I got business, I don't need this.' You need to clearly define what type of fractional you're after.",
+      "website_angle": "Internal strategic note and external proof point: sharp ICP focus prevents messaging that alienates your best buyers.",
+      "intensity_1_to_5": 4
+    }
+  ]
+}

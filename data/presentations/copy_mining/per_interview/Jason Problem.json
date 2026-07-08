@@ -1,0 +1,78 @@
+{
+  "interview": "Jason Problem",
+  "interview_weight": 0.326,
+  "snippets": [
+    {
+      "theme_tag": "escaped_the_middleman",
+      "pull_quote": "I found out that one of the firms I work with keeps the lion's share of the fee. Well, I'll go out and develop the business and just keep that fee for myself.",
+      "website_angle": "Speak to operators ready to stop splitting revenue with aggregators and own their client relationships.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "low_volume_high_quality_pipeline",
+      "pull_quote": "I don't need a hundred leads a month. If I've got five or six clients and they're with me for two to three years, I really only need one or two new clients a year.",
+      "website_angle": "Position tool for operators who need precision outreach, not volume — quality pipeline over lead flood.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "ghosted_after_great_calls",
+      "pull_quote": "I had great phone calls with them and then he just ghosted me. I need more of those calls because that's gonna happen — the more calls I get, the more yeses I'll actually get.",
+      "website_angle": "Validate the frustration of promising conversations that go cold; show how consistent pipeline reduces that sting.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "selling_value_not_hours",
+      "pull_quote": "My goal is not to sell you my hours. My goal is to put value on your P&L. Last year I put an extra $25,000 on the bottom line for a client — I'm paying for myself many times over.",
+      "website_angle": "Mirror the outcomes-over-hours framing fractional CFOs use to justify retainers to skeptical owners.",
+      "intensity_1_to_5": 5
+    },
+    {
+      "theme_tag": "client_cash_anxiety",
+      "pull_quote": "A lot of times the answer is: 'I think we can make payroll next week, but after that I'm not real sure. Cash just kind of seems to come in when we need it.'",
+      "website_angle": "Use as proof of the pain fractional CFOs solve — cash blindness is the entry point for the conversation.",
+      "intensity_1_to_5": 5
+    },
+    {
+      "theme_tag": "peace_of_mind_as_deliverable",
+      "pull_quote": "It's a little harder to put a value on that — but maybe if you're not having to wake up at three o'clock in the morning every day thinking you're running out of money.",
+      "website_angle": "Emotional truth for landing pages: the real ROI is sleep, not just spreadsheets.",
+      "intensity_1_to_5": 5
+    },
+    {
+      "theme_tag": "owners_dont_know_their_margins",
+      "pull_quote": "What do your margins look like? They usually don't know. Rarely do they know. So that's a place for me to look.",
+      "website_angle": "Surface the knowledge gap that makes fractional CFOs indispensable — owners flying blind on margin.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "ai_expanding_capacity_ceiling",
+      "pull_quote": "If AI can build the cash flow forecast in 15 minutes instead of hours, then is my capacity really five or six clients — or is it like 10? Same amount of work, double the revenue.",
+      "website_angle": "Frame AI tooling as a capacity multiplier, not just a time-saver — directly tied to operator income growth.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "technology_stack_uncertainty",
+      "pull_quote": "I've been stitching together multiple paid tools trying to figure out what my stack needs to look like to smoothly onboard new clients. I won't really know until I get a new client and put them through it.",
+      "website_angle": "Speak to the pre-scale operator building systems in a vacuum — validate the uncertainty, offer structure.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "building_firm_while_doing_the_work",
+      "pull_quote": "When you're trying to develop a business and you're working, you can't go 40, 50, 60 hours a week — there's no time left to develop the business.",
+      "website_angle": "Classic operator trap: delivery crowds out growth. Use to position tools that reclaim business-development time.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "gut_decisions_vs_financial_clarity",
+      "pull_quote": "My goal is to offer financial clarity. Because without it, you're not making informed decisions — you're making gut decisions.",
+      "website_angle": "Crisp positioning line for fractional CFO value prop; can anchor a hero section or testimonial block.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "ego_free_clients_are_best_clients",
+      "pull_quote": "The best clients I've had have a complete lack of ego and plenty of humility. They can hear from me on a very honest basis and not take it personally.",
+      "website_angle": "Use in ICP messaging to help operators self-select great-fit clients and repel difficult ones.",
+      "intensity_1_to_5": 3
+    }
+  ]
+}

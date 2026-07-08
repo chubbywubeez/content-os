@@ -1,0 +1,78 @@
+{
+  "interview": "Zach Problem",
+  "interview_weight": 0.721,
+  "snippets": [
+    {
+      "theme_tag": "feast_or_famine_pipeline",
+      "pull_quote": "I've got my clients, I can do plenty of pipe, then I'm full. Three to six months later I come out and it's like, shit, where's my pipeline? I haven't posted, haven't done any outreach.",
+      "website_angle": "Name the #1 fractional pain point — pipeline dries up the moment you're heads-down with clients.",
+      "intensity_1_to_5": 5
+    },
+    {
+      "theme_tag": "not_running_outbound_despite_knowing_better",
+      "pull_quote": "I'm still not running any outbound campaigns, which is fucking insane. I have this conversation on a weekly basis.",
+      "website_angle": "Even experienced operators know what they should do — and still don't do it. Speak to the knowing-doing gap.",
+      "intensity_1_to_5": 5
+    },
+    {
+      "theme_tag": "single_shingle_operator_isolation",
+      "pull_quote": "The single shingle operator — that rings true. You're on your own, and when you're booked out, everything else stops.",
+      "website_angle": "Fractionals have no team to delegate pipeline work to. Position the product as the missing support layer.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "context_switching_cognitive_load",
+      "pull_quote": "Context switching is a real challenge. I've got three fractional clients and a couple of coaching clients — I wouldn't have been able to do that without something running that context for me.",
+      "website_angle": "Highlight how juggling multiple clients fragments attention — and how the right system holds it together.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "client_trust_drift",
+      "pull_quote": "If the client's too busy, you get drift — and then they get very unhappy. That's one I've learned the hard way.",
+      "website_angle": "Surface the silent risk: client relationships erode when check-ins slip. Position consistent visibility as protection.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "working_on_business_always_last",
+      "pull_quote": "When the shit hits the fan working nights, my working-on-the-business stuff gets pushed. Client goals get better down if it gets busy.",
+      "website_angle": "Business development is always the first casualty of a busy week. Show how to protect it automatically.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "friction_kills_tool_adoption",
+      "pull_quote": "The reason Claude works for me is it removes the friction of putting shit in there. I just hit double tap and talk at it. Calendar tools? I end up with calendar overwhelm and switch it off.",
+      "website_angle": "Fractionals abandon tools that demand manual input. Lead with zero-friction capture as a core product promise.",
+      "intensity_1_to_5": 5
+    },
+    {
+      "theme_tag": "selling_to_fractionals_timing_window",
+      "pull_quote": "The best time to sell to fractionals is just before or just after they leave corporate — they're still cashed up and think dropping $500 on a tool is nothing. That window closes fast.",
+      "website_angle": "Useful for GTM targeting copy — speak to the transition moment before the feast-or-famine reality sets in.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "playbook_as_anxiety_reducer",
+      "pull_quote": "Having that playbook means I'm not feeling overwhelmed or anxious midweek because I don't know what I'm doing. I got that in place — urgent work blows up and it's okay.",
+      "website_angle": "Frame structured workflows not just as productivity tools but as emotional stabilisers for solo operators.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "low_volume_high_stakes_pipeline",
+      "pull_quote": "It's not a high volume game. I only need 10 to 12 good clients a year. But that means every missed opportunity actually matters.",
+      "website_angle": "Reframe pipeline urgency — small numbers mean zero margin for error. Each lost lead is significant.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "linkedin_as_minimum_viable_presence",
+      "pull_quote": "The rule of thumb everybody should be doing: LinkedIn content, because we're all positioning ourselves as experts. If that's not filling your pipe, you need to be doing something else.",
+      "website_angle": "Validate LinkedIn as table stakes, then show what fills the gap when organic alone isn't enough.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "ai_tools_as_force_multiplier_for_experienced_operators",
+      "pull_quote": "Experienced campaigners armed with context-heavy AI tools, absolutely smashing productivity — that sounds a lot like fractionals. That's the future.",
+      "website_angle": "Position the product as the AI layer built specifically for seasoned operators, not generalist productivity apps.",
+      "intensity_1_to_5": 4
+    }
+  ]
+}

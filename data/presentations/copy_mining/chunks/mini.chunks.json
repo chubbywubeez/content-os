@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "generatedAt": "2026-05-16T16:59:33.615Z",
+  "stem": "mini",
+  "personId": "participant",
+  "transcriptId": "mini",
+  "callType": "interview",
+  "model": "anthropic/claude-opus-4.7",
+  "chunks": [
+    {
+      "chunk_id": "mini_c1",
+      "transcript_id": "mini",
+      "person_id": "participant",
+      "chunk_order": 1,
+      "speaker": "interviewer",
+      "raw_text": "TABARAK: hello\n\nPARTICIPANT: hi",
+      "interview_type": "problem",
+      "topic": "small_talk",
+      "subtopic": "greeting",
+      "emotion": null,
+      "is_quote_worthy": false,
+      "temporal_status": "current",
+      "reaction_intensity": "neutral",
+      "chunk_mode": "small_talk",
+      "self_disqualification": "none",
+      "competitive_product": null,
+      "competitive_sentiment": null,
+      "referral_signal": false,
+      "referral_target": null,
+      "adoption_barrier": null,
+      "quote_attribution": null,
+      "pricing_insight": false,
+      "feature_discussed": null,
+      "feature_reaction": null,
+      "objection_type": null,
+      "feedback_type": null,
+      "need_type": "none"
+    }
+  ]
+}

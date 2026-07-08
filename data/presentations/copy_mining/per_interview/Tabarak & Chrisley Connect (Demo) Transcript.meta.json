@@ -1,0 +1,12 @@
+{
+  "stem": "Tabarak & Chrisley Connect (Demo) Transcript",
+  "callType": "demo",
+  "speakerMode": "three",
+  "participant": "Chrisley",
+  "callTypeConfidence": 0.88,
+  "callTypeRationale": "Heuristic: 3 speakers, mode=three, title signals.",
+  "persona": null,
+  "confidence": null,
+  "rationale": "Heuristic: 3 speakers, mode=three, title signals.",
+  "classifiedAt": "2026-05-16T17:01:16.720Z"
+}

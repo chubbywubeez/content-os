@@ -1,0 +1,247 @@
+# Bill Problem
+
+*Source text file:* `originals_txt/Bill Problem.txt`
+
+*Speaker turns were separated using **Claude Opus** via OpenRouter. Verify against the recording if a line must be exact.*
+
+*Plain transcript: original had no per-line speaker names.*
+
+---
+
+TABARAK: Good job, Eric. How's life treating you, sir?
+
+BILL: Not bad at all.
+
+TABARAK: It is 4 a.m. here in Bangkok, Thailand.
+
+BILL: Whoa, whoa, whoa, whoa. Well, that ain't Seattle.
+
+TABARAK: Not Seattle, no. I actually moved from Seattle, let's see, let's call it officially about 2024.
+
+BILL: Wow.
+
+TABARAK: Yeah, to give a little background, I was in Seattle recently. My last corporate career was at DocuSign. I was a regional vice president over there.
+
+BILL: Yeah, I saw that, yeah.
+
+TABARAK: Yeah, and so on that first round of layoffs, I had recently got promoted. I was there for about a year and some change. Then the first round of layoffs came in, and I didn't make the cut at the time, right? Understandable, we got overhired. I had two reps at the time. Did not make any sense, right? It gave me the opportunity to take off the golden handcuffs and then go travel the world. I did that, ended up in Bangkok and realized I still like to work. I just can't, you know, I can't stop that.
+
+BILL: I can relate to that.
+
+TABARAK: So I ended up connecting with a director buddy of mine at DocuSign. We started working on some startup business ideas, and we both realized we just weren't good at marketing, right? We were good at sales. We started other businesses. But, you know, when you're 20 years deep in a sales career, all your whole career, you've been fed leads the whole time. You're a hunter, not a farmer. I totally get it. So we had to go and learn just the concepts of marketing, writing, writing of hooks, LinkedIn, YouTube, just every other channel. We spent about a year and a half of just working on that. And as we started doing that, obviously we're in this learning phase and trying to build a business base. So we start taking on clients, right? And we take on some startup clients in regards to sales. And then the more we started working, we realized we're doing fractional work now, right? And the big challenge is how are we starting a business and keeping up with our fractional clientele? And how are we managing this time? And we just found this unique space here where it's like, is it just us or are we having this bias or are other people having this bias as well? And so we shifted our focus and pivoted in this direction. And now we've been talking to a few dozen fractionals, and we're really trying to suss out this problem space. And as we've talked, we're getting closer and closer, and we're doing this customer development program where we're talking to people like you, learning a little bit more about you, figuring out what kind of problems you have in your space and solutions you have in the space. Then I could share some of the things that I've been seeing from other fractionals and then share our approach for the technology we're building, right? And ideally, if this is a good fit and you see some problems that are in alignment, we'd be happy to set up a demo at another time and show you what the product looks like. And if you enjoy that, we would essentially like to invite you, if everything checks out, fits on your end, fits on our end, to a customer development program where we essentially give you the product and help build the product around our core ICP. So that's kind of the whole purpose of this. I'd love to hear a little bit about you. Tell me what you think about our process so far. But yeah, tell me a little more about you, Bill.
+
+BILL: All right, so that's intriguing. So I've got 35 years in marketing. My last permanent position was in private equity real estate development and investments. And that market is still a mess. It's been three years and it's just a toilet bowl for the moment. So I've been doing a lot of different projects. I've been doing a lot of fractional stuff, but kind of ad hoc, right? So I haven't been doing proper fractional type approach to this. I've recently joined two fractional groups. One is Savvy, and that's a fractional C-suite. And the other one is one that's an agency I helped set up a long time ago. And I'm getting back involved with them, and they seem to have a pretty cool pipeline going. I'm trying to get on board with them as well. So I'm working hard to get traction. I'm not quite to the point where I have all this work on board where, like I went through your website here, just looking at something that maybe falls in alignment with something like Monday or Asada or something like that. I'm not to that point functionally yet where I have that kind of chaos in my life. So it's part of me. If I think strictly fractional, yeah, I'm not there. I relate to the problem, though. So for reference, when I was at Caliber, I raised $126 million in one year with a $6.5 million marketing budget.
+
+TABARAK: Yeah.
+
+BILL: And as I went along, I just realized how massive and complicated the marketing ecosystem is. We always had at least my little team of six people plus a bunch of contractors. I had probably 14 contractors and agencies of various kinds. We always had at least 500 projects open at any given time. It was just constant. The amount of volume was insane. So we used Asada as our primary model. And I, of course, appreciate these. Even as I was looking at this, I go, do you happen to align with EOS or 90, something like that? Or is there a way that these could play together well?
+
+TABARAK: Yeah. What's 90? What's 90? Okay.
+
+BILL: 90.io.
+
+TABARAK: Okay. Okay. 90? So, I mean, that's very interesting. Did you use 90 often? Are you still using it, or did you use it often before?
+
+BILL: They use it as part of their client process that they've actually set up with 90. So I don't know how common that is with fractionals. That's what I'm trying to find out.
+
+TABARAK: Yeah. Because you know what? I'm hearing a few different problems in the space. And maybe, you know, it's funny. You heard a little bit of my story in regards to trying to start the business while juggling client work. That's the root pain, right? Yeah. And regardless of what it is, it's like, to the core, am I a fractional? Not 100%. I'm a founder, but I'm doing fractional work, right? Yeah. I think the way AI is going, I think the way businesses will be going, there's going to be more broken down. You know, back in the day, I mean, we're in a weird era. I don't want to go through some history right now. Yeah. Since the industrial era to now, it's a different type of business that has happened for the rest of all of human career, right? Right, yeah. There's echoes of what's going to be happening that everyone's going to break down into either really smaller businesses and then a couple of bigger businesses, right? And those smaller businesses, my bet, are going to be supported, especially in this transitionary phases, by a lot more consulting fractional work. Right. You have the skill to bring on board other people, right? Yeah. And this echo that I'm trying to find out in the market is like, what is this pain of juggling multiple capacities, right? How are you prioritizing all of this? How do you plan, right? So I guess for you right now, as you're logging on and getting all your stuff situated, what's your core problem that you're having? And especially looking back on what you've done so far, you know there's a process and you're trying to put it all together. What are you dealing with right now?
+
+BILL: So I think for me, when I've done fractional work before, it's always been a forced situation where I just had to do it. I needed to, right? I never voluntarily fractionalize anything because it just goes against – frankly, it goes against good marketing strategy. Having a consolidated focus and effort is way better than dividing it up into little pieces, right? So I'm inherently pre-wired against that, though I do like learning different things in different industries, and that's parts of joining. The biggest challenge is pipeline. Feast or famine, you get focused doing the work, you drop the self-promotion, and then you run out of work, and then you're starving, right? And two of the fractional groups I'm joining, I'm specifically joining because they have pipelines attached to them. So I'm not to the point where I'm like, okay, I'm ready to go out on LinkedIn and start just networking like crazy and meeting all these people and start turning some of those into some work. Partly because, frankly, what I do requires big budgets. So architecting and orchestrating marketing ecosystems is what I do. There was a date like 10 years ago. I could have been a one-man marketing show probably 10 to 15 years ago. It was low-tech. You didn't have to be that fancy. Now everything is a specialty. SEO is its own monster, and you need somebody who just lives and breathes that. Digital marketing is its own beast, and it's a full-time live it, breathe it, optimize it, tweak it, screw with it. All these things that before I could have just used an ad agency to do some media buying for me, now you need really sophisticated humans who can do each of the pieces. My last company, I had 20 people on my team who did not have a duplication of jobs. They were all doing different things. I think that's the fundamental problem that marketing in particular has right now. It's changed so much where I look at my other fractional friends. They're CEO, COO, stuff like that. They can do the strategy. You can structure that and get work done by doing that. Marketing, you need a big-ass budget over here out there actually going to market for you. Your outcome actually comes with failure to start in marketing. You need to continue to fail. It's becoming impossible to manage. AI is actually making that kind of worse. It's accelerating how much of the stuff you have to flop is insane. I use AI every day, but you can't let it go feral. That's a feral, scary, free-range stuff. It also shuts off part of your brain if you're not cognizant too because you can just fall down this hole.
+
+TABARAK: You're like, agree. Yes, I do agree with you. You get a paragraph in and you're like, what am I reading? This isn't a good copy.
+
+BILL: Exactly. I've run into it with some leadership. Leaders are generalists a lot of times, so when they come across an AI tool, they think it's awesome. They're going, look, it's doing my marketing for me. It's great. All I can think of it is because you don't know what good marketing is. It looks good to you because it's your idea and all of a sudden you can do things you could never do before, but they don't recognize how weak it is. It's scary time in marketing right now.
+
+TABARAK: I hear you on that. Let me ask you a question here because you know what? You hit it on the head. The number one problem from every bracket that we found is the Feast for Fam inside, right? I found a couple of different buckets that that could extrapolate to. One of them is that you have so much on your plate that you have client work and fires are happening. Either you don't have a structurally sound system or you're just over capacity and you're like, I'm supposed to do this at 2 o'clock. Let me push this off to later. Let me push this off until later. That's one end. Then there's the other end where people are just inherently don't like prospecting. I have 20 years of sales. I know how it is. I have to shut off a part of my brain that turns off rejection and it's like, I just got to do the numbers. I don't care. The other part of it is if you don't have that dialed in, you get rejection, then you don't want to do the thing, then you put it off.
+
+BILL: Yep. That's totally it. That's probably the worst part for me, the time management I do pretty well on. I have a low capacity for boredom and prospecting definitely falls into that realm. I've been doing it for now two years since that company went south. It gets pretty old.
+
+TABARAK: Another thing that I'm trying to find out now is, here's another, the flavor of that as well is, if you're looking for marketing, you understand this. There's so many channels that you can actually go get your client work in. I find people default. It's just a natural human thing. You default to the thing that is easiest for you. If you're great at face-to-face, then you'd rather walk out the building and then go to a conference and try to meet people there. Some people run ads. I've heard a very minute amount, but some people are good at it. They just get clients running ads. Wow. That's impressive. Then there's other people that come from sales and they're just prospect and do posts. Have you found an area that you know you should be doing and you aren't doing, or you're just trying to figure it out?
+
+BILL: I've been trying to get traction in so many areas right now that I haven't put a proper focus on actual lead gen for myself. That's why I've hooked up with these two groups that have pipelines, still try to get traction with both of them. I know how hard it is to find things that are a good fit. Marketing is no joke. The problem that I run into over and over in my world is everybody I talk to is looking for a one-man show. They think you can just do it for a little fixed retainer that you can go out and solve their problems. I'm like, no, that's the starting point. There's got to be a bucket of money attached to that where I can go after pieces. I can go get a designer to rebuild your website and I can redo your branding and I can do all these different pieces that make a modern marketing program. There is a major disconnect right now, especially among smaller companies and what marketing really is. They're very frustrated with it, rightly so. You've got a bunch of gurus out there telling you how easy it is using their process to get leads. I have yet to find a marketing vending machine anywhere. If you had, you'd be a billionaire. You might even be a trillionaire if such a thing existed.
+
+TABARAK: There's two routes. The agency piece and you came from agency. You don't understand that. You need a lot of people or you can actually fine-tune and you just say, hey, I can do your Facebook ads. Let me share some of these problems. I don't think there's a lot of complete overlap. You might be able to understand this from your previous forays in business, but where you're at in your fractional space. Let me ask you one more question. I guess if you had a magic wand right now, that could solve one problem that'll just unlock every blocker in your business. What would that be?
+
+BILL: Right now, big things are reliable pipeline.
+
+TABARAK: These are some of the things not in any order, but losing client trust because you have no system for protecting commitments when fire drills hit midweek. Urgent work blows up in the middle of the week, so you keep busy. You don't move forward on your bigger business goals. Put those off. That includes prospecting.
+
+BILL: I could see how that would happen.
+
+TABARAK: You feel overwhelmed, anxious, or guilty because you're constantly worried about letting yourself down or clients down. Stuck in a feast or famine cycle when client engagements end, so you're always starting from zero.
+
+BILL: By the time you pick up your head, you're done with clients, and you're back at zero again. That's certainly a big one.
+
+TABARAK: Then stitching together multiple paid tools and systems, but you're spending all your time juggling those, and your commitments are still there.
+
+BILL: It's hard to get people who can be committed to the ecosystem that's required because they don't get it.
+
+TABARAK: I know the number one was your stuck-in-a-feast-or-famine. What would rank two or three for you? If it doesn't fit right now, that's totally fair, too, because you're building up your clients. What have you felt before, or what would you be worried about that could happen pretty soon?
+
+BILL: It's a long game. They want marketing to be a short game, and it's not. Frankly, most entrepreneurs are sales guys. They put the work in today, they kill it, they take it home, and they eat it for dinner tonight. They meet the farmers, and they're going, what do you mean you're going to spend the next few weeks tilling the soil? Then you're going to plant the seeds, and then you're going to weed, and you're going to fertilize, and you're going to water. What do you mean we can't eat until August? They want to murder me when they start to understand. You can just see it. They don't have the patience for it. Finding somebody who's operationally minded, that has that discipline and a long game view, that's the challenge.
+
+TABARAK: I have a question for you. What tools are you using now? I guess maybe a side question, too. When you come in, do you tell them what tools they work with, or do you kind of jump in, and then you just have to learn all the tools that they're using for your clients?
+
+BILL: I'd say that varies. Some people already have it all in place. Other people, you have a blank slate that you can go and make recommendations. I was lucky. My last company, I had a half-million-dollar tech stack, just my tech stack alone. It's gotten to be a real monster, that whole world, that's for sure. I end up with like 80 logins. It's barely becoming a mid-sized company. It's not even a full mid-sized company.
+
+TABARAK: I can understand. Even as a startup right now, I'm literally juggling. I think it's over 20 apps, right? Especially with AI, everything's little things. A lot of them are even free-based now, right? They don't even charge you until you get to customer base. I'm juggling so many apps. What apps are you using right now? You said you use AI. Are you using Cloud or ChatGBT?
+
+BILL: Right now, I'm just using ChatGBT. If I was doing a lot of content writing, I would probably consider switching to Cloud, because it's better. Then there's a million others, NanoBanana and MidJourney for visuals.
+
+TABARAK: Three years ago, I was on five different AI platforms at the company. At the time, the ChatGBT came out. It's still the same now. I've actually made a new rule. We can't do annual contracts anymore. We just do monthly on all the AIs, because every month something new comes out.
+
+BILL: Yeah, it totally changes the rules.
+
+TABARAK: Now we piece stuff together. NanoBanana, we're using really good for content. Elon's X, their image generator, you get a lot of volume out of it right now. It's not the highest quality, but what you can do is you can make image generate for very cheap, and then make it into a video there. You can start doing all of these things like that. There's a system called Envato. They were doing really good. They cut down all their image generation last month. It was a steal. They just cut it down to 10 a month, and then it was unlimited for months now. There's just a list of these that continually go. Let me give you some of the solutions. Yeah, there it is. It's good for content generation. They have a whole bunch of different assets. Definitely use that. VidIQ, if you do any video stuff, VidIQ's really good at ... They know the YouTube algorithm, so if you're making shorts or you're making quick YouTube videos, VidIQ will let you, essentially, it'll score all of your YouTube videos. It'll grab your content in. It'll help you rewrite it close to your voice. They do really well. I spent a year in YouTube and structuring it so that you can get more views. You still have to write well, right? Yeah. They help you with thumbnails as well. I think that's pretty cool.
+
+BILL: Oh, there it is. Okay. Yeah. Looks pretty cool. Pretty cool.
+
+TABARAK: Is there any other places that you search technology in or you're focusing in on right now?
+
+BILL: Still using Zoom and Google Meetings and stuff like that, Google Meet. I use a lot more Google Docs than I used to because people like to share online, which has become kind of a habit now.
+
+TABARAK: Yeah, yeah, yeah. Are you recording your transcripts from calls as well?
+
+BILL: Typically, I do not, believe it or not. We do have that feature set up on Zoom and stuff, and sometimes I get it downloaded. Occasionally, I find that helpful. The problem is I'm a pretty good note taker, so I usually get the important things I want, and it helps me if I physically write it because it engages more of my brain, and so it locks it in for me. Sometimes I need to go back and look at the transcript, but I don't make it a habit because if I do the meeting, and I have to spend a half hour reading through the notes, then it's not really safety time.
+
+TABARAK: Here are some of the solutions I see them using. I mean, I'm not saying they're positive solutions, but spending a lot of the day, each day, in the morning, 30, 60 minutes, just reprioritizing your day, right?
+
+BILL: Yeah, I've done that. I figure out where the fire is. I've done that before.
+
+TABARAK: I just realized I spend an hour a day trying to reschedule my day. Compensating on working nights and weekends, reactively, not strategically. For you, how many hours a week are you working now?
+
+BILL: It's ridiculously low, just a few because I'm still trying to get up to speed on both of these groups, so yeah, it's ridiculously low.
+
+TABARAK: If you had your ideal client volume, how much would that be, and how many hours would you want to work in a week?
+
+BILL: It would probably be three days a week, and I'd promise them eight hours each of those days, and then the other two days, it would be either doing things that I want to do, or building in better processes, or if I want to put some extra work into somebody's project, I can, but two days are kind of flexible days. And the way it's set up, yeah, I mean, one day a week would pay my bills, so if I'm doing three days a week, then I'm putting away money for retirement and all that.
+
+TABARAK: Are you going on retainer or project-based?
+
+BILL: Typically retainer. Six to 12 months is the target with one group. The other one has some project-based stuff, but for it to be marketing, it has to be retainer-based because there's no such thing as month-to-month marketing.
+
+TABARAK: So I know we're coming up on our time, so I'll give you kind of our approach, right? And you kind of hit it on the head with that 99 aspect, but I'll key into that. But more like Google Maps for your work week, we find the fastest route, we prioritize around your fire, so you always know exactly what to do next, right? If a priority such as getting prospecting done or taking care of XYZ is a core fundamental thing, our thing is we essentially take all of your work from across all your systems, right? Similar to what you were thinking, and you have one command center. And from there, what we do is because we have all your work, we can see how much time you need and what's important for you. We're able to prioritize using an algorithm that takes your goals and your stakeholders. And what we call stakeholders are things that take against your time, right? Your client A, client B, your actual personal business, distribution. And then essentially what we do is we help prioritize that for you. And when things go wrong, which they do, right? In the middle of the week when you have new items coming in, a client fire that pops up, what we do automatically is we essentially take your new work that comes in. We grade everything. We shuffle it and say, yo, here's everything that could be an issue for you, and we're going to move things out of this week or we're going to add this in here. And we allow you to approve everything. We're not the AI overlord. But we essentially do that one-hour planning every single day on the fly all the time, right? Got it. And so that's like level one of the product. But the core of that is so that you can orchestrate your week, your day, your time appropriately, giving you back the times that you could do. While we're doing this, we're also watching how you work. And we're getting all the fundamental things and saying, hey, I like to work 30% of this business. We'll tell you at the end of the week. Did you line up with what you were trying to do for the week, right? And how you were spending your time. And so that you can make adjustments and at least see reality or actually make the tweaks to do where you're trying to go so you optimize your business.
+
+BILL: Right on. So sort of a streamlined Asana kind of thing.
+
+TABARAK: It's essentially we can pull from Asana. We can pull from all of those things. It is a very streamlined thing. The one thing that we have differently than everybody is that we actually take your capacity and your priorities both into consideration. So it's not just a board where you move things across. We could do that as well. But we really care about how you're spending your time based on the promise you want to keep for yourself.
+
+BILL: That's interesting. Kind of a priority manager. Interesting. Okay.
+
+TABARAK: If we get this part right, I'll give you a little sneak peek. If we get this part right, the next step for Matt is that you're doing work in it every week. And then we're keeping track of the work that you're doing. So we'll take your task. We'll break it down into steps. We'll give it estimated times for each. And then as you're completing it, we're keeping track of how long it took versus what was estimated. And we're also tracking those steps. And those steps become executable after you've done them so many times down the road. So eventually, not only are you orchestrating your time, you'll be able to approve an AI to do part of your work for you down the road. So the more you use it, the better it becomes for you. And then you can start managing your time in an optimal way. So your 30 hours could turn into 60 hours down the road.
+
+BILL: Interesting. Okay. Very cool.
+
+TABARAK: So what are your thoughts? Any thoughts on the approach? Obviously, if it's not a good fit, that's okay too. But what do you think about this? Any suggestions? Any feedback?
+
+BILL: It's a very cool idea, and I know it's timely. And I know that a lot of people could really use this. The thing that's off for me is just my timing and that I'm in free fall at the moment, kind of in a stall where, okay, yeah. I know if I get some work in front of one of these fractionals, then I'm not going to be looking as hard for my next job or my next project or whatever. So I see that already starting to happen, but it's still very, very early stage. So timing for me is off a little bit. I see the inherent value of this. I mean, one challenge, like for me, one of the bigger problems I had managing that is there were so many projects in there. You couldn't check on all of them. You couldn't see really where the work was really happening. So it sounds like an interesting – it feels a little like 90 a little bit. I don't think it's the same, but I'd be interested to see how well those might play together.
+
+TABARAK: Can you tell me a little bit about 90? I'm sorry. I know we just crossed the time, but just a quick question. So in 90, is it kind of like an OKR system where you just put in all your goals?
+
+BILL: Yeah, it's kind of like an OKR system. That's a good way to describe it. You have your big rocks. You have your big idea that you want to do and maybe some timelines attached to it. Then you have your rocks for this quarter, the rocks for the year, whatever, and how you're making progress on those and the associated OKR. So I think that's a good way to describe it, yeah.
+
+TABARAK: That's pretty awesome. I'll really look into that because right now one of the things that we can see – and I can also see as a challenge, I'll be honest. It's updating the system. If you do sales scores, if you've done anything, it's how you consistently update. As true as our system will be, it's as true as you keep your goals up to date.
+
+BILL: Right, right. You may find that the 90 people, they might be an ideal target market for you because they're already using a system that is adjacent to what you're doing it looks like, and they might actually plug in really well together.
+
+TABARAK: I would say the same thing. If you can do goals, yeah. If goals come in already, then we can help you manage your tasks and we can align everything directly.
+
+BILL: Right, right. They've been pretty big and they're pretty successful, I think. The one fractional group is just starting to implement it, so unfortunately I can't give you personal insights into using it, but I've certainly heard plenty about it.
+
+TABARAK: What's the name of that fractional group?
+
+BILL: Savvy Strategic Partners.
+
+TABARAK: Okay, awesome. It was that one.
+
+BILL: The EO system, I have a book up on my shelf there, it's called Traction. That's where I first learned about it. It was a book first before it was a platform, for sure.
+
+TABARAK: Wow, I'm going to take a look at that, too, as well. You said your buddy is the CTO of 90?
+
+BILL: He was until about a month or two ago. The CEO was tired of having a C-suite, so he let the whole C-suite go and just wants to go back to running the show himself, apparently. I'm like, all right, good luck with that. But it seems to be a pretty solid platform.
+
+TABARAK: I don't know if it's a big deal for you, but I'd love a referral into that guy. I would love to talk to him if that's his workspace. The CTO?
+
+BILL: Yeah. Do I have your email address? I believe so, in LinkedIn, but I can give you again. Just to be safe, let's make sure I have it. I can introduce you to Greg. He's a great guy. He's on a project he's really excited about. He felt like his software companies were hedging him in too much, and now I think he's found a green field where he can really go to town. He's a very cool guy. He used to work for NASA a long, long time ago.
+
+TABARAK: Really?
+
+BILL: Yeah, a long time ago. I've known him for 20-odd years. He's very cool. He's done very well for himself.
+
+TABARAK: I love that. You know what? Every time I run into a space guy, I love them. I love space.
+
+BILL: Well, this is a big day for you then. It's a good thing you got yourself up early so that you can watch the launch in a few hours here.
+
+TABARAK: 100%. That was part of the plan.
+
+BILL: What in the world are you doing up at 4 in the morning in Taiwan? Is this what you do? You talk to people in America in the middle of the night?
+
+TABARAK: I do it at any time. Right now, I'm in that stage as a CEO of the business. I have my co-founder working on the technical side, and so we've done a division of labor. For me, it's all a hat. I'm just going to get up and do the work. But what I do have to do is manage my sleep. I realize that sleep is important. I try not to do as many 4 a.m.s, but my wake-up time naturally is 4 a.m. If I could do this, I could have had this conversation a little later in the day if you want. It's okay. It was one of those things where it's like, hey, I got this launch in. We're in such a pivotal space. All right, cool. How do you like it? What was that?
+
+BILL: You can finish what you're saying. I was just going to ask how you like it in Bangkok.
+
+TABARAK: Oh, yeah. First off. Okay, yeah. We're such a pivotal space that every conversation really helps. Just the feedback you gave today was tremendous. I really appreciate it. Seriously.
+
+BILL: Happy to help.
+
+TABARAK: Bangkok. Have you been out here?
+
+BILL: My sister used to live there a long time ago. Yeah, she used to live there for a while.
+
+TABARAK: You know what? I mean, where are you based out of right now?
+
+BILL: Phoenix.
+
+TABARAK: Do you have any kids or anything tying you down?
+
+BILL: I got some grandbabies here who are very demanding.
+
+TABARAK: Honestly, as I've been having a lot of conversations, there's so many people rethinking their lives. I mean, I could move to a different country, right? The burn rate is fantastic here, right?
+
+BILL: Oh, yeah. That's huge.
+
+TABARAK: Sun, you're in Arizona, so that's great. But I didn't realize, living in Washington all my life, how important the sun is to me, right? And then, when you're on this side, now the rest of the world is waiting for you to get to, right? So, I mean, I could go to Vietnam for 40 bucks. It takes an hour to get there. I can get to Singapore in a couple hours, get to Bali.
+
+BILL: Wow.
+
+TABARAK: Tropical weather. So, I'm in Bangkok, 10 million plus people, probably close to 15 million people. And a 40-minute flight, I'm in the islands. So, I can go live in the islands, be in a super convenient city where anything's delivered to my door in, like, 15 minutes, you know?
+
+BILL: Nice.
+
+TABARAK: You know, and so, like, I don't party anymore. So, I miss out on all of that part. But if you want to live that life, it's 100% there, you know?
+
+BILL: Nice. Very cool.
+
+TABARAK: I would suggest, if you get a time to take a vacation, if you can take three weeks out, 21 days, and just do a Thailand tour, it's a life-changing thing, you know? You might end up living there.
+
+BILL: I can see that. I lived in Korea for a couple of years, and that was a pretty amazing experience. Though, I have to admit, because I was over there for two years solid. When I got back to America, I cried my eyes out. I was so happy to be home.
+
+TABARAK: Oh, man. I went back in March for the first time in years, and there was this thing, you know, that feeling you have when you come back, the pride for America, right? I don't know if inflation was crazy, but the cost is ridiculous. Like, there's a big change in cost in the last few years when I came back.
+
+BILL: Yeah.
+
+TABARAK: I think I tried to leave the grocery store with, I don't know what day, but I tried to leave the grocery store with the food, and it was like 50 bucks.
+
+BILL: I know. I know. Yeah, it doesn't make any sense right now, that's for sure.
+
+TABARAK: Yeah, yeah.
+
+BILL: Well, go ahead. I've been taking up a lot of your time.
+
+TABARAK: I really appreciate your time, man. I'll ping you real quick on LinkedIn, so just make sure you have my contact. Yeah. I would love it if you want to look at the product, if you want to do a demo, because I don't want to go against your time. I know you're trying to build everything up, but I'm happy to show you the product if you want. Just for general feedback.
+
+BILL: Yeah, I'm happy to be a test subject for you for stuff like that.
+
+TABARAK: I love that, Bill. Thank you so much, man.
+
+BILL: All right.
+
+TABARAK: Well, I'll let you go. I'll send you a quick message. You know, if you can send me that referral, that would be awesome. I'd love to talk to another space guy, and then hopefully you watch the launch here too.
+
+BILL: Yeah, absolutely.
+
+TABARAK: All right, man. Have a good day. Cool. Talk to you later, Bill. Thank you.
+
+BILL: Thanks. Nice to meet you.
+
+TABARAK: Nice to meet you too. Bye-bye. Cheers.

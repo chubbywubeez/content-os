@@ -16,6 +16,16 @@
 # Large research tree (transcripts, Playwright profiles, PDFs) — not required for Content OS
 # NOTE: data/presentations is intentionally included for live interview/demo library endpoints.
 
+data/generated/
+data/presentations/**/__pycache__/
+data/presentations/**/*.pyc
+data/presentations/claude_browser_batch_md/
+data/presentations/claude_web_export/
+data/presentations/originals/
+data/presentations/originals_txt/
+data/presentations/pipeline/jobs/
+data/presentations/tools/pw_chrome_profile/
+
 # Outlier pipeline: only the two JSON files the app reads at runtime (see vite-plugin-copy-maker-data)
 data/outliers/*
 !data/outliers/data/

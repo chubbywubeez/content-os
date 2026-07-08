@@ -1,0 +1,72 @@
+{
+  "interview": "Phil CFO Problem",
+  "interview_weight": 0.442,
+  "snippets": [
+    {
+      "theme_tag": "capacity_ceiling_broken_by_ai",
+      "pull_quote": "I learned I created an agent called Techie to help me manage the five to ten tech stacks I'd have to try to learn. I don't know what my cap is anymore — I'm at 6 clients and still exploring.",
+      "website_angle": "Show how AI lifts the hard ceiling on how many clients a fractional can carry without burning out.",
+      "intensity_1_to_5": 5
+    },
+    {
+      "theme_tag": "insider_not_outsider_positioning",
+      "pull_quote": "Most business owners would rather have a team member than a consultant. I've been working hard to position myself as an insider, not an outsider.",
+      "website_angle": "Speak to fractionals who want tools that reinforce their embedded, trusted-advisor identity — not a vendor feel.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "monday_morning_decision_factory",
+      "pull_quote": "When you wake up Monday morning, there on your laptop is your decision factory — red flags, courses to continue, courses to stop. Every week, the business owner is super responsive to what happened the prior week.",
+      "website_angle": "Use as a vision anchor for automated insight delivery — the CFO's value, delivered while they sleep.",
+      "intensity_1_to_5": 5
+    },
+    {
+      "theme_tag": "tech_stack_sprawl_and_subscription_fatigue",
+      "pull_quote": "I hired an AI coach for six, seven months and ended up with 25 different subscriptions I'm exploring. My list is going to keep evolving — it changes like every week.",
+      "website_angle": "Position product as the integrating layer that ends the endless tool-switching treadmill.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "straddling_multiple_client_ecosystems",
+      "pull_quote": "I have a mix of clients that are Teams versus Google — it costs me to straddle both worlds. Tools that can straddle are important to me.",
+      "website_angle": "Highlight cross-platform compatibility as a real operational cost fractionals absorb daily.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "generic_tools_lack_strategic_cfo_mindset",
+      "pull_quote": "The financial modeling tools I've been reviewing don't add in the strategic entrepreneurial mindset of a CFO. They're ground floor — but they're missing it.",
+      "website_angle": "Differentiate from commodity fintech by emphasizing judgment and strategic context, not just data.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "fear_of_being_pigeonholed_by_software",
+      "pull_quote": "I'm eager to see how it's going to be built in a way that's not going to pigeonhole or minimalize me. We believe in our way — it's worked for so long. We don't want to trade it in on a generic way.",
+      "website_angle": "Address experienced operators' fear that software will commoditize or constrain their hard-won approach.",
+      "intensity_1_to_5": 5
+    },
+    {
+      "theme_tag": "ai_as_trusted_partner_not_replacement",
+      "pull_quote": "Mahomes and Kelsey — neither could be as special without learning each other over the years. One plus one, done well, can be exponential impact.",
+      "website_angle": "Frame AI as the partner that learns how you work — amplifying your edge, not replacing your judgment.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "climbing_client_learning_curves_at_scale",
+      "pull_quote": "I'm rotating through clients, climbing learning curves on how each business works. I find loading all my notes into a project keeps my learning accelerating as each client develops.",
+      "website_angle": "Show how the product compresses onboarding time and keeps institutional knowledge accessible across a portfolio.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "trust_as_the_ultimate_kpi",
+      "pull_quote": "They can just call me whenever they have a tough issue — which I really relish, because that means they've earned their trust. That's what I love: helping business owners through the tough ones.",
+      "website_angle": "Anchor messaging in trust-building outcomes, not just efficiency — resonates with relationship-first fractionals.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "experienced_operators_want_a_tool_that_knows_them",
+      "pull_quote": "We want a partner that's going to know the way we roll and what makes us special — not something that flattens 35 years of experience into a template.",
+      "website_angle": "Promise personalization and memory — a tool that adapts to the operator, not the other way around.",
+      "intensity_1_to_5": 5
+    }
+  ]
+}

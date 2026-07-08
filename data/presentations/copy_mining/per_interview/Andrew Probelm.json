@@ -1,0 +1,72 @@
+{
+  "interview": "Andrew Probelm",
+  "interview_weight": 0.316,
+  "snippets": [
+    {
+      "theme_tag": "context_switching_fatigue",
+      "pull_quote": "Shifting gears back and forth between client work and business development is a little bit tricky to manage. I find it hard to just constantly be going back and forth between those two zones.",
+      "website_angle": "Speak to the mental cost of toggling between delivery and BD — fractionals feel this daily.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "feast_or_famine_pipeline",
+      "pull_quote": "It's pretty bumpy. I can go long periods without any new client inquiries, and then I'll get a couple at a time. I'd like a more steady state of new client opportunities.",
+      "website_angle": "Pipeline unpredictability is the core anxiety — use this to frame consistent BD support.",
+      "intensity_1_to_5": 5
+    },
+    {
+      "theme_tag": "generic_ai_content_disappointment",
+      "pull_quote": "It was very generic. It sounded like all the other posts on LinkedIn. So I've been exploring finding someone who won't use AI — really writing higher quality content.",
+      "website_angle": "Position against commodity AI content; operators want voice, not volume.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "linkedin_as_primary_channel",
+      "pull_quote": "My gut says that's going to come by posting good quality content on LinkedIn. It seems like that is the best way for me to market myself.",
+      "website_angle": "Validate LinkedIn as the right bet for fractionals — then show how to do it without the grind.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "email_outreach_skepticism",
+      "pull_quote": "The success rate with email campaigns is very low. You have to have a huge volume to just get one quality lead.",
+      "website_angle": "Acknowledge what doesn't work for solo operators — builds credibility before pitching alternatives.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "niche_differentiation_vs_crowded_market",
+      "pull_quote": "The typical fractional CFO is chasing SaaS and tech-focused businesses. I'm a little more old school — healthcare and manufacturing is where I have experience.",
+      "website_angle": "Highlight that niche depth beats broad positioning; help operators articulate what makes them different.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "client_loss_anxiety_driving_pipeline_urgency",
+      "pull_quote": "I haven't lost a client yet, but I know it's going to happen eventually. That's why I'm concerned about having a certain pipeline — so I don't go back to zero.",
+      "website_angle": "Tap the pre-emptive fear of churn; pipeline isn't optional, it's insurance.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "intentional_lifestyle_design",
+      "pull_quote": "I'm happy working 35, no more than 40 hours a week. I'm not looking to burn the midnight oil. The work-lifestyle equation really shifts if you start building a team.",
+      "website_angle": "Fractionals chose this path for a reason — messaging should honor the lifestyle, not just the revenue.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "client_urgency_derailing_bd_goals",
+      "pull_quote": "Marketing work gets pushed aside and I end up focusing on a client need instead. That happens. And quarterly goals get stretched.",
+      "website_angle": "Show how reactive client demands quietly kill proactive growth — a relatable friction point.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "successful_week_defined_by_plan_integrity",
+      "pull_quote": "A successful week is one where I can devote time to both client work and business development without shuffling things around. The week goes as planned and I've moved project work forward.",
+      "website_angle": "Define the dream outcome in operators' own terms — progress over firefighting.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "manual_reporting_automation_gap",
+      "pull_quote": "That spreadsheet required constant manual coordination. That's a little bit what I'm looking to solve — automating connections between accounting software and reports.",
+      "website_angle": "Surface the hidden time tax of manual financial workflows for fractional CFOs.",
+      "intensity_1_to_5": 2
+    }
+  ]
+}

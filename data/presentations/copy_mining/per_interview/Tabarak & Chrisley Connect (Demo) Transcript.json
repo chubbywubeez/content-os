@@ -1,0 +1,90 @@
+{
+  "interview": "Tabarak & Chrisley Connect (Demo)",
+  "interview_weight": 0.35,
+  "snippets": [
+    {
+      "theme_tag": "command_center_desire",
+      "pull_quote": "I think that's probably the number one thing is ultimately you can live in one command center where all your business lives. Nobody wants to have a million different tools for each individual task and literally paying a subscription for each task of their business.",
+      "website_angle": "Lead hero section with the universal pain of tool sprawl — position Vantum as the one command center where your business actually lives.",
+      "intensity_1_to_5": 5
+    },
+    {
+      "theme_tag": "adoption_risk_shiny_toy",
+      "pull_quote": "That's where adoption loses. People try something, oh, this is dope. Then they start using it. Then they just, oh, well, I still got to do all this other stuff anyway... And then they look at their credit card statements five months later. Oh, I'm not even really using that thing.",
+      "website_angle": "Use as a 'why most productivity tools fail' framing — set up Vantum as the tool that actually replaces work, not adds to it.",
+      "intensity_1_to_5": 5
+    },
+    {
+      "theme_tag": "tab_overload",
+      "pull_quote": "I could see a scenario in which I have a whole bunch of tabs open, I'm using this, I then go to do this, and then I kind of go back into my old ways of just doing how I was doing things, and this tab is now off in the corner, growing ever so small as more tabs are popping up.",
+      "website_angle": "Visual section showing the 'tab graveyard' problem — Vantum keeps you from drifting back to chaos.",
+      "intensity_1_to_5": 5
+    },
+    {
+      "theme_tag": "organized_chaos_system",
+      "pull_quote": "I'm just a pretty Notetaker, Google Docs, I have my system, I guess, that I wouldn't recommend it to anybody. Because if anybody looks at my stuff, they would think I'm unorganized. But it's like organized chaos.",
+      "website_angle": "Speak directly to fractionals who 'have a system' that only they understand — Vantum gives structure without forcing rigidity.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "context_rebuild_fatigue",
+      "pull_quote": "A bottleneck I'm seeing across the board is that people have been using their chat GPT or cloud or whatever so much and it already has all that baked in context, if you will, that rebuilding that can get tedious.",
+      "website_angle": "Highlight that Vantum carries your context forward so you never re-explain yourself to another tool.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "onboarding_laziness",
+      "pull_quote": "When it comes to onboarding things, I am as lazy as it comes. Could you do more? Yeah, we can always do more. But do I want to? No. The least I can have to click around and do the better.",
+      "website_angle": "Promise a near-zero-effort onboarding — 'paste your LinkedIn, we do the rest.'",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "admin_work_hatred",
+      "pull_quote": "When you start figuring out why they don't do it, it's not because they don't think they should. It's because they don't want to do the admin work.",
+      "website_angle": "Frame the core promise around eliminating admin work, not adding planning rituals.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "mobile_access",
+      "pull_quote": "If people are on flights or something, whatever, they want to look at their calendar. I'm always looking at my calendar on my phone.",
+      "website_angle": "Mention mobile companion / responsive access as a checkbox feature — fractionals live on the go.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "niche_down_messaging",
+      "pull_quote": "If you're trying to be everything for everybody, that's going to be a daunting task versus, hey, if you want to be reaching out to the sales leaders... you kind of have a more defined game plan up front so that when you're doing a demo, you're showing things speaking directly to that person's playbook.",
+      "website_angle": "Build persona-specific landing pages (CMO, CFO) so each visitor feels Vantum was built for them.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "do_what_you_signed_up_for",
+      "pull_quote": "Do what you signed up to do, not what you have to do. This allows you to do what you signed up to do, not tasks that you have to do.",
+      "website_angle": "Use as a candidate tagline or hero subhead — emotional north star for fractionals.",
+      "intensity_1_to_5": 5
+    },
+    {
+      "theme_tag": "substance_over_style",
+      "pull_quote": "It's substance first over style, believe it or not... Ultimately, it's what is it saying and does it resonate?",
+      "website_angle": "Justify a clean, content-forward site design with strong copy over heavy illustration.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "testimonials_win",
+      "pull_quote": "I think it's going to be case studies and testimonials... people see word of mouth and then scaling it and using that is ultimately going to be the win here.",
+      "website_angle": "Prioritize a testimonial wall and case-study section from early fractional users.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "mcp_differentiator",
+      "pull_quote": "Just because everybody's adopting it, there's definitely something to consider there... that would be a big differentiator for you guys compared to these other productivity platforms — they can literally access it from within their cloud agent.",
+      "website_angle": "Tease MCP / Claude-compatible workflows as a forward-looking differentiator for AI-native operators.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "client_context_juggling",
+      "pull_quote": "I need to stay on top of what this client does versus what that client does, so that I get on a call and I'm not talking about a completely different business... I don't call people by the wrong name or be like, oh, I just talked to Steve, and there's no Steve here.",
+      "website_angle": "Show how Vantum surfaces the right client context at the right moment so fractionals never walk into a call cold.",
+      "intensity_1_to_5": 4
+    }
+  ]
+}

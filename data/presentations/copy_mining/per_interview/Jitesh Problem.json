@@ -1,0 +1,30 @@
+{
+  "interview": "Jitesh Problem",
+  "interview_weight": 0.35,
+  "snippets": [
+    {
+      "theme_tag": "dual_client_structure",
+      "pull_quote": "I have two ways of working — my own clients I'm building, and a contractual agreement with a CPA firm where I manage their portfolio companies too. It's adding up to almost eight right now.",
+      "website_angle": "Fractional CFOs often juggle direct clients AND firm partnerships — show how the platform handles both.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "team_dependency_for_accounting_work",
+      "pull_quote": "It's not just me alone — I have team members who help put together the stuff, then I go and talk to the other people.",
+      "website_angle": "Fractional operators rely on support staff; position product as the connective layer between operator and team.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "strategic_vs_execution_split",
+      "pull_quote": "Some clients I collaborate on strategies and investor relationships, sometimes sitting on the board. Others are more on the accounting side.",
+      "website_angle": "Fractionals wear different hats per client — messaging can reflect that range of engagement modes.",
+      "intensity_1_to_5": 2
+    },
+    {
+      "theme_tag": "portfolio_scale_growth",
+      "pull_quote": "Started fractional in 2024 — almost a year and a half in — and it's adding up to almost eight clients right now.",
+      "website_angle": "Early-stage fractionals grow fast; speak to operators scaling from 2–3 clients toward 8+.",
+      "intensity_1_to_5": 2
+    }
+  ]
+}

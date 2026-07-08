@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Persona — The Adjacent Fractional</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
+
+  :root {
+    --app-bg-dark: #030a17;
+    --accent: #C97B00;
+    --accent-hover: #a36400;
+    --accent-light: #fff4e0;
+    --accent-dark: #7a4b00;
+    --cyan: #0891b2;
+    --emerald: #059669;
+    --terra: #B34A3F;
+    --terra-light: #fdf0ef;
+    --charcoal: #1A1E29;
+    --lightgray: #A3A6B4;
+    --surface-1: #ffffff;
+    --surface-2: #f7f8fa;
+    --surface-3: #f1f5f9;
+    --text-primary: #0f172a;
+    --text-soft: #334155;
+    --text-muted: #475569;
+    --border-soft: rgba(15,23,42,0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--surface-2);
+    color: var(--text-primary);
+    line-height: 1.6;
+  }
+  .doc { max-width: 980px; margin: 0 auto; padding: 0 24px 80px; }
+
+  .hero {
+    background: var(--app-bg-dark);
+    color: #fff;
+    border-radius: 0 0 28px 28px;
+    padding: 48px 56px 64px;
+    margin: 0 -24px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -140px; right: -120px;
+    width: 460px; height: 460px;
+    background: radial-gradient(circle, rgba(201,123,0,0.16) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -120px; left: -80px;
+    width: 340px; height: 340px;
+    background: radial-gradient(circle, rgba(5,150,105,0.06) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero-inner { position: relative; z-index: 1; }
+  .hero-top {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 56px;
+  }
+  .vmark {
+    font-size: 14px; font-weight: 900; color: #fff;
+    letter-spacing: 5px; text-transform: uppercase;
+  }
+  .stage-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 10px; font-weight: 800;
+    letter-spacing: 2.5px; text-transform: uppercase;
+    background: var(--accent); color: #fff;
+    padding: 8px 14px; border-radius: 999px;
+  }
+  .stage-badge .dot { width: 6px; height: 6px; border-radius: 50%; background: #fff; }
+  .hero-eyebrow {
+    font-size: 11px; font-weight: 700;
+    color: var(--accent); letter-spacing: 3px;
+    text-transform: uppercase; margin-bottom: 14px;
+  }
+  .hero-name {
+    font-size: 64px; font-weight: 800; line-height: 1.05;
+    margin-bottom: 18px; letter-spacing: -1.5px;
+    max-width: 800px;
+  }
+  .hero-name .em { color: var(--accent); }
+  .hero-tag {
+    font-size: 19px; font-weight: 400; color: rgba(255,255,255,0.78);
+    max-width: 640px; line-height: 1.55; margin-bottom: 36px;
+  }
+  .dl-btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: #fff; color: var(--charcoal);
+    font-family: inherit; font-size: 12px; font-weight: 800;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 14px 26px; border-radius: 10px;
+    border: none; cursor: pointer;
+    transition: transform 0.15s ease;
+  }
+  .dl-btn:hover { transform: translateY(-2px); }
+  .dl-btn svg { width: 15px; height: 15px; }
+
+  .snapshot {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-bottom: 40px;
+  }
+  .fact {
+    background: var(--surface-1);
+    border: 1px solid var(--border-soft);
+    border-radius: 12px;
+    padding: 20px 22px;
+  }
+  .fact .label {
+    font-size: 10px; font-weight: 800;
+    color: var(--accent); letter-spacing: 2px;
+    text-transform: uppercase; margin-bottom: 8px;
+  }
+  .fact .val {
+    font-size: 16px; font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.4;
+  }
+
+  .section {
+    background: var(--surface-1);
+    border-radius: 18px;
+    border: 1px solid var(--border-soft);
+    padding: 40px 48px;
+    margin-bottom: 24px;
+  }
+  .section h2 {
+    font-size: 13px; font-weight: 800;
+    color: var(--accent); letter-spacing: 3px;
+    text-transform: uppercase; margin-bottom: 14px;
+  }
+  .section h3 {
+    font-size: 28px; font-weight: 800;
+    color: var(--text-primary); margin-bottom: 24px;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+  }
+  .section p {
+    font-size: 15px; color: var(--text-soft);
+    line-height: 1.8; margin-bottom: 18px;
+  }
+  .section p:last-child { margin-bottom: 0; }
+  .section strong { color: var(--text-primary); font-weight: 700; }
+
+  .day {
+    background: var(--charcoal);
+    color: #fff;
+    border-radius: 18px;
+    padding: 48px 56px;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .day::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -80px;
+    width: 320px; height: 320px;
+    background: radial-gradient(circle, rgba(201,123,0,0.16) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .day-inner { position: relative; z-index: 1; }
+  .day h2 {
+    font-size: 13px; font-weight: 800;
+    color: var(--accent); letter-spacing: 3px;
+    text-transform: uppercase; margin-bottom: 14px;
+  }
+  .day h3 {
+    font-size: 30px; font-weight: 800;
+    color: #fff; margin-bottom: 24px;
+    letter-spacing: -0.5px;
+  }
+  .day p {
+    font-size: 17px; line-height: 1.75;
+    color: rgba(255,255,255,0.92);
+    margin-bottom: 18px;
+    max-width: 760px;
+  }
+  .day p:last-child { margin-bottom: 0; }
+  .day .timestamp {
+    font-weight: 800;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+  }
+  .day .subhead {
+    font-size: 11px; font-weight: 800;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 2.5px; text-transform: uppercase;
+    margin: 32px 0 14px;
+  }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+
+  ul.clean { list-style: none; padding: 0; }
+  ul.clean li {
+    position: relative;
+    padding-left: 24px;
+    margin-bottom: 14px;
+    font-size: 15px;
+    color: var(--text-soft);
+    line-height: 1.65;
+  }
+  ul.clean li::before {
+    content: '';
+    position: absolute;
+    left: 4px; top: 10px;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+  ul.clean.terra li::before { background: var(--terra); }
+  ul.clean li strong { color: var(--text-primary); }
+
+  .quotes-wrap { display: grid; gap: 14px; margin-top: 8px; }
+  .quote {
+    background: var(--surface-2);
+    border-left: 4px solid var(--accent);
+    padding: 22px 26px;
+    border-radius: 0 12px 12px 0;
+    font-size: 17px;
+    color: var(--text-soft);
+    font-style: italic;
+    line-height: 1.6;
+    font-weight: 500;
+  }
+  .quote::before {
+    content: '"';
+    font-size: 36px;
+    color: var(--accent);
+    line-height: 0;
+    vertical-align: -10px;
+    margin-right: 4px;
+    font-family: Georgia, serif;
+    font-style: normal;
+  }
+
+  .pills {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    margin-top: 12px;
+  }
+  .pill {
+    background: var(--surface-2);
+    border: 1px solid var(--border-soft);
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-soft);
+  }
+  .pill.accent {
+    background: var(--accent-light);
+    border-color: transparent;
+    color: var(--accent-dark);
+  }
+
+  .msg-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 8px;
+  }
+  .msg-card {
+    background: var(--surface-2);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 12px 12px 0;
+    padding: 22px 26px;
+  }
+  .msg-card .kind {
+    font-size: 10px; font-weight: 800;
+    color: var(--accent); letter-spacing: 2px;
+    text-transform: uppercase; margin-bottom: 10px;
+  }
+  .msg-card .copy {
+    font-size: 17px; font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.4;
+  }
+  .msg-card .sub {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-top: 8px;
+    font-weight: 500;
+    line-height: 1.55;
+  }
+
+  .not-block {
+    background: var(--terra-light);
+    border-left: 4px solid var(--terra);
+    border-radius: 0 14px 14px 0;
+    padding: 28px 32px;
+    margin-top: 8px;
+  }
+  .not-block h4 {
+    font-size: 12px; font-weight: 800;
+    color: var(--terra); letter-spacing: 2.5px;
+    text-transform: uppercase; margin-bottom: 14px;
+  }
+  .not-block ul.clean li::before { background: var(--terra); }
+  .not-block ul.clean li { margin-bottom: 10px; font-size: 14.5px; }
+
+  /* Big callout for the "they are the amplifier" idea */
+  .callout {
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+    color: #fff;
+    border-radius: 18px;
+    padding: 36px 44px;
+    margin: 24px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .callout::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -60px;
+    width: 240px; height: 240px;
+    background: radial-gradient(circle, rgba(255,255,255,0.10) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .callout-inner { position: relative; z-index: 1; }
+  .callout .lbl {
+    font-size: 11px; font-weight: 800;
+    color: rgba(255,255,255,0.7); letter-spacing: 2.5px;
+    text-transform: uppercase; margin-bottom: 14px;
+  }
+  .callout .big {
+    font-size: 30px; font-weight: 800;
+    color: #fff; line-height: 1.2;
+    letter-spacing: -0.5px;
+    max-width: 720px;
+  }
+
+  /* Sub-pattern cards */
+  .subtypes {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin-top: 8px;
+  }
+  .subtype {
+    background: var(--surface-2);
+    border-radius: 12px;
+    padding: 22px 24px;
+    border-top: 3px solid var(--accent);
+  }
+  .subtype .num {
+    font-size: 11px; font-weight: 800;
+    color: var(--accent); letter-spacing: 2px;
+    text-transform: uppercase; margin-bottom: 6px;
+  }
+  .subtype h5 {
+    font-size: 17px; font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+    letter-spacing: -0.2px;
+  }
+  .subtype p {
+    font-size: 13.5px; color: var(--text-soft);
+    line-height: 1.6; margin: 0;
+  }
+
+  @media (max-width: 800px) {
+    .hero { padding: 36px 24px 48px; }
+    .hero-name { font-size: 40px; }
+    .snapshot { grid-template-columns: 1fr; }
+    .section, .day, .callout { padding: 28px 24px; }
+    .two-col, .subtypes { grid-template-columns: 1fr; }
+    .hero-top { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .callout .big { font-size: 22px; }
+  }
+
+  @media print {
+    body { background: #fff; }
+    .hero, .day, .callout { border-radius: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .dl-btn { display: none; }
+    .section, .day { break-inside: avoid; page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<div class="doc">
+
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="hero-top">
+        <div class="vmark">VANTUM</div>
+        <div class="stage-badge"><span class="dot"></span>TOFU · Awareness Audience</div>
+      </div>
+      <div class="hero-eyebrow">Persona Profile · The Amplifier</div>
+      <h1 class="hero-name">The Adjacent <span class="em">Fractional</span></h1>
+      <p class="hero-tag">They speak the language. They live inside the communities. They share the content. They are not the buyer — they are who the buyer follows.</p>
+      <button class="dl-btn" onclick="downloadMarkdown()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download Markdown
+      </button>
+    </div>
+  </header>
+
+  <div class="snapshot">
+    <div class="fact"><div class="label">Role</div><div class="val">Fractional CMO, CFO, COO, CRO, or aspiring</div></div>
+    <div class="fact"><div class="label">Tenure</div><div class="val">0 yrs (aspiring) to 20+ yrs (winding down)</div></div>
+    <div class="fact"><div class="label">Client Load</div><div class="val">0 to 3 — often inconsistent</div></div>
+    <div class="fact"><div class="label">Weekly Hours</div><div class="val">15–35 by choice or by lack of demand</div></div>
+    <div class="fact"><div class="label">Team</div><div class="val">0</div></div>
+    <div class="fact"><div class="label">Tool Spend</div><div class="val">$50–$300 / month (deliberately lean)</div></div>
+    <div class="fact"><div class="label">Decision Power</div><div class="val">Sole — but rarely buying anything new</div></div>
+    <div class="fact"><div class="label">Annual Revenue</div><div class="val">$0 to $200K</div></div>
+    <div class="fact"><div class="label">Buying Window</div><div class="val">Not buying — wrong stage or no driver</div></div>
+  </div>
+
+  <section class="section">
+    <h2>Background</h2>
+    <h3>Who they are</h3>
+    <p>They are in the fractional ecosystem but not in the moment when the ecosystem hurts. Some are between engagements — they had clients, they don't right now, they're rebuilding the pipeline. Some are deliberately designed for low capacity — they decided years ago that 25 hours a week and three retainers was the right shape of life. Some are calm veterans who've seen worse and rolled with it. Some are advisory-only, handing off the work after strategy. Some are aspiring — they haven't taken on a client yet. They're learning a coaching program first.</p>
+    <p>What they share is reach. They post on LinkedIn. They live inside the communities the BOFU operators live in. They share content they recognize as honest. They sit on panels and podcasts. They sponsor the conversation about fractional work. They know the language fluently because they speak it daily — even if they're not currently experiencing the acute version of the pain.</p>
+
+    <div class="callout">
+      <div class="callout-inner">
+        <div class="lbl">The Core Insight</div>
+        <div class="big">They are not the buyer. They are the amplifier. Their highest value to you is the BOFU customer who follows them on LinkedIn.</div>
+      </div>
+    </div>
+
+    <p style="margin-top: 16px;">If you target this persona expecting conversion, you'll be disappointed. If you target them expecting amplification — shares, comments, "tag a fractional friend" — you'll find them remarkably generous and reliably loud.</p>
+  </section>
+
+  <!-- SUBTYPES -->
+  <section class="section">
+    <h2>Sub-patterns</h2>
+    <h3>The five faces of this persona</h3>
+    <p>Unlike the BOFU and MOFU personas, this is not a single character. It's a coalition. Five distinct sub-patterns coexist here, bound by one shared trait: they are not currently in the moment of acute capacity pain.</p>
+    <div class="subtypes">
+      <div class="subtype">
+        <div class="num">Sub-pattern 1</div>
+        <h5>Between engagements</h5>
+        <p>Had clients, don't right now. Pipeline anxious. The fractional version of unemployment. Their top-of-mind pain is finding clients, not managing them.</p>
+      </div>
+      <div class="subtype">
+        <div class="num">Sub-pattern 2</div>
+        <h5>The lifestyle operator</h5>
+        <p>Deliberately runs 20–35 hours a week. Three retainers max. Designed the business backward from the life. Genuinely happy. Will not buy anything that smells like "more."</p>
+      </div>
+      <div class="subtype">
+        <div class="num">Sub-pattern 3</div>
+        <h5>The calm veteran</h5>
+        <p>Has clients, has tenure, has seen worse. Denies all the strain language when shown the pitch deck. They're not lying. They just genuinely don't feel it.</p>
+      </div>
+      <div class="subtype">
+        <div class="num">Sub-pattern 4</div>
+        <h5>The strategic advisor</h5>
+        <p>Sells strategy, hands off execution. Doesn't generate the same delivery pressure as the BOFU operator. Sometimes winding down their practice.</p>
+      </div>
+      <div class="subtype">
+        <div class="num">Sub-pattern 5</div>
+        <h5>The aspiring fractional</h5>
+        <p>Hasn't taken on a paid client yet. Learning a coaching program, building a website, planning. Their pain is starting, not scaling.</p>
+      </div>
+      <div class="subtype" style="border-top-color: var(--terra);">
+        <div class="num" style="color: var(--terra);">Disqualifier</div>
+        <h5>Wrong segment entirely</h5>
+        <p>Full-time employee with a CFO-adjacent title at an accounting firm. Not an independent fractional. Disqualified at the role gate — do not nurture.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- A TUESDAY -->
+  <section class="day">
+    <div class="day-inner">
+      <h2>A Tuesday across two sub-patterns</h2>
+      <h3>The lifestyle operator vs. the between-engagements operator</h3>
+
+      <div class="subhead">Sub-pattern 2 · The lifestyle operator</div>
+      <p><span class="timestamp">9:30 AM.</span> They open LinkedIn first. Coffee. They scroll. They post a thoughtful comment on a fractional operator's piece about pricing. They check email — three inquiries from the last two weeks, none urgent.</p>
+      <p><span class="timestamp">11:00 AM.</span> One client call. Goes well. They've been at this for fifteen years; the call is easy.</p>
+      <p><span class="timestamp">12:30 PM.</span> They consider whether to redo their pricing page. They open the website builder, make a small change, close it. They take the afternoon off. They tell themselves they're being intentional. They are.</p>
+
+      <div class="subhead">Sub-pattern 1 · The between-engagements operator</div>
+      <p><span class="timestamp">9:00 AM.</span> They open the laptop and refresh the inbox five times in twenty minutes. They post on LinkedIn — a piece about feast-or-famine pipeline. They mean it.</p>
+      <p><span class="timestamp">11:30 AM.</span> They send three cold messages. They review their pipeline spreadsheet. Nothing's moved in a week.</p>
+      <p><span class="timestamp">2:00 PM.</span> They wonder if their positioning is wrong. They consider taking a course. They scroll LinkedIn some more. They like and share a post about the 4th client problem. They have one client.</p>
+      <p style="font-size: 15px; color: var(--lightgray); margin-top: 28px; font-style: italic;">Both Tuesdays end without anyone buying anything. Both Tuesdays involved sharing fractional-pain content with thousands of LinkedIn followers.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>What they want · What blocks them</h2>
+    <h3>Their goals are not the same as your buyer's goals</h3>
+    <p>This is the single most important thing to internalize about this persona: <strong>their top-of-mind problem is pipeline, not capacity.</strong> They want clients. They want a steady stream. They want to escape the bumpy feast-famine cycle. If you target them with "tame your week" messaging, they'll ignore it. Their week is fine. If you target them with content that names the fractional condition honestly, they'll engage and share.</p>
+
+    <div class="two-col">
+      <div>
+        <h4 style="font-size: 12px; font-weight: 800; color: var(--accent); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px;">Goals (theirs, mostly not Vantum's)</h4>
+        <ul class="clean">
+          <li>Get more clients (for those between engagements or pipeline-anxious)</li>
+          <li>Protect the lifestyle they designed (for those running deliberately lean)</li>
+          <li>Position themselves distinctively in a crowded fractional market</li>
+          <li>Stop sounding like every other AI-generated LinkedIn post</li>
+          <li>Wind down gracefully (for those exiting)</li>
+          <li>Land their first client (for the aspiring)</li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="font-size: 12px; font-weight: 800; color: var(--terra); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px;">Frustrations</h4>
+        <ul class="clean terra">
+          <li>Pipeline goes bumpy — long quiet stretches punctuated by clusters of inquiries</li>
+          <li>Marketing complexity has exploded — "SEO is its own monster, digital marketing its own beast"</li>
+          <li>They keep getting confused with junior consultants on LinkedIn</li>
+          <li>Strategy-only work loses to operators who execute</li>
+          <li>Self-promotion is the work they keep dropping</li>
+          <li>They know they should be doing outbound. They aren't.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>In their words</h2>
+    <h3>How they describe the fractional life, calmly</h3>
+    <div class="quotes-wrap">
+      <div class="quote">It's pretty bumpy. I can go long periods without any new client inquiries, and then I'll get a couple at a time. I'd like a more steady state of new client opportunities.</div>
+      <div class="quote">Feast or famine — you get focused doing the work, you drop the self-promotion, and then you run out of work and you're starving. By the time you pick up your head, you're back at zero again.</div>
+      <div class="quote">There was a date like 10 years ago I could have been a one-man marketing show. Now everything is a specialty.</div>
+      <div class="quote">A lot of folks go business goals first. I did it backwards — I looked at life goals first, figured out what I'm okay with and what I'm not, and then made the business fit within that.</div>
+      <div class="quote">I'm happy working 35, no more than 40 hours a week. I'm not looking to burn the midnight oil.</div>
+      <div class="quote">The biggest challenge in this space is to actually get clients. When you get clients, you don't say no. You figure it out to make it happen.</div>
+    </div>
+    <p style="margin-top: 22px;">Notice the register: <strong>calm, articulate, often abstract.</strong> They talk <em>about</em> the fractional condition rather than from inside it. This is the audible signature of TOFU — the BOFU persona uses the same words with different urgency.</p>
+  </section>
+
+  <section class="section">
+    <h2>Their stack today</h2>
+    <h3>Deliberately simple</h3>
+    <p>They have not built a sophisticated system because they don't need one. Three clients fit in a Google Doc. Marketing fits on LinkedIn. Invoicing fits in a spreadsheet. The lean stack is a feature, not a gap.</p>
+    <div class="pills">
+      <span class="pill accent">LinkedIn (primary everything)</span>
+      <span class="pill accent">Notion or Google Doc</span>
+      <span class="pill accent">Basic calendar (Google or Cal.com)</span>
+      <span class="pill accent">ChatGPT (casual use)</span>
+      <span class="pill">Email back-and-forth (no scheduler)</span>
+      <span class="pill">No CRM</span>
+      <span class="pill">No custom agents</span>
+      <span class="pill">Maybe a Substack</span>
+    </div>
+    <p style="margin-top: 22px; font-size: 14px; color: var(--text-muted);">Selling them tools is like selling a treadmill to someone who walks five miles a day by choice. The problem they have isn't the absence of the tool.</p>
+  </section>
+
+  <section class="section">
+    <h2>What could move them</h2>
+    <h3>The events that promote a TOFU into MOFU or BOFU</h3>
+    <p>Most TOFU operators will not cross any of these thresholds in the next 12 months. They are not nurture targets in the traditional sense. But a quarterly or annual revisit should test for these:</p>
+    <ul class="clean">
+      <li><strong>Landing 3+ retainers simultaneously</strong> after a dry spell — this promotes them out of TOFU into MOFU</li>
+      <li><strong>A career inflection</strong> — going from advisor to executor</li>
+      <li><strong>Hiring a contractor or VA</strong> — adds coordination complexity that breaks lean setups</li>
+      <li><strong>Saying yes to a 4th client</strong> because the money was too good — and immediately regretting it</li>
+      <li><strong>A "fractional credibility gap" moment</strong> forcing them to productize the offer</li>
+      <li><strong>A new client load that exceeds what their Google Doc can hold</strong></li>
+    </ul>
+    <p style="margin-top: 18px;"><strong>Critically:</strong> engagement with TOFU content does NOT predict promotion. They will engage, share, comment — and still not buy. The only signal that matters is <strong>a new active client load</strong>. Track that, not email opens.</p>
+  </section>
+
+  <section class="section">
+    <h2>How to talk to them</h2>
+    <h3>Content for amplification, not conversion</h3>
+    <p>The goal of TOFU content is not to sell them anything. The goal is to give them something to share. Their BOFU peers — the buyers — see it because they saw it in their feed.</p>
+
+    <div class="msg-grid">
+      <div class="msg-card">
+        <div class="kind">Universal Hook · High-Share</div>
+        <div class="copy">You know exactly what you should be working on this week. You also know you won't get to it.</div>
+        <div class="sub">The most-shareable phrasing of the fractional condition. Works across all five sub-patterns.</div>
+      </div>
+      <div class="msg-card">
+        <div class="kind">Pattern Naming</div>
+        <div class="copy">Feast or famine isn't a stage. It's a system problem.</div>
+        <div class="sub">Validates their lived experience without pitching a solution. They will share this.</div>
+      </div>
+      <div class="msg-card">
+        <div class="kind">Anti-Generic Hook</div>
+        <div class="copy">The 4 words every fractional has said: "I'll get to it."</div>
+        <div class="sub">Self-deprecating, recognizable, no startup-speak. Designed for comment-driving.</div>
+      </div>
+      <div class="msg-card">
+        <div class="kind">Pain-Aware (verbatim)</div>
+        <div class="copy">I haven't lost a client yet, but I know it's going to happen.</div>
+        <div class="sub">A BOFU sentence reposted to a TOFU audience. Their BOFU peers will recognize themselves.</div>
+      </div>
+      <div class="msg-card">
+        <div class="kind">Format: Carousel</div>
+        <div class="copy">30 fractional operators. One pattern.</div>
+        <div class="sub">Carousels outperform text for this persona. Use the format to compress observed truths.</div>
+      </div>
+    </div>
+
+    <h4 style="font-size: 13px; font-weight: 800; color: var(--terra); letter-spacing: 2px; text-transform: uppercase; margin-top: 32px; margin-bottom: 14px;">What NOT to do</h4>
+    <ul class="clean terra">
+      <li><strong>Don't address them as the buyer.</strong> They aren't. Address the BOFU buyer; let TOFU amplify.</li>
+      <li><strong>Don't lecture</strong> about "what fractionals need" — they'll close the tab</li>
+      <li><strong>Don't use generic startup language</strong> ("save time," "be productive"). Use specific, evidence-based pain</li>
+      <li><strong>Don't confuse pipeline content (their pain) with capacity content (BOFU pain)</strong> on the same channel — pick one per post</li>
+      <li><strong>Don't pitch.</strong> Pitching loses their amplification. It also kills their trust permanently.</li>
+      <li><strong>Don't pay to reach them.</strong> Paid spend on TOFU does not convert. Save the budget for BOFU and MOFU.</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>Where to find them</h2>
+    <h3>Organic only</h3>
+    <div class="pills">
+      <span class="pill accent">LinkedIn organic (primary)</span>
+      <span class="pill accent">Fractionals United</span>
+      <span class="pill accent">Savvy</span>
+      <span class="pill accent">Chief</span>
+      <span class="pill accent">Substack on fractional life</span>
+      <span class="pill accent">Podcast guesting</span>
+      <span class="pill accent">Carousels on LinkedIn</span>
+      <span class="pill accent">Short video (Reels / LinkedIn video)</span>
+      <span class="pill">Industry-specific Slack groups</span>
+      <span class="pill">Community panels</span>
+    </div>
+    <p style="margin-top: 22px; font-size: 14px; color: var(--text-muted);"><strong>Never:</strong> Paid acquisition, cold outreach, mass email, retargeting. Each of these converts TOFU at near-zero and burns trust.</p>
+  </section>
+
+  <section class="section">
+    <h2>Who is not this persona</h2>
+    <h3>Look-alikes who belong elsewhere</h3>
+    <div class="not-block">
+      <h4>Not this persona</h4>
+      <ul class="clean">
+        <li><strong>The exhausted 4-client operator</strong> with acute strain — that's BOFU, sell now, don't waste them on awareness content</li>
+        <li><strong>The veteran with a refined system</strong> who insists they've solved capacity — that's MOFU, nurture them</li>
+        <li><strong>The full-time CFO</strong> at an accounting firm using "fractional" as a job title — disqualified entirely</li>
+        <li><strong>The strategy-only advisor</strong> permanently winding down — disqualified</li>
+        <li><strong>Someone who has never done any fractional work</strong> and never will — they're a follower, not a persona</li>
+      </ul>
+      <p style="margin-top: 18px; font-size: 14px; color: var(--text-soft); line-height: 1.65;">The risk with TOFU is treating engagement as buying intent. It isn't. The only meaningful signal that a TOFU has moved up the funnel is a change in their active client load — not how many of your posts they liked.</p>
+    </div>
+  </section>
+
+</div>
+
+<script>
+const markdownContent = `# Persona — The Adjacent Fractional
+
+**Funnel Stage:** TOFU · Awareness Audience
+**Buying Window:** Not buying — wrong stage or no driver
+**Highest Value:** Amplification, not revenue
+
+---
+
+## Snapshot
+
+| | |
+|---|---|
+| **Role** | Fractional CMO, CFO, COO, CRO, or aspiring |
+| **Tenure** | 0 yrs (aspiring) to 20+ yrs (winding down) |
+| **Client Load** | 0 to 3 — often inconsistent |
+| **Weekly Hours** | 15–35 by choice or by lack of demand |
+| **Team** | 0 |
+| **Tool Spend** | $50–$300 / month (deliberately lean) |
+| **Decision Power** | Sole — but rarely buying anything new |
+| **Annual Revenue** | $0 to $200K |
+| **Buying Window** | Not buying — wrong stage or no driver |
+
+---
+
+## Background
+
+They are in the fractional ecosystem but not in the moment when the ecosystem hurts. Some are between engagements — they had clients, they don't right now, they're rebuilding the pipeline. Some are deliberately designed for low capacity — they decided years ago that 25 hours a week and three retainers was the right shape of life. Some are calm veterans who've seen worse and rolled with it. Some are advisory-only, handing off the work after strategy. Some are aspiring — they haven't taken on a client yet. They're learning a coaching program first.
+
+What they share is reach. They post on LinkedIn. They live inside the communities the BOFU operators live in. They share content they recognize as honest. They sit on panels and podcasts. They sponsor the conversation about fractional work. They know the language fluently because they speak it daily — even if they're not currently experiencing the acute version of the pain.
+
+### The Core Insight
+
+**They are not the buyer. They are the amplifier. Their highest value to you is the BOFU customer who follows them on LinkedIn.**
+
+If you target this persona expecting conversion, you'll be disappointed. If you target them expecting amplification — shares, comments, "tag a fractional friend" — you'll find them remarkably generous and reliably loud.
+
+---
+
+## The five sub-patterns
+
+Unlike BOFU and MOFU, this is not a single character. It's a coalition. Five distinct sub-patterns coexist here, bound by one shared trait: not currently in the moment of acute capacity pain.
+
+1. **Between engagements.** Had clients, don't right now. Pipeline anxious. The fractional version of unemployment. Their top-of-mind pain is finding clients, not managing them.
+2. **The lifestyle operator.** Deliberately runs 20–35 hours a week. Three retainers max. Designed the business backward from the life. Genuinely happy. Will not buy anything that smells like "more."
+3. **The calm veteran.** Has clients, has tenure, has seen worse. Denies all the strain language when shown the pitch deck. They're not lying. They just genuinely don't feel it.
+4. **The strategic advisor.** Sells strategy, hands off execution. Doesn't generate the same delivery pressure as the BOFU operator. Sometimes winding down their practice.
+5. **The aspiring fractional.** Hasn't taken on a paid client yet. Learning a coaching program, building a website, planning. Their pain is starting, not scaling.
+
+**Disqualifier:** Full-time employee with a CFO-adjacent title at an accounting firm. Not an independent fractional. Disqualified at the role gate — do not nurture.
+
+---
+
+## A Tuesday across two sub-patterns
+
+### Sub-pattern 2 · The lifestyle operator
+
+- **9:30 AM** — They open LinkedIn first. Coffee. They scroll. They post a thoughtful comment on a fractional operator's piece about pricing. They check email — three inquiries from the last two weeks, none urgent.
+- **11:00 AM** — One client call. Goes well. They've been at this for fifteen years; the call is easy.
+- **12:30 PM** — They consider whether to redo their pricing page. They open the website builder, make a small change, close it. They take the afternoon off. They tell themselves they're being intentional. They are.
+
+### Sub-pattern 1 · The between-engagements operator
+
+- **9:00 AM** — They open the laptop and refresh the inbox five times in twenty minutes. They post on LinkedIn — a piece about feast-or-famine pipeline. They mean it.
+- **11:30 AM** — They send three cold messages. They review their pipeline spreadsheet. Nothing's moved in a week.
+- **2:00 PM** — They wonder if their positioning is wrong. They consider taking a course. They scroll LinkedIn some more. They like and share a post about the 4th client problem. They have one client.
+
+Both Tuesdays end without anyone buying anything. Both Tuesdays involved sharing fractional-pain content with thousands of LinkedIn followers.
+
+---
+
+## Goals (theirs, mostly not Vantum's)
+
+This is the single most important thing to internalize about this persona: **their top-of-mind problem is pipeline, not capacity.** They want clients. They want a steady stream. They want to escape the bumpy feast-famine cycle. If you target them with "tame your week" messaging, they'll ignore it. Their week is fine.
+
+- Get more clients (for those between engagements or pipeline-anxious)
+- Protect the lifestyle they designed (for those running deliberately lean)
+- Position themselves distinctively in a crowded fractional market
+- Stop sounding like every other AI-generated LinkedIn post
+- Wind down gracefully (for those exiting)
+- Land their first client (for the aspiring)
+
+---
+
+## Frustrations
+
+- Pipeline goes bumpy — long quiet stretches punctuated by clusters of inquiries
+- Marketing complexity has exploded — "SEO is its own monster, digital marketing its own beast"
+- They keep getting confused with junior consultants on LinkedIn
+- Strategy-only work loses to operators who execute
+- Self-promotion is the work they keep dropping
+- They know they should be doing outbound. They aren't.
+
+---
+
+## In their words
+
+> "It's pretty bumpy. I can go long periods without any new client inquiries, and then I'll get a couple at a time. I'd like a more steady state of new client opportunities."
+
+> "Feast or famine — you get focused doing the work, you drop the self-promotion, and then you run out of work and you're starving. By the time you pick up your head, you're back at zero again."
+
+> "There was a date like 10 years ago I could have been a one-man marketing show. Now everything is a specialty."
+
+> "A lot of folks go business goals first. I did it backwards — I looked at life goals first, figured out what I'm okay with and what I'm not, and then made the business fit within that."
+
+> "I'm happy working 35, no more than 40 hours a week. I'm not looking to burn the midnight oil."
+
+> "The biggest challenge in this space is to actually get clients. When you get clients, you don't say no. You figure it out to make it happen."
+
+Notice the register: **calm, articulate, often abstract.** They talk *about* the fractional condition rather than from inside it. This is the audible signature of TOFU — the BOFU persona uses the same words with different urgency.
+
+---
+
+## Their stack today (deliberately simple)
+
+They have not built a sophisticated system because they don't need one. Three clients fit in a Google Doc. Marketing fits on LinkedIn. Invoicing fits in a spreadsheet. The lean stack is a feature, not a gap.
+
+- LinkedIn (primary everything)
+- Notion or Google Doc
+- Basic calendar (Google or Cal.com)
+- ChatGPT (casual use)
+- Email back-and-forth (no scheduler)
+- No CRM
+- No custom agents
+- Maybe a Substack
+
+Selling them tools is like selling a treadmill to someone who walks five miles a day by choice. The problem they have isn't the absence of the tool.
+
+---
+
+## What could move them (promote out of TOFU)
+
+Most TOFU operators will not cross any of these thresholds in the next 12 months. They are not nurture targets in the traditional sense. But a quarterly or annual revisit should test for these:
+
+- **Landing 3+ retainers simultaneously** after a dry spell — promotes to MOFU
+- **A career inflection** — going from advisor to executor
+- **Hiring a contractor or VA** — adds coordination complexity that breaks lean setups
+- **Saying yes to a 4th client** because the money was too good — and immediately regretting it
+- **A "fractional credibility gap" moment** forcing them to productize the offer
+- **A new client load that exceeds what their Google Doc can hold**
+
+**Critically:** engagement with TOFU content does NOT predict promotion. They will engage, share, comment — and still not buy. The only signal that matters is **a new active client load**. Track that, not email opens.
+
+---
+
+## How to talk to them — content for amplification, not conversion
+
+The goal of TOFU content is not to sell them anything. The goal is to give them something to share. Their BOFU peers — the buyers — see it because they saw it in their feed.
+
+### Headlines and hooks
+
+- **Universal high-share:** "You know exactly what you should be working on this week. You also know you won't get to it."
+- **Pattern naming:** "Feast or famine isn't a stage. It's a system problem."
+- **Anti-generic hook:** "The 4 words every fractional has said: I'll get to it."
+- **Pain-aware (verbatim):** "I haven't lost a client yet, but I know it's going to happen."
+- **Carousel format:** "30 fractional operators. One pattern."
+
+### What NOT to do
+
+- **Don't address them as the buyer.** They aren't. Address the BOFU buyer; let TOFU amplify.
+- **Don't lecture** about "what fractionals need" — they'll close the tab.
+- **Don't use generic startup language** ("save time," "be productive"). Use specific, evidence-based pain.
+- **Don't confuse pipeline content (their pain) with capacity content (BOFU pain)** on the same channel — pick one per post.
+- **Don't pitch.** Pitching loses their amplification. It also kills their trust permanently.
+- **Don't pay to reach them.** Paid spend on TOFU does not convert. Save the budget for BOFU and MOFU.
+
+---
+
+## Where to find them
+
+Organic only.
+
+**Reach them on:**
+- LinkedIn organic (primary)
+- Fractionals United, Savvy, Chief
+- Substack on fractional life
+- Podcast guesting
+- Carousels on LinkedIn
+- Short video (Reels / LinkedIn video)
+- Industry-specific Slack groups
+- Community panels
+
+**Never:** Paid acquisition, cold outreach, mass email, retargeting. Each of these converts TOFU at near-zero and burns trust.
+
+---
+
+## Who is not this persona
+
+- **The exhausted 4-client operator** with acute strain — that's BOFU, sell now, don't waste them on awareness content
+- **The veteran with a refined system** who insists they've solved capacity — that's MOFU, nurture them
+- **The full-time CFO** at an accounting firm using "fractional" as a job title — disqualified entirely
+- **The strategy-only advisor** permanently winding down — disqualified
+- **Someone who has never done any fractional work** and never will — they're a follower, not a persona
+
+The risk with TOFU is treating engagement as buying intent. It isn't. The only meaningful signal that a TOFU has moved up the funnel is a change in their active client load — not how many of your posts they liked.
+`;
+
+function downloadMarkdown() {
+  const blob = new Blob([markdownContent], { type: 'text/markdown;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'vantum-persona-tofu.md';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+</script>
+
+</body>
+</html>

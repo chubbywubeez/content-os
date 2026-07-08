@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
+
+  :root {
+    /* ── FROM BRANDING GUIDE ── */
+    --app-bg: #f7f8fa;
+    --app-bg-dark: #030a17;
+    --surface-1: #ffffff;
+    --surface-3: #f1f5f9;
+    --text-primary: #0f172a;
+    --text-soft: #334155;
+    --text-muted: #475569;
+    --surface-border: rgba(15,23,42,0.08);
+
+    /* ── BRAND ACCENTS ── */
+    --emerald: #059669;
+    --emerald-hover: #047857;
+    --emerald-light: #d1fae5;
+    --cyan: #0891b2;
+    --cyan-light: #e0f7fa;
+
+    /* ── RETAINED FROM PDF SYSTEM ── */
+    --ochre: #C97B00;
+    --ochre-light: #fff4e0;
+    --terra: #B34A3F;
+    --terra-light: #fdf0ef;
+    --charcoal: #1A1E29;
+    --lightgray: #A3A6B4;
+    --white: #FFFFFF;
+
+    /* ── PAGE ── */
+    --page-bg: #f7f8fa;
+    --card-bg: #f1f5f9;
+    --page-text: #0f172a;
+    --page-subtext: #475569;
+    --page-border: rgba(15,23,42,0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: #eef0f5;
+    color: var(--page-text);
+    font-size: 10pt;
+    line-height: 1.6;
+    padding: 40px 20px;
+  }
+
+  .doc { max-width: 900px; margin: 0 auto; }
+
+  /* ── DOC HEADER ── */
+  .doc-header {
+    background: var(--app-bg-dark);
+    border-radius: 16px;
+    padding: 48px 56px;
+    margin-bottom: 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .doc-header::after {
+    content: '';
+    position: absolute; top: -60px; right: -60px;
+    width: 250px; height: 250px;
+    background: rgba(5,150,105,0.08); border-radius: 50%;
+  }
+  .doc-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.08);
+    color: #A3A6B4;
+    font-size: 7pt; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase;
+    padding: 5px 14px; border-radius: 20px; margin-bottom: 20px;
+  }
+  .doc-header h1 {
+    font-size: 26pt; font-weight: 900; color: white;
+    line-height: 1.15; margin-bottom: 12px; letter-spacing: -0.5px;
+  }
+  .doc-header h1 span { color: var(--ochre); }
+  .doc-header p { color: #A3A6B4; font-size: 10pt; font-weight: 300; line-height: 1.65; max-width: 520px; }
+
+  /* ── SECTION ── */
+  .section {
+    background: white;
+    border-radius: 16px;
+    border: 1px solid rgba(15,23,42,0.08);
+    overflow: hidden;
+    margin-bottom: 24px;
+  }
+  .section-header {
+    padding: 20px 32px;
+    border-bottom: 1px solid rgba(15,23,42,0.08);
+    display: flex; align-items: center; gap: 12px;
+  }
+  .section-num {
+    background: var(--emerald); color: white;
+    font-size: 7pt; font-weight: 800;
+    width: 26px; height: 26px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .section-title { font-size: 11pt; font-weight: 800; color: var(--charcoal); }
+  .section-body { padding: 28px 32px; }
+
+  /* ── SUB LABEL ── */
+  .sub-label {
+    font-size: 7pt; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--emerald);
+    margin-bottom: 10px; margin-top: 22px;
+  }
+  .sub-label:first-child { margin-top: 0; }
+
+  /* ── COLOR SWATCHES ── */
+  .color-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 12px 0 20px; }
+  .swatch { border-radius: 10px; overflow: hidden; border: 1px solid rgba(15,23,42,0.08); }
+  .swatch-color { height: 56px; }
+  .swatch-info { padding: 8px 10px; background: white; }
+  .swatch-name { font-size: 7.5pt; font-weight: 700; color: var(--charcoal); }
+  .swatch-hex { font-size: 7pt; color: var(--lightgray); font-weight: 400; font-family: monospace; }
+  .swatch-use { font-size: 6.5pt; color: var(--page-subtext); margin-top: 2px; }
+
+  /* ── BLOCK DEMOS ── */
+  .block-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 12px 0; }
+  .block-demo { border-radius: 8px; padding: 14px 16px; }
+  .block-demo.red { background: var(--terra-light); border-left: 3px solid var(--terra); }
+  .block-demo.green { background: var(--emerald-light); border-left: 3px solid var(--emerald); }
+  .block-demo.ochre { background: var(--ochre-light); border-left: 3px solid var(--ochre); }
+  .block-demo.dark { background: var(--charcoal); border-radius: 8px; padding: 14px 16px; }
+  .block-label {
+    font-size: 6pt; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; margin-bottom: 4px;
+  }
+  .block-demo.red .block-label { color: var(--terra); }
+  .block-demo.green .block-label { color: var(--emerald); }
+  .block-demo.ochre .block-label { color: var(--ochre); }
+  .block-demo.dark .block-label { color: #6ee7b7; }
+  .block-title { font-size: 8.5pt; font-weight: 700; margin-bottom: 3px; }
+  .block-demo.red .block-title { color: var(--terra); }
+  .block-demo.green .block-title { color: var(--emerald); }
+  .block-demo.ochre .block-title { color: var(--ochre); }
+  .block-demo.dark .block-title { color: white; }
+  .block-text { font-size: 8pt; line-height: 1.5; }
+  .block-demo.red .block-text { color: #7a2a24; }
+  .block-demo.green .block-text { color: #065f46; }
+  .block-demo.ochre .block-text { color: #7a4d00; font-style: italic; }
+  .block-demo.dark .block-text { color: #A3A6B4; }
+
+  /* ── TABLES ── */
+  .use-table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 8.5pt; }
+  .use-table th {
+    background: var(--card-bg); padding: 10px 14px; text-align: left;
+    font-weight: 700; color: var(--charcoal); font-size: 7.5pt;
+    letter-spacing: 0.5px; border-bottom: 2px solid rgba(15,23,42,0.08);
+  }
+  .use-table td {
+    padding: 10px 14px; border-bottom: 1px solid rgba(15,23,42,0.06);
+    vertical-align: top; color: var(--page-subtext); line-height: 1.5;
+  }
+  .use-table tr:last-child td { border-bottom: none; }
+
+  /* ── PILLS ── */
+  .block-pill {
+    display: inline-block; padding: 2px 8px; border-radius: 10px;
+    font-size: 6.5pt; font-weight: 700; letter-spacing: 0.5px;
+  }
+  .pill-red { background: var(--terra-light); color: var(--terra); }
+  .pill-green { background: var(--emerald-light); color: var(--emerald); }
+  .pill-ochre { background: var(--ochre-light); color: var(--ochre); }
+  .pill-dark { background: var(--charcoal); color: white; }
+  .pill-cyan { background: var(--cyan-light); color: var(--cyan); }
+
+  /* ── PAGE ANATOMY ── */
+  .page-anatomy { display: grid; grid-template-columns: 200px 1fr; gap: 20px; margin: 12px 0; align-items: start; }
+  .anatomy-mini { background: var(--card-bg); border-radius: 8px; padding: 12px; border: 1px solid rgba(15,23,42,0.08); }
+  .anatomy-row {
+    border-radius: 4px; margin-bottom: 5px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 5.5pt; font-weight: 700; letter-spacing: 0.5px;
+    text-transform: uppercase; color: white;
+  }
+  .a-badge { background: var(--emerald); height: 14px; }
+  .a-title { background: var(--charcoal); height: 22px; }
+  .a-div { background: rgba(15,23,42,0.08); height: 2px; margin: 6px 0; }
+  .a-body { background: #d1fae5; height: 12px; color: var(--emerald); }
+  .a-image { background: #fffbe6; height: 30px; color: var(--ochre); border: 1px dashed var(--ochre); }
+  .a-red { background: var(--terra-light); height: 18px; border-left: 2px solid var(--terra); color: var(--terra); }
+  .a-green { background: var(--emerald-light); height: 18px; border-left: 2px solid var(--emerald); color: var(--emerald); }
+  .a-ochre { background: var(--ochre-light); height: 18px; border-left: 2px solid var(--ochre); color: var(--ochre); }
+  .a-dark { background: var(--charcoal); height: 28px; border-radius: 4px; }
+  .a-footer { background: rgba(15,23,42,0.08); height: 12px; }
+  .anatomy-labels { display: flex; flex-direction: column; gap: 5px; }
+  .anatomy-label-row { display: flex; align-items: center; gap: 8px; font-size: 7.5pt; color: var(--page-subtext); }
+  .anatomy-dot { width: 8px; height: 8px; border-radius: 2px; flex-shrink: 0; }
+
+  /* ── PROMPT BOX ── */
+  .prompt-box {
+    background: var(--app-bg-dark);
+    border-radius: 10px; padding: 24px 28px; margin: 16px 0;
+    font-family: 'Courier New', monospace;
+    font-size: 8pt; color: #c8d0e0; line-height: 1.8;
+    white-space: pre-wrap;
+  }
+  .pc { color: #2d6a5a; }
+  .pv { color: var(--ochre); }
+  .pk { color: #6ee7b7; }
+
+  /* ── RULE CARDS ── */
+  .rules-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0; }
+  .rule-card {
+    background: var(--card-bg); border-radius: 10px; padding: 16px;
+    border: 1px solid rgba(15,23,42,0.08); border-top: 3px solid var(--emerald);
+  }
+  .rule-icon { font-size: 14pt; margin-bottom: 6px; }
+  .rule-title { font-size: 8.5pt; font-weight: 700; color: var(--charcoal); margin-bottom: 4px; }
+  .rule-text { font-size: 7.5pt; color: var(--page-subtext); line-height: 1.55; }
+
+  /* ── CHECKLIST ── */
+  .checklist { margin: 12px 0; }
+  .check-item {
+    display: flex; gap: 10px; align-items: flex-start;
+    padding: 8px 0; border-bottom: 1px solid rgba(15,23,42,0.06);
+    font-size: 8.5pt; color: var(--page-subtext);
+  }
+  .check-item:last-child { border-bottom: none; }
+  .check-dot {
+    width: 16px; height: 16px; border-radius: 50%;
+    background: var(--emerald-light); border: 2px solid var(--emerald);
+    flex-shrink: 0; margin-top: 1px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 8pt; color: var(--emerald); font-weight: 700;
+  }
+  .check-item strong { color: var(--charcoal); }
+
+  hr { border: none; border-top: 1px solid rgba(15,23,42,0.08); margin: 20px 0; }
+  code { background: var(--card-bg); padding: 2px 6px; border-radius: 4px; font-family: 'Courier New', monospace; font-size: 7.5pt; color: var(--emerald); border: 1px solid rgba(15,23,42,0.08); }
+
+  .highlight {
+    background: var(--ochre-light); border-left: 3px solid var(--ochre);
+    border-radius: 6px; padding: 12px 16px; margin: 12px 0; font-size: 8.5pt; color: #7a4d00;
+  }
+  .highlight strong { color: var(--ochre); }
+
+  .update-badge {
+    display: inline-block; background: var(--emerald-light); color: var(--emerald);
+    font-size: 6.5pt; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+    padding: 2px 8px; border-radius: 10px; margin-left: 8px; vertical-align: middle;
+  }
+</style>
+</head>
+<body>
+<div class="doc">
+
+  <!-- HEADER -->
+  <div class="doc-header">
+    <div class="doc-tag">🎨 Vantum Design System v2 · Lead Magnet Blueprint</div>
+    <h1>The Vantum PDF<br><span>Design System.</span></h1>
+    <p>Updated with official branding guide. Everything you need to generate consistent, on-brand lead magnet PDFs at scale. Colors, blocks, page rules, typography, and the master prompt.</p>
+  </div>
+
+  <!-- 1. BRAND COLORS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">1</div>
+      <div class="section-title">Brand Color System <span class="update-badge">Updated</span></div>
+    </div>
+    <div class="section-body">
+
+      <div class="sub-label">Primary Colors — From Official Branding Guide</div>
+      <div class="color-grid">
+        <div class="swatch">
+          <div class="swatch-color" style="background:#030a17;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Deep Blue-Black</div>
+            <div class="swatch-hex">#030a17</div>
+            <div class="swatch-use">Cover page bg, tasks page header. Replaces navy gradient.</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#f7f8fa; border:1px solid #e2e4e8;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">App Background</div>
+            <div class="swatch-hex">#f7f8fa</div>
+            <div class="swatch-use">Lesson page background (slightly off-white)</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#ffffff; border:1px solid #e2e4e8;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">White</div>
+            <div class="swatch-hex">#ffffff</div>
+            <div class="swatch-use">Card backgrounds, elevated surfaces</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#1A1E29;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Charcoal</div>
+            <div class="swatch-hex">#1A1E29</div>
+            <div class="swatch-use">Dark challenge boxes, headers, task cards</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sub-label">Typography Colors — From Official Branding Guide</div>
+      <div class="color-grid">
+        <div class="swatch">
+          <div class="swatch-color" style="background:#0f172a;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Text Primary</div>
+            <div class="swatch-hex">#0f172a</div>
+            <div class="swatch-use">Lesson titles, bold phrases, headings</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#334155;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Text Soft</div>
+            <div class="swatch-hex">#334155</div>
+            <div class="swatch-use">Secondary body text, descriptions</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#475569;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Text Muted</div>
+            <div class="swatch-hex">#475569</div>
+            <div class="swatch-use">Body text, task descriptions</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#A3A6B4;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Light Gray</div>
+            <div class="swatch-hex">#A3A6B4</div>
+            <div class="swatch-use">Text on dark backgrounds, footer text</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sub-label">Accent Colors — Use Intentionally</div>
+      <div class="color-grid">
+        <div class="swatch">
+          <div class="swatch-color" style="background:#059669;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Emerald ★</div>
+            <div class="swatch-hex">#059669</div>
+            <div class="swatch-use">✅ Primary CTA, go/positive, VANTUM footer, task 01 border, section numbers</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#0891b2;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Cyan</div>
+            <div class="swatch-hex">#0891b2</div>
+            <div class="swatch-use">AI/insight cues, secondary highlights, agent surfaces</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#C97B00;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Deep Ochre</div>
+            <div class="swatch-hex">#C97B00</div>
+            <div class="swatch-use">🔍 Diagnostic/quote blocks, cover H1 title, task 02 border</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#B34A3F;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Terracotta</div>
+            <div class="swatch-hex">#B34A3F</div>
+            <div class="swatch-use">❌ Stop/warning/mistake blocks, task 03 border</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="highlight">
+        <strong>Color Rule:</strong> Emerald = commit/go/CTA (primary brand). Cyan = AI/insight/copilot. Ochre = quote/diagnostic/insight. Terracotta = stop/warning/mistake. Dark box = challenge/action (always last). Never mix accent colors in the same block.
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 2. TYPOGRAPHY -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">2</div>
+      <div class="section-title">Typography System</div>
+    </div>
+    <div class="section-body">
+
+      <div class="sub-label">Font Family</div>
+      <p style="font-size:8.5pt; color:var(--page-subtext); margin-bottom:16px;">Use <strong style="color:var(--charcoal);">Montserrat</strong> throughout all PDF assets. Import from Google Fonts. No other fonts.</p>
+
+      <table class="use-table">
+        <tr><th>Element</th><th>Weight</th><th>Size</th><th>Color</th><th>Notes</th></tr>
+        <tr><td><strong>Cover VANTUM wordmark</strong></td><td>900</td><td>42pt</td><td>#FFFFFF</td><td>ALL CAPS, letter-spacing 4px</td></tr>
+        <tr><td><strong>Cover H1 title</strong></td><td>700</td><td>22pt</td><td>#C97B00 (ochre)</td><td>Title case, line-height 1.2</td></tr>
+        <tr><td><strong>Cover subtitle</strong></td><td>300</td><td>10pt</td><td>#A3A6B4</td><td>Max 2 lines, max-width 420px</td></tr>
+        <tr><td><strong>Lesson title (h2)</strong></td><td>800</td><td>22pt</td><td>#0f172a</td><td>Can strikethrough one key word for emphasis</td></tr>
+        <tr><td><strong>Section heading</strong></td><td>700</td><td>10pt</td><td>#0f172a</td><td>Before feature cards, examples, grids</td></tr>
+        <tr><td><strong>Body text</strong></td><td>400</td><td>9.5pt</td><td>#475569</td><td>Line-height 1.8. Bold key phrases in #0f172a</td></tr>
+        <tr><td><strong>Block labels</strong></td><td>700</td><td>6.5pt</td><td>Matches block accent</td><td>ALL CAPS, letter-spacing 1.5px</td></tr>
+        <tr><td><strong>Block body text</strong></td><td>400</td><td>9pt</td><td>Dark version of block accent</td><td>Italic for diagnostic/quote blocks</td></tr>
+        <tr><td><strong>Task numbers (01, 02)</strong></td><td>900</td><td>18pt</td><td>Matches task border color</td><td>Emerald / Ochre / Terra rotating per task</td></tr>
+        <tr><td><strong>Task title</strong></td><td>700</td><td>9.5pt</td><td>#0f172a</td><td>Named — not just "Task 01"</td></tr>
+        <tr><td><strong>Task description</strong></td><td>700</td><td>8.5pt</td><td>#059669 (emerald)</td><td>Bold emerald — signature Vantum style</td></tr>
+        <tr><td><strong>Footer VANTUM</strong></td><td>800</td><td>7.5pt</td><td>#059669 (full word)</td><td>ALL CAPS, letter-spacing 2px — entire word in emerald</td></tr>
+        <tr><td><strong>Footer lesson ref</strong></td><td>300</td><td>7pt</td><td>#A3A6B4</td><td>Right-aligned</td></tr>
+      </table>
+
+    </div>
+  </div>
+
+  <!-- 3. BLOCK SYSTEM -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">3</div>
+      <div class="section-title">The 5 Block Types — When & How to Use Each</div>
+    </div>
+    <div class="section-body">
+
+      <div class="block-grid">
+        <div class="block-demo red">
+          <div class="block-label">❌ Stop / Warning / Ceiling / Common Mistake</div>
+          <div class="block-title">The Ceiling — Stop Leading With This</div>
+          <div class="block-text">"I'm a Fractional CMO." — the wrong approach</div>
+        </div>
+        <div class="block-demo green">
+          <div class="block-label">✅ Go / Bridge / Principle / Fix / Solution</div>
+          <div class="block-title">The Bridge — Lead With This Instead</div>
+          <div class="block-text">"I help [company type] hit [outcome] in [timeframe]."</div>
+        </div>
+        <div class="block-demo ochre">
+          <div class="block-label">🔍 The Diagnostic / Quote / The Test / Insight</div>
+          <div class="block-title" style="font-style:italic;">"The harder it is to say, the more it's working."</div>
+          <div class="block-text" style="font-style:italic;">Always italic. Used for direct quotes from the lesson.</div>
+        </div>
+        <div class="block-demo dark">
+          <div class="block-label">🎯 Your Challenge / Action / The System</div>
+          <div class="block-title">Kill the title. Lead with the outcome.</div>
+          <div class="block-text">Always the LAST block on every lesson page. Dark bg, white title, gray body.</div>
+        </div>
+      </div>
+
+      <div class="sub-label" style="margin-top:20px;">When To Use Each Block</div>
+      <table class="use-table">
+        <tr><th>Block Type</th><th>Color</th><th>When to Use</th><th>Max Per Page</th></tr>
+        <tr><td><span class="block-pill pill-red">❌ Terracotta</span></td><td>#B34A3F + terra-light bg</td><td>Wrong approach, mistake to avoid, warning, ceiling</td><td>1</td></tr>
+        <tr><td><span class="block-pill pill-green">✅ Emerald</span></td><td>#059669 + emerald-light bg</td><td>Right approach, fix, principle, solution, bridge</td><td>2</td></tr>
+        <tr><td><span class="block-pill pill-ochre">🔍 Ochre</span></td><td>#C97B00 + ochre-light bg</td><td>Direct quote, diagnostic, test, insight — always italic</td><td>1</td></tr>
+        <tr><td><span class="block-pill pill-dark">🎯 Dark</span></td><td>Charcoal bg, white text</td><td>ALWAYS the final block on every lesson page. The challenge/action.</td><td>1 (always last)</td></tr>
+        <tr><td><span class="block-pill pill-cyan">📌 Example</span></td><td>card-bg + emerald left border</td><td>Real example sentences, case studies, before/after comparisons</td><td>3 max</td></tr>
+      </table>
+
+      <div class="highlight">
+        <strong>Block Order Rule:</strong> On every lesson page, blocks always follow this sequence: Red (problem) → Emerald (solution) → Body text → Ochre (insight/quote) → Dark (challenge). The dark challenge box is ALWAYS last. Never break this order.
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 4. PAGE STRUCTURE -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">4</div>
+      <div class="section-title">Page Architecture — Every Page Type <span class="update-badge">Updated</span></div>
+    </div>
+    <div class="section-body">
+
+      <div class="sub-label">Cover Page</div>
+      <table class="use-table" style="margin-bottom:20px;">
+        <tr><th>Element</th><th>Rule</th></tr>
+        <tr><td>Background</td><td>Solid <code>#030a17</code> — deep blue-black. No gradient.</td></tr>
+        <tr><td>Top tag</td><td>Small caps pill: "⚡ [COURSE NAME] · FREE GUIDE" — rgba white bg, #A3A6B4 text</td></tr>
+        <tr><td>VANTUM wordmark</td><td>900 weight, 42pt, white (#FFFFFF), ALL CAPS, letter-spacing 4px</td></tr>
+        <tr><td>H1 title</td><td>700 weight, 22pt, ochre (#C97B00) — the guide/course title</td></tr>
+        <tr><td>Subtitle</td><td>300 weight, 10pt, #A3A6B4 — 1-2 sentence description</td></tr>
+        <tr><td>Divider</td><td>48px wide, 3px tall, emerald (#059669), before lesson list</td></tr>
+        <tr><td>Lesson list numbers</td><td>Emerald circle borders, emerald text (1.1, 1.2, etc.) + white description</td></tr>
+        <tr><td>Bottom bar</td><td>"VANTUM" left (full word in emerald) + "vantum.ai · Course · X Lessons" right</td></tr>
+        <tr><td>Decorative circles</td><td>2 circles, rgba emerald 0.08 — top-right and bottom-left</td></tr>
+      </table>
+
+      <div class="sub-label">Lesson Pages</div>
+      <div class="page-anatomy">
+        <div class="anatomy-mini">
+          <div class="anatomy-row a-badge">BADGE</div>
+          <div class="anatomy-row a-title">LESSON TITLE</div>
+          <div class="a-div"></div>
+          <div class="anatomy-row a-body" style="height:16px;">BODY TEXT</div>
+          <div class="anatomy-row a-body" style="height:16px; margin-top:4px;">BODY TEXT</div>
+          <div class="anatomy-row a-image">WHITEBOARD IMAGE</div>
+          <div class="anatomy-row a-red">RED BLOCK</div>
+          <div class="anatomy-row a-green" style="margin-top:5px;">EMERALD BLOCK</div>
+          <div class="anatomy-row a-body" style="height:10px; margin-top:5px;">BODY</div>
+          <div class="anatomy-row a-ochre" style="margin-top:5px;">OCHRE BLOCK</div>
+          <div class="anatomy-row a-dark" style="margin-top:5px;">DARK CHALLENGE</div>
+          <div class="a-div" style="margin-top:8px;"></div>
+          <div class="anatomy-row a-footer">FOOTER</div>
+        </div>
+        <div class="anatomy-labels">
+          <div class="anatomy-label-row"><div class="anatomy-dot" style="background:var(--emerald);"></div><strong>Badge:</strong> "SALES FUNDAMENTALS" pill — emerald-light bg, emerald text, all caps, outline border</div>
+          <div class="anatomy-label-row"><div class="anatomy-dot" style="background:var(--charcoal);"></div><strong>Lesson title:</strong> 22pt, 800 weight, #0f172a. Strikethrough effect on 1 key word where appropriate</div>
+          <div class="anatomy-label-row"><div class="anatomy-dot" style="background:rgba(15,23,42,0.08);"></div><strong>Divider:</strong> Full-width 2px border under title. Always present.</div>
+          <div class="anatomy-label-row"><div class="anatomy-dot" style="background:#d1fae5;"></div><strong>Body text:</strong> 9.5pt, 400, #475569. Bold key phrases in #0f172a</div>
+          <div class="anatomy-label-row"><div class="anatomy-dot" style="background:#fffbe6;"></div><strong>Whiteboard image:</strong> White/light bg, marker-style sketch. Placed BEFORE the blocks.</div>
+          <div class="anatomy-label-row"><div class="anatomy-dot" style="background:var(--terra);"></div><strong>Red block:</strong> Problem/wrong approach. Always before the emerald.</div>
+          <div class="anatomy-label-row"><div class="anatomy-dot" style="background:var(--emerald);"></div><strong>Emerald block:</strong> Solution/right approach. Always after the red.</div>
+          <div class="anatomy-label-row"><div class="anatomy-dot" style="background:var(--ochre);"></div><strong>Ochre block:</strong> Quote or diagnostic, italic text. Second-to-last.</div>
+          <div class="anatomy-label-row"><div class="anatomy-dot" style="background:var(--charcoal);"></div><strong>Dark challenge block:</strong> ALWAYS LAST. Never move it.</div>
+          <div class="anatomy-label-row"><div class="anatomy-dot" style="background:rgba(15,23,42,0.08);"></div><strong>Footer:</strong> Full "VANTUM" in emerald (left) + lesson reference (right)</div>
+        </div>
+      </div>
+
+      <div class="sub-label" style="margin-top:20px;">Tasks Page <span class="update-badge">Updated</span></div>
+      <table class="use-table">
+        <tr><th>Element</th><th>Rule</th></tr>
+        <tr><td>Header banner</td><td>Solid <code>#030a17</code> bg (no gradient). "ACTION TASKS" emerald badge + white heading + gray subtitle</td></tr>
+        <tr><td>Task cards</td><td>#f7f8fa bg, rounded corners (12px), left border in accent. Checkbox top-right corner.</td></tr>
+        <tr><td>Task border colors</td><td>Task 01 = emerald #059669, Task 02 = ochre #C97B00, Task 03 = terracotta #B34A3F</td></tr>
+        <tr><td>Task number</td><td>18pt, 900 weight, matches border color. "01", "02", "03"</td></tr>
+        <tr><td>Task title</td><td>9.5pt, 700 bold, #0f172a. Always a real named title.</td></tr>
+        <tr><td>Task description</td><td>8.5pt, 700 bold, emerald #059669 — bold emerald is the signature style</td></tr>
+        <tr><td>CTA section</td><td>Centered below divider: heading (#0f172a) + subtext (#475569) + emerald button</td></tr>
+        <tr><td>CTA button</td><td>Emerald bg #059669, white text, "TRY VANTUM FREE → VANTUM.AI"</td></tr>
+        <tr><td>Footer</td><td>Same as lesson pages — full "VANTUM" in emerald</td></tr>
+      </table>
+
+    </div>
+  </div>
+
+  <!-- 5. IMAGE RULES -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">5</div>
+      <div class="section-title">Image Rules — Whiteboard Style <span class="update-badge">Updated</span></div>
+    </div>
+    <div class="section-body">
+
+      <div class="rules-grid">
+        <div class="rule-card">
+          <div class="rule-icon">🖊️</div>
+          <div class="rule-title">Style: Whiteboard Marker</div>
+          <div class="rule-text">All visuals should look drawn on a white/light background with marker-style lines — like a whiteboard sketch. Clean white bg, bold marker strokes, not hand-drawn on paper/cream.</div>
+        </div>
+        <div class="rule-card">
+          <div class="rule-icon">📐</div>
+          <div class="rule-title">Placement: Before Blocks</div>
+          <div class="rule-text">Image goes AFTER opening body text and BEFORE the red/emerald/ochre callout blocks. Never after the dark challenge box.</div>
+        </div>
+        <div class="rule-card">
+          <div class="rule-icon">📏</div>
+          <div class="rule-title">Size: Full Width, ~160px Tall</div>
+          <div class="rule-text">Spans full content width. Height ~160px. Border-radius 8px. Light bg (white or #f7f8fa). Clean edges.</div>
+        </div>
+        <div class="rule-card">
+          <div class="rule-icon">🎨</div>
+          <div class="rule-title">Colors: Emerald + Ochre as Highlights</div>
+          <div class="rule-text">Use emerald (#059669) or ochre (#C97B00) to highlight the hero element in the drawing. Everything else in black marker strokes on white bg.</div>
+        </div>
+        <div class="rule-card">
+          <div class="rule-icon">🖼️</div>
+          <div class="rule-title">One Image Per Lesson</div>
+          <div class="rule-text">Maximum one whiteboard-style image per lesson page. The image must directly visualize the lesson concept. No decorative images.</div>
+        </div>
+        <div class="rule-card">
+          <div class="rule-icon">📝</div>
+          <div class="rule-title">In Placeholder Mode (PDF Generation)</div>
+          <div class="rule-text">Use a dashed emerald border box with centered icon + image type label + description of what to draw. Makes Canva drop-in straightforward.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 6. MASTER PROMPT -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">6</div>
+      <div class="section-title">The Master Prompt — Copy & Use Every Time <span class="update-badge">Updated</span></div>
+    </div>
+    <div class="section-body">
+
+      <p style="font-size:8.5pt; color:var(--page-subtext); margin-bottom:16px; line-height:1.7;">Paste this prompt into Claude every time you want to generate a new lead magnet PDF. Replace all <code style="color:var(--ochre);">{{VARIABLE}}</code> fields with your actual content.</p>
+
+      <div class="prompt-box"><span class="pc"># VANTUM LEAD MAGNET PDF GENERATOR v2
+# Copy this entire prompt. Replace all {{VARIABLES}} with real content.
+# Updated with official Vantum branding guide.
+# ─────────────────────────────────────────────</span>
+
+You are generating a lead magnet PDF for Vantum using our official brand design system.
+Generate a complete, print-ready HTML file that converts to PDF via WeasyPrint.
+
+<span class="pk">BRAND RULES — follow exactly:</span>
+- Font: Montserrat (Google Fonts) — no other fonts
+- Cover background: solid #030a17 (deep blue-black — NO gradient)
+- Tasks page header: solid #030a17 (same as cover — NO gradient)
+- Lesson pages: #f7f8fa background, white (#ffffff) cards
+- Primary accent: Emerald #059669 (go/positive/CTA/section numbers/task 01)
+- Secondary accent: Ochre #C97B00 (insight/quote/cover title/task 02)
+- Warning accent: Terracotta #B34A3F (stop/mistake/warning/task 03)
+- Dark box: Charcoal #1A1E29 (ALWAYS the LAST block on every lesson page)
+- Text primary: #0f172a | Text body: #475569 | Text on dark: #A3A6B4
+
+<span class="pk">BLOCK RULES — use exactly these 5 block types:</span>
+1. RED block (terra-light #fdf0ef bg, #B34A3F left border) — stop/wrong/ceiling/mistake
+2. EMERALD block (emerald-light #d1fae5 bg, #059669 left border) — go/solution/principle
+3. OCHRE block (ochre-light #fff4e0 bg, #C97B00 left border, italic text) — quote/diagnostic
+4. DARK block (#1A1E29 charcoal bg, white title, #A3A6B4 body) — ALWAYS LAST, the challenge
+5. EXAMPLE items (#f1f5f9 bg, #059669 left border) — real examples, cases
+
+Block order per page: Red → Emerald → body text → Ochre → Dark (never break this order)
+
+<span class="pk">TYPOGRAPHY RULES:</span>
+- Cover VANTUM: Montserrat 900, 42pt, #FFFFFF, ALL CAPS, letter-spacing 4px
+- Cover H1: Montserrat 700, 22pt, #C97B00 (ochre)
+- Lesson titles: Montserrat 800, 22pt, #0f172a (strikethrough one key word where relevant)
+- Body text: Montserrat 400, 9.5pt, #475569, line-height 1.8
+- Bold key phrases in body: #0f172a
+- Block labels: 700, 6.5pt, ALL CAPS, letter-spacing 1.5px, matches block accent color
+- Task numbers: Montserrat 900, 18pt, matches task border color
+- Task titles: Montserrat 700, 9.5pt, #0f172a — give each task a REAL NAME
+- <span class="pv">Task descriptions: Montserrat 700, 8.5pt, #059669 EMERALD (bold emerald = signature style)</span>
+- <span class="pv">Footer VANTUM: full word in emerald #059669 (not just "TUM" — entire word)</span>
+
+<span class="pk">IMAGE PLACEHOLDERS:</span>
+For each lesson, insert a placeholder box with:
+- #f1f5f9 background, 2px dashed #059669 border, border-radius 8px
+- height ~160px, centered icon + image type label + description
+- Style note: "Whiteboard style — white/light bg, marker lines, emerald or ochre as highlight color"
+- Label: "Visual: {{IMAGE_TYPE}} — {{WHAT_IT_SHOWS}}"
+
+<span class="pk">PAGE STRUCTURE:</span>
+Page 1: Cover (solid #030a17 bg)
+Pages 2–N: One lesson per page (#f7f8fa bg, white cards)
+Last page: Tasks page (#030a17 header, #f7f8fa body, task cards)
+
+<span class="pk">TASKS PAGE RULES:</span>
+- Header: solid #030a17, "ACTION TASKS" emerald badge, bold white heading, #A3A6B4 subtitle
+- Task cards: #f7f8fa bg, border-radius 12px, left border rotates emerald → ochre → terra
+- Task 01: emerald border + emerald number | Task 02: ochre | Task 03: terracotta
+- Task description text: 700 weight, #059669 EMERALD (bold emerald — signature style)
+- CTA button: emerald #059669 bg, white text, "TRY VANTUM FREE → VANTUM.AI"
+- Footer: full "VANTUM" in emerald + lesson/guide reference right-aligned
+
+<span class="pk">OUTPUT:</span>
+Generate complete HTML with embedded CSS. Use @page { size: A4; margin: 0; }
+Include print-color-adjust: exact. Convert cleanly via WeasyPrint.
+
+<span class="pc">─────────────────────────────────────────────
+CONTENT TO GENERATE:
+─────────────────────────────────────────────</span>
+
+<span class="pv">GUIDE TITLE: {{e.g. "How Fractionals Close More, Charge More, and Get Remembered."}}</span>
+<span class="pv">COURSE: {{e.g. C1 — Sales Fundamentals}}</span>
+<span class="pv">COVER SUBTITLE: {{1-2 sentence description}}</span>
+
+<span class="pv">LESSONS:
+
+LESSON {{1.1}}
+TITLE: {{The Fractional Title Is a Ceiling}}
+BODY: {{Full lesson text}}
+IMAGE: {{Visual type}} — {{Description of what to draw in whiteboard style}}
+
+LESSON {{1.2}}
+TITLE: {{Three Tiers. Not One.}}
+BODY: {{Full lesson text}}
+IMAGE: {{Visual type}} — {{Description}}
+
+[Continue for all lessons...]</span>
+
+<span class="pv">TASKS:
+TASK 01 — {{Task Name}}: {{Task description}}
+TASK 02 — {{Task Name}}: {{Task description}}
+TASK 03 — {{Task Name}}: {{Task description}}</span>
+
+<span class="pv">TASKS PAGE HEADING: {{e.g. "Your Three Tasks. Real Numbers. Real Decisions."}}</span>
+<span class="pv">TASKS SUBTEXT: {{1 sentence framing}}</span>
+<span class="pv">CTA TEXT: {{e.g. "Ready to put all three lessons to work?"}}</span></div>
+
+      <div class="highlight">
+        <strong>Workflow:</strong> Copy prompt above → fill in {{VARIABLES}} → paste into Claude → Claude generates HTML → run through WeasyPrint → PDF ready → import to Canva → drop in real whiteboard images → done.
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 7. PRODUCTION CHECKLIST -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">7</div>
+      <div class="section-title">Production Checklist — Before Every Export <span class="update-badge">Updated</span></div>
+    </div>
+    <div class="section-body">
+      <div class="checklist">
+        <div class="check-item"><div class="check-dot">✓</div><div><strong>Font loaded:</strong> Montserrat from Google Fonts in HTML head</div></div>
+        <div class="check-item"><div class="check-dot">✓</div><div><strong>Cover background:</strong> Solid <code>#030a17</code> — NOT a gradient</div></div>
+        <div class="check-item"><div class="check-dot">✓</div><div><strong>Tasks page header:</strong> Solid <code>#030a17</code> — NOT a gradient</div></div>
+        <div class="check-item"><div class="check-dot">✓</div><div><strong>VANTUM wordmark:</strong> 900 weight, ALL CAPS, letter-spacing 4px, white on cover</div></div>
+        <div class="check-item"><div class="check-dot">✓</div><div><strong>Cover title:</strong> In ochre (#C97B00), not white or emerald</div></div>
+        <div class="check-item"><div class="check-dot">✓</div><div><strong>Primary accent is emerald:</strong> #059669 — not teal #007A7A</div></div>
+        <div class="check-item"><div class="check-dot">✓</div><div><strong>Block order:</strong> Red → Emerald → Ochre → Dark on every lesson page</div></div>
+        <div class="check-item"><div class="check-dot">✓</div><div><strong>Dark challenge block:</strong> ALWAYS the LAST block on every lesson page</div></div>
+        <div class="check-item"><div class="check-dot">✓</div><div><strong>Image placeholders:</strong> Dashed emerald border, whiteboard style note, one per lesson</div></div>
+        <div class="check-item"><div class="check-dot">✓</div><div><strong>Task descriptions:</strong> Bold emerald (#059669, weight 700) — not gray, not teal</div></div>
+        <div class="check-item"><div class="check-dot">✓</div><div><strong>Task border colors:</strong> Emerald (01) → Ochre (02) → Terra (03)</div></div>
+        <div class="check-item"><div class="check-dot">✓</div><div><strong>Task titles are named:</strong> Real names, not just "Task 01"</div></div>
+        <div class="check-item"><div class="check-dot">✓</div><div><strong>Footer VANTUM:</strong> Full word in emerald — every letter, not just "TUM"</div></div>
+        <div class="check-item"><div class="check-dot">✓</div><div><strong>CTA button:</strong> Emerald bg, white text, "TRY VANTUM FREE → VANTUM.AI"</div></div>
+        <div class="check-item"><div class="check-dot">✓</div><div><strong>@page CSS:</strong> size A4, margin 0, print-color-adjust: exact</div></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

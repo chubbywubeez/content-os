@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Layered Writing System</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+  body { font-family: Montserrat, sans-serif; background: #f7f8fa; color: #0f172a; line-height: 1.75; margin: 0; padding: 40px 20px; }
+  .doc { max-width: 820px; margin: 0 auto; background: #fff; border-radius: 8px; padding: 48px 56px; box-shadow: 0 1px 3px rgba(15,23,42,0.06); }
+  h1 { font-size: 28px; margin: 0 0 20px; color: #C97B00; }
+  h2 { font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; margin: 32px 0 12px; color: #0f172a; }
+  p { margin: 0 0 14px; color: #475569; font-size: 14px; }
+  ul { margin: 0 0 16px 20px; color: #475569; font-size: 14px; }
+  li { margin-bottom: 8px; }
+  hr { border: none; border-top: 1px solid #e2e8f0; margin: 28px 0; }
+  strong { color: #0f172a; }
+</style>
+</head>
+<body>
+<article class="doc"><h1>The Layered Writing System</h1>
+<p>A method for producing high-quality long-form writing at scale — extracted from how the Vantum content library was built.</p>
+<p>The core idea: <strong>never write prose first.</strong> Build a skeleton, lock the voice, calibrate against exemplars, then assemble each piece from a constraint stack. Quality emerges from the layers, not from any single drafting pass.</p>
+<p>Use this when you're producing more than ~5 pieces of related content (a course, a newsletter library, a book, a sales site, a content series). For one-off pieces, it's overkill.</p>
+<hr>
+<h2>Phase 1 — Skeleton (structure before prose)</h2>
+<p>Before any sentences exist, build the structural map of everything you're going to write.</p>
+<p>For a newsletter library: course → module → lesson, with one-line concept per lesson.</p>
+<p>For a book: section → chapter → key point.</p>
+<p>For a single long essay: argument → sub-arguments → evidence per sub-argument.</p>
+<p>For a sales page: hook → problem → mechanism → proof → offer → close.</p>
+<p>Two rules:</p>
+<ul>
+<li><strong>Every node has a concept, not a title.</strong> "Closing is not what you think" is a title. "Closing is diagnostic listening, not theatrical persuasion" is a concept. Concepts can be written about; titles can't.</li>
+<li><strong>Nothing repeats.</strong> If two nodes feel similar, merge them or sharpen the distinction. The skeleton fails if two pieces could be written interchangeably.</li>
+</ul>
+<p>Output of Phase 1: a spreadsheet, doc, or list where every node is named with a concept. <strong>No prose yet.</strong> If you start drafting before this is done, you'll discover halfway through that two pieces are the same piece.</p>
+<hr>
+<h2>Phase 2 — Voice profile (locked separately)</h2>
+<p>Before drafting, write the voice document. It lives separate from any specific piece — it's the "how we sound" anchor that every piece will match.</p>
+<p>A voice profile names:</p>
+<ul>
+<li><strong>Vocabulary preferences</strong> — words used (e.g., "operator" not "professional"), words banned, recurring phrases.</li>
+<li><strong>Sentence patterns</strong> — short and declarative, or layered? Where does the rhythm break?</li>
+<li><strong>What we don't do</strong> — no exclamation marks, no jargon, no fluff openers, no "leverage" or "synergy."</li>
+<li><strong>Three reference voices</strong> — "writes like X meets Y meets Z" — concrete people whose work models the target.</li>
+<li><strong>One paragraph that exemplifies the voice at its peak</strong> — written by you, hand-tuned, locked as the reference.</li>
+</ul>
+<p>The voice profile is reusable across every piece. Lock it once; reference it always. If voice drifts mid-project, you fix the drift by re-anchoring on this doc, not by editing the drift.</p>
+<hr>
+<h2>Phase 3 — Reference exemplars (calibrate before scaling)</h2>
+<p>Before producing the whole library, write 2-3 calibration pieces at the level of quality you want everything to be. These aren't throwaway drafts — they're the standard.</p>
+<p>For our work, this was a few hand-crafted newsletters that proved the voice + structure + payoff could land. We graded them against ourselves, rewrote them, and only when they hit did we use them as templates for the rest.</p>
+<p>Two rules:</p>
+<ul>
+<li><strong>Calibrate before scaling.</strong> Producing 200 pieces at 60% quality is worse than producing 5 at 95% and then templating from them.</li>
+<li><strong>Calibration pieces are the floor, not the ceiling.</strong> Every later piece has to meet or beat them. If a later piece doesn't, the piece is wrong — the standard isn't too high.</li>
+</ul>
+<hr>
+<h2>Phase 4 — Per-piece constraint stack</h2>
+<p>For each individual piece, the prompt has three layers that combine:</p>
+<p><strong>PREFIX (always-on)</strong> — the style/voice anchor pulled from the voice profile. Identical across every piece in the project. Doesn't change.</p>
+<p><strong>SCENE BLOCK (variable)</strong> — the specific content of THIS piece:</p>
+<ul>
+<li>Concept (one sentence — from the skeleton)</li>
+<li>Structural shape (paired contrast, funnel, equation, hierarchy, case story, list-with-turn, etc.)</li>
+<li>The punchline — the one thing that has to land</li>
+<li>The opening hook</li>
+<li>The closing line / kicker</li>
+</ul>
+<p><strong>SUFFIX (always-on)</strong> — the constraint list. What this piece must NOT do. Pulled from the failure-mode list (Phase 6). Identical across every piece. Doesn't change.</p>
+<p>The stack works because the variable middle is small — usually 5-10 lines. The repeating PREFIX + SUFFIX do most of the quality enforcement. The piece is built, not improvised.</p>
+<hr>
+<h2>Phase 5 — Drafting in chunks</h2>
+<p>Don't write 30 pieces in one sitting. Don't even write one piece in one sitting if it's long.</p>
+<p>For a library: write 5 pieces, stop, audit, then continue. If quality has drifted, fix the drift before continuing.</p>
+<p>For a single long piece: write in 500-700 word sections that each stand on their own, then assemble.</p>
+<p>Chunking does three things:</p>
+<ul>
+<li><strong>Prevents drift.</strong> Quality drops as you write longer. Stopping and checking resets the bar.</li>
+<li><strong>Localizes failure.</strong> If section 3 is wrong, you fix section 3, not the whole piece.</li>
+<li><strong>Makes assembly cheap.</strong> Concatenating proven chunks is faster than rewriting prose that's almost-right.</li>
+</ul>
+<p>If you're using an LLM, this also dodges crashes and context-window degradation. Small reliable chunks &gt; large fragile ones.</p>
+<hr>
+<h2>Phase 6 — Rubric per piece (written BEFORE drafting)</h2>
+<p>Every piece carries its own grading rubric — usually 3-5 falsifiable checks.</p>
+<p>For a newsletter: "Opens with a specific moment? Turns by paragraph 3? Kicker is 7 words or shorter? Voice matches profile?"</p>
+<p>For a sales page section: "Headline names the buyer's specific frustration? Mechanism is in 1 sentence? Three objections handled before the close?"</p>
+<p>Two rules:</p>
+<ul>
+<li><strong>Rubric is written BEFORE the piece.</strong> If you write the rubric after, you grade what you wrote instead of what you should have written. The rubric becomes a victory lap, not a check.</li>
+<li><strong>Rubric is binary, not subjective.</strong> "Opens with a specific moment" can be checked. "Feels good" can't.</li>
+</ul>
+<p>Maintain a <strong>failure-mode list</strong> alongside the rubric — the 5-10 ways pieces in this project tend to go wrong (too abstract, opens with throat-clearing, kicker is a summary not a turn, etc.). This feeds the SUFFIX in Phase 4.</p>
+<hr>
+<h2>Phase 7 — Iteration loop (with rejection criteria)</h2>
+<p>When a piece fails, the rejection has a category, not a vibe.</p>
+<p>For our image work, we burned three full iterations before landing on the right system:</p>
+<ul>
+<li>v1 rejected: "Engineering diagrams, not illustrations that land."</li>
+<li>v2 rejected: "Too childish."</li>
+<li>v3 rejected: "Too messy for the sake of being messy."</li>
+</ul>
+<p>Each rejection was specific enough that the next version could correct in a direction, not just try again. If a rejection is "I don't like it," that's not actionable. Push for what specifically failed — substrate, structure, voice, opener, kicker, accent.</p>
+<p>Iteration cost compounds. The fewer rounds before lock, the cheaper the library. A locked v4 produces 200 pieces at the same quality; a wobbly v2 produces 200 pieces that all need rework.</p>
+<hr>
+<h2>How to use this in a new chat</h2>
+<p>Paste this entire document at the start, then add:</p>
+<p>&gt; I'm working on [PROJECT]. The skeleton is [LINK / DESCRIPTION].</p>
+<p>&gt; The voice profile is [LINK / DESCRIPTION].</p>
+<p>&gt; Reference exemplars are [LINK / DESCRIPTION].</p>
+<p>&gt;</p>
+<p>&gt; Today I want to work on Phase [X] for [SPECIFIC PIECE].</p>
+<p>&gt;</p>
+<p>&gt; Follow the layered method. Don't skip to drafting.</p>
+<p>The instruction enforces sequence. If you let drafting happen before structure / voice / calibration are locked, you'll write 60% pieces and discover the failure on piece 30, not piece 3.</p>
+<hr>
+<h2>What this method costs</h2>
+<p>Front-loaded. Phases 1-3 feel slow because nothing publishable comes out of them. You'll be tempted to skip to drafting.</p>
+<p>Don't. The compounding shows up after piece 5 — when every later piece assembles in a fraction of the time, holds quality without re-editing, and reads like it came from the same hand.</p>
+<p>The library wasn't built by writing well 202 times. It was built by writing well 4 or 5 times, then assembling.</p>
+</article>
+<script>
+const markdownContent = "# The Layered Writing System\n\nA method for producing high-quality long-form writing at scale — extracted from how the Vantum content library was built.\n\nThe core idea: **never write prose first.** Build a skeleton, lock the voice, calibrate against exemplars, then assemble each piece from a constraint stack. Quality emerges from the layers, not from any single drafting pass.\n\nUse this when you're producing more than ~5 pieces of related content (a course, a newsletter library, a book, a sales site, a content series). For one-off pieces, it's overkill.\n\n---\n\n## Phase 1 — Skeleton (structure before prose)\n\nBefore any sentences exist, build the structural map of everything you're going to write.\n\nFor a newsletter library: course → module → lesson, with one-line concept per lesson.\nFor a book: section → chapter → key point.\nFor a single long essay: argument → sub-arguments → evidence per sub-argument.\nFor a sales page: hook → problem → mechanism → proof → offer → close.\n\nTwo rules:\n\n- **Every node has a concept, not a title.** \"Closing is not what you think\" is a title. \"Closing is diagnostic listening, not theatrical persuasion\" is a concept. Concepts can be written about; titles can't.\n- **Nothing repeats.** If two nodes feel similar, merge them or sharpen the distinction. The skeleton fails if two pieces could be written interchangeably.\n\nOutput of Phase 1: a spreadsheet, doc, or list where every node is named with a concept. **No prose yet.** If you start drafting before this is done, you'll discover halfway through that two pieces are the same piece.\n\n---\n\n## Phase 2 — Voice profile (locked separately)\n\nBefore drafting, write the voice document. It lives separate from any specific piece — it's the \"how we sound\" anchor that every piece will match.\n\nA voice profile names:\n\n- **Vocabulary preferences** — words used (e.g., \"operator\" not \"professional\"), words banned, recurring phrases.\n- **Sentence patterns** — short and declarative, or layered? Where does the rhythm break?\n- **What we don't do** — no exclamation marks, no jargon, no fluff openers, no \"leverage\" or \"synergy.\"\n- **Three reference voices** — \"writes like X meets Y meets Z\" — concrete people whose work models the target.\n- **One paragraph that exemplifies the voice at its peak** — written by you, hand-tuned, locked as the reference.\n\nThe voice profile is reusable across every piece. Lock it once; reference it always. If voice drifts mid-project, you fix the drift by re-anchoring on this doc, not by editing the drift.\n\n---\n\n## Phase 3 — Reference exemplars (calibrate before scaling)\n\nBefore producing the whole library, write 2-3 calibration pieces at the level of quality you want everything to be. These aren't throwaway drafts — they're the standard.\n\nFor our work, this was a few hand-crafted newsletters that proved the voice + structure + payoff could land. We graded them against ourselves, rewrote them, and only when they hit did we use them as templates for the rest.\n\nTwo rules:\n\n- **Calibrate before scaling.** Producing 200 pieces at 60% quality is worse than producing 5 at 95% and then templating from them.\n- **Calibration pieces are the floor, not the ceiling.** Every later piece has to meet or beat them. If a later piece doesn't, the piece is wrong — the standard isn't too high.\n\n---\n\n## Phase 4 — Per-piece constraint stack\n\nFor each individual piece, the prompt has three layers that combine:\n\n**PREFIX (always-on)** — the style/voice anchor pulled from the voice profile. Identical across every piece in the project. Doesn't change.\n\n**SCENE BLOCK (variable)** — the specific content of THIS piece:\n- Concept (one sentence — from the skeleton)\n- Structural shape (paired contrast, funnel, equation, hierarchy, case story, list-with-turn, etc.)\n- The punchline — the one thing that has to land\n- The opening hook\n- The closing line / kicker\n\n**SUFFIX (always-on)** — the constraint list. What this piece must NOT do. Pulled from the failure-mode list (Phase 6). Identical across every piece. Doesn't change.\n\nThe stack works because the variable middle is small — usually 5-10 lines. The repeating PREFIX + SUFFIX do most of the quality enforcement. The piece is built, not improvised.\n\n---\n\n## Phase 5 — Drafting in chunks\n\nDon't write 30 pieces in one sitting. Don't even write one piece in one sitting if it's long.\n\nFor a library: write 5 pieces, stop, audit, then continue. If quality has drifted, fix the drift before continuing.\nFor a single long piece: write in 500-700 word sections that each stand on their own, then assemble.\n\nChunking does three things:\n\n- **Prevents drift.** Quality drops as you write longer. Stopping and checking resets the bar.\n- **Localizes failure.** If section 3 is wrong, you fix section 3, not the whole piece.\n- **Makes assembly cheap.** Concatenating proven chunks is faster than rewriting prose that's almost-right.\n\nIf you're using an LLM, this also dodges crashes and context-window degradation. Small reliable chunks > large fragile ones.\n\n---\n\n## Phase 6 — Rubric per piece (written BEFORE drafting)\n\nEvery piece carries its own grading rubric — usually 3-5 falsifiable checks.\n\nFor a newsletter: \"Opens with a specific moment? Turns by paragraph 3? Kicker is 7 words or shorter? Voice matches profile?\"\nFor a sales page section: \"Headline names the buyer's specific frustration? Mechanism is in 1 sentence? Three objections handled before the close?\"\n\nTwo rules:\n\n- **Rubric is written BEFORE the piece.** If you write the rubric after, you grade what you wrote instead of what you should have written. The rubric becomes a victory lap, not a check.\n- **Rubric is binary, not subjective.** \"Opens with a specific moment\" can be checked. \"Feels good\" can't.\n\nMaintain a **failure-mode list** alongside the rubric — the 5-10 ways pieces in this project tend to go wrong (too abstract, opens with throat-clearing, kicker is a summary not a turn, etc.). This feeds the SUFFIX in Phase 4.\n\n---\n\n## Phase 7 — Iteration loop (with rejection criteria)\n\nWhen a piece fails, the rejection has a category, not a vibe.\n\nFor our image work, we burned three full iterations before landing on the right system:\n\n- v1 rejected: \"Engineering diagrams, not illustrations that land.\"\n- v2 rejected: \"Too childish.\"\n- v3 rejected: \"Too messy for the sake of being messy.\"\n\nEach rejection was specific enough that the next version could correct in a direction, not just try again. If a rejection is \"I don't like it,\" that's not actionable. Push for what specifically failed — substrate, structure, voice, opener, kicker, accent.\n\nIteration cost compounds. The fewer rounds before lock, the cheaper the library. A locked v4 produces 200 pieces at the same quality; a wobbly v2 produces 200 pieces that all need rework.\n\n---\n\n## How to use this in a new chat\n\nPaste this entire document at the start, then add:\n\n> I'm working on [PROJECT]. The skeleton is [LINK / DESCRIPTION].\n> The voice profile is [LINK / DESCRIPTION].\n> Reference exemplars are [LINK / DESCRIPTION].\n>\n> Today I want to work on Phase [X] for [SPECIFIC PIECE].\n>\n> Follow the layered method. Don't skip to drafting.\n\nThe instruction enforces sequence. If you let drafting happen before structure / voice / calibration are locked, you'll write 60% pieces and discover the failure on piece 30, not piece 3.\n\n---\n\n## What this method costs\n\nFront-loaded. Phases 1-3 feel slow because nothing publishable comes out of them. You'll be tempted to skip to drafting.\n\nDon't. The compounding shows up after piece 5 — when every later piece assembles in a fraction of the time, holds quality without re-editing, and reads like it came from the same hand.\n\nThe library wasn't built by writing well 202 times. It was built by writing well 4 or 5 times, then assembling.\n";
+</script>
+</body>
+</html>

@@ -1,0 +1,247 @@
+# Brian Autumn Problem
+
+*Source text file:* `originals_txt/Brian Autumn Problem.txt`
+
+*Speaker turns were separated using **Claude Opus** via OpenRouter. Verify against the recording if a line must be exact.*
+
+*Plain transcript: original had no per-line speaker names.*
+
+---
+
+TABARAK: How's it going, Brian? I can't hear you. Let me see if it's my audio. There we go. Can you hear me now?
+
+BRIAN: I can hear you. How you doing?
+
+TABARAK: Good, man. Thank you so much for taking the time to connect with me.
+
+BRIAN: My pleasure, pleasure. I appreciate it, man.
+
+TABARAK: I guess maybe I can give you just a quick heads up of kind of what I wanted to go over today. I'm a brand new founder working on a project that actually is trying to help fractionals in their day-to-day life, right? And so I've been reaching out to a lot of fractionals just to get a better understanding because I guess maybe give you a little bit of background. My name is Tabarik. I used to work for DocuSign. I've been in sales for about 20 years or so. Worked my way from Verizon, Apple, and then also now it was in DocuSign and moved my way up to a regional vice president there. I ended up leaving a few years ago and took a world tour, did some traveling, ended up in Bangkok, Thailand.
+
+BRIAN: I was going to ask you about that. I noticed your thing said Bangkok on it. I'm like, oh, that's interesting.
+
+TABARAK: Yeah, so I live in Bangkok, Thailand. And on my ventures and walking around, I've been doing this thing for so long with the sales thing. I love sales, but what more is out there? I've always wanted to do my own business. I've always been an entrepreneur since young. My father was as well. And I think I took the safe route early in life. And in my walks in Thailand, I decided, hey, this AI thing's coming. I'm really into technology. Let me get ahead of it. Let me start learning. Let me learn the marketing side. Let me learn the technology side. Let me round out my sales world with all the pieces to become a really good, helpful entrepreneur. On these journeys, I had a buddy working at DocuSign, and he was a solutions engineer, then a director of solutions engineers over there. We ended up talking a lot over that year and decided to start a business together and to learn together. So we spent a year working with each other, just learning marketing, our weak sides on both of our ends to prep ourselves for the next evolution. And then I ended up talking him into moving to Bangkok as well. So he quit his $400,000 job. He left as well. And now he lives here. We did a startup now, and we're working on that. And the reality of this is that in our time away, we naturally started consulting, the interim phase before building a product. And as we started consulting, we started helping new startup founders as we were starting up our own business. And we took on client, and then another client, another client. And then we realized that, wow, we're trying to start our own business. We're trying to help other clients. This capacity issue, there's an issue here. How are we able to choose what's most important next between operating our own business at the highest level and doing the thing that we really love to do, which is help other people as well? And there was an inherent truth that we saw in there. And we started building out our process. We started looking and reflecting on how we operate, how we operate with other people, how we were able to manage a lot for not being in the space to start off with. My friend and co-founder, I was really into agile. So taking an agile perspective, but for more non-technical people, and then evolving that. So as we started talking to more fractionals, we realized, wow, there's some nugget of truth here. So let's talk to as many different fractionals and see if it's a certain flavor of problem that we're seeing. And I guess that's what led us here to this conversation is to, A, understand. Maybe I can go over some of the problems, ask you about a few of the problems that you see in your fractional world. And then share notes of what I'm seeing other fractionals are dealing with and probably some solutions. And then maybe give you an overview of what we're building and see if that strikes a chord with you at all.
+
+BRIAN: Yeah, that sounds great. I genuinely like connecting with people and figuring out how other people operate their own personal businesses. I know one initial question is when you're saying fractionals, what kind of fractional are you talking? Are you talking CFOs, fractional COOs, CTOs?
+
+TABARAK: Yeah, so it's wild because we're not too deep into our enemies. We've probably reached out and spoken to a little over a dozen so far. And we have another 10 more scheduled. Right now we're getting signal. It's a really small amount. We need more, but we're getting a lot of strong signal from CFOs. Go ahead.
+
+BRIAN: I'm not surprised about that. CFOs, fractional CFOs are very common. I think to my understanding that fractional CFOs are essentially the first kind of fractional C-suite they usually get. And the reason you see a lot of that with early stage businesses is frankly, you don't need a lot of financial help. You just need some financial help. So the idea of one person spending their time between multiple businesses makes a ton of sense. I've met a bunch of fractional product people, fractional COOs. The fractional CTO, however, I think is very interesting. I think fractional CTO is a bit different than the other fractional that I don't think it really exists. I say that as someone that calls myself a fractional CTO. It's not obvious that you can have a person, especially if you're in a tech company, be fractional with your business and it be successful. And I'm operating as a fractional CTO as something of like both a transitionary, but also on earlier stage companies where I think it can't make sense. But I don't know at scale if fractional CTO makes sense.
+
+TABARAK: You know, and I was going to say that is because, and this is one of the interviews to help falsify, right? It's this, we're hearing a lot of CTOs also saying the same thing. More along the lines of they also have, because of the technical knowledge, because of their ability to use agile, probably because they've coded and they've used a specific way to manage their life. That's also one piece of it, right? And then I think the other piece of it is what you just said, right? I mean, for me as well, it's like, okay, well, there's an advisory role and then there's somebody in the trenches. And if you're having someone build your product from the ground up, you don't want them to be temporary to walk away from you.
+
+BRIAN: Well, that's what I mean is that I buy the idea of a fractional CTO that is primarily advising, but then tell me the difference between a fractional CTO and a technical consultant. Like there isn't much, because the whole problem with fractional CTO is that they're a bit more in the trenches. But the problem was, especially if you're a tech org, is that if you have a really good engineer for four hours a week, what are they going to do for four hours a week? And I've found that for my work, I've decided to focus on health tech this year. And I think health tech is particularly good for this, just because a lot more of my work is almost on CSO level, where it's a lot more security compliance related, where that goes into that category of work where you don't need a lot of it, but if you don't have any of it, you're screwed.
+
+TABARAK: Yeah, 4.11, right? I used to do health care for life sciences and health care sales, and I ran all of that at DocuSign. So that was some of the core things. You need that information for the very significant workflows, right? So it's very important for somebody like you. Okay. So I guess the question that I had is, you know, I actually looked at some of your posts, and one of the posts that I read really struck a chord with kind of what we're talking about, right? You said, and you were going, okay, you explained the CTO position in your post, right? And then somebody came in under and commented and said, well, there's these three types, right? You're embedded, or you're doing some projects for a short time, or you're advisory. And then you said, well, number three is the path you should go, right? You get the highest volume. Everything that you're saying right now, right?
+
+BRIAN: Yeah, you want the dream job. And I mean, when it comes to fractional, I don't think there's much of a difference between fractional and consultant. I think there's a nominal difference that a fractional feels more in the trenches, but arguably the goal, and then also I think consultant has a bit of a bad name for McKinsey and all that people, which they're not, the problem with them aren't that they're consultants, the problem is that they're useless. Or at least most of them are useless. And that's because their business model is designed to, it's all about just extracting people, right? It's not about, I mean, yeah, but every business is technically extracting from people. But the problem with like Deloitte's and McKinsey's is they run off a mantra of you never get in trouble with an IBM. And what I mean by that is that most of the time when people hire Deloitte or McKinsey, it's because it's a high level executive that just doesn't want to get in trouble for making a bad decision. So they hire the consultants that tell them what to do. And now all of a sudden they don't have to worry about it. And so all McKinsey and Deloitte are all designed around doing this pony show to make it feel like what they're giving with advice is useful. But most of it is vapid. Not all of it, mind you, not all of it, but a lot of it is vapid.
+
+TABARAK: I should see the recent news about them delivering their work that was just a chat GPT work.
+
+BRIAN: Well, that's the reason why they're being existentially threatened right now with all this AI stuff is because like most of the other dynamic about McKinsey and Co. is they make most of their money off of interns because they can charge the best margins. So if you have an actual senior level technical resource that knows what the hell they're doing, they're going to fight for better margins. And so like a senior level resource, they're only going to get like 20% margins on. But some high school graduate, they're going to be able to take 60 or 70% margins. So the more they deploy these low level resources, the more money they make. So they're incentivized in the wrong direction if you're working with them. They're incentivized to give you the worst talent. And only if you badger them do they give you good resources because they don't make as much money on the good resources. So the whole business model isn't good. But what I'm trying to get to though, with the idea of the advice, especially in terms of CTO, I argue that probably the case with other fractional types as well, which are fancy consultants, is if you pay me for my advice, I can service 10 different companies. If all I'm doing is telling you the best databases, I'm telling you how to work with rag, how to set up your architecture, how to handle scaling, how to handle compliance, how to build a HR division that can recruit good technical people without having to deal with the current slop of resumes that are hitting LinkedIn. If I help you with all these things, I give you two cents of advice, I can charge you $400, $500 an hour for me to sit down and give you advice. And then the other thing too is that it will have that massive impact to your organization. Because at the end of the day, if I charge you $500, I need to make you $2,000. But the trouble with getting into that position of advice giving is you need two things. Number one, you need credentials. People have to believe you're useful. And the second is you actually need to know shit.
+
+TABARAK: I would argue if you want to do it right, you would need a third thing, which is being able to manage all of that. If you can open up the faucet and you have 20 people to give advice to, how do you manage that?
+
+BRIAN: I absolutely agree with that. Because the other thing, and it's interesting where I think you're going with what you're doing for business wise, is a big thing with fractional in the case of bespoke consulting is it's all personal. All of it is personal. I don't bother doing LinkedIn. Matter of fact, I just started doing posts on LinkedIn just recently. And the reason I'm doing that isn't because I have any expectation of making a single client on LinkedIn. The point of that is to make it so that you have credibility. You have exactly.
+
+TABARAK: It's a net zero now. Everyone has to start from that basis nowadays.
+
+BRIAN: Yeah, and I don't think with this kind of small bespoke consulting work, there's ever going to be a way for you to use digital as a channel to get good clients. I think if you get clients at all in digital, they're going to be crappy clients that aren't going to be any good to you. All my good clients have gone to conferences. I walk into conferences. I chat with people. I'm like, hey, this is what because it's really funny. I got my clients because I tell people what I do. And they're like, oh, shit, I need someone like you. And that's how I get my clients. I don't even have to sell. I just explain what I do. And I've talked to enough people to get enough precision that resonates when I talk to people. And so it's that in person, that very personal. That's how I win my clients and not just get win clients, but the patient, the clients that have the finances, the clients that when they when I charge them like $3,000 for a week's worth of work, they're like, I don't they're not even going to blink. They're like, oh, I know I'm getting my value out of this because I know who Brian is. And so but like to your point, like the relationships matter a lot and something and I definitely feel like it's a pain point to keep track of that, especially because I tend to find I meet people in the wrong order I meet people in the wrong order. That is that not just am I worried about relationships in terms of clients, but relationships in terms of other professionals I can bring into things because I do a lot of advice. There's a lot of times where like I'm not a CSO. I'm not a security guy. I know a couple of security guys. I can do some basic security work, but there will become a time where I'm like, okay, this is this is how my lead. I need to bring somebody else in into the relationship with for two reasons. Number one, if I bring somebody in that reflects on my client. If I bring in someone that shit, it makes me look like shit. If I bring in someone that looks great, like it makes me look great. The other thing is if I bring in other fractionals that are in different sort of domains into the work I do, they are more likely to bring me into their work. So I'm very incentivized to try to like build these reciprocal relationship. But I meet these people out of order is that I usually don't meet people when I need them. I meet them before I need them. And then like what will happen is six months later, I'll have a client that acutely needs this and we need to bring on somebody in the next week or two. And I'm like, shit, I talked to somebody at some random ass conference six months ago and I don't remember who the hell they were, what their specialty was. And so to keep track of all these kinds of relationships is a genuine trouble. And I've not haven't been impressed with a lot of the CMS relationship systems because it's too much work for what I do.
+
+TABARAK: I think so. I think so. So how many clients do you have now? How much do you typically try to keep on right now?
+
+BRIAN: So right now my model I'm pursuing and I'm only I'm relatively new to this. I'm full time now, but I have one main client and I'm looking this year to pick up a second main client. And so I think the sweet spot for me is two clients. I can however see in three years or four years from now, I can either see me continuing to work fractional or I can see myself jumping in full time CTO of a company in which my fractional consultant, I expect I'm always going to do some level of consulting on the side, but I'm hoping to get to the advice portion and then maybe have like a main gig doing like CTO work. But-
+
+TABARAK: In an ideal world, if you could do your two more fuller time, I guess clients, how many clients would you want to take on if it was just purely advice?
+
+BRIAN: It's just two. There's like three or four I could take on. I imagine before I start to feel too spread out, but I think my current model, it's, it would be more, I find two is the sweet spot. And that's just because right now my current model, I don't, I do too much hands-on work. Yeah. And, but I'm hoping over time that I transition that to do a lot more advice, giving a lot more hands. I expect I'm always going to do a little bit of hands-on work because it's part of the reason people would want to hire me is not that I can get in the weeds, but I know who to get in the weeds, especially for incident response of like most, most other people that do technical consulting don't know jack shit about, they've never built anything. They've never operated anything. They don't know what they're doing. Not all of them. I've had some great ones, but a lot of them, like, like every person that I see labeled themselves as a technical consultant, I would say like only one out of three actually has any sort of practical experience. And so the, so like if shit hits the fan, they're not going to be able to get into the, get into the weed, they'll be like, I don't know.
+
+TABARAK: Well, speaking about shit hits the fan. Why don't I go over some of the challenges that the fractionals that I've been speaking to have been dealing with. This might not align with you. So I'm going to show you all of these. We'll, we'll, I'll let you look through them and then maybe we'll rank them and see if any of them align with you at all. Let me share my screen. So some of these challenges here, and you just triggered me because the first one says losing client trust because you have no system for protecting commitments when shit hits the fan midweek. You feel, go ahead.
+
+BRIAN: Can you elaborate on that?
+
+TABARAK: Yeah. So what we're realizing and seeing is that you make this plan at the beginning of the week, say Sunday, you have everything scheduled out. You know everything you need to do. You have your commitments, you have things blocked out, scheduled. And then on Tuesday, you get a phone call saying, Hey, I got an emergency. And now you're in urgency mode instead of your original plan mode. And so what happens, what we're finding is when people have multiple clients and that happens, then now you're offshooting time that was supposed to be for another client with another person. And now your management of those relationships go out of whack. And there's a fear embedded that you're losing some sort of client trust because maybe you didn't pass on a commitment or maybe you didn't do the thing in the right order to manage whatever fire that popped up.
+
+BRIAN: I absolutely believe that because that's sort of a trouble, especially if you're doing incident response or you have an expectation of incident response and you have multiple clients that are on fire, which is acute because we had a fire the other day with one of my clients. And it's like, okay, well, I can't abandon you in the middle of this. You have other responsibilities too, right? Yeah, other responsibilities. I think a part of the solution to that is being mindful how you set up your contract and trying to move more to the advice giving. The other big thing when I work with companies, I build teams internal to the company. So when shit hits the fan, I always try to hire at least one senior resource that is capable of doing most of what I do so that when shit hits the fan, I can defer to that resource. But I do agree with you that that is a trouble. I just don't know how an app would help me with that. That's more the thing.
+
+TABARAK: What about the next one? And I thank you for giving me a solution for that. What about the next one? I'm more anxious or guilty because you're constantly worried about letting yourself,
+
+BRIAN: I'm always worried about letting my client down. I don't know if there's anything in the world that will help you with that. I think a big thing too is I'm a very proud person. I'm very proud of the work that I do. And so even if things are just slightly off, I'm like, I'm not satisfied. I'm never satisfied with the work that I do.
+
+TABARAK: Can you unsolve for that now?
+
+BRIAN: I mean, obviously it's unsolvable. I think a part of it has less to do with business and more to do with my own personal psyche and learning to be okay with a certain standard of work.
+
+TABARAK: Correct.
+
+BRIAN: But yeah, I do think the overwhelm thing especially gets really strong when you have multiple clients you're juggling and it feels like you never have enough time. But I see a lot of that too is, again, how you structure your relationships with your clients and the expectations you set there. And also making sure that, because I think especially on the fractional CTO side, a lot of fractional CTOs aren't, like a lot of people that call themselves fractional CTOs, it's either they got laid off or they're interested in the technology, but they're not interested in the business. So to me, I get excited for building businesses, not building technology. Technology is neat, but I like building businesses. And when you build a business, it's about building a repeatable system. So it's not just about you. It's about the team you build around and making sure that you have the right people doing the right things and planning that out. And so a lot of the top two is about making sure you build the right kind of team and then knowing who to defer to if shit hits the fan of like, oh, I'm not available, but you can talk to Yvonne who's your full-time senior technical resource. And then I'll collaborate with Yvonne, but Yvonne's doing a lot of the actual time consuming in the weeds work.
+
+TABARAK: Okay, what about the next one?
+
+BRIAN: That is an interesting one. I think the quintessential stressor of all fractionals is sales and making new clients. What is a particularly difficult stressor is if I have 40 hours a week that I wanna work and I've committed myself to 40 hours a week, when the hell do I do sales? Like-
+
+TABARAK: Something I've heard consistently. Balancing.
+
+BRIAN: It is genuinely, it's funny. If you're not, you should look up Rand's, are you on Rand's leadership Slack?
+
+TABARAK: No, but I should be.
+
+BRIAN: R-A-N-D leadership Slack. If you ping me on, if you can't find it, ping me on LinkedIn, I can send you a link to it. They have a monthly CTO coffee chat and monthly fractional CTO coffee chat. I think they might also have some coffee chats for other types of fractionals as well. I just haven't looked into it because it's not really relevant to me. But that's also a great way if you're trying to meet some other people that are operating in a fractional capacity. That's a great opportunity for you.
+
+TABARAK: I appreciate it.
+
+BRIAN: But yeah, the sales thing, I think that is the number one existential thing for all the fractionals I've ever talked to or consultants is how do you get new clients? But I think that also goes to meeting people out of order. And also to your business model, is that realistically, if you're operating as a bespoke single person consultancy, you are very limited on clients and it's more important to pick better clients than it is to pick more clients. And one also needs to be more comfortable with dropping clients when they're not as good as new potential clients. However, the trouble is that a lot of the best clients require a lot of nurturing in order to become good clients. Because it's like you want to meet them early before they actually have the company sort of established. And they get like doing regular meetings with them, checking in on them and waiting until they get like the raise or the investment to be able to justify bringing you in and you want to be the first person on their mind where it's like, okay, I'm ready to build a team now. I want to bring Brian in. And because they already know that I can charge more or even if I don't charge more, I get more leniency. They're not going to... Well, because the currencies that matter to me are not just money, but it's also leash. I am more than happy, leash and commitment are sort of like what I would describe the big three, money, leash, commitment, how much they pay me, how much they bug me and how consistent they are in paying me. I'm willing to go down on money if they give me a lot of leash and then pay me consistently. If they give me no leash and they don't pay me consistency, you better believe I'm going to be charging like two or three times to have to deal with that bullshit. So, but going back down to you meet people in the wrong order. Often I meet my potential clients way before they need me, which isn't a bad thing, but I need to be able to keep up those relationships over the long term. And then ideally what I want is not more clients, but I want to have essentially what again requires a relationship management that I think is genuinely really hard to do.
+
+TABARAK: Yeah. What about the last one?
+
+BRIAN: I was just going to get another book, but I don't like software. Do you buy paper? I have a bunch of different systems. I like I have paper notes I keep in random places. Every once in a while, I troll through LinkedIn and be like, who are the people I was supposed to keep in touch again? I've tried a couple of CMS. What I really want, which I have that hasn't hit the market yet, is just simply some sort of like perplexity kind of solution where I can be like, who am I supposed to talk to today? Who have I talked to? And just have like a little chat bot to be able to help me understand like who am I supposed to talk to? And just a relationship management system that's a little bit more geared to sort of relationship building rather than to sales. That's I think a lot of the problem is a lot of the relationship management systems are more like more sort of sales pipeline systems, which it's more geared to trying to like culture people into sales rather than building relationships over long term.
+
+TABARAK: Right. I'm just realizing we got like two minutes left of our time.
+
+BRIAN: I mean, five more minutes for me.
+
+TABARAK: Oh, yeah, I'm good. Okay, cool. All right, perfect. So now I'm going to show you some of the solutions that we've heard from people. Some may align, some may not. I'm glad that you kind of gave me some of your solutions. But before doing this, for you, if you were to look at these problems, how would you stack rank number one, two, and three, like for you?
+
+BRIAN: Oh, number one is the sales, which is effectively your third, your number three there. Two would be, I don't really consider that last one a problem to be honest. I would say like, like two would be number one and three would be number two.
+
+TABARAK: Okay. Yes. Say no to new opportunities and then it'd be you feel.
+
+BRIAN: Actually, I would say number four is number two. Number four is number two. Number one is number three. Number two is number four.
+
+TABARAK: Okay, one more time. So number, number, what was number one?
+
+BRIAN: Number one is number three.
+
+TABARAK: Okay, so say no to new opportunities is number one.
+
+BRIAN: Yep. Yep. Number four is number two.
+
+TABARAK: Number four is number two is you feel overwhelmed, anxious, or guilty.
+
+BRIAN: Number two is urgent work blows up for your week. So you keep, you don't move forward on your bigger business goals. That's a big one.
+
+TABARAK: Yeah. And then losing client trust because you have no system for protecting commitment when it hits the fan. That's three. You feel overwhelmed, anxious, guilty. That's number four.
+
+BRIAN: And I just don't think that last one's a problem.
+
+TABARAK: Okay, cool. So, so here's some of the solutions that we've heard. And I'll just go over and you can see if they fit at all. But we've heard people spend every morning, 30, 60 minutes trying to daily triage, triage their things and figure out what's on fire, right? They compensate that overwhelmed feeling by working more nights and weekends, reactively, not strategically. They cap their clients to two to three. Sometimes I get three to four clients just because they don't want to overwhelm the processes. They have goals, quarterly, monthly, weekly, even goals for sales. And they don't do them as they keep pushing that forward. And then other people, when it comes to the tool stack, they have a ton of different tools. They're stacking multiple tools together and just not getting that. They're spending more time managing the tools and actually getting the stuff out of the tool.
+
+BRIAN: I would say I do all of that stuff and I experience all except for the last one. But my last one, my solution is just not have any tools, which I don't know if that's a better solution. But I feel like I waste more time on the tools and I get value out of the tools and I'm like, I don't need all this crap.
+
+TABARAK: For any of these, you feel like something that you do consistently and you are getting a positive out of it?
+
+BRIAN: I think that all of them are things I should be doing consistently. But I don't feel like I do as consistently.
+
+TABARAK: And I'm not even saying these are the correct solutions. They're just the solution that works for me.
+
+BRIAN: Yeah. Well. Yeah. I feel like I do all of them to some extent. Yeah. Especially like the third one. I only, I've capped myself to two clients, two main clients and then I looked, I'm looking to pick up a couple of smaller advisory role clients.
+
+TABARAK: Yeah. Well, you know what? I mean, it's funny. I keep seeing two buckets. Someone like you that does about two to three and it might be 10 years too. How long have you been doing this now? A couple of years now?
+
+BRIAN: I've only been doing this for like three years. So I don't consider.
+
+TABARAK: And then there's, there's some people that have been doing it for six, seven, eight years and they're at five or six, but they want more. They want more and they're in the trenches. So they got all these random systems, but they're still feeling how do I get to that next level? You know?
+
+BRIAN: Are those, are those solo versus they have people that work for them?
+
+TABARAK: No, solo.
+
+BRIAN: And are they CFO style? The only reason is I'm curious how they operate.
+
+TABARAK: Yeah. Yeah, yeah, yeah. One, the couple of people that have the higher ones I've noticed are CFOs.
+
+BRIAN: Yeah.
+
+TABARAK: And then I've noticed a couple very high level like operators, but they use a lot of technology. They're using a lot of automation tools to try to get there, but they're living a life that's till two, three, four in the morning. They're having a lot of anxiety and overwhelmed. They're just piecing together a lot of stuff. I'm not saying it's great for their health, but that feeling that you have that you're never always right. Like they have that times 10 and they're also trying to stack a lot of work with less capacity. Right?
+
+BRIAN: Yeah. Well, I don't, because it's really funny. You're the working nights and weekends is that is sort of like the default solution, but that's not a solution in my opinion. It's like that's you failed. I have a, I have a nine month old and it's like, oh, I'm not gonna, I'm gonna, what I got more funds working. The whole point of me doing this is that I have more flexibility.
+
+TABARAK: It seems kind of counterintuitive.
+
+BRIAN: Yeah. I want it. I'd much rather did work for a nine to five at that point.
+
+TABARAK: Yeah. Well, I mean, that's another big piece of we realize people take on the fractional role for sovereignty. I mean, I left Verizon first, I mean Verizon, and then I went to DocuSign and then when I left DocuSign, it's kind of the same thing. It's like, I want to own my own time. I want to make my own path. And if you're working in a certain way that feels like you're back in corporate again,
+
+BRIAN: well, the sovereignty is secondary to the pride of work. Because I think that sovereignty is a bit overplayed.
+
+TABARAK: Yeah.
+
+BRIAN: Because I think people that have nine to five usually have better work flexibility, especially if you're smart. Because if you're smart, you work for like a nine to five, you can definitely work 10 hours a week and make it look like 40. That's how I was at Fidelity Investments and I worked 10 hours a week and made it look like 40.
+
+TABARAK: Yeah. I would agree with you. It is pride of work. That would put that number one because you want to do the work, the best quality work and get the most out of the work and get the pride for that work. And you may not be doing the best highest level work in a company because you're forced to stay in whatever bubble your job role is.
+
+BRIAN: That's exactly it. I like to conceive it as there's people who like working horizontally and people who like working vertically. Yeah. So people who like working horizontally are like the curious kind of people who don't want to stay in their lane that love getting involved with all aspects of the business. And they're not satisfied unless they can stick their hand in literally every single pot. Whereas the vertical operators are the kind of people that's like, I have one thing. I love doing this one thing. I am probably the best damn person in the world in this one thing. This one thing is all I want to do. And I think it is very dangerous for vertical people to try to do this kind of fractional work. So I think that it's these horizontal people that have to do this fractional work because most organizations don't build their systems, their human machines around people that are horizontal. And so they don't even know what to do with you. And then most of the time, even though you're doing great work for them, you're going to get slapped on the wrist because you're like, they designed your role for a specific person. It's like, why the hell are you over here? Get back to where you belong.
+
+TABARAK: You're hitting it right on the head. I would do my job so well and have enough time to go do other jobs around the company. What are you doing over here? Why are you here? Come back here.
+
+BRIAN: So that's the pride of work is that going to the fractional work is me getting the opportunity to work horizontally more than I can at any sort of established organization.
+
+TABARAK: Yeah. Okay, well, then here's our solution. We're building an AI system that plans your week and reprioritizes instantly when fire drills hit. So you stay focused on what matters most.
+
+BRIAN: Have you seen Reclaim AI?
+
+TABARAK: I have seen Reclaim AI.
+
+BRIAN: Yeah, correct. I don't like Reclaim AI. I don't like an AI. I don't... This is funny. And it might be a me thing. I don't like it when an AI schedules my day.
+
+TABARAK: We're the same way too, right? We believe that there is a level of AI that's necessary and then there's the sovereignty for you to choose. Give me enough information to make the best decision, right? And I think that's the approach that we take. And the way we do that is we pull all your information into one place. So if you have stuff on notebooks, paper, a CRM here, a spreadsheet here, get all your work into one place. We understand your goals and your clients' priorities. We break your large commitments into clear next steps. We plan your week on real capacity, not just trust and hope. We know how much time you have. You've stated it. You've blocked out your time. If you need time with your kid, that's blocked out. So we can only work with the capacity that you have. And then what it does, it understands all the contexts across, the relationships across all your clients. And when shit hits the fan midweek, we're able to essentially have a real strong composite score from your goals, your clients' needs, what kind of tasks you have, and then be able to re-prioritize and offer up, hey, these are the next most important things that you need to do to be able to complete all these goals. So we put... Go ahead.
+
+BRIAN: Yeah, well, because I think the devil's in the details on this, because if this is more offering like a version of Reclaim AI, I would probably shrug and be like, it's another tool, I'll move on. Where you really catch my attention is there is nothing more satisfying when you have an employee or a coworker that is really damn good at what you do. I sit there, talk to this person and be like, this is what we need done. And then they go off, they come back and it's done. And I don't have to keep checking on them. I don't have to keep... They don't keep nagging me. They do their thing. And if I have a question, I go over there, ask them, they give me the answer, but they get their thing done. And I get a very similar feeling with certain kinds of AI tools, whether that be like on cursor, whether that be perplexity. I think perplexity is one of the best tools I've experienced in the market for this kind of stuff where it just sort of figures it out. But perplexity is you can't give it... I've pushed what you could do with perplexity and it is very limited on like knowing my personal thing. Because it's the idea of, oh, I can tell... Because it's less the AI's planning and more I'm telling the AI, this is what my schedule is going to look like. These are my priorities this week. Find some random spots to put it. And then I like something, here's the thing, I go to the AI and be like, okay, can you move this here, move that there, move that around? And it figures out the details, the specifics, but I'm very much in the driver's seat of it. That's something that intrigues me. Or like, hey, I am existentially worried today that I don't have enough security contacts. Who do I know on my relationship building week? Or even if I like... And it's funny, even if I just go to it and be like, hey, I want to have two meetings a week of people where I'm touching base with people who haven't I talked to in three months. Who is someone that I can...
+
+TABARAK: Even better, what we're noticing is sometimes people need the permission to be allowed to block off certain time. When you say, hey, I need 40 hours, I'm going to work 40 hours, but I got to do sales. You know you need to put two hours of deep work every other day to do your prospecting. But you haven't committed that time. And sometimes if you're able to wait all the things you have and then categorize your goals and what's the limiting factor to where you want to go, it makes it very easy when something can pop up and say, hey, maybe you should use this time for X, Y, Z, and you get to choose where you want to put it. So I think to your point, it's offering you... Is there a value in offering you the information or do you want the information done for you? And I guess that's one of the things we're trying to figure out. And I'm hearing a lot of what you just said is like, I don't want it to do everything. I want to be in the driver's seat. Right?
+
+BRIAN: Yeah, I think filling up in the driver's seat is a big part. And the thing that's weird about having the AI block off time is I will... Like if I have some sort of commitment, I'm just going to go into my Google Calendar, block it off, and all my other calendars are synced to that so no one can bother me during this time. Or I will shut off my messenger. I have no problem blocking off. And I think that there's... The problem here is, I see, is with the existential worry about not having enough time for sales, there's not an app that can solve that because the problem isn't that you can't block off time. The problem isn't that you can't prioritize. It's that they, as individuals, need to have like, frankly, more discipline. Not to say that it isn't stressful, not to empathize, but like, frankly, that's sort of like the answer to the question. You have to block off time. I can't imagine someone that's struggling with that. If an AI tells them, oh, you should work these two hours, won't just immediately be like, well, the AI said that, but I'm on fire right now. I'll just pick it up later. And I don't see that the AI... Where the AI is really helpful, and genuinely I see that they're being really helpful, is it's like, I know I can do this. I know I can block off these two hours. Can you just go into my calendar real quick? I just tell the AI, go into my calendar, block off sometime Thursday evening for this, block off sometime Monday evening for that. And then they're like, hey, wait, you don't have any time Tuesday evening. Do you want to do Wednesday instead? And it's like, oh yeah, great. Or even to your point, it's like, oh, shit is on fire. Clear my calendar today. Find some time later this week for all these meetings. Send out the reschedule, do all those email re-invites to everybody that needs to. And then even, and again, going back to even cooler, is just this idea of like, oh, can you schedule two meetings with two random people that's on my relationship network I haven't talked to in three months, or give me some options of people I haven't talked to recently. Because there's some people that I haven't talked to in six months. Like, oh, I don't even remember the last time I talked to, oh, I can't believe it's six months. And so all of a sudden, this idea of me being able to just talk to, almost like they're an assistant or an employee, I think is really interesting.
+
+TABARAK: Correct, correct. I've heard some things where people said, hey, I'd love to know the status of my clients just based on activity, right?
+
+BRIAN: Oh yeah, that would be huge.
+
+TABARAK: Like, when's the last time I emailed them? When's the last time they've talked to me? Or, oh, so I have this meter that's telling me how healthy the relationship is, right? Rather than having to go do all this, it just pops up and it keeps me top of mind. I can measure my work by work and also by health of relationship as well.
+
+BRIAN: Another small thing too is what your goals are with certain people. If I have like 30 relationships I have to manage, I'll talk to somebody and then sometimes my goal is just to keep them warm, in which case I talk to them and then three months later, I talk to them again. And I have some direction where I want to bring that relationship. And when I talk to them in three months, I'm like, shit, I can't remember what my goal was with this person. Or like how their interests might intersect with mine in the future that I definitely should bring up the next time I talk to them. And so again, it goes back down to that relationship cultivation and relationship management, I think is something I would be particular. It's funny because I say that because I'm planning on building my own side tool for this because I think that this is something that's so important that it's worth my time trying to build something with. But like me building a little side tool is not a fully polished experience, no matter how people say level is cool.
+
+TABARAK: Yeah, yeah, no. Well, I mean, this is pretty much all I have here. I guess maybe a question for you, for your business right now, if you can wave a magic wand and fix one thing to manage your business, make it better, what is that one thing?
+
+BRIAN: My relationship management. I think long-term, if I go to conferences, I can get clients, but they're not gonna be amazing clients. The best kind of clients require years of work and cultivation. And frankly, I keep forgetting to reach out to people. I forget who I'm supposed to even be reaching out to. And I feel like I'm losing so many opportunities, not because like I'm not talking to them, but I'm not renewing that relationship.
+
+TABARAK: Yeah, yeah, yeah, yeah, for sure. I believe that too. I think right now, based on our conversation, I think maybe our problems are a little different, but they stack on each other. From first principles, I believe, and the reason why we're building this way is that we kind of have to get this layer down first, and then relationships can come on top when you can accurately manage your work in your capacity, because you have to be able to do that to maintain good relationships, right?
+
+BRIAN: Yeah, I think it's the challenge, because it sounds like you're going through a B2C approach with what you're trying to build. And the challenge of the B2C approach is you have a million dictators. You're not going to build, you have to find the commonality between all of this desperate group. And for a B2C to succeed, I mean, yours is a little bit different because you're aiming for solo businesses, so it's not as aggressively B2C, and you have a little bit more pricing power, because theoretically, the target market you're hitting has a little bit more pricing power. But nonetheless, you probably need at least a couple thousand people on your platform in order for it to be successful. And you had to find a common spot, common pain point that people are willing to shell out money for, for a couple thousand people.
+
+TABARAK: Yeah, we have a lot of different, I mean, the next steps are going to be phenomenal, but if we can get, and this is what we're testing, if we get the base premise down, everything else will make the product 10 times better, right? All the things additional we want to do, but the commonality, like you said, is the most important thing. Can we build something that has a commonality that's strong enough to capture the majority of the people and then vertically build up some of the additional features that'll just make life 10 times better, in every avenue, right?
+
+BRIAN: Yeah, well, it was a pleasure talking to you. I do need a thumbs up at this point.
+
+TABARAK: Thank you so much, I appreciate it. And so this is the thing, I'd love to keep in contact, right? And if you'd like, I could demo you the product. I don't know if it's the right fit for you right now, right? But if you're excited to even look at the product at any point, or if you wanted to experience that, I'd be happy to present it to you.
+
+BRIAN: So what I would say is, how far along is your product? Is it essentially at that prototyping kind of level?
+
+TABARAK: Prototype and MVP should be done in a few sprints, but we have a vibe-coded prototype that it could essentially show you the majority of what it would look like. Obviously, you wouldn't be able to hold it and run a perfect product through it, right?
+
+BRIAN: So what I would say is I'm happy to test when you're a couple of iterations in.
+
+TABARAK: That's good, that's good.
+
+BRIAN: And also, two things. It's a couple of iterations in, and that it's hitting a problem that I'm very interested in solving. So I don't know if you're not there now, but if in like a month or two, and you're like, hey, here you go, Brian, this is what they can do right now. And I'll tell you like, oh, that's interesting enough that I'm intrigued enough to spend some amount of time just listening to what you're saying.
+
+TABARAK: And the purpose of this conversation too is really to find our early evangelists, right? And you don't really fit the early evangelists. It's like your hair on fire, this pain is really big for you. You've got a lot of solutions you're trying to use to do it, but you're more of the pragmatic, which is a couple of iterations in, once it fits, I'd love to-
+
+BRIAN: That's sort of the vibe I'm getting. I have no doubt that might be useful to me down the road, but like, I hate software. So it's really, I'm a really hard person to adopt onto a piece of software.
+
+TABARAK: 100%, but I love the conversation, man. And really, I mean, actually you're genuinely a great conversation, man. And if you'd like anything from us, any feedback, anything we can help out, and if I can tap into you later, that'd be even better.
+
+BRIAN: Yeah, genuinely, I like paying it forward and helping people out, regardless if I have any direct horse in that race, because being a founder is tough. And so I'm more than, I do imagine though, having the price of a Thailand probably helps a great deal when it comes to your runway.
+
+TABARAK: A lot, yeah.
+
+BRIAN: No, I'm not gonna lie. I was at least a little jealous of that, but yeah, I'm happy to pay it forward.
+
+TABARAK: For sure. And if you have any referrals or friends in the fractional space that you might think-
+
+BRIAN: My biggest, yeah, my biggest recommendation, jump on that RANDS leadership chat. There's a fractional CTO chat, coffee chat on there, and you can jump on, jumping on there. There's a bunch of great people there that have a lot of opinions on fractions.
+
+TABARAK: I love it. Thank you so much, man. I just found it, and then I will definitely hop on there, man. Thank you so much.
+
+BRIAN: All right. Have fun, wish you guys luck. Keep me updated.
+
+TABARAK: Thank you, I will. Bye bye.

@@ -1,0 +1,78 @@
+{
+  "interview": "Brittany Problem",
+  "interview_weight": 0.5820000000000001,
+  "snippets": [
+    {
+      "theme_tag": "client_work_cannibalizes_own_business",
+      "pull_quote": "We got so busy with that contract work that developing my software really took a hit. The project went well, but ultimately my business suffered because I wasn't able to focus on it.",
+      "website_angle": "Show how over-serving clients silently stalls the operator's own growth — and what reclaiming capacity looks like.",
+      "intensity_1_to_5": 5
+    },
+    {
+      "theme_tag": "urgency_firefighting_as_top_drain",
+      "pull_quote": "Urgent blow-up needs — that's a boundary issue. Setting boundaries with clients is sometimes hard because you want to do a good job. I've dealt with that more times than not.",
+      "website_angle": "Position the product as the buffer that absorbs reactive chaos so operators stop living in crisis mode.",
+      "intensity_1_to_5": 5
+    },
+    {
+      "theme_tag": "systems_must_support_effort_not_vice_versa",
+      "pull_quote": "Are your systems supporting your actual efforts, or are your efforts supporting your systems — where you're constantly in and out of five different systems and everything is really difficult to track?",
+      "website_angle": "Reframe the pitch: operators shouldn't be feeding their tools. The tools should be doing the work.",
+      "intensity_1_to_5": 5
+    },
+    {
+      "theme_tag": "saying_yes_limited_by_setup",
+      "pull_quote": "I was invited to a trade show in Miami — speaking engagement, my ICP right there — and I had to say no because my current client projects and initiatives weren't allowing me to say yes.",
+      "website_angle": "Use the 'missed yes' moment to show how the right infrastructure turns capacity into opportunity.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "marketing_is_the_new_unfamiliar_burden",
+      "pull_quote": "Up until now I really haven't had to do any marketing. So that content side is something myself and a lot of others are experiencing for the first time — it's a lot of trial and error right now.",
+      "website_angle": "Speak to operators who are great at delivery but brand-new to self-promotion — validate the discomfort.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "losing_sight_of_big_picture",
+      "pull_quote": "It's focusing more on the days and weeks and kind of losing sight of the months and years — the bigger goals.",
+      "website_angle": "Highlight how the product helps operators zoom out without dropping the ball on day-to-day delivery.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "quality_over_quantity_client_model",
+      "pull_quote": "I let a lot of my systems do the work for me and try to keep quality high versus quantity. I keep my tech stack very, very small.",
+      "website_angle": "Appeal to operators who want leverage without bloat — fewer clients, higher impact, leaner stack.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "freelance_platform_trust_erosion",
+      "pull_quote": "Deliverables would be late, files corrupted, payment schedules misaligned — those third-party platforms ended up losing client trust because things weren't as filtered as they needed to be.",
+      "website_angle": "Contrast unreliable marketplace experiences with a vetted, professional operator relationship.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "client_portal_customization_dilemma",
+      "pull_quote": "Is that experience going to hinder — for lack of a better word — if I use HoneyBook versus a custom-built client portal? Each client has a different need and each contract is very tailored.",
+      "website_angle": "Address the 'one-size vs. custom' tension operators face when scaling their client experience.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "redundant_tools_clients_dont_know_what_exists",
+      "pull_quote": "A lot of my clients have two systems that can do the exact same thing and they just don't really know what's available — they just know what's being marketed.",
+      "website_angle": "Position the product as the clarity layer that cuts through tool sprawl and surfaces what actually matters.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "overwhelm_anxiety_as_constant_baseline",
+      "pull_quote": "Feeling overwhelmed and anxious that you're not able to deliver — either for yourself or for clients. That's a constant. I feel like that's always going to be there.",
+      "website_angle": "Normalize the emotional weight fractionals carry, then show how structure reduces the baseline anxiety.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "rebuilding_momentum_after_overcommitment",
+      "pull_quote": "My business suffered and I'm rebuilding momentum — which is another reason why I started putting myself out there. It's just breaking down those really big goals that seem so unattainable.",
+      "website_angle": "Speak to operators in recovery mode who need a structured re-entry, not another overwhelming system.",
+      "intensity_1_to_5": 4
+    }
+  ]
+}

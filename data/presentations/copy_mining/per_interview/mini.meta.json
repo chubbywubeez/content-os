@@ -1,0 +1,12 @@
+{
+  "stem": "mini",
+  "callType": "interview",
+  "speakerMode": "two",
+  "participant": "Participant",
+  "callTypeConfidence": 0.5,
+  "callTypeRationale": "Excerpt is too short to confirm, but only two speakers and no product walkthrough language suggests a discovery interview.",
+  "persona": "tofu",
+  "confidence": 0.2,
+  "rationale": "Transcript contains only a two-word greeting exchange ('hello'/'hi') with zero substantive content. All six hard filters scored NO and the interview was classified E — Disqualify. With no evidence of active client load, capacity strain, or accountability, this cannot be placed as BOFU or MOFU. Default to TOFU as the lowest-commitment bucket, but confidence is minimal — this is effectively an unscoreable interview.",
+  "classifiedAt": "2026-05-16T14:02:41.825Z"
+}

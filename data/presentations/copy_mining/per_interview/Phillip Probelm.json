@@ -1,0 +1,78 @@
+{
+  "interview": "Phillip Probelm",
+  "interview_weight": 0.39,
+  "snippets": [
+    {
+      "theme_tag": "life_goals_before_business_goals",
+      "pull_quote": "A lot of folks go business goals first. I did it backwards — I looked at life goals first, figured out what I'm okay with and what I'm not, and then made the business fit within that.",
+      "website_angle": "Reframe fractional success as life-design first, revenue second.",
+      "intensity_1_to_5": 5
+    },
+    {
+      "theme_tag": "feast_or_famine_escape",
+      "pull_quote": "I was taking on projects for two weeks, get a little check, a month of this and that — it wasn't working. I was literally in that feast or famine cycle and it was frustrating.",
+      "website_angle": "Speak directly to the chaos of early fractional life before a real system exists.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "longer_retainers_as_stability_engine",
+      "pull_quote": "Some fractionals operate on 90-day retainers, cutting onto the next. I typically find myself with growth-stage businesses on six or nine months — that's what puts me in a place where I don't need 12 clients.",
+      "website_angle": "Position longer engagements as the structural fix for income instability.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "icp_clarity_as_conversion_lever",
+      "pull_quote": "I looked at my conversion rate when dealing directly with my ICP. If it's 50% and I need five clients, I know I need to be reaching out to at least 10. It's just using your data.",
+      "website_angle": "Show how ICP precision turns scattered outreach into a predictable pipeline.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "vague_icp_kills_pipeline",
+      "pull_quote": "They'll say 'I help founders turn clarity into chaos.' Well, there's a ton of different founders — MVP stage, seed, second round. Which stage do you even enter? Where are your skills actually needed?",
+      "website_angle": "Call out the fuzzy positioning trap that keeps fractionals stuck with no clients.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "fulfillment_gap_on_easy_retainers",
+      "pull_quote": "They're calling maybe once a month to work through one single issue. You have the income, but you don't get the problem-solving, the building. The fulfillment just isn't there.",
+      "website_angle": "Acknowledge that income alone isn't enough — operators need meaningful work too.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "hr_specialists_struggle_most",
+      "pull_quote": "The folks in HR-affiliated roles — they're experts in HR, but they've never had exposure to the other systems of a business. I see those folks struggling the most: can't get retainers, can't get projects, stuck in feast and famine.",
+      "website_angle": "Target single-function operators who lack cross-functional business fluency.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "virtual_networking_disadvantage",
+      "pull_quote": "I don't go to events in person, so I end up doing a lot more virtual work than if I was actually in Houston. If I were there in person, it'd be a lot smoother and easier — that's probably the one thing I'd change.",
+      "website_angle": "Surface the hidden cost of being remote from your market's business hub.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "marketing_spend_catch22",
+      "pull_quote": "If you want to automate your marketing or get an agency, you have to pour budget into that — and that creates a sticky situation when you're running lean.",
+      "website_angle": "Name the budget catch-22 that keeps solo operators doing everything manually.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "revenue_producing_activities_framework",
+      "pull_quote": "I teach founders a class called Revenue Producing Activities. You break down your goals, figure out your conversion rate, and suddenly you know exactly how many people you need to reach to hit your number.",
+      "website_angle": "Introduce a structured activity framework as the antidote to random hustle.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "intentional_capacity_ceiling",
+      "pull_quote": "Give me about five clients and let me go spend the rest of my time exercising and fishing. I'm not one of those guys chasing 10 or 15.",
+      "website_angle": "Validate that capping client load is a strategy, not a failure of ambition.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "ai_for_repeatable_ops_tasks",
+      "pull_quote": "I figured out what's repeatable inside my framework and let AI take those tasks. The things that really need me — I'm still there. But the rest, AI handles it.",
+      "website_angle": "Show AI as a leverage tool that protects operator time without sacrificing quality.",
+      "intensity_1_to_5": 2
+    }
+  ]
+}

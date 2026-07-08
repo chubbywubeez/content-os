@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Persona — The Overloaded Solo Operator</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
+
+  :root {
+    --app-bg-dark: #030a17;
+    --accent: #059669;
+    --accent-hover: #047857;
+    --accent-light: #d1fae5;
+    --accent-dark: #064e3b;
+    --ochre: #C97B00;
+    --ochre-light: #fff4e0;
+    --terra: #B34A3F;
+    --terra-light: #fdf0ef;
+    --charcoal: #1A1E29;
+    --lightgray: #A3A6B4;
+    --surface-1: #ffffff;
+    --surface-2: #f7f8fa;
+    --surface-3: #f1f5f9;
+    --text-primary: #0f172a;
+    --text-soft: #334155;
+    --text-muted: #475569;
+    --border-soft: rgba(15,23,42,0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--surface-2);
+    color: var(--text-primary);
+    line-height: 1.6;
+  }
+  .doc { max-width: 980px; margin: 0 auto; padding: 0 24px 80px; }
+
+  /* HERO */
+  .hero {
+    background: var(--app-bg-dark);
+    color: #fff;
+    border-radius: 0 0 28px 28px;
+    padding: 48px 56px 64px;
+    margin: 0 -24px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -140px; right: -120px;
+    width: 460px; height: 460px;
+    background: radial-gradient(circle, rgba(5,150,105,0.14) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -120px; left: -80px;
+    width: 340px; height: 340px;
+    background: radial-gradient(circle, rgba(201,123,0,0.06) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero-inner { position: relative; z-index: 1; }
+  .hero-top {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 56px;
+  }
+  .vmark {
+    font-size: 14px; font-weight: 900; color: #fff;
+    letter-spacing: 5px; text-transform: uppercase;
+  }
+  .stage-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 10px; font-weight: 800;
+    letter-spacing: 2.5px; text-transform: uppercase;
+    background: var(--accent); color: #fff;
+    padding: 8px 14px; border-radius: 999px;
+  }
+  .stage-badge .dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: #fff;
+  }
+  .hero-eyebrow {
+    font-size: 11px; font-weight: 700;
+    color: var(--accent); letter-spacing: 3px;
+    text-transform: uppercase; margin-bottom: 14px;
+  }
+  .hero-name {
+    font-size: 64px; font-weight: 800; line-height: 1.05;
+    margin-bottom: 18px; letter-spacing: -1.5px;
+    max-width: 800px;
+  }
+  .hero-name .em { color: var(--accent); }
+  .hero-tag {
+    font-size: 19px; font-weight: 400; color: rgba(255,255,255,0.78);
+    max-width: 640px; line-height: 1.55; margin-bottom: 36px;
+  }
+  .dl-btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: #fff; color: var(--charcoal);
+    font-family: inherit; font-size: 12px; font-weight: 800;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 14px 26px; border-radius: 10px;
+    border: none; cursor: pointer;
+    transition: transform 0.15s ease;
+  }
+  .dl-btn:hover { transform: translateY(-2px); }
+  .dl-btn svg { width: 15px; height: 15px; }
+
+  /* SNAPSHOT GRID */
+  .snapshot {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-bottom: 40px;
+  }
+  .fact {
+    background: var(--surface-1);
+    border: 1px solid var(--border-soft);
+    border-radius: 12px;
+    padding: 20px 22px;
+  }
+  .fact .label {
+    font-size: 10px; font-weight: 800;
+    color: var(--accent); letter-spacing: 2px;
+    text-transform: uppercase; margin-bottom: 8px;
+  }
+  .fact .val {
+    font-size: 16px; font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.4;
+  }
+
+  /* SECTIONS */
+  .section {
+    background: var(--surface-1);
+    border-radius: 18px;
+    border: 1px solid var(--border-soft);
+    padding: 40px 48px;
+    margin-bottom: 24px;
+  }
+  .section h2 {
+    font-size: 13px; font-weight: 800;
+    color: var(--accent); letter-spacing: 3px;
+    text-transform: uppercase; margin-bottom: 14px;
+  }
+  .section h3 {
+    font-size: 28px; font-weight: 800;
+    color: var(--text-primary); margin-bottom: 24px;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+  }
+  .section p {
+    font-size: 15px; color: var(--text-soft);
+    line-height: 1.8; margin-bottom: 18px;
+  }
+  .section p:last-child { margin-bottom: 0; }
+  .section strong { color: var(--text-primary); font-weight: 700; }
+
+  /* DAY IN LIFE */
+  .day {
+    background: var(--charcoal);
+    color: #fff;
+    border-radius: 18px;
+    padding: 48px 56px;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .day::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -80px;
+    width: 320px; height: 320px;
+    background: radial-gradient(circle, rgba(5,150,105,0.14) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .day-inner { position: relative; z-index: 1; }
+  .day h2 {
+    font-size: 13px; font-weight: 800;
+    color: var(--accent); letter-spacing: 3px;
+    text-transform: uppercase; margin-bottom: 14px;
+  }
+  .day h3 {
+    font-size: 30px; font-weight: 800;
+    color: #fff; margin-bottom: 24px;
+    letter-spacing: -0.5px;
+  }
+  .day p {
+    font-size: 17px; line-height: 1.75;
+    color: rgba(255,255,255,0.92);
+    margin-bottom: 18px;
+    max-width: 760px;
+  }
+  .day p:last-child { margin-bottom: 0; }
+  .day .timestamp {
+    font-weight: 800;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* TWO-COL */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  /* LISTS */
+  ul.clean {
+    list-style: none; padding: 0;
+  }
+  ul.clean li {
+    position: relative;
+    padding-left: 24px;
+    margin-bottom: 14px;
+    font-size: 15px;
+    color: var(--text-soft);
+    line-height: 1.65;
+  }
+  ul.clean li::before {
+    content: '';
+    position: absolute;
+    left: 4px; top: 10px;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+  ul.clean.terra li::before { background: var(--terra); }
+  ul.clean li strong { color: var(--text-primary); }
+
+  /* QUOTES */
+  .quotes-wrap { display: grid; gap: 14px; margin-top: 8px; }
+  .quote {
+    background: var(--surface-2);
+    border-left: 4px solid var(--ochre);
+    padding: 22px 26px;
+    border-radius: 0 12px 12px 0;
+    font-size: 17px;
+    color: var(--text-soft);
+    font-style: italic;
+    line-height: 1.6;
+    font-weight: 500;
+  }
+  .quote::before {
+    content: '"';
+    font-size: 36px;
+    color: var(--ochre);
+    line-height: 0;
+    vertical-align: -10px;
+    margin-right: 4px;
+    font-family: Georgia, serif;
+    font-style: normal;
+  }
+
+  /* PILLS */
+  .pills {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    margin-top: 12px;
+  }
+  .pill {
+    background: var(--surface-2);
+    border: 1px solid var(--border-soft);
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-soft);
+  }
+  .pill.accent {
+    background: var(--accent-light);
+    border-color: transparent;
+    color: var(--accent-dark);
+  }
+
+  /* MESSAGING CARDS */
+  .msg-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 8px;
+  }
+  .msg-card {
+    background: var(--surface-2);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 12px 12px 0;
+    padding: 22px 26px;
+  }
+  .msg-card .kind {
+    font-size: 10px; font-weight: 800;
+    color: var(--accent); letter-spacing: 2px;
+    text-transform: uppercase; margin-bottom: 10px;
+  }
+  .msg-card .copy {
+    font-size: 17px; font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.4;
+  }
+  .msg-card .sub {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-top: 8px;
+    font-weight: 500;
+    line-height: 1.55;
+  }
+  .obj-list {
+    display: grid; gap: 12px; margin-top: 12px;
+  }
+  .obj-row {
+    background: var(--surface-2);
+    border-radius: 12px;
+    padding: 18px 22px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    align-items: center;
+  }
+  .obj-row .said {
+    font-size: 14px; font-style: italic;
+    color: var(--text-muted);
+  }
+  .obj-row .said::before {
+    content: 'They say';
+    display: block;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 10px;
+    color: var(--terra);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .obj-row .reply {
+    font-size: 14px;
+    color: var(--text-soft);
+    font-weight: 600;
+    line-height: 1.55;
+  }
+  .obj-row .reply::before {
+    content: 'You answer';
+    display: block;
+    font-weight: 800;
+    font-size: 10px;
+    color: var(--accent);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  /* NOT THIS PERSONA */
+  .not-block {
+    background: var(--terra-light);
+    border-left: 4px solid var(--terra);
+    border-radius: 0 14px 14px 0;
+    padding: 28px 32px;
+    margin-top: 8px;
+  }
+  .not-block h4 {
+    font-size: 12px; font-weight: 800;
+    color: var(--terra); letter-spacing: 2.5px;
+    text-transform: uppercase; margin-bottom: 14px;
+  }
+  .not-block ul.clean li::before { background: var(--terra); }
+  .not-block ul.clean li { margin-bottom: 10px; font-size: 14.5px; }
+
+  /* RESPONSIVE */
+  @media (max-width: 800px) {
+    .hero { padding: 36px 24px 48px; }
+    .hero-name { font-size: 40px; }
+    .snapshot { grid-template-columns: 1fr; }
+    .section, .day { padding: 28px 24px; }
+    .two-col { grid-template-columns: 1fr; }
+    .hero-top { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .obj-row { grid-template-columns: 1fr; }
+  }
+
+  /* PRINT */
+  @media print {
+    body { background: #fff; }
+    .hero, .day { border-radius: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .dl-btn { display: none; }
+    .section, .day { break-inside: avoid; page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<div class="doc">
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="hero-top">
+        <div class="vmark">VANTUM</div>
+        <div class="stage-badge"><span class="dot"></span>BOFU · Bullseye Buyer</div>
+      </div>
+      <div class="hero-eyebrow">Persona Profile · The Buyer</div>
+      <h1 class="hero-name">The Overloaded <span class="em">Solo Operator</span></h1>
+      <p class="hero-tag">They know exactly what they should be working on this week. They also know they won't get to it. They left a corporate role to take control of their time — and the time has been eaten alive.</p>
+      <button class="dl-btn" onclick="downloadMarkdown()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download Markdown
+      </button>
+    </div>
+  </header>
+
+  <!-- SNAPSHOT -->
+  <div class="snapshot">
+    <div class="fact"><div class="label">Role</div><div class="val">Fractional CMO, COO, CFO, CRO, or CHRO</div></div>
+    <div class="fact"><div class="label">Tenure</div><div class="val">1–5 years independent</div></div>
+    <div class="fact"><div class="label">Client Load</div><div class="val">3–6 active engagements</div></div>
+    <div class="fact"><div class="label">Weekly Hours</div><div class="val">50–70 in peak weeks</div></div>
+    <div class="fact"><div class="label">Team</div><div class="val">Solo. Maybe 1–2 contractors.</div></div>
+    <div class="fact"><div class="label">Tool Spend</div><div class="val">$200–$800 / month</div></div>
+    <div class="fact"><div class="label">Decision Power</div><div class="val">Sole. No procurement.</div></div>
+    <div class="fact"><div class="label">Annual Revenue</div><div class="val">$200K–$600K</div></div>
+    <div class="fact"><div class="label">Buying Window</div><div class="val">Now. Would pay tomorrow.</div></div>
+  </div>
+
+  <!-- WHO THEY ARE -->
+  <section class="section">
+    <h2>Background</h2>
+    <h3>Who they are</h3>
+    <p>They left a VP-level role at a growth-stage company about three years ago. They wanted control over their time and their work. They've gotten control over the work — clients pay them well, the engagements are interesting, the resume is strong. The time has been eaten alive.</p>
+    <p>By client three, they'd built a Notion. By client four, the Notion was a mess and they migrated to Asana. By client five, they were running a custom GPT, scheduling emails at 2 AM to hit Canadian client inboxes, and quietly suspecting that none of the tools were the problem.</p>
+    <p>They are good at the work. Clients are happy. But the business <em>they</em> founded — the one with their own name on it — is suffering. The website they meant to launch last year is still "coming soon." The outbound campaign they keep scheduling for next Tuesday keeps getting pushed to the Tuesday after. Their own content cadence collapsed two quarters ago. They tell themselves they're not lazy. They're right. They are over capacity and reactive.</p>
+    <p><strong>They admit all of this when you ask directly.</strong> That admission is what separates them from the operators who look like them on paper but won't buy. Their pain is humble — "it's a me problem" — not blameful. They believe the problem is their own discipline. It is not. It is structural. And once they hear that framing from someone who has lived it, they listen.</p>
+  </section>
+
+  <!-- A TUESDAY -->
+  <section class="day">
+    <div class="day-inner">
+      <h2>A Tuesday in their week</h2>
+      <h3>By Wednesday, none of this will have happened.</h3>
+      <p><span class="timestamp">8:14 AM.</span> Laptop open in the home office. Five client inboxes stacked across five Google Workspaces. A note from Client A's CEO marked URGENT, sent at 7:53 AM. They'd planned to spend Tuesday on a long-overdue content sprint for their own LinkedIn.</p>
+      <p><span class="timestamp">8:30 AM.</span> On a Zoom with Client A's team. The "urgent" is real. They block their afternoon to draft a response strategy.</p>
+      <p><span class="timestamp">11:00 AM.</span> Reshuffling the entire week in Asana. The content sprint moves to Thursday. They suspect Thursday will also disappear.</p>
+      <p><span class="timestamp">4:00 PM.</span> Drafting deliverables for Client A instead of their own content. They notice they haven't eaten.</p>
+      <p><span class="timestamp">11:13 PM.</span> Scheduling emails to land in international inboxes the next morning. They remember they also told a friend they'd review their pitch deck this week. They haven't started their own LinkedIn post. They won't.</p>
+      <p style="font-size: 15px; color: var(--lightgray); margin-top: 28px; font-style: italic;">This pattern repeats. They know it does. They have been telling themselves "next week" for six quarters.</p>
+    </div>
+  </section>
+
+  <!-- GOALS & FRUSTRATIONS -->
+  <section class="section">
+    <h2>What they want · What blocks them</h2>
+    <h3>Goals and frustrations</h3>
+    <div class="two-col">
+      <div>
+        <h4 style="font-size: 12px; font-weight: 800; color: var(--accent); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px;">Goals</h4>
+        <ul class="clean">
+          <li>Protect at least one focused block of own-business work per week, no matter what client fire hits</li>
+          <li>Onboard a 4th or 5th client without losing the system that holds the previous three together</li>
+          <li>See their real capacity before they say yes to new work, so they can price it or decline without guilt</li>
+          <li>Stop the slow drift toward being a pure delivery shop</li>
+          <li>Move their own goals — content, pricing, the website — forward in measurable increments</li>
+          <li>Sleep at night without rehearsing tomorrow's to-do list</li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="font-size: 12px; font-weight: 800; color: var(--terra); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px;">Frustrations</h4>
+        <ul class="clean terra">
+          <li>The week breaks by Wednesday. Always.</li>
+          <li>Five different client Workspaces, each with its own tools they have to live inside</li>
+          <li>Tool migration fatigue — Notion → Asana → ClickUp → custom GPT → spreadsheets</li>
+          <li>They cannot say what their actual capacity is. They only know when they're over it.</li>
+          <li>They work weekends to "catch up" — and what they catch up on is their own work, not the clients</li>
+          <li>The self-criticism loop: "Is the client really upset, or am I making this bigger than it is?"</li>
+          <li>They haven't lost a client yet. They believe they will. The feeling never goes away.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- IN THEIR WORDS -->
+  <section class="section">
+    <h2>In their words</h2>
+    <h3>How they describe it, unprompted</h3>
+    <div class="quotes-wrap">
+      <div class="quote">I'm working at three in the morning. I'm scheduling emails at two AM to hit clients' inboxes at 8, 9 o'clock. Is that healthy? No.</div>
+      <div class="quote">If it has AI and automation — if those two things have a baby together — you would have all of my money. I would buy it tomorrow.</div>
+      <div class="quote">I'm constantly worried I'm not doing enough — not letting my clients down, but I'm letting myself down.</div>
+      <div class="quote">I spend all of my time in some kind of tool. I have my own HRIS, my own ATS, then I'm in their ATS and their HRIS. It's a lot of stuff.</div>
+      <div class="quote">We got so busy with that contract work that developing my software really took a hit. The project went well, but ultimately my business suffered because I wasn't able to focus on it.</div>
+      <div class="quote">I've got my clients, I can do plenty of pipe, then I'm full. Three to six months later I come out and it's like, shit, where's my pipeline? I haven't posted, haven't done any outreach.</div>
+      <div class="quote">My time is very broken up and I know that I do well when I have focused work time — and I have less and less of that every day.</div>
+      <div class="quote">The client could only afford me Mondays and Tuesdays, but they wanted me seven days a week. And I was super flexible — maybe that was my error.</div>
+    </div>
+  </section>
+
+  <!-- TOOLS -->
+  <section class="section">
+    <h2>Their stack today</h2>
+    <h3>What they're already using</h3>
+    <p>A stitched-together collection. None of it built for someone serving five clients at once. Each tool was added in response to a specific moment of pain, and each is now part of a system that almost works.</p>
+    <div class="pills">
+      <span class="pill accent">Google Calendar (5+ Workspaces)</span>
+      <span class="pill accent">Notion or Asana</span>
+      <span class="pill accent">Custom GPT or Claude</span>
+      <span class="pill accent">HoneyBook</span>
+      <span class="pill">Slack (multiple workspaces)</span>
+      <span class="pill">A spreadsheet stitched between systems</span>
+      <span class="pill">LinkedIn</span>
+      <span class="pill">Email scheduling tool</span>
+      <span class="pill">A Loom or screen-record habit</span>
+      <span class="pill">Zoom / Google Meet</span>
+    </div>
+    <p style="margin-top: 22px;">They have already migrated once. They are halfway through migrating again. They suspect — correctly — that the tool is not the problem.</p>
+  </section>
+
+  <!-- TRIGGERS -->
+  <section class="section">
+    <h2>What makes them look</h2>
+    <h3>The triggers that start the conversation</h3>
+    <p>They are not browsing for tools. They are not on G2. They are in their inbox. The moment they go from "I'll get to it" to "I need to fix this" is almost always a specific event.</p>
+    <ul class="clean">
+      <li><strong>A breakdown event in the last 30 days</strong> — a missed deadline, a 70-hour week, a quarter where their own goals visibly slipped</li>
+      <li><strong>Onboarding a 4th or 5th client</strong> when current tools are clearly cracking</li>
+      <li><strong>The third consecutive quarter</strong> of "I'll start outbound next month"</li>
+      <li><strong>A near-loss of a client</strong> forcing a pipeline rebuild from scratch</li>
+      <li><strong>Another tool migration looming</strong> — and finally realizing the tool isn't the problem</li>
+      <li><strong>A peer they trust</strong> naming the pattern in language they recognize</li>
+    </ul>
+  </section>
+
+  <!-- BELIEFS -->
+  <section class="section">
+    <h2>The case you have to make</h2>
+    <h3>What they need to believe before they buy</h3>
+    <ul class="clean">
+      <li>The problem is <strong>structural</strong> — not their work ethic. Running 3+ clients solo breaks any system without specific scaffolding.</li>
+      <li>This tool was <strong>built by someone who has personally run 4+ clients</strong> themselves.</li>
+      <li>It <strong>respects what they've already built</strong> — their GPTs, their calendar, their notes — and doesn't ask them to start over.</li>
+      <li>Other fractionals <strong>running the same load</strong> are already using it.</li>
+      <li>ROI shows up <strong>in a single quarter</strong>, not six months.</li>
+      <li>It <strong>will not flatten</strong> their experience into a generic PM template.</li>
+    </ul>
+  </section>
+
+  <!-- MESSAGING -->
+  <section class="section">
+    <h2>How to talk to them</h2>
+    <h3>Headlines, demos, objections</h3>
+
+    <div class="msg-grid">
+      <div class="msg-card">
+        <div class="kind">Landing Page H1</div>
+        <div class="copy">You know exactly what you should be working on this week. You also know you won't get to it.</div>
+        <div class="sub">The hook that names the problem in their own self-talk. Already in production via the LinkedIn ad set.</div>
+      </div>
+      <div class="msg-card">
+        <div class="kind">Landing Page H1 — Alternate</div>
+        <div class="copy">When the client fires hit, Vantum replans your week. So the work that matters most doesn't slip — it moves forward.</div>
+        <div class="sub">Action-oriented version. Use when the audience is further along in the journey.</div>
+      </div>
+      <div class="msg-card">
+        <div class="kind">Demo Opener</div>
+        <div class="copy">"Walk me through your last broken week."</div>
+        <div class="sub">Never start with a product tour. Start with their Tuesday. Mirror it back.</div>
+      </div>
+      <div class="msg-card">
+        <div class="kind">Email Subject</div>
+        <div class="copy">How's your week holding up?</div>
+        <div class="sub">Send Wednesday afternoon, when their plan has already collapsed.</div>
+      </div>
+      <div class="msg-card">
+        <div class="kind">Email Subject</div>
+        <div class="copy">Q3 closed. Did your own business move?</div>
+        <div class="sub">Quarter-end timing. Forces the deferral conversation.</div>
+      </div>
+    </div>
+
+    <h4 style="font-size: 13px; font-weight: 800; color: var(--accent); letter-spacing: 2px; text-transform: uppercase; margin-top: 32px; margin-bottom: 14px;">Objection handling</h4>
+    <div class="obj-list">
+      <div class="obj-row">
+        <div class="said">I've already built my own system.</div>
+        <div class="reply">So had every customer of ours. Show me yours — most lose to the first big client fire of the quarter.</div>
+      </div>
+      <div class="obj-row">
+        <div class="said">Notion works fine.</div>
+        <div class="reply">Notion is great with one client. What happens when client #4 has a different Workspace, different tooling, different priority?</div>
+      </div>
+      <div class="obj-row">
+        <div class="said">I don't have time to learn another tool.</div>
+        <div class="reply">Onboarding is 20 minutes. The first week pays it back in protected own-business hours.</div>
+      </div>
+      <div class="obj-row">
+        <div class="said">I just need to be more disciplined.</div>
+        <div class="reply">That's what every fractional says before the third migration. Discipline doesn't scale across five Workspaces. Scaffolding does.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHANNELS -->
+  <section class="section">
+    <h2>Where to find them</h2>
+    <h3>Channels that actually reach them</h3>
+    <p>They are not in 80% of the places SaaS founders default to. They are in a small handful, and they are deep in those.</p>
+    <div class="pills">
+      <span class="pill accent">LinkedIn (primary)</span>
+      <span class="pill accent">Fractionals United</span>
+      <span class="pill accent">Chief</span>
+      <span class="pill accent">Savvy</span>
+      <span class="pill accent">Solo / fractional podcasts</span>
+      <span class="pill accent">Founder-led warm intros</span>
+      <span class="pill">Substack (some)</span>
+      <span class="pill">Industry-specific Slack groups</span>
+    </div>
+    <p style="margin-top: 22px; font-size: 14px; color: var(--text-muted);"><strong>Where they are NOT:</strong> Twitter/X, big SaaS communities, Reddit, Google search for "best PM tool," product marketplaces.</p>
+  </section>
+
+  <!-- NOT THIS PERSONA -->
+  <section class="section">
+    <h2>Who is not this persona</h2>
+    <h3>People who look similar but won't buy</h3>
+    <div class="not-block">
+      <h4>Disqualifiers</h4>
+      <ul class="clean">
+        <li>The operator with 6 clients who insists they've "solved capacity with AI"</li>
+        <li>The 10+ year veteran who says "I have plenty of time"</li>
+        <li>The operator who designed for 35 hours by choice and is genuinely happy there</li>
+        <li>The person currently between engagements with no active retainers</li>
+        <li>The strategy-only advisor who doesn't deliver hands-on</li>
+        <li>The full-time CFO at an accounting firm using "fractional" as a job title</li>
+        <li>The aspiring fractional who hasn't taken on a client yet</li>
+      </ul>
+      <p style="margin-top: 18px; font-size: 14px; color: var(--text-soft); line-height: 1.65;">These people look like the persona in a LinkedIn search filter. They do not behave like them in a sales conversation. Disqualify on hard filters (active strain, active revenue) before spending demo cycles.</p>
+    </div>
+  </section>
+
+</div>
+
+<script>
+const markdownContent = `# Persona — The Overloaded Solo Operator
+
+**Funnel Stage:** BOFU · Bullseye Buyer
+**Buying Window:** Now. Would pay tomorrow.
+
+---
+
+## Snapshot
+
+| | |
+|---|---|
+| **Role** | Fractional CMO, COO, CFO, CRO, or CHRO |
+| **Tenure** | 1–5 years independent |
+| **Client Load** | 3–6 active engagements |
+| **Weekly Hours** | 50–70 in peak weeks |
+| **Team** | Solo. Maybe 1–2 contractors. |
+| **Tool Spend** | $200–$800 / month |
+| **Decision Power** | Sole. No procurement. |
+| **Annual Revenue** | $200K–$600K |
+| **Buying Window** | Now. Would pay tomorrow. |
+
+---
+
+## Background
+
+They left a VP-level role at a growth-stage company about three years ago. They wanted control over their time and their work. They've gotten control over the work — clients pay them well, the engagements are interesting, the resume is strong. The time has been eaten alive.
+
+By client three, they'd built a Notion. By client four, the Notion was a mess and they migrated to Asana. By client five, they were running a custom GPT, scheduling emails at 2 AM to hit Canadian client inboxes, and quietly suspecting that none of the tools were the problem.
+
+They are good at the work. Clients are happy. But the business *they* founded — the one with their own name on it — is suffering. The website they meant to launch last year is still "coming soon." The outbound campaign they keep scheduling for next Tuesday keeps getting pushed to the Tuesday after. Their own content cadence collapsed two quarters ago. They tell themselves they're not lazy. They're right. They are over capacity and reactive.
+
+**They admit all of this when you ask directly.** That admission is what separates them from the operators who look like them on paper but won't buy. Their pain is humble — "it's a me problem" — not blameful. They believe the problem is their own discipline. It is not. It is structural. And once they hear that framing from someone who has lived it, they listen.
+
+---
+
+## A Tuesday in their week
+
+By Wednesday, none of this will have happened.
+
+- **8:14 AM** — Laptop open in the home office. Five client inboxes stacked across five Google Workspaces. A note from Client A's CEO marked URGENT, sent at 7:53 AM. They'd planned to spend Tuesday on a long-overdue content sprint for their own LinkedIn.
+- **8:30 AM** — On a Zoom with Client A's team. The "urgent" is real. They block their afternoon to draft a response strategy.
+- **11:00 AM** — Reshuffling the entire week in Asana. The content sprint moves to Thursday. They suspect Thursday will also disappear.
+- **4:00 PM** — Drafting deliverables for Client A instead of their own content. They notice they haven't eaten.
+- **11:13 PM** — Scheduling emails to land in international inboxes the next morning. They remember they also told a friend they'd review their pitch deck this week. They haven't started their own LinkedIn post. They won't.
+
+This pattern repeats. They know it does. They have been telling themselves "next week" for six quarters.
+
+---
+
+## Goals
+
+- Protect at least one focused block of own-business work per week, no matter what client fire hits
+- Onboard a 4th or 5th client without losing the system that holds the previous three together
+- See their real capacity before they say yes to new work, so they can price it or decline without guilt
+- Stop the slow drift toward being a pure delivery shop
+- Move their own goals — content, pricing, the website — forward in measurable increments
+- Sleep at night without rehearsing tomorrow's to-do list
+
+---
+
+## Frustrations
+
+- The week breaks by Wednesday. Always.
+- Five different client Workspaces, each with its own tools they have to live inside
+- Tool migration fatigue — Notion → Asana → ClickUp → custom GPT → spreadsheets
+- They cannot say what their actual capacity is. They only know when they're over it.
+- They work weekends to "catch up" — and what they catch up on is their own work, not the clients
+- The self-criticism loop: "Is the client really upset, or am I making this bigger than it is?"
+- They haven't lost a client yet. They believe they will. The feeling never goes away.
+
+---
+
+## In their words
+
+> "I'm working at three in the morning. I'm scheduling emails at two AM to hit clients' inboxes at 8, 9 o'clock. Is that healthy? No."
+
+> "If it has AI and automation — if those two things have a baby together — you would have all of my money. I would buy it tomorrow."
+
+> "I'm constantly worried I'm not doing enough — not letting my clients down, but I'm letting myself down."
+
+> "I spend all of my time in some kind of tool. I have my own HRIS, my own ATS, then I'm in their ATS and their HRIS. It's a lot of stuff."
+
+> "We got so busy with that contract work that developing my software really took a hit. The project went well, but ultimately my business suffered because I wasn't able to focus on it."
+
+> "I've got my clients, I can do plenty of pipe, then I'm full. Three to six months later I come out and it's like, shit, where's my pipeline?"
+
+> "My time is very broken up and I know that I do well when I have focused work time — and I have less and less of that every day."
+
+> "The client could only afford me Mondays and Tuesdays, but they wanted me seven days a week. And I was super flexible — maybe that was my error."
+
+---
+
+## Their stack today
+
+A stitched-together collection. None of it built for someone serving five clients at once. Each tool was added in response to a specific moment of pain, and each is now part of a system that almost works.
+
+- Google Calendar (5+ Workspaces, used as the master hub)
+- Notion or Asana (currently — will probably migrate again in 6 months)
+- Custom GPT or Claude
+- HoneyBook for invoicing
+- Slack across multiple client workspaces
+- A spreadsheet stitched between systems they cannot otherwise connect
+- LinkedIn for their own marketing, when they have time
+- Email scheduling tool for off-hours outbound
+- A Loom or screen-record habit
+- Zoom / Google Meet
+
+They have already migrated once. They are halfway through migrating again. They suspect — correctly — that the tool is not the problem.
+
+---
+
+## What makes them look
+
+They are not browsing for tools. They are not on G2. They are in their inbox. The moment they go from "I'll get to it" to "I need to fix this" is almost always a specific event.
+
+- A breakdown event in the last 30 days — a missed deadline, a 70-hour week, a quarter where their own goals visibly slipped
+- Onboarding a 4th or 5th client when current tools are clearly cracking
+- The third consecutive quarter of "I'll start outbound next month"
+- A near-loss of a client forcing a pipeline rebuild from scratch
+- Another tool migration looming — and finally realizing the tool isn't the problem
+- A peer they trust naming the pattern in language they recognize
+
+---
+
+## What they need to believe
+
+- The problem is **structural** — not their work ethic. Running 3+ clients solo breaks any system without specific scaffolding.
+- This tool was **built by someone who has personally run 4+ clients** themselves.
+- It **respects what they've already built** — their GPTs, their calendar, their notes — and doesn't ask them to start over.
+- Other fractionals **running the same load** are already using it.
+- ROI shows up **in a single quarter**, not six months.
+- It **will not flatten** their experience into a generic PM template.
+
+---
+
+## How to talk to them
+
+### Landing page H1 (primary)
+"You know exactly what you should be working on this week. You also know you won't get to it."
+
+### Landing page H1 (alternate)
+"When the client fires hit, Vantum replans your week. So the work that matters most doesn't slip — it moves forward."
+
+### Demo opener
+"Walk me through your last broken week."
+
+### Email subjects
+- "How's your week holding up?" *(Wednesday afternoon)*
+- "Q3 closed. Did your own business move?" *(quarter-end)*
+- "The 4th client problem"
+
+### Objection handling
+
+| They say | You answer |
+|---|---|
+| "I've already built my own system." | So had every customer of ours. Show me yours — most lose to the first big client fire of the quarter. |
+| "Notion works fine." | Notion is great with one client. What happens when client #4 has a different Workspace, different tooling, different priority? |
+| "I don't have time to learn another tool." | Onboarding is 20 minutes. The first week pays it back in protected own-business hours. |
+| "I just need to be more disciplined." | That's what every fractional says before the third migration. Discipline doesn't scale across five Workspaces. Scaffolding does. |
+
+---
+
+## Where to find them
+
+They are not in 80% of the places SaaS founders default to. They are in a small handful, and they are deep in those.
+
+**Reach them on:**
+- LinkedIn (primary)
+- Fractionals United
+- Chief
+- Savvy
+- Solo / fractional podcasts
+- Founder-led warm intros
+- Substack (some)
+- Industry-specific Slack groups
+
+**They are NOT on:** Twitter/X, big SaaS communities, Reddit, Google search for "best PM tool," product marketplaces.
+
+---
+
+## Who is not this persona
+
+People who look similar in a LinkedIn search filter but won't buy:
+
+- The operator with 6 clients who insists they've "solved capacity with AI"
+- The 10+ year veteran who says "I have plenty of time"
+- The operator who designed for 35 hours by choice and is genuinely happy there
+- The person currently between engagements with no active retainers
+- The strategy-only advisor who doesn't deliver hands-on
+- The full-time CFO at an accounting firm using "fractional" as a job title
+- The aspiring fractional who hasn't taken on a client yet
+
+Disqualify on hard filters (active strain, active revenue) before spending demo cycles.
+`;
+
+function downloadMarkdown() {
+  const blob = new Blob([markdownContent], { type: 'text/markdown;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'vantum-persona-bofu.md';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+</script>
+
+</body>
+</html>

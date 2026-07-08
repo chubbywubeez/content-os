@@ -1,0 +1,60 @@
+{
+  "interview": "Kathryn Orvis Problem",
+  "interview_weight": 0.26649999999999996,
+  "snippets": [
+    {
+      "theme_tag": "pipeline_feast_or_famine",
+      "pull_quote": "I had a pipeline, a bunch of things just about ready to lock in, and then a lot of them dried up. And I was like, oh shit. Oh shit. Oh shit.",
+      "website_angle": "Fractionals know the feast-or-famine cycle. We help you build a pipeline that doesn't evaporate.",
+      "intensity_1_to_5": 5
+    },
+    {
+      "theme_tag": "unclear_own_proposition",
+      "pull_quote": "I literally for a job spent helping others figure it out. But when it comes to myself, I'm like, we'll talk about that tomorrow.",
+      "website_angle": "Even expert marketers struggle to position themselves. We help you get crisp on your own offer.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "steady_pipeline_as_top_problem",
+      "pull_quote": "Steady pipeline. That's the number one problem.",
+      "website_angle": "Operators say it plainly. Steady pipeline is the job. We're built around that.",
+      "intensity_1_to_5": 5
+    },
+    {
+      "theme_tag": "guilt_around_balance",
+      "pull_quote": "My mentality for the last 20 years has been I work harder than anybody else. And now I'm trying to have a better balance — but I feel guilty about it.",
+      "website_angle": "The hustle identity is hard to shed. We normalize building a sustainable fractional practice.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "consulting_vs_fractional_uncertainty",
+      "pull_quote": "Do I just go consultant? Or do I see if I can get an in-house gig, see how that goes, and narrow in from there? I'm kind of just trying a sampler platter of everything right now.",
+      "website_angle": "New operators don't know which model fits. We help you test and decide without wasting months.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "founder_cant_afford_fulltime",
+      "pull_quote": "There is no head of marketing. It's the founder, and he's doing marketing trying to run the business. Smart guy, brilliant. And also — that's really tough. But he can't afford a full-time hire.",
+      "website_angle": "Your best clients are founders drowning in marketing. We help you find and close them faster.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "niche_network_as_growth_lever",
+      "pull_quote": "The supplements industry is pretty small in terms of who knows who. So that's where I've been trying to narrow in the outreach.",
+      "website_angle": "Niche networks move faster. We help you go deep where relationships already exist.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "time_blocking_for_client_work_and_biz_dev",
+      "pull_quote": "I drop my kid off at school and I am locked in until I pick them up. I control my calendar — I'm creating fixed spaces, but with flexibility if an opportunity comes up.",
+      "website_angle": "Fractionals juggle delivery and prospecting daily. We help you protect time for both.",
+      "intensity_1_to_5": 2
+    },
+    {
+      "theme_tag": "income_target_tied_to_hours",
+      "pull_quote": "20 hours would be amazing. That would give the income needs that I need, as well as the flexibility for family life.",
+      "website_angle": "Show operators the math: hours needed, rate required, pipeline to support it.",
+      "intensity_1_to_5": 3
+    }
+  ]
+}

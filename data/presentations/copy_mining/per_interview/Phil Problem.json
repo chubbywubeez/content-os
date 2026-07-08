@@ -1,0 +1,78 @@
+{
+  "interview": "Phil Problem",
+  "interview_weight": 0.376,
+  "snippets": [
+    {
+      "theme_tag": "feast_or_famine_client_load",
+      "pull_quote": "You don't know when one or two of those are gonna drop off, so you're back to surviving for a little bit till you find two more.",
+      "website_angle": "Fractionals live in constant pipeline anxiety — show how we stabilize the gap between engagements.",
+      "intensity_1_to_5": 5
+    },
+    {
+      "theme_tag": "always_be_prospecting_tension",
+      "pull_quote": "Finding a way to be active and deliver the service is one thing. The second one is kind of always be prospecting for that other one or two you can add on.",
+      "website_angle": "Operators can't fully focus on delivery when pipeline pressure never turns off.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "time_ceiling_productization_need",
+      "pull_quote": "I can only sell so much time — and I don't wanna sell just time. So I've been looking at ways to productize some of those services.",
+      "website_angle": "Position platform as the bridge from billable hours to scalable, leveraged delivery.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "ai_chasing_raging_bull",
+      "pull_quote": "Trying to be the person that does all the implementation — that's like chasing a raging bull. Every new model comes out every two to three weeks.",
+      "website_angle": "Operators want AI leverage without becoming full-time AI researchers. We handle the chase.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "flat_fee_over_hourly",
+      "pull_quote": "I never talk hours with clients. I want a flat fee. Sometimes I work my tail off day and night, and sometimes it's going to be coasting.",
+      "website_angle": "Reinforce value-based pricing positioning — tools that support outcomes, not time-tracking.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "outreach_is_the_weak_link",
+      "pull_quote": "I'm not very good at outreach and just developing that initial hello sort of thing. I get hit up all the time on LinkedIn — but I don't need a thousand people, I need a handful.",
+      "website_angle": "Fractionals don't need mass marketing — they need targeted, warm pipeline tools.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "right_hook_right_moment",
+      "pull_quote": "I've been trying to find that one hook that would interest them about that one specific problem — because then it expands into the other things once they see I can help.",
+      "website_angle": "Help operators lead with a sharp entry point, not a broad capabilities pitch.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "things_fall_through_the_cracks",
+      "pull_quote": "I have multiple to-do lists and things fall through the cracks a lot. Which one was the most critical of the critical? That's tough to figure out — and they get buried.",
+      "website_angle": "Surface the hidden cost of priority confusion for solo operators juggling too many roles.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "perfectionist_standard_guilt",
+      "pull_quote": "I'm inherently a perfectionist. Even if someone else thinks it's great, it's not great enough for you still. That standard doesn't go away.",
+      "website_angle": "Speak to the internal pressure fractionals carry — good enough never feels good enough.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "lonely_at_the_top_trusted_advisor",
+      "pull_quote": "It's kind of lonely at the top sometimes when you're building an organization — so I function as someone the CEO can bounce ideas off.",
+      "website_angle": "Validate the fractional's core value prop: trusted sounding board, not just task executor.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "extend_capability_without_more_hours",
+      "pull_quote": "I would like to find a way to extend my capabilities and my service delivery without having to spend more hours on it.",
+      "website_angle": "Core platform promise: more client impact, same or fewer hours invested.",
+      "intensity_1_to_5": 5
+    },
+    {
+      "theme_tag": "downtime_spent_on_marketing_not_delivery",
+      "pull_quote": "Since I only have the one fractional client right now, I have a spare week every month — and I end up looking at how I'm gonna market myself during that downtime.",
+      "website_angle": "Idle capacity is a warning sign — show how we help operators fill gaps before they appear.",
+      "intensity_1_to_5": 4
+    }
+  ]
+}

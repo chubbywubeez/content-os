@@ -1,0 +1,66 @@
+{
+  "interview": "Jacqui Chew",
+  "interview_weight": 0.113,
+  "snippets": [
+    {
+      "theme_tag": "fractional_vs_agency_confusion",
+      "pull_quote": "Fractionals today are just another form of agency setups. As a true fractional, you're not there to have a retainer forever — you're there for a certain period of time to add the highest value possible.",
+      "website_angle": "Position fractional work as distinct from agency retainers — finite, high-impact engagements.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "client_cap_as_quality_constraint",
+      "pull_quote": "I can only take on three clients at any given time. And that is very taxing to begin with.",
+      "website_angle": "Highlight how capacity limits force hard choices — and how the right OS helps operators protect quality.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "solopreneur_partnership_friction",
+      "pull_quote": "I brought on partners — then I had to go down the whole route of vetting them, partner agreements, operating agreements, all the backend paperwork. It was decidedly unfulfilling.",
+      "website_angle": "Speak to the hidden cost of scaling via partners — admin drag that kills the reason you went fractional.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "agency_model_broken",
+      "pull_quote": "The agency model is infinitely broken. The margins are crappy. If you're at 30% margins, you're doing fantastic. And that just ain't my cup of tea. Plus, you work your ass off.",
+      "website_angle": "Use as contrast framing — fractional operators chose this path to escape the agency trap.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "inbound_only_growth_no_ads",
+      "pull_quote": "I have never run a single ad in 20 years. I became known as the fixer — an angel says, can you talk to this founder? Something's not working.",
+      "website_angle": "Validate referral-driven operators; show how a platform supports growth without paid acquisition.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "strategic_not_tactical_identity",
+      "pull_quote": "I like to teach my clients how to fish. I don't want to do any of the fishing. Because the fishing is infinitely boring.",
+      "website_angle": "Resonate with senior operators who want to stay strategic — not get pulled into execution.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "frameworks_over_deliverables",
+      "pull_quote": "If I can provide the frameworks, facilitate the use of those frameworks for a period of time, and then move on to the next client — that is my preferred motion.",
+      "website_angle": "Appeal to operators who sell thinking, not hours — and need systems that reflect that model.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "early_market_pioneer_isolation",
+      "pull_quote": "I started my fractional CMO practice in 2006 — well before most other people. There was absolutely no support whatsoever. It was a very different market that didn't believe in fractionalism.",
+      "website_angle": "Acknowledge the pioneers who built this category without infrastructure or community.",
+      "intensity_1_to_5": 2
+    },
+    {
+      "theme_tag": "product_market_fit_as_marketing_work",
+      "pull_quote": "Most people think of marketing as the promotional aspects — the LinkedIns and all that stuff. You can't even get to proper marketing until you understand what it is you're building.",
+      "website_angle": "Speak to senior fractionals doing upstream strategic work, not campaign execution.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "saying_no_as_the_real_problem",
+      "pull_quote": "I never once had to find my next thing. My problem was — God, I have to say no. I don't really want to say no. I wish I could say yes.",
+      "website_angle": "Flip the typical 'find clients' narrative — some operators need help managing demand, not generating it.",
+      "intensity_1_to_5": 3
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "interview": "Michael Problem",
+  "interview_weight": 0.426,
+  "snippets": [
+    {
+      "theme_tag": "cross_project_priority_chaos",
+      "pull_quote": "Of the five projects I'm running — what is where, what is my next best action, what is waiting, what is late? I need a super integrated project management list across the whole ecosystem.",
+      "website_angle": "Speak to fractional operators drowning in multi-client context-switching with no single source of truth.",
+      "intensity_1_to_5": 5
+    },
+    {
+      "theme_tag": "command_center_appeal",
+      "pull_quote": "The idea of the command center is probably the most appealing thing about it for me. Every other tool tells me they're the command center too — so you've got to figure out some way of getting proof points.",
+      "website_angle": "Position as the command center that actually delivers — and lead with proof, not promises.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "outreach_rejection_fatigue",
+      "pull_quote": "I sent out a thousand messages and booked 10 meetings — that's a painful psychological experience when I know it's just how the world works.",
+      "website_angle": "Acknowledge the emotional cost of BD for solo operators; position tool as filtering signal from noise.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "endorphin_hit_of_booked_meetings",
+      "pull_quote": "All I see now is a meeting has been set. It's all yeses as far as I'm concerned — all I get are the endorphin hits of four meetings booked tomorrow.",
+      "website_angle": "Frame the product around surfacing wins and momentum, not just task management.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "one_foot_in_one_foot_out",
+      "pull_quote": "My problem has been one foot in and one foot out of this world — do I go back into fractional or stay full-time? That's an unusual problem but it's real.",
+      "website_angle": "Speak to operators in transition who need infrastructure that works whether they're scaling up or winding down.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "founder_led_marketing_scaling_problem",
+      "pull_quote": "They're trying to say: how do I take this idea that is currently me and my network and scale it into a business that grows and repeats?",
+      "website_angle": "Use as framing for the core ICP pain — the founder who is the marketing motion and needs to escape that trap.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "fractional_peers_lack_sales_skills",
+      "pull_quote": "Many of my peers are in marketing because they don't understand sales. They finish a client meeting and say 'thank you for your time, we'll be in touch' — and never asked for anything.",
+      "website_angle": "Surface for messaging around helping fractional CMOs close, not just deliver.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "roi_of_cheap_bd_investment",
+      "pull_quote": "He said $600 a month is a lot of money. I said you're completely wrong. If your retainer is $5,000 or $10,000, this is nothing.",
+      "website_angle": "Use to reframe price objections — small tool spend vs. one retainer won makes the math obvious.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "client_dashboard_white_label_vision",
+      "pull_quote": "You effectively attempt to become invisible and white label it — maybe this becomes a dashboard I share with my clients on update calls.",
+      "website_angle": "Tease a client-facing shared view as a premium use case for fractional operators running multiple accounts.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "proof_points_before_trust",
+      "pull_quote": "As you think about how you're describing this — you want to start talking about proof points as soon as you can get there. I think that's the elephant in the room.",
+      "website_angle": "Direct signal to lead website with case evidence and outcomes, not feature lists.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "subcontracting_team_coordination",
+      "pull_quote": "If I start getting further into feast mode, I have a plan to subcontract with other fractional CMOs — we're roundtabling on Mondays on client problems. This sort of tool would be helpful managing that.",
+      "website_angle": "Position for the fractional operator growing into a small pod or agency model needing lightweight team coordination.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "cracking_the_go_to_market_code",
+      "pull_quote": "It's cracking the code on go-to-market. The specific nature of that challenge is different nearly every time — which my ADHD brain thinks is awesome.",
+      "website_angle": "Mirror the language of operators who thrive on variety but need structure underneath the chaos.",
+      "intensity_1_to_5": 2
+    }
+  ]
+}

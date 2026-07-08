@@ -1,0 +1,54 @@
+{
+  "interview": "Glyn Problem",
+  "interview_weight": 0.276,
+  "snippets": [
+    {
+      "theme_tag": "trust_before_access",
+      "pull_quote": "People find it difficult, particularly with a senior person, to open the box to them and hand over the bank accounts. They need to know that person — not just as a tester.",
+      "website_angle": "Speak to the trust barrier owners face before handing over financial control to a fractional operator.",
+      "intensity_1_to_5": 5
+    },
+    {
+      "theme_tag": "referral_as_trust_transfer",
+      "pull_quote": "That trust can be conveyed from somebody because they trust me — and the person who wants to sell the business trusts the person they know really well.",
+      "website_angle": "Warm referrals collapse the trust gap; position platform as a credibility bridge for cold introductions.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "feast_famine_marketing_cycle",
+      "pull_quote": "He's really busy and hasn't got time to do any marketing — then he's got time when he's finishing with another client.",
+      "website_angle": "Highlight how fractionals lose pipeline momentum mid-engagement; offer always-on visibility tools.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "engagement_drops_off_at_handover",
+      "pull_quote": "It tends to cut off quite quickly after the handover is completed. Five minutes to get it done — that's just the way it is for them.",
+      "website_angle": "Address the abrupt client exit problem; help operators extend relationships or generate referrals at close.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "broad_skillset_hard_to_position",
+      "pull_quote": "My background is not just finance — it's also sales and marketing. I'm just a little niche. Very much a little niche.",
+      "website_angle": "Multi-skilled operators struggle to niche their positioning; help them package breadth as a strength.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "weekly_accountability_self_system",
+      "pull_quote": "Every Friday I sit down and look through which objectives I've ticked off — or which ones I haven't moved forward. Sometimes something's moved three weeks in a row.",
+      "website_angle": "Fractionals run on self-built accountability systems; show how the platform supports pipeline discipline.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "face_to_face_generates_real_trust",
+      "pull_quote": "I've met them and seen the light in their eyes. It shouldn't have to be that — but for me, that's where genuine trust is generated.",
+      "website_angle": "In-person connection still drives conversion; platform should complement, not replace, human relationship-building.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "long_runway_to_scale",
+      "pull_quote": "I probably worked with them for at least six months, probably 12 months or more — to scale their business up.",
+      "website_angle": "Fractional engagements run long when done right; position for depth of impact, not quick-fix consulting.",
+      "intensity_1_to_5": 3
+    }
+  ]
+}

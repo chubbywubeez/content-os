@@ -1,0 +1,78 @@
+{
+  "interview": "Brian Autumn Problem",
+  "interview_weight": 0.48700000000000004,
+  "snippets": [
+    {
+      "theme_tag": "fractional_cto_identity_blur",
+      "pull_quote": "Tell me the difference between a fractional CTO and a technical consultant. There isn't much. The whole problem is fractionals are a bit more in the trenches — but if you have a really good engineer for four hours a week, what are they going to do?",
+      "website_angle": "Speak to the identity tension fractional CTOs feel — validate the ambiguity before offering clarity.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "meeting_people_out_of_order",
+      "pull_quote": "I meet people in the wrong order. I usually don't meet them when I need them — I meet them before I need them. Six months later I have a client that acutely needs this and I can't remember who the hell they were.",
+      "website_angle": "Lead with this exact pain: relationships exist but context is lost before they become valuable.",
+      "intensity_1_to_5": 5
+    },
+    {
+      "theme_tag": "relationship_mgmt_vs_sales_pipeline",
+      "pull_quote": "A lot of CRM systems are more like sales pipeline tools — geared to culturing people into sales rather than building relationships over the long term. That's the problem.",
+      "website_angle": "Directly contrast your product against CRM/pipeline tools — position as relationship-first, not funnel-first.",
+      "intensity_1_to_5": 5
+    },
+    {
+      "theme_tag": "forgetting_relationship_goals",
+      "pull_quote": "I'll talk to somebody and three months later I'm like, shit, I can't remember what my goal was with this person — or how their interests might intersect with mine that I definitely should bring up next time.",
+      "website_angle": "Highlight context-retention between touchpoints as a core product promise.",
+      "intensity_1_to_5": 5
+    },
+    {
+      "theme_tag": "best_clients_require_years_of_cultivation",
+      "pull_quote": "The best clients require years of work and cultivation. I keep forgetting to reach out. I forget who I'm even supposed to be reaching out to. I'm losing opportunities — not because I'm not talking to them, but I'm not renewing that relationship.",
+      "website_angle": "Frame long-cycle relationship nurturing as the real revenue lever for fractional operators.",
+      "intensity_1_to_5": 5
+    },
+    {
+      "theme_tag": "crm_too_much_work_for_solo_operators",
+      "pull_quote": "I haven't been impressed with a lot of the CMS relationship systems because it's too much work for what I do.",
+      "website_angle": "Call out CRM overhead directly — position your tool as low-friction for solo/small operators.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "ai_assistant_not_ai_scheduler",
+      "pull_quote": "I don't like it when an AI schedules my day. Where you really catch my attention is: I tell it what I need, it goes off and gets it done, and I'm very much in the driver's seat.",
+      "website_angle": "Distinguish your AI as an on-demand assistant, not an autonomous scheduler — user stays in control.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "sales_time_vs_delivery_time_squeeze",
+      "pull_quote": "If I have 40 hours a week committed to clients, when the hell do I do sales? That is the number one existential thing for every fractional I've ever talked to.",
+      "website_angle": "Name the time-squeeze as the core fractional operator dilemma — show how async relationship tools reclaim sales bandwidth.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "urgent_fires_kill_strategic_progress",
+      "pull_quote": "Urgent work blows up your week so you never move forward on bigger business goals. That's a big one.",
+      "website_angle": "Acknowledge reactive mode as a structural trap, not a discipline failure — position tool as a forcing function.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "reciprocal_referral_network_management",
+      "pull_quote": "If I bring in other fractionals in different domains, they're more likely to bring me into their work. I'm very incentivized to build reciprocal relationships — but keeping track of all of that is a genuine trouble.",
+      "website_angle": "Surface the peer-network angle: fractionals need relationship tools for collaborators, not just clients.",
+      "intensity_1_to_5": 4
+    },
+    {
+      "theme_tag": "horizontal_operator_identity",
+      "pull_quote": "I like to conceive it as working horizontally — you're not satisfied unless you can stick your hand in every pot. Most organizations don't know what to do with you. Fractional work is me getting the opportunity to work horizontally.",
+      "website_angle": "Use 'horizontal operator' as identity language in hero copy — it will resonate instantly with the right buyer.",
+      "intensity_1_to_5": 3
+    },
+    {
+      "theme_tag": "pride_of_work_and_never_satisfied",
+      "pull_quote": "I'm always worried about letting my client down. I'm a very proud person. Even if things are slightly off, I'm not satisfied — I'm never satisfied with the work that I do.",
+      "website_angle": "Speak to the high-standards emotional driver — position your tool as helping them live up to their own bar.",
+      "intensity_1_to_5": 3
+    }
+  ]
+}
