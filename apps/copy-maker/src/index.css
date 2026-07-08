@@ -1081,8 +1081,11 @@ code {
 .cm-oc__list {
   /* Explicit height so scroll works regardless of any parent (accordion) height behavior. */
   height: min(60vh, 520px);
-  overflow-y: auto;
+  overflow-y: scroll;
   overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
   border: 1px solid var(--cm-border);
   border-radius: var(--cm-radius);
   background: var(--cm-surface-2);

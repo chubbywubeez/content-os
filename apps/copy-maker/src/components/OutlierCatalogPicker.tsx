@@ -1,4 +1,5 @@
-import { useMemo, useState } from 'react'
+import { useMemo, useRef, useState } from 'react'
+import type { WheelEvent } from 'react'
 import type { OutlierCatalogEntry } from '../types/outlierCatalog'
 
 const MAX_ROWS = 200
@@ -90,6 +91,7 @@ export function OutlierCatalogPicker({
   const [hovered, setHovered] = useState<OutlierCatalogEntry | null>(null)
   const [activeTags, setActiveTags] = useState<Set<string>>(new Set())
   const [activeLength, setActiveLength] = useState<LengthBucket | null>(null)
+  const listRef = useRef<HTMLDivElement | null>(null)
 
   // Word count + bucket per entry, plus top suggested tags by frequency.
   const enriched = useMemo(() => {
@@ -192,8 +194,34 @@ export function OutlierCatalogPicker({
 
   const filtersActive = activeTags.size > 0 || activeLength !== null || q.trim().length > 0
 
+  const handlePickerWheel = (event: WheelEvent<HTMLDivElement>) => {
+    if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return
+
+    const list = listRef.current
+    if (!list) return
+
+    const target = event.target instanceof HTMLElement ? event.target : null
+    if (target?.closest('.cm-oc__list')) return
+
+    const nestedScrollable = target?.closest<HTMLElement>('.cm-oc__preview-body, .cm-oc__preview-template pre')
+    if (nestedScrollable && nestedScrollable.scrollHeight > nestedScrollable.clientHeight) {
+      const nestedMax = nestedScrollable.scrollHeight - nestedScrollable.clientHeight
+      const nestedCanScroll = event.deltaY < 0 ? nestedScrollable.scrollTop > 0 : nestedScrollable.scrollTop < nestedMax
+      if (nestedCanScroll) return
+    }
+
+    const maxScroll = list.scrollHeight - list.clientHeight
+    if (maxScroll <= 0) return
+
+    const nextScroll = Math.max(0, Math.min(maxScroll, list.scrollTop + event.deltaY))
+    if (nextScroll === list.scrollTop) return
+
+    event.preventDefault()
+    list.scrollTop = nextScroll
+  }
+
   return (
-    <div className="cm-oc" onMouseLeave={() => setHovered(null)}>
+    <div className="cm-oc" onMouseLeave={() => setHovered(null)} onWheel={handlePickerWheel}>
       <div className="cm-oc__toolbar">
         <input
           type="search"
@@ -264,7 +292,7 @@ export function OutlierCatalogPicker({
         </p>
       )}
       <div className="cm-oc__split">
-        <div className="cm-oc__list" role="listbox" aria-label="Outlier posts">
+        <div ref={listRef} className="cm-oc__list" role="listbox" aria-label="Outlier posts">
           {filtered.rows.map(({ e, words, bucket }) => {
             const disabled = requireFramework && !e.hasFramework
             const sel = e.urn === selectedUrn
