@@ -19,9 +19,9 @@ Then link the folder: `railway link -p <projectId>` (or use the interactive `rai
 
 `vite preview` reads these at **runtime** from the container environment (Railway **Variables**). They are **not** baked into the JS bundle.
 
-Required for real **copy** (all three header models use OpenRouter):
+Required for real **copy** (all header copy models use OpenRouter):
 
-- **`OPENROUTER_API_KEY`** — one key for Opus, GPT, and “Gemini” copy (OpenRouter chat completions).
+- **`OPENROUTER_API_KEY`** — one key for the header copy models (OpenRouter chat completions).
 
 Required for **Nano Banana images** (Google Gemini image API, proxied at `/api/gemini`):
 

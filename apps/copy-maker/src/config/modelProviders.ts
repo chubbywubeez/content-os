@@ -4,7 +4,7 @@
  * **Images** use Google Gemini (“Nano Banana”) via the `/api/gemini` proxy and `GEMINI_API_KEY`.
  */
 
-export type CopyModelId = 'opus-4-7' | 'openai-5-5' | 'gemini'
+export type CopyModelId = 'opus-4-7' | 'openai-5-5' | 'gemini' | 'glm-5-2'
 
 export type ImageModelId = 'nano-banana-pro-3' | 'nano-banana-2-5'
 
@@ -12,6 +12,7 @@ export const COPY_MODEL_OPTIONS: { value: CopyModelId; label: string }[] = [
   { value: 'opus-4-7', label: 'Claude Opus 4.7 (OpenRouter)' },
   { value: 'openai-5-5', label: 'OpenAI GPT (OpenRouter)' },
   { value: 'gemini', label: 'Google Gemini (OpenRouter)' },
+  { value: 'glm-5-2', label: 'Z.ai GLM 5.2 (OpenRouter)' },
 ]
 
 export const IMAGE_MODEL_OPTIONS: { value: ImageModelId; label: string }[] = [
@@ -44,4 +45,9 @@ export function openRouterCopyModelForOpenAiOption(): string {
 /** OpenRouter slug for the “Gemini” copy option (chat completions, not native Gemini REST). */
 export function openRouterCopyModelForGemini(): string {
   return 'google/gemini-2.5-flash'
+}
+
+/** OpenRouter slug for the GLM 5.2 copy option. */
+export function openRouterCopyModelForGlm(): string {
+  return 'z-ai/glm-5.2'
 }

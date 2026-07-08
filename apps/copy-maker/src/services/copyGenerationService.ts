@@ -1,6 +1,7 @@
 import type { CopyMakerInputs } from '../types/copyMaker'
 import type { CopyModelId } from '../config/modelProviders'
 import {
+  openRouterCopyModelForGlm,
   openRouterCopyModelForGemini,
   openRouterCopyModelForOpenAiOption,
   openRouterCopyModelForOpus,
@@ -71,6 +72,7 @@ async function buildCopyPromptWithOverrides(inputs: CopyMakerInputs): Promise<{
 function openRouterModelForCopyModelId(id: CopyModelId): string {
   if (id === 'opus-4-7') return openRouterCopyModelForOpus()
   if (id === 'openai-5-5') return openRouterCopyModelForOpenAiOption()
+  if (id === 'glm-5-2') return openRouterCopyModelForGlm()
   return openRouterCopyModelForGemini()
 }
 
