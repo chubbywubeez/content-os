@@ -4,15 +4,17 @@
  * **Images** use Google Gemini (“Nano Banana”) via the `/api/gemini` proxy and `GEMINI_API_KEY`.
  */
 
-export type CopyModelId = 'opus-4-7' | 'openai-5-5' | 'gemini' | 'glm-5-2'
+export type CopyModelId = 'opus-4-8' | 'opus-4-7' | 'openai-5-5' | 'gemini' | 'glm-5-2' | 'mimo-v2-5-pro'
 
 export type ImageModelId = 'nano-banana-pro-3' | 'nano-banana-2-5'
 
 export const COPY_MODEL_OPTIONS: { value: CopyModelId; label: string }[] = [
+  { value: 'opus-4-8', label: 'Claude Opus 4.8 (OpenRouter)' },
   { value: 'opus-4-7', label: 'Claude Opus 4.7 (OpenRouter)' },
   { value: 'openai-5-5', label: 'OpenAI GPT (OpenRouter)' },
   { value: 'gemini', label: 'Google Gemini (OpenRouter)' },
   { value: 'glm-5-2', label: 'Z.ai GLM 5.2 (OpenRouter)' },
+  { value: 'mimo-v2-5-pro', label: 'Xiaomi MiMo-V2.5-Pro (OpenRouter)' },
 ]
 
 export const IMAGE_MODEL_OPTIONS: { value: ImageModelId; label: string }[] = [
@@ -37,6 +39,11 @@ export function openRouterCopyModelForOpus(): string {
   return 'anthropic/claude-opus-4.7'
 }
 
+/** OpenRouter slug for the Opus 4.8 copy option. */
+export function openRouterCopyModelForOpus48(): string {
+  return 'anthropic/claude-opus-4.8'
+}
+
 /** OpenRouter slug for the GPT copy option. */
 export function openRouterCopyModelForOpenAiOption(): string {
   return 'openai/gpt-5.2'
@@ -50,4 +57,9 @@ export function openRouterCopyModelForGemini(): string {
 /** OpenRouter slug for the GLM 5.2 copy option. */
 export function openRouterCopyModelForGlm(): string {
   return 'z-ai/glm-5.2'
+}
+
+/** OpenRouter slug for the Xiaomi MiMo Pro copy option. */
+export function openRouterCopyModelForMimoPro(): string {
+  return 'xiaomi/mimo-v2.5-pro'
 }
