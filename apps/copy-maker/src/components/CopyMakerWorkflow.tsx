@@ -9,6 +9,7 @@ import { EditContextModal } from './EditContextModal'
 import { GearEditButton } from './GearEditButton'
 import { getSummaryStatus, statusForTopic } from '../lib/sectionStatus'
 import { writingFrameworkSelectionReady } from '../services/validation'
+import { frameworkPickLabel, recommendFrameworkForTopic } from '../services/frameworkRecommendation'
 import { useCopyMakerWorkflow } from '../hooks/useCopyMakerWorkflow'
 import { useOutliersCatalog } from '../hooks/useOutliersCatalog'
 import type { CustomerPersonaId, WriterVoiceId } from '../types/copyMaker'
@@ -37,6 +38,7 @@ export function CopyMakerWorkflow({ wf }: Props) {
   const [contextModal, setContextModal] = useState<ContextModalKind | null>(null)
   /** Gear menu for Post topic: random generator + read-only angle library from JSON. */
   const [topicToolsOpen, setTopicToolsOpen] = useState(false)
+  const [frameworkAssistMessage, setFrameworkAssistMessage] = useState('')
   const topicToolsRef = useRef<HTMLDivElement | null>(null)
   const {
     committedPresets,
@@ -95,6 +97,7 @@ export function CopyMakerWorkflow({ wf }: Props) {
 
   const topicComplete = statusForTopic(state.topic) === 'complete'
   const copyReady = topicComplete && getSummaryStatus('writingFramework', state) === 'complete'
+  const hasFrameworkCatalogRows = cat.entries.some((entry) => entry.hasFramework && entry.frameworkBody.trim())
 
   const gens = state.copyGenerations
   const genCount = gens.length
@@ -161,6 +164,7 @@ export function CopyMakerWorkflow({ wf }: Props) {
    * to advance — or use "Generate Copy" (uses last selection and opens Generate Copy, collapses this step).
    */
   function applyWritingPick(e: (typeof cat.entries)[0]) {
+    setFrameworkAssistMessage('')
     setState((s) => ({
       ...s,
       writingFrameworkUrn: e.urn,
@@ -172,6 +176,34 @@ export function CopyMakerWorkflow({ wf }: Props) {
   /** Confirms framework choice and moves the accordion to Generate Copy (same as custom Save & continue). */
   function acceptWritingFramework() {
     saveAndContinue('writingFramework')
+  }
+
+  function pickFrameworkBasedOnTopic() {
+    const topic = state.topic.description.trim()
+    if (!topic) {
+      setFrameworkAssistMessage('Add a topic first.')
+      return
+    }
+    if (cat.loadState === 'loading') {
+      setFrameworkAssistMessage('Frameworks are still loading.')
+      return
+    }
+
+    const recommendation = recommendFrameworkForTopic(cat.entries, topic, state.writingFrameworkUrn)
+    if (!recommendation) {
+      setFrameworkAssistMessage('No framework match found.')
+      return
+    }
+
+    const entry = recommendation.entry
+    setState((s) => ({
+      ...s,
+      writingFrameworkKind: 'framework',
+      writingFrameworkUrn: entry.urn,
+      writingFrameworkFrameworkMd: entry.frameworkBody,
+      writingFrameworkPostText: entry.postBody,
+    }))
+    setFrameworkAssistMessage(`Picked: ${frameworkPickLabel(entry)} (${entry.creator}).`)
   }
 
   function setFrameworkKind(kind: typeof state.writingFrameworkKind) {
@@ -186,6 +218,7 @@ export function CopyMakerWorkflow({ wf }: Props) {
           }
         : null),
     }))
+    setFrameworkAssistMessage('')
   }
 
   return (
@@ -395,6 +428,19 @@ export function CopyMakerWorkflow({ wf }: Props) {
           />
         ) : (
           <>
+            <div className="cm-fw-assist" aria-live="polite">
+              <button
+                type="button"
+                className="cm-btn cm-btn--ghost"
+                disabled={!state.topic.description.trim() || cat.loadState === 'loading' || !hasFrameworkCatalogRows}
+                onClick={() => pickFrameworkBasedOnTopic()}
+              >
+                Pick a framework based on my topic
+              </button>
+              {frameworkAssistMessage ? (
+                <p className="cm-fw-assist__message">{frameworkAssistMessage}</p>
+              ) : null}
+            </div>
             <OutlierCatalogPicker
               entries={cat.entries}
               loading={cat.loadState === 'loading'}

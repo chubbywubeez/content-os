@@ -614,6 +614,21 @@ select {
   pointer-events: none;
 }
 
+.cm-fw-assist {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 10px 0 2px;
+}
+
+.cm-fw-assist__message {
+  margin: 0;
+  color: var(--cm-muted);
+  font-size: 0.82rem;
+  line-height: 1.35;
+}
+
 .cm-textarea,
 .cm-input {
   width: 100%;

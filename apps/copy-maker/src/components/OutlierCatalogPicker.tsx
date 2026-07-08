@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import type { WheelEvent } from 'react'
 import type { OutlierCatalogEntry } from '../types/outlierCatalog'
 
@@ -171,9 +171,13 @@ export function OutlierCatalogPicker({
       return true
     })
     const total = list.length
-    const rows = list.slice(0, MAX_ROWS)
+    let rows = list.slice(0, MAX_ROWS)
+    const selectedRow = selectedUrn ? list.find((row) => row.e.urn === selectedUrn) : null
+    if (selectedRow && !rows.some((row) => row.e.urn === selectedUrn)) {
+      rows = [selectedRow, ...rows.slice(0, MAX_ROWS - 1)]
+    }
     return { rows, total, capped: total > MAX_ROWS }
-  }, [enriched, q, activeLength, activeTags])
+  }, [enriched, q, activeLength, activeTags, selectedUrn])
 
   const selected = entries.find((e) => e.urn === selectedUrn)
   const preview = hovered ?? selected ?? null
@@ -191,6 +195,16 @@ export function OutlierCatalogPicker({
     setActiveLength(null)
     setQ('')
   }
+
+  useEffect(() => {
+    const list = listRef.current
+    if (!list || !selectedUrn) return
+    const selectedEl = list.querySelector<HTMLElement>('.cm-oc__row--selected')
+    if (!selectedEl) return
+
+    const nextTop = Math.max(0, selectedEl.offsetTop - list.offsetTop - 8)
+    list.scrollTo({ top: nextTop, behavior: 'smooth' })
+  }, [selectedUrn, filtered.rows])
 
   const filtersActive = activeTags.size > 0 || activeLength !== null || q.trim().length > 0
 
