@@ -14,6 +14,7 @@ const OS_DIR = path.join(REPO_ROOT, 'data', 'os')
 const OUTLIERS_INDEX = path.join(REPO_ROOT, 'data', 'outliers', 'data', 'outliers_index.json')
 const OUTLIER_FW_CACHE = path.join(REPO_ROOT, 'data', 'outliers', 'data', 'outlier_framework_cache.json')
 const SWIPE_CATALOG = path.join(REPO_ROOT, 'data', 'outliers', 'data', 'outliers_swipe_catalog.json')
+const REMOTE_CATALOG_TTL_MS = 60_000
 const STYLE_GUIDE_MD = path.join(OS_DIR, 'Style Guide', 'vantum_style_guide.md')
 const STYLE_GUIDE_HTML = path.join(OS_DIR, 'Style Guide', 'vantum_pdf_design_system_v2.html')
 const VOICES_DIR = path.join(OS_DIR, 'Voices')
@@ -50,7 +51,17 @@ type CatalogEntry = {
   frameworkName?: string
   frameworkTemplate?: string
   tags?: string[]
-  catalogSource?: 'swipe' | 'legacy'
+  typographyStyle?: {
+    summary?: string
+    boldUsage?: 'none' | 'rich_text' | 'unicode' | 'markdown' | 'mixed'
+    boldSamples?: string[]
+    carryForwardRules?: string[]
+    lineBreakStyle?: string
+    listStyle?: string
+    attributeTypes?: string[]
+  }
+  typesettingStyle?: CatalogEntry['typographyStyle']
+  catalogSource?: 'swipe' | 'remote' | 'legacy'
 }
 
 let catalogCache: {
@@ -59,6 +70,12 @@ let catalogCache: {
   cacheMtime: number
   entries: CatalogEntry[]
   catalogSource: 'swipe' | 'legacy'
+} | null = null
+
+let remoteCatalogCache: {
+  checkedAt: number
+  entries: CatalogEntry[] | null
+  error: string | null
 } | null = null
 
 function htmlToPlainText(html: string): string {
@@ -87,19 +104,40 @@ function loadFrameworkCache(): Record<string, string> {
 
 type SwipeJsonEntry = Record<string, unknown>
 
-function loadSwipeCatalogEntries(): CatalogEntry[] | null {
-  if (!fs.existsSync(SWIPE_CATALOG)) return null
+function normalizeTypographyStyle(value: unknown): CatalogEntry['typographyStyle'] | undefined {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) return undefined
+  const raw = value as Record<string, unknown>
+  return {
+    summary: typeof raw.summary === 'string' ? raw.summary : undefined,
+    boldUsage:
+      raw.boldUsage === 'none' ||
+      raw.boldUsage === 'rich_text' ||
+      raw.boldUsage === 'unicode' ||
+      raw.boldUsage === 'markdown' ||
+      raw.boldUsage === 'mixed'
+        ? raw.boldUsage
+        : undefined,
+    boldSamples: Array.isArray(raw.boldSamples) ? raw.boldSamples.map(String) : undefined,
+    carryForwardRules: Array.isArray(raw.carryForwardRules) ? raw.carryForwardRules.map(String) : undefined,
+    lineBreakStyle: typeof raw.lineBreakStyle === 'string' ? raw.lineBreakStyle : undefined,
+    listStyle: typeof raw.listStyle === 'string' ? raw.listStyle : undefined,
+    attributeTypes: Array.isArray(raw.attributeTypes) ? raw.attributeTypes.map(String) : undefined,
+  }
+}
+
+function entriesFromSwipePayload(
+  payload: { entries?: SwipeJsonEntry[] },
+  catalogSource: 'swipe' | 'remote',
+): CatalogEntry[] | null {
   try {
-    const raw = JSON.parse(fs.readFileSync(SWIPE_CATALOG, 'utf8')) as {
-      entries?: SwipeJsonEntry[]
-    }
-    const list = Array.isArray(raw.entries) ? raw.entries : []
+    const list = Array.isArray(payload.entries) ? payload.entries : []
     if (list.length === 0) return null
-  return list
+    return list
       .map((e): CatalogEntry | null => {
         const urn = String(e.urn || e.id || '')
         if (!urn) return null
         const postBody = String(e.postBody || '')
+        const typographyStyle = normalizeTypographyStyle(e.typographyStyle || e.typesettingStyle)
         return {
           id: urn,
           urn,
@@ -133,10 +171,22 @@ function loadSwipeCatalogEntries(): CatalogEntry[] | null {
           frameworkName: e.frameworkName ? String(e.frameworkName) : undefined,
           frameworkTemplate: e.frameworkTemplate ? String(e.frameworkTemplate) : undefined,
           tags: Array.isArray(e.tags) ? (e.tags as unknown[]).map(String) : undefined,
-          catalogSource: 'swipe',
+          typographyStyle,
+          typesettingStyle: typographyStyle,
+          catalogSource,
         }
       })
       .filter((x): x is CatalogEntry => x !== null)
+  } catch {
+    return null
+  }
+}
+
+function loadSwipeCatalogEntries(): CatalogEntry[] | null {
+  if (!fs.existsSync(SWIPE_CATALOG)) return null
+  try {
+    const raw = JSON.parse(fs.readFileSync(SWIPE_CATALOG, 'utf8')) as { entries?: SwipeJsonEntry[] }
+    return entriesFromSwipePayload(raw, 'swipe')
   } catch {
     return null
   }
@@ -198,6 +248,51 @@ function buildLegacyCatalog(): CatalogEntry[] {
   return entries
 }
 
+function remoteCatalogConfig(): { url: string; serviceKey: string; bucket: string; objectPath: string } | null {
+  const url = (process.env.SUPABASE_URL || '').replace(/\/+$/, '')
+  const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY || ''
+  const bucket = process.env.OUTLIERS_CATALOG_BUCKET || ''
+  const objectPath = process.env.OUTLIERS_CATALOG_PATH || ''
+  if (!url || !serviceKey || !bucket || !objectPath) return null
+  return { url, serviceKey, bucket, objectPath }
+}
+
+function storageObjectUrl(cfg: { url: string; bucket: string; objectPath: string }): string {
+  const encodedPath = cfg.objectPath.split('/').map(encodeURIComponent).join('/')
+  return `${cfg.url}/storage/v1/object/${encodeURIComponent(cfg.bucket)}/${encodedPath}`
+}
+
+async function loadRemoteCatalogEntries(): Promise<CatalogEntry[] | null> {
+  const cfg = remoteCatalogConfig()
+  if (!cfg) return null
+
+  const now = Date.now()
+  if (remoteCatalogCache && now - remoteCatalogCache.checkedAt < REMOTE_CATALOG_TTL_MS) {
+    return remoteCatalogCache.entries
+  }
+
+  try {
+    const res = await fetch(storageObjectUrl(cfg), {
+      headers: {
+        Authorization: `Bearer ${cfg.serviceKey}`,
+        apikey: cfg.serviceKey,
+      },
+    })
+    if (res.status === 404) {
+      remoteCatalogCache = { checkedAt: now, entries: null, error: null }
+      return null
+    }
+    if (!res.ok) throw new Error(`remote catalog HTTP ${res.status}`)
+    const payload = (await res.json()) as { entries?: SwipeJsonEntry[] }
+    const entries = entriesFromSwipePayload(payload, 'remote')
+    remoteCatalogCache = { checkedAt: now, entries, error: null }
+    return entries
+  } catch (e) {
+    remoteCatalogCache = { checkedAt: now, entries: null, error: String(e) }
+    return null
+  }
+}
+
 /**
  * Swipe catalog (cleaned markdown) when present; otherwise index + framework cache.
  */
@@ -237,6 +332,15 @@ function buildOutliersCatalog(): { entries: CatalogEntry[]; catalogSource: 'swip
     catalogSource: 'legacy',
   }
   return { entries: legacy, catalogSource: 'legacy' }
+}
+
+async function buildOutliersCatalogAsync(): Promise<{ entries: CatalogEntry[]; catalogSource: 'swipe' | 'remote' | 'legacy' }> {
+  const remoteEntries = await loadRemoteCatalogEntries()
+  if (remoteEntries && remoteEntries.length > 0) {
+    remoteEntries.sort((a, b) => b.maxRatio - a.maxRatio || b.postBody.length - a.postBody.length)
+    return { entries: remoteEntries, catalogSource: 'remote' }
+  }
+  return buildOutliersCatalog()
 }
 
 function sendJson(res: { statusCode: number; setHeader: (a: string, b: string) => void; end: (s: string) => void }, data: unknown, code = 200) {
@@ -312,19 +416,23 @@ function copyMakerDataMiddleware(
   }
 
   if (pathname === '/api/outliers-catalog') {
-    try {
-      const { entries, catalogSource } = buildOutliersCatalog()
-      sendJson(res, {
-        count: entries.length,
-        entries,
-        catalogSource,
-        swipeCatalogPath: SWIPE_CATALOG,
-        indexPath: OUTLIERS_INDEX,
-        cachePath: OUTLIER_FW_CACHE,
+    void buildOutliersCatalogAsync()
+      .then(({ entries, catalogSource }) => {
+        const remoteCfg = remoteCatalogConfig()
+        sendJson(res, {
+          count: entries.length,
+          entries,
+          catalogSource,
+          swipeCatalogPath: SWIPE_CATALOG,
+          remoteCatalogPath: remoteCfg ? `${remoteCfg.bucket}/${remoteCfg.objectPath}` : '',
+          remoteCatalogError: remoteCatalogCache?.error ?? '',
+          indexPath: OUTLIERS_INDEX,
+          cachePath: OUTLIER_FW_CACHE,
+        })
       })
-    } catch (e) {
-      sendJson(res, { error: String(e), entries: [] }, 500)
-    }
+      .catch((e) => {
+        sendJson(res, { error: String(e), entries: [] }, 500)
+      })
     return
   }
 

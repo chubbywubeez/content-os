@@ -4,7 +4,7 @@ import type { OutlierCatalogEntry } from '../types/outlierCatalog'
 type ApiResponse = {
   count?: number
   entries?: OutlierCatalogEntry[]
-  catalogSource?: 'swipe' | 'legacy'
+  catalogSource?: 'swipe' | 'remote' | 'legacy'
   error?: string
   swipeCatalogPath?: string
   indexPath?: string
@@ -17,7 +17,7 @@ type ApiResponse = {
  */
 export function useOutliersCatalog() {
   const [entries, setEntries] = useState<OutlierCatalogEntry[]>([])
-  const [catalogSource, setCatalogSource] = useState<'swipe' | 'legacy' | null>(null)
+  const [catalogSource, setCatalogSource] = useState<'swipe' | 'remote' | 'legacy' | null>(null)
   const [loadState, setLoadState] = useState<'idle' | 'loading' | 'ok' | 'error'>('idle')
   const [errorMessage, setErrorMessage] = useState<string | null>(null)
 
@@ -34,7 +34,11 @@ export function useOutliersCatalog() {
         return
       }
       setEntries(Array.isArray(json.entries) ? json.entries : [])
-      setCatalogSource(json.catalogSource === 'swipe' || json.catalogSource === 'legacy' ? json.catalogSource : null)
+      setCatalogSource(
+        json.catalogSource === 'swipe' || json.catalogSource === 'remote' || json.catalogSource === 'legacy'
+          ? json.catalogSource
+          : null,
+      )
       setLoadState('ok')
     } catch (e) {
       setEntries([])

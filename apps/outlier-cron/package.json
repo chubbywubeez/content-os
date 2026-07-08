@@ -1,0 +1,18 @@
+{
+  "name": "content-os-outlier-cron",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Daily bounded Apify outlier refresh for Content OS framework catalog.",
+  "scripts": {
+    "start": "node daily-outlier-refresh.mjs",
+    "dry-run": "node daily-outlier-refresh.mjs --dry-run --max-profiles=0"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.105.4",
+    "apify-client": "^2.12.0"
+  }
+}

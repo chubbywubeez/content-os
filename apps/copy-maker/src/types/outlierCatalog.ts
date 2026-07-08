@@ -31,8 +31,20 @@ export type OutlierCatalogEntry = {
   frameworkName?: string
   /** Swipe-file only — bracketed fill-in template. */
   frameworkTemplate?: string
-  /** Swipe-file only — hyphenated tags from cleaned markdown. */
+  /** Swipe-file only - hyphenated tags from cleaned markdown. */
   tags?: string[]
-  /** `swipe` = compiled cleaned markdown; `legacy` = index + architecture cache. */
-  catalogSource?: 'swipe' | 'legacy'
+  /** Captured source formatting/rhythm, including LinkedIn rich text or Unicode emphasis when present. */
+  typographyStyle?: {
+    summary?: string
+    boldUsage?: 'none' | 'rich_text' | 'unicode' | 'markdown' | 'mixed'
+    boldSamples?: string[]
+    carryForwardRules?: string[]
+    lineBreakStyle?: string
+    listStyle?: string
+    attributeTypes?: string[]
+  }
+  /** Alias used by the cron worker for humans who think in typesetting terms. */
+  typesettingStyle?: OutlierCatalogEntry['typographyStyle']
+  /** `swipe` = compiled cleaned markdown; `remote` = daily cron catalog; `legacy` = index + architecture cache. */
+  catalogSource?: 'swipe' | 'remote' | 'legacy'
 }

@@ -77,8 +77,9 @@ export function buildCopyPrompt(inputs: CopyMakerInputs, overrides: CopyPromptOv
     const { text, truncated } = truncateForPrompt(writingFrameworkFrameworkMd, MAX_FRAMEWORK_CHARS)
     frameworkBlock = [
       'Follow this swipe-file FRAMEWORK: named mechanism + fill-in-the-blank template with [BRACKETED SLOTS].',
-      'Use the template as structural scaffolding only — slot in new content for the TOPIC and PERSONA.',
-      'Mirror hook shape, beat order, line-break rhythm, and CTA placement. Do NOT copy facts, names, stats, or stories from the reference.',
+      'Use the template as structural scaffolding only - slot in new content for the TOPIC and PERSONA.',
+      'Mirror hook shape, beat order, line-break rhythm, CTA placement, and any TYPOGRAPHY / TYPESETTING STYLE notes. If the source used LinkedIn bold/rich text or Unicode emphasis, carry that emphasis pattern forward without copying the source words.',
+      'Do NOT copy facts, names, stats, or stories from the reference.',
       `Source URN: ${writingFrameworkUrn || '(unknown)'}`,
       truncated ? 'Note: excerpt was truncated for token safety.' : '',
       '',
@@ -91,6 +92,7 @@ export function buildCopyPrompt(inputs: CopyMakerInputs, overrides: CopyPromptOv
     const { text, truncated } = truncateForPrompt(writingFrameworkPostText, MAX_FRAMEWORK_CHARS)
     frameworkBlock = [
       'Use this high-performing OUTLIER POST as a COPY PATTERN for rhythm, pacing, line breaks, and rhetorical moves only.',
+      'Notice typography too: bold/rich text, Unicode emphasis, list markers, short-line rhythm, and spacing are part of the pattern when present.',
       'Do NOT copy facts, stories, names, or claims. Adapt the pattern to the TOPIC and PERSONA.',
       `Source URN: ${writingFrameworkUrn || '(unknown)'}`,
       truncated ? 'Note: excerpt was truncated for token safety.' : '',

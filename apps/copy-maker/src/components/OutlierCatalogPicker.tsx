@@ -66,8 +66,8 @@ type Props = {
   onRefresh: () => void
   /** Framework mode: rows without a usable template are disabled. */
   requireFramework: boolean
-  /** `swipe` = cleaned markdown catalog; `legacy` = index + architecture cache. */
-  catalogSource?: 'swipe' | 'legacy'
+  /** `swipe` = cleaned markdown catalog; `remote` = daily cron catalog; `legacy` = index + architecture cache. */
+  catalogSource?: 'swipe' | 'remote' | 'legacy'
   selectedUrn: string
   onSelect: (e: OutlierCatalogEntry) => void
   searchPlaceholder?: string
