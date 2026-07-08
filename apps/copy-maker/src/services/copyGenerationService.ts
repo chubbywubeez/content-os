@@ -8,7 +8,11 @@ import {
   openRouterCopyModelForOpus,
   openRouterCopyModelForOpus48,
 } from '../config/modelProviders'
-import { buildCopyPrompt, DEFAULT_COPY_PROMPT_TEMPLATE } from './copyPromptBuilder'
+import {
+  buildCopyPrompt,
+  DEFAULT_COPY_PROMPT_TEMPLATE,
+  NO_EM_DASH_COPY_RULE,
+} from './copyPromptBuilder'
 import { fetchPipelinePromptMap } from './pipelinePromptsClient'
 import {
   openRouterChatNonStream,
@@ -17,10 +21,27 @@ import {
 
 /** Same system line for every OpenRouter copy call so the JSON `body` contract stays identical. */
 const COPY_SYSTEM_TEXT_DEFAULT =
-  'You write high-signal social posts. Output valid JSON only matching the schema in the user message.'
+  `You write high-signal social posts. Output valid JSON only matching the schema in the user message. ${NO_EM_DASH_COPY_RULE}`
 
 const REFINE_SYSTEM_DEFAULT =
-  'You revise social posts. Return only the revised post text. No JSON, no markdown code fences.'
+  `You revise social posts. Return only the revised post text. No JSON, no markdown code fences. ${NO_EM_DASH_COPY_RULE}`
+
+const MOJIBAKE_EM_DASH = '\u00e2\u20ac\u201d'
+
+function appendNoEmDashRule(text: string): string {
+  const trimmed = text.trim()
+  if (trimmed.includes(NO_EM_DASH_COPY_RULE)) return trimmed
+  return `${trimmed}\n\nHard formatting rule:\n- ${NO_EM_DASH_COPY_RULE}`
+}
+
+function sanitizeGeneratedCopy(text: string): string {
+  return text
+    .replace(/\s*\u2014\s*/g, ', ')
+    .replace(new RegExp(`\\s*${MOJIBAKE_EM_DASH}\\s*`, 'g'), ', ')
+    .replace(/[ \t]{2,}/g, ' ')
+    .replace(/,\s*([.!?])/g, '$1')
+    .trim()
+}
 
 async function buildCopyPromptWithOverrides(inputs: CopyMakerInputs): Promise<{
   systemText: string
@@ -32,7 +53,7 @@ async function buildCopyPromptWithOverrides(inputs: CopyMakerInputs): Promise<{
     const template = map.content_os_generate_copy_user_template || DEFAULT_COPY_PROMPT_TEMPLATE
     const outputContract =
       map.content_os_generate_copy_output_contract ||
-      `OUTPUT FORMAT (strict JSON only, no markdown fences):\n{\n  "body": "full post text with appropriate line breaks"\n}`
+      `OUTPUT FORMAT (strict JSON only, no markdown fences):\n{\n  "body": "full post text with appropriate line breaks and no em dashes"\n}`
     const topicInstruction =
       map.content_os_topic_instruction || 'The TOPIC is the central subject. Everything must serve the topic.'
     const personaInstruction =
@@ -47,26 +68,28 @@ async function buildCopyPromptWithOverrides(inputs: CopyMakerInputs): Promise<{
       map.content_os_writing_framework_instruction ||
       'Follow the WRITING FRAMEWORK section for structure / pattern.'
 
-    const userPrompt = buildCopyPrompt(inputs, {
-      template,
-      outputContract,
-      topicInstruction,
-      personaInstruction,
-      voiceInstruction,
-      styleGuideInstruction: styleInstruction,
-      writingFrameworkInstruction: frameworkInstruction,
-    })
+    const userPrompt = appendNoEmDashRule(
+      buildCopyPrompt(inputs, {
+        template,
+        outputContract,
+        topicInstruction,
+        personaInstruction,
+        voiceInstruction,
+        styleGuideInstruction: styleInstruction,
+        writingFrameworkInstruction: frameworkInstruction,
+      }),
+    )
 
     return {
-      systemText: map.content_os_generate_copy_system || COPY_SYSTEM_TEXT_DEFAULT,
+      systemText: appendNoEmDashRule(map.content_os_generate_copy_system || COPY_SYSTEM_TEXT_DEFAULT),
       userPrompt,
-      refineSystemText: map.content_os_final_post_refine_system || REFINE_SYSTEM_DEFAULT,
+      refineSystemText: appendNoEmDashRule(map.content_os_final_post_refine_system || REFINE_SYSTEM_DEFAULT),
     }
   } catch {
     return {
-      systemText: COPY_SYSTEM_TEXT_DEFAULT,
-      userPrompt: buildCopyPrompt(inputs),
-      refineSystemText: REFINE_SYSTEM_DEFAULT,
+      systemText: appendNoEmDashRule(COPY_SYSTEM_TEXT_DEFAULT),
+      userPrompt: appendNoEmDashRule(buildCopyPrompt(inputs)),
+      refineSystemText: appendNoEmDashRule(REFINE_SYSTEM_DEFAULT),
     }
   }
 }
@@ -96,10 +119,10 @@ function parseGeneratedPostFromContent(content: string): string | null {
   const jsonLike = trimmed.replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/i, '')
   try {
     const parsed = JSON.parse(jsonLike) as { body?: unknown; options?: unknown[] }
-    if (typeof parsed.body === 'string' && parsed.body.trim()) return parsed.body.trim()
+    if (typeof parsed.body === 'string' && parsed.body.trim()) return sanitizeGeneratedCopy(parsed.body)
     if (Array.isArray(parsed.options) && parsed.options.length > 0) {
       const row = parsed.options[0] as { body?: string }
-      if (typeof row.body === 'string' && row.body.trim()) return row.body.trim()
+      if (typeof row.body === 'string' && row.body.trim()) return sanitizeGeneratedCopy(row.body)
     }
   } catch {
     return null
@@ -132,8 +155,9 @@ export async function generateCopyStreaming(
   }
 
   const mock = mockGeneratedPost(inputs.topic.description)
-  onRawAccumulated(JSON.stringify({ body: mock }, null, 2))
-  return mock
+  const sanitizedMock = sanitizeGeneratedCopy(mock)
+  onRawAccumulated(JSON.stringify({ body: sanitizedMock }, null, 2))
+  return sanitizedMock
 }
 
 /**
@@ -162,7 +186,7 @@ export async function generateCopy(
     console.warn('[OpenRouter copy]', e)
   }
 
-  return mockGeneratedPost(inputs.topic.description)
+  return sanitizeGeneratedCopy(mockGeneratedPost(inputs.topic.description))
 }
 
 /**
@@ -174,6 +198,7 @@ export async function refinePostCopy(params: {
   cta?: string
 }): Promise<string> {
   const { baseText, instruction, cta } = params
+  const basePost = sanitizeGeneratedCopy(baseText)
 
   const instr =
     instruction === 'shorter'
@@ -185,7 +210,7 @@ export async function refinePostCopy(params: {
   let refineSystemText = REFINE_SYSTEM_DEFAULT
   try {
     const map = await fetchPipelinePromptMap()
-    refineSystemText = map.content_os_final_post_refine_system || REFINE_SYSTEM_DEFAULT
+    refineSystemText = appendNoEmDashRule(map.content_os_final_post_refine_system || REFINE_SYSTEM_DEFAULT)
   } catch {
     // Keep default refine system.
   }
@@ -195,17 +220,19 @@ export async function refinePostCopy(params: {
       model: openRouterCopyModelForGemini(),
       messages: [
         { role: 'system', content: refineSystemText },
-        { role: 'user', content: `Instruction: ${instr}\n\nPOST:\n${baseText}` },
+        { role: 'user', content: `Instruction: ${instr}\n\nPOST:\n${basePost}` },
       ],
       temperature: 0.5,
       max_tokens: 2048,
     })
-    if (out.trim()) return out.trim()
+    if (out.trim()) return sanitizeGeneratedCopy(out)
   } catch (e) {
     console.warn('[OpenRouter refine]', e)
   }
 
-  if (instruction === 'shorter') return baseText.split('\n').slice(0, 4).join('\n')
-  if (instruction === 'sharper') return `${baseText}\n\nBottom line: say the quiet part out loud—then give the next step.`
-  return cta ? `${baseText}\n\n${cta}` : baseText
+  if (instruction === 'shorter') return sanitizeGeneratedCopy(basePost.split('\n').slice(0, 4).join('\n'))
+  if (instruction === 'sharper') {
+    return sanitizeGeneratedCopy(`${basePost}\n\nBottom line: say the quiet part out loud, then give the next step.`)
+  }
+  return sanitizeGeneratedCopy(cta ? `${basePost}\n\n${cta}` : basePost)
 }

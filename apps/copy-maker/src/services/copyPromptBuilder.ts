@@ -2,6 +2,9 @@ import type { CopyMakerInputs } from '../types/copyMaker'
 
 const MAX_FRAMEWORK_CHARS = 14_000
 
+export const NO_EM_DASH_COPY_RULE =
+  'Never use em dashes (U+2014). Use commas, periods, colons, or parentheses instead.'
+
 export const DEFAULT_COPY_PROMPT_TEMPLATE = `You are an expert social copywriter. Generate exactly ONE strong post for the topic below.
 
 {{OUTPUT_CONTRACT}}
@@ -13,6 +16,7 @@ Rules:
 - {{STYLE_GUIDE_INSTRUCTION}}
 - {{WRITING_FRAMEWORK_INSTRUCTION}}
 - Avoid generic AI voice: no hollow motivation, no vague claims, no filler transitions.
+- ${NO_EM_DASH_COPY_RULE}
 - Keep LinkedIn-style line breaks in mind unless the topic implies another surface.
 
 Priority if instructions conflict:
@@ -109,7 +113,7 @@ export function buildCopyPrompt(inputs: CopyMakerInputs, overrides: CopyPromptOv
     .replace(
       '{{OUTPUT_CONTRACT}}',
       overrides.outputContract ||
-        `OUTPUT FORMAT (strict JSON only, no markdown fences):\n{\n  "body": "full post text with appropriate line breaks"\n}`,
+        `OUTPUT FORMAT (strict JSON only, no markdown fences):\n{\n  "body": "full post text with appropriate line breaks and no em dashes"\n}`,
     )
     .replace(
       '{{TOPIC_INSTRUCTION}}',

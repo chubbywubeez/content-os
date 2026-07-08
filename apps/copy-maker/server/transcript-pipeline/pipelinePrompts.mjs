@@ -245,7 +245,7 @@ export const PIPELINE_PROMPT_CATALOG = [
 const LOCKED_OUTPUT_CONTRACTS = {
   content_os_generate_copy_output_contract: `OUTPUT FORMAT (strict JSON only, no markdown fences):
 {
-  "body": "full post text with appropriate line breaks"
+  "body": "full post text with appropriate line breaks and no em dashes"
 }`,
   classify_call_system: `Output JSON only:
 {
@@ -336,7 +336,7 @@ function readIfExists(filePath) {
 export function getDefaultPipelinePromptMap() {
   return {
     content_os_generate_copy_system:
-      'You write high-signal social posts. Output valid JSON only matching the schema in the user message.',
+      'You write high-signal social posts. Output valid JSON only matching the schema in the user message. Never use em dashes (U+2014). Use commas, periods, colons, or parentheses instead.',
     content_os_generate_copy_user_template: `You are an expert social copywriter. Generate exactly ONE strong post for the topic below.
 
 {{OUTPUT_CONTRACT}}
@@ -348,6 +348,7 @@ Rules:
 - {{STYLE_GUIDE_INSTRUCTION}}
 - {{WRITING_FRAMEWORK_INSTRUCTION}}
 - Avoid generic AI voice: no hollow motivation, no vague claims, no filler transitions.
+- Never use em dashes (U+2014). Use commas, periods, colons, or parentheses instead.
 - Keep LinkedIn-style line breaks in mind unless the topic implies another surface.
 
 Priority if instructions conflict:
@@ -374,7 +375,7 @@ Priority if instructions conflict:
 `,
     content_os_generate_copy_output_contract: LOCKED_OUTPUT_CONTRACTS.content_os_generate_copy_output_contract,
     content_os_final_post_refine_system:
-      'You revise social posts. Return only the revised post text. No JSON, no markdown code fences.',
+      'You revise social posts. Return only the revised post text. No JSON, no markdown code fences. Never use em dashes (U+2014). Use commas, periods, colons, or parentheses instead.',
     content_os_image_prompt_template: `Create a visual companion for this post.
 Do not simply turn the post into text on an image.
 Use the post's core idea, emotion, metaphor, and audience to create a strong supporting visual.
