@@ -4,7 +4,14 @@
  * **Images** use Google Gemini (“Nano Banana”) via the `/api/gemini` proxy and `GEMINI_API_KEY`.
  */
 
-export type CopyModelId = 'opus-4-8' | 'opus-4-7' | 'openai-5-5' | 'gemini' | 'glm-5-2' | 'mimo-v2-5-pro'
+export type CopyModelId =
+  | 'opus-4-8'
+  | 'opus-4-7'
+  | 'openai-5-5'
+  | 'gemini'
+  | 'glm-5-2'
+  | 'mimo-v2-5-pro'
+  | 'kimi-k3'
 
 export type ImageModelId = 'nano-banana-pro-3' | 'nano-banana-2-5'
 
@@ -15,6 +22,7 @@ export const COPY_MODEL_OPTIONS: { value: CopyModelId; label: string }[] = [
   { value: 'gemini', label: 'Google Gemini (OpenRouter)' },
   { value: 'glm-5-2', label: 'Z.ai GLM 5.2 (OpenRouter)' },
   { value: 'mimo-v2-5-pro', label: 'Xiaomi MiMo-V2.5-Pro (OpenRouter)' },
+  { value: 'kimi-k3', label: 'Moonshot Kimi K3 (OpenRouter)' },
 ]
 
 export const IMAGE_MODEL_OPTIONS: { value: ImageModelId; label: string }[] = [
@@ -62,4 +70,9 @@ export function openRouterCopyModelForGlm(): string {
 /** OpenRouter slug for the Xiaomi MiMo Pro copy option. */
 export function openRouterCopyModelForMimoPro(): string {
   return 'xiaomi/mimo-v2.5-pro'
+}
+
+/** OpenRouter slug for the Kimi K3 copy option. */
+export function openRouterCopyModelForKimiK3(): string {
+  return 'moonshotai/kimi-k3'
 }

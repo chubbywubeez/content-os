@@ -3,6 +3,7 @@ import type { CopyModelId } from '../config/modelProviders'
 import {
   openRouterCopyModelForGlm,
   openRouterCopyModelForGemini,
+  openRouterCopyModelForKimiK3,
   openRouterCopyModelForMimoPro,
   openRouterCopyModelForOpenAiOption,
   openRouterCopyModelForOpus,
@@ -100,6 +101,7 @@ function openRouterModelForCopyModelId(id: CopyModelId): string {
   if (id === 'openai-5-5') return openRouterCopyModelForOpenAiOption()
   if (id === 'glm-5-2') return openRouterCopyModelForGlm()
   if (id === 'mimo-v2-5-pro') return openRouterCopyModelForMimoPro()
+  if (id === 'kimi-k3') return openRouterCopyModelForKimiK3()
   return openRouterCopyModelForGemini()
 }
 
